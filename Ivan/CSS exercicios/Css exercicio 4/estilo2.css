@@ -1,0 +1,73 @@
+#fundo {
+    background-color: black;
+    padding: 20px;
+}
+
+#titulo {
+    color: darkgreen;
+    text-align: left;
+}
+
+#subtitulo {
+    color: chocolate;
+    text-align: left;
+}
+
+.texto {
+    color: brown;
+    font-weight: bold;
+    text-align: justify;
+    font-size: 15px;
+}
+
+.textogrande {
+    color: white;
+    font-size: 50px;
+    font-style: italic;
+}
+
+.textopequeno {
+    color: white;
+    font-size: 20px;
+    font-style: normal;
+}
+
+.vermelho {
+    color: red;
+    font-size: 28px;
+}
+
+.verde {
+    color: green;
+    font-size: 28px;
+}
+
+.amarelo {
+    color: yellow;
+    font-size: 28px;
+}
+
+.azul {
+    color: blue;
+    font-size: 28px;
+}
+
+.ciano {
+    color: cyan;
+    font-size: 28px;
+}
+
+.rosa {
+    color: pink;
+    font-size: 28px;
+}
+
+.roxo {
+    color: purple;
+    font-size: 28px;
+}
+
+.marrom {
+    color: brown;
+    font-size: 28px;
+}

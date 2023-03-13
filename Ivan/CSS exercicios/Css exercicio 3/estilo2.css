@@ -1,0 +1,20 @@
+#fundo {
+    background-color: greenyellow;
+    padding: 20px;
+}
+
+#titulo {
+    color: blue;
+    text-align: center;
+}
+
+.texto {
+    color: brown;
+    font-weight: bold;
+    text-align: center;
+    font-size: 14px;
+}
+
+.link {
+    color: cyan;
+}
