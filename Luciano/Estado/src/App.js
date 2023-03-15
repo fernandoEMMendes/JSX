@@ -1,4 +1,4 @@
-import Contador from "./components/contador";
+import Contador from "./components/contador"
 import "./style.app.css"
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
       <h1> Bom Dia.</h1>
       <p>Como está seu dia até agora?</p>
       <div>
-        <Contador />
+       <Contador />
       </div>
     </div>
 

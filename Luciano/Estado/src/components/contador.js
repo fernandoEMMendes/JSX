@@ -1,14 +1,25 @@
 import React, { Component } from "react"
-import botao from "./botao"
+import Botao from "./botao"
 
 class Contador extends Component {
+    
+    constructor(props){
+        super(props)
+        this.state = {
+            contador: 0,
+            zero: "contador chegou a zero"
+        }
+    }
+    diminuir(){
+        alert("clicou")
+    }
+    
     render() {
         return (
             <div>
-                <h2> Contador </h2>
-                <botao />
+                <Botao nome="aumentar"/>
                 <h2> 0 </h2> <br />
-                
+                <Botao nome="diminuir"/>
                 
             </div>
         )

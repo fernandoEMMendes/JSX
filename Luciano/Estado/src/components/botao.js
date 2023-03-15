@@ -1,8 +1,7 @@
-
-
-function botao(props){
+function Botao(props){
     return()=>
         <div>
-            <button> auemntr </button>            
+            <button> {props.name}  </button>            
         </div>
     }
+export default Botao
