@@ -10,7 +10,6 @@ function App() {
        <Contador />
       </div>
     </div>
-
   );
 }
 

@@ -17,11 +17,11 @@ class Contador extends Component {
     render() {
         return (
             <div>
+                <h2> Contador </h2>
                 <Botao nome="aumentar"/>
-                <h2> 0 </h2> <br />
+                <h2>{this.state.contador}</h2><br />
                 <Botao nome="diminuir"/>
-                
-            </div>
+             </div>
         )
     }
 }
