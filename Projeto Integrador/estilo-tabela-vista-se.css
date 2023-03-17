@@ -1,0 +1,11 @@
+.titulo{
+    font-size: 35px;
+}
+
+.disponivel{
+    color: green;
+}
+
+.naodisponivel{
+    color: red;
+}
