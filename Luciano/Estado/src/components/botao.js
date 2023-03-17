@@ -1,7 +1,8 @@
 function Botao(props){
-    return()=>
+    return(
         <div>
             <button onClick={props.acaoBtn}>{props.name}</button>            
         </div>
-    }
+    )
+}
 export default Botao

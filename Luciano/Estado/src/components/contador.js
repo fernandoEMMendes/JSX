@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import Botao from "./botao"
+import Botao from "../components/botao"
 
 class Contador extends Component {
     
@@ -7,20 +7,33 @@ class Contador extends Component {
         super(props)
         this.state = {
             contador: 0,
-            zero: "contador chegou a zero"
+            zero: 'Contador chegou a zero'
         }
+        this.aumentar = this.aumentar.bind(this)
+        this.diminuir = this.diminuir.bind(this)
     }
+
     diminuir(){
-        alert("clicou")
+        var state = this.state
+        if(this.state.contador === 0){
+            return
+        }
+        state.contador -= 1
+        this.setState(state)
+    }
+    aumentar(){
+       var state = this.state
+       state.contador +=1
+       this.setState(state)
     }
     
-    render() {
+    render(){
         return (
             <div>
                 <h2> Contador </h2>
-                <Botao nome="aumentar"/>
+                <Botao acaoBtn={this.aumentar} />
                 <h2>{this.state.contador}</h2><br />
-                <Botao nome="diminuir"/>
+                <Botao acaoBtn={this.diminuir} />
              </div>
         )
     }
