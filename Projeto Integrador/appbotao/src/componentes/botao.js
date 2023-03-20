@@ -3,7 +3,7 @@ import Botaocss from "./estilobotao.css"
 
 function Botao(props) {
     return (
-        <button className="Botaocss">{props.name}</button>
+        <button className="Botaocss" onClick={props.acaoBtn}>{props.name}</button>
     )
 }
 
