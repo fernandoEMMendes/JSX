@@ -1,7 +1,8 @@
+import botao from "./estilobotao.css"
 function Botao(props){
     return(
         <div>
-            <button onClick={props.acaoBtn}>{props.name}</button>            
+            <button className="botao" onClick={props.acaoBtn}>{props.name}</button>            
         </div>
     )
 }

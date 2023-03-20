@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import Botao from "../components/botao"
+import Botao from "./botao"
 
 class Contador extends Component {
     
@@ -23,7 +23,7 @@ class Contador extends Component {
     }
     aumentar(){
        var state = this.state
-       state.contador +=1
+       state.contador +=4
        this.setState(state)
     }
     
@@ -31,11 +31,12 @@ class Contador extends Component {
         return (
             <div>
                 <h2> Contador </h2>
-                <Botao acaoBtn={this.aumentar} />
+                <Botao name="aumentar"acaoBtn={this.aumentar} />
                 <h2>{this.state.contador}</h2><br />
-                <Botao acaoBtn={this.diminuir} />
+                <Botao name="diminuir" acaoBtn={this.diminuir} />
              </div>
         )
     }
 }
+
 export default Contador
