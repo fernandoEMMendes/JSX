@@ -1,10 +1,18 @@
-import Caixa from "./componentes/formulario"
+import Botao from "./componentes/botao"
 
 function App() {
   return (
   <div>
-    <h1>formulario</h1>
-    <Caixa name="rodrigo" email="rodrigo@gmail.com" senha="967408"/>
+    <h1>Formulario</h1>
+      <form>
+        <label>Nome:</label>
+        <input type="text" /> <br /> <br />
+        <label>Email:</label> 
+        <input type="text" /> <br /> <br />
+        <label>Senha:</label>
+        <input type="text" /> <br /> <br />
+        <Botao name="Finalizar"/>
+      </form>
   </div>
   )
 }
