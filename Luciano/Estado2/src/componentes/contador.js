@@ -11,14 +11,15 @@ class Contador extends Component {
 
         this.diminuir = this.diminuir.bind(this)
         this.aumentar = this.aumentar.bind(this)
+        this.dobro = this.dobro.bind(this)
     }
-
-    componentDidMount() {
+    
+    componentDidMount(){
         setInterval(() => {
             this.setState({ horas: new Date().toLocaleTimeString() })
         }, 1000)
     }
-
+    
     diminuir() {
         var state = this.state
         state.contador -= 1
@@ -29,9 +30,18 @@ class Contador extends Component {
         var state = this.state
         state.contador += 1
         this.setState(state)
-        if (this.state.contador === 5) {
-            state.contador += 0
-        }
+        if(this.state.contador >= 5){
+            state.contador -= 1
+            return
+            alert("limite!")
+    }
+}
+    
+    
+    dobro() {
+        var state= this.state
+        state.contador *= 
+        this.seetState(state)
     }
 
     render() {
@@ -42,6 +52,7 @@ class Contador extends Component {
                 <Botao name="aumentar" acaoBtn={this.aumentar} />
                 <h1> {this.state.contador} </h1>
                 <Botao name="diminuir" acaoBtn={this.diminuir} />
+                <Botao name="dobrar" />
             </div>
         )
     }
