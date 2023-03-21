@@ -13,13 +13,13 @@ class Contador extends Component {
         this.aumentar = this.aumentar.bind(this)
         this.dobro = this.dobro.bind(this)
     }
-    
-    componentDidMount(){
+
+    componentDidMount() {
         setInterval(() => {
             this.setState({ horas: new Date().toLocaleTimeString() })
         }, 1000)
     }
-    
+
     diminuir() {
         var state = this.state
         state.contador -= 1
@@ -30,18 +30,18 @@ class Contador extends Component {
         var state = this.state
         state.contador += 1
         this.setState(state)
-        if(this.state.contador >= 5){
+        if (this.state.contador >= 5) {
             state.contador -= 1
             return
             alert("limite!")
+        }
     }
-}
-    
-    
+
+
     dobro() {
-        var state= this.state
-        state.contador *= 
-        this.seetState(state)
+        var state = this.state
+        state.contador *=
+            this.seetState(state)
     }
 
     render() {
