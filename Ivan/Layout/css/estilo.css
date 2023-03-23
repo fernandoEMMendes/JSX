@@ -91,10 +91,16 @@ footer {
     margin: 1rem 0rem;
     min-height: 5vh;
     background-color: darkseagreen;
-    padding: 0.8rem 10rem;
+    padding: 1px
 }
 
 footer p {
     text-align: center;
     text-align-last: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#area-loja {
+    display: grid;
+    grid-template-columns: 220px 220px 220px;    
 }
