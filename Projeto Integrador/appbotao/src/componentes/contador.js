@@ -20,17 +20,27 @@ class Contador extends Component {
     }
 
     diminuir() {
-        var state = this.state
-        state.contador -= 1
-        this.setState(state)
+        if (this.state.contador === 0) {
+            var state = this.state
+            state.contador -= 0
+            this.setState(state)
+        } else {
+            var state = this.state
+            state.contador -= 1
+            this.setState(state)
+        }
     }
 
     aumentar() {
-        var state = this.state
-        state.contador += 1
-        this.setState(state)
         if (this.state.contador === 5) {
+            var state = this.state
             state.contador += 0
+            this.setState(state)
+        } else {
+            var state = this.state
+            state.contador += 1
+            this.setState(state)
+
         }
     }
 
