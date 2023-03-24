@@ -102,5 +102,13 @@ footer p {
 
 #area-loja {
     display: grid;
-    grid-template-columns: 220px 220px 220px;    
+    grid-template-columns: 220px 220px 220px;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+b {
+    font-weight: bold;
 }
