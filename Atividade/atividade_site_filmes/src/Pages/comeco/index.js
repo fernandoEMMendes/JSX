@@ -1,10 +1,12 @@
+import "../../Componentes/css/pagina.css"
 
-
-function Comeco(){
-    return(
-        <div>
-            <h1>Essa é a home!</h1>
-        </div>
+function Comeco() {
+    return (
+        <>
+            <div class="area-principal">
+                <h1>Bem-Vindo!</h1>
+            </div>
+        </>
     )
 }
 

@@ -1,8 +1,8 @@
-
+import "../../Componentes/css/pagina.css"
 
 function SeriesPopulares() {
     return(
-        <div>
+        <div className="area-principal">
             <h1> Series Populares</h1>
         </div>
     )

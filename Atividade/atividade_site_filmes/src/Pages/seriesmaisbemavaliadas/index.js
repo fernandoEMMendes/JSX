@@ -1,8 +1,8 @@
-
+import "../../Componentes/css/pagina.css"
 
 function SeriesMaisBemAvaliadas() {
     return(
-        <div>
+        <div className="area-principal">
             <h1> Series Mais Bem Avaliadas</h1>
         </div>
     )

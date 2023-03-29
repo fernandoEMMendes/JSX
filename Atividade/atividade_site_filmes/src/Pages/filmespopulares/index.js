@@ -1,8 +1,8 @@
-
+import "../../Componentes/css/pagina.css"
 
 function FilmesPopulares() {
     return(
-        <div>
+        <div className="area-principal">
             <h1> Filmes Populares</h1>
         </div>
     )

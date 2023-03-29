@@ -1,8 +1,8 @@
-
+import "../../Componentes/css/pagina.css"
 
 function FilmesMaisBemAvaliados() {
     return(
-        <div>
+        <div className="area-principal">
             <h1> Filmes Mais Bem Avaliados</h1>
         </div>
     )

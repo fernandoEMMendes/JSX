@@ -1,4 +1,5 @@
 import Cadastro from '../../Componentes/cadastro';
+import "../../Componentes/css/pagina.css"
 
 function Contato(){
     return(
