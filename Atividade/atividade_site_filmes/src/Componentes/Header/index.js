@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom"
 import "../css/Header.css"
-
+//configurar css de links e espaçamento entre eles, em Filmes concertar borda
 function Header() {
     return (
-        <>
+        <> 
             <div id="areacabecalho">
                 <div>
-                    <span class="marca">WebFilmes</span> < br />
-                    <Link to="/" class="link"> Home </Link>
-                    <Link to="/Contato" class="link"> Contato </Link>
+                    <span class="marca">WebFilmes</span>
+                    <Link to="/">Home</Link>
+                    <Link to="/Contato">Contato</Link>
                 </div> <br />
                 <div class="dropdown">
                     <span class="container"> Filmes </span>
