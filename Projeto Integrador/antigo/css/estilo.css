@@ -88,10 +88,12 @@ a:hover {
 }
 
 footer {
-    margin: 1rem 0rem;
-    min-height: 5vh;
     background-color: darkseagreen;
-    padding: 0.8rem 10rem;
+    padding: 1px;
+    position: relative;
+    width:100%;
+    position: fixed;
+    bottom:0;
 }
 
 footer p {
