@@ -1,17 +1,9 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+import "../../components/css/tabela.css"
 
-
-<head>
-    <meta charset="utf-8">
-    <Title> Ideias </Title>
-    <link rel="stylesheet" href="./css/estilo-tabela-vista-se.css">
-</head>
-
-<body background="">
-
-    <h2 class="titulo">Todos os tipos, marcas e gostos</h2>
-    <table border="1" align="left" width="400" heigh="100">
+function Estoque() {
+    return (
+<div>
+    <h2 class="titulo">Todos os tipos, marcas e gostos</h2><table border="1" align="left" width="400" heigh="100">
 
         <tr>
 
@@ -96,12 +88,9 @@
             <td>All Stars</td>
             <td class="naodisponivel">Não Disponível</td>
         </tr>
+        </table>
+        </div>
+    )
+}
 
-
-
-
-
-
-</body>
-
-</html>
+export default Estoque

@@ -1,0 +1,26 @@
+.titulo{
+    font-size: 35px;
+}
+
+.disponivel{
+    color: green;
+}
+
+.naodisponivel{
+    color: red;
+}
+
+td {
+    font-weight: bold;
+    background-color: #F7D7CD;
+}
+
+th {
+    background-color: #EEE;
+}
+
+table {
+    table-layout: fixed;
+    width: 100%;
+    text-align: center;
+}
