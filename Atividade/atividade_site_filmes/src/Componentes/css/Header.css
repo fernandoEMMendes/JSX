@@ -9,11 +9,22 @@ h2 {
 }
 
 #areacabecalho {
-    padding: 15px;
-    text-align: center;
+    padding: 5px;
+    text-align: right;
     background-color: cadetblue;
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
+}
+
+.link {
+    color: black;
+    text-align:right;
+    display:inline-block;
+    position:relative;
+    margin:20px;
+    border: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .container {
@@ -56,5 +67,5 @@ a:link {
 
 a:visited {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: black
+    color: black;
 }

@@ -15,20 +15,20 @@ class Cadastro extends Component {
         this.cadastrar = this.cadastrar.bind(this)
     }
 
-    cadastrar(e) {
-        e.preventDefault()
-        const { nome, email, sexo, preferencia } = this.state
-        if (nome === '' || email === '' || sexo === '' || preferencia === '') {
-            alert("Por Favor, preencher campos em branco")
+    cadastrar(event) {
+        event.preventDefault()
+        const { nome, email, senha, sexo, preferencia } = this.state
+        if (nome === '' || email === '' || senha === '' || sexo === '' || preferencia === '') {
+            alert('Preencha todos os Campos')
             return
         }
-        alert(`Nome: ${nome} \nE-mail: ${email} \nSexo: ${sexo} \nPreferencia: ${preferencia}`)
-
+        alert(`Nome: ${nome} \nE-mail: ${email} \nSenha: ${senha} \nSexo: ${sexo} \nPreferencia: ${preferencia}`)
         this.setState({
             nome: '',
             email: '',
+            senha: '',
             sexo: '',
-            preferencia: '',
+            preferencia: ''
         })
     }
 
@@ -50,11 +50,17 @@ class Cadastro extends Component {
                             value={this.state.email}
                             onChange={(e) => this.setState({ email: e.target.value })}
                         /> <br />
+                        <label>Senha:</label>
+                    <input
+                        type='password'
+                        value={this.state.senha}
+                        onChange={(e) => this.setState({ senha: e.target.value })}
+                    /><br />
                         <span>Sexo:</span>
                         <select
                             value={this.state.sexo}
                             onChange={(e) => this.setState({ sexo: e.target.value })}>
-
+                            <option value=''></option>
                             <option value="Masculino">Masculino</option>
                             <option value="Feminino">Feminino</option>
                         </select> <br />
