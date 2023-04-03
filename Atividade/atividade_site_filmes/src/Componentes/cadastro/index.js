@@ -55,7 +55,7 @@ class Cadastro extends Component {
                         type='password'
                         value={this.state.senha}
                         onChange={(e) => this.setState({ senha: e.target.value })}
-                    /><br />
+                    /><br /> <br />
                         <span>Sexo:</span>
                         <select
                             value={this.state.sexo}
@@ -63,6 +63,7 @@ class Cadastro extends Component {
                             <option value=''></option>
                             <option value="Masculino">Masculino</option>
                             <option value="Feminino">Feminino</option>
+                            <option value="Geladeira Frost Free">Geladeira Frost Free</option>
                         </select> <br />
                         <div value={this.state.preferencia}
                         onChange={(e) => this.setState({ preferencia: e.target.value})}>
