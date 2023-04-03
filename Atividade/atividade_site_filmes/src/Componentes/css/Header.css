@@ -5,7 +5,56 @@
 }
 
 h2 {
-    font-size: 25px;
+    text-align: right;
+    display: inline-block;
+    position: relative;
+    margin: 10px;
+    border: none;
+}
+
+.home {
+
+    font-size: 35px;
+    color: black;
+    text-align: right;
+    display: inline-block;
+    position: relative;
+    margin: 16px;
+    border: none;
+}
+
+.filmes {
+
+    font-size: 20;
+    color: black;
+    text-align: right;
+    display: inline-block;
+    position: relative;
+    margin: 10px;
+    border: none;
+
+}
+
+.series {
+
+    font-size: 20;
+    color: black;
+    text-align: right;
+    display: inline-block;
+    position: relative;
+    margin: 10px;
+    border: none;
+}
+
+.contato {
+
+    font-size: 20;
+    color: black;
+    text-align: right;
+    display: inline-block;
+    position: relative;
+    margin: 20px;
+    border: none;
 }
 
 #areacabecalho {
@@ -18,22 +67,16 @@ h2 {
 }
 
 .link {
-    color: black;
-    text-align:right;
-    display:inline-block;
-    position:relative;
-    margin:20px;
-    border: none;
+    text-align: right;
+    display: inline-block;
+    position: relative;
+    margin: 20px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-.container {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 30px;
 }
 
 .marca {
     font-size: 40px;
+    text-align: left;
 }
 
 .dropdown {
@@ -41,6 +84,7 @@ h2 {
     display: inline-block;
     font-family: Arial, Helvetica, sans-serif;
     padding: 10px 8px;
+    text-align: left;
 }
 
 .dropdown-content {

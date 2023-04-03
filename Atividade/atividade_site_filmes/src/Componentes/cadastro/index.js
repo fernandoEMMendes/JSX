@@ -43,13 +43,13 @@ class Cadastro extends Component {
                             type="text"
                             value={this.state.nome}
                             onChange={(e) => this.setState({ nome: e.target.value })}
-                        /> <br />
+                        /> <br /> <br />
                         <label>E-mail:</label>
                         <input
                             type="email"
                             value={this.state.email}
                             onChange={(e) => this.setState({ email: e.target.value })}
-                        /> <br />
+                        /> <br /> <br />
                         <label>Senha:</label>
                     <input
                         type='password'
@@ -63,7 +63,6 @@ class Cadastro extends Component {
                             <option value=''></option>
                             <option value="Masculino">Masculino</option>
                             <option value="Feminino">Feminino</option>
-                            <option value="Geladeira Frost Free">Geladeira Frost Free</option>
                         </select> <br />
                         <div value={this.state.preferencia}
                         onChange={(e) => this.setState({ preferencia: e.target.value})}>

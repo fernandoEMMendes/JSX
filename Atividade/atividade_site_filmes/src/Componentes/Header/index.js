@@ -6,11 +6,10 @@ function Header() {
         <>
             <div id="areacabecalho">
                 <div>
-                    <span class="marca">WebFilmes</span>
-                    <Link to="/" class="link">Home</Link>
-                </div> <br />
+                    <Link to="/"><h2 class="home">WebFilmes</h2></Link>
+                </div>
                 <div class="dropdown">
-                    <span class="container"> Filmes </span>
+                    <h2 class="filmes">Filmes</h2>
                     <div class="dropdown-content">
                         <Link to="/FilmesCartaz"> Em Cartaz </Link> <br />
                         <Link to="/FilmesMaisBemAvaliados">Mais Bem Avaliados</Link> <br />
@@ -18,14 +17,14 @@ function Header() {
                     </div>
                 </div>
                 <div class="dropdown">
-                    <span class="container"> Séries </span>
+                    <h2 class="series">Séries</h2>
                     <div class="dropdown-content">
                         <Link to="/SeriesNoAr"> No Ar</Link> <br />
                         <Link to="/SeriesMaisBemAvaliadas">Mais Bem Avaliadas</Link> <br />
                         <Link to="/SeriesPopulares">Populares</Link> <br />
                     </div>
                 </div>
-                <Link to="/Contato" class="link">Contato</Link>
+                <Link to="/Contato"><h2 class="contato">Contato</h2></Link>
             </div>
 
         </>
