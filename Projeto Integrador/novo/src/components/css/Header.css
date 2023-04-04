@@ -4,17 +4,33 @@
     text-align: center;
 }
 
-#area-logo,
-#area-menu {
+#area-logo {
     padding: 10px;
 }
 
 .link {
-    color: white;
-    text-align:right;
-    display:inline-block;
-    position:relative;
-    margin:20px;
+    font-size: 20;
+    color: black;
+    text-align: right;
+    display: inline-block;
+    position: relative;
+    margin: 10px;
     border: none;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#area-cabecalho a:link,
+#area-cabecalho a:visited {
+    color: darkseagreen;
+    PADDING: 8px 12px;
+}
+
+#area-cabecalho a:hover {
+    color: black;
+    background: #fff;
+    text-decoration: none;
 }

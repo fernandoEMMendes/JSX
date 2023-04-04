@@ -31,28 +31,7 @@ h3 {
     color: white;
 }
 
-a:link,
-a:visited {
-    color: blue;
-    border-style: hidden;
-}
 
-a:hover {
-    text-decoration: Underling;
-}
-
-#area-cabecalho a:link,
-#area-cabecalho a:visited {
-    color: #fff;
-    PADDING: 8px 12px;
-}
-
-#area-cabecalho a:hover {
-    color: black;
-    background: #fff;
-    text-decoration: none;
-
-}
 
 #area-principal {
     width: 660px;

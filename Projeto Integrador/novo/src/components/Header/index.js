@@ -10,11 +10,11 @@ function Header() {
             <div id="area-logo">
                 <h1> Vista-se! <span class="branco">Loja Virtual</span></h1>
             </div>
-            <div id="area-menu">
-                <Link to="/" class="link">Home</Link>
-                <Link to="/QuemSomos" class="link">Quem Somos</Link>
-                <a href="loja.html">Loja</a>     
-                <a href="contato.html">Contato</a>
+            <div>
+                <Link to="/" class="link"><h2>Home</h2></Link>
+                <Link to="/QuemSomos" class="link"><h2>Quem Somos</h2></Link>
+                <Link to="/" className="link"><h2>Loja</h2></Link>     
+                <Link to="/" className="link"><h2>Contato</h2></Link>
             </div>
 
         </div>
