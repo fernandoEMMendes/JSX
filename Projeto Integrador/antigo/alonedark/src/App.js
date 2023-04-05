@@ -9,7 +9,7 @@ function App() {
 
   function Frases() {
     if (ContGraveto === 0) {
-      frases = ("Darkness... I can't see anything.")
+       setfrases("Darkness... I can't see anything.")
 
     }
   }
