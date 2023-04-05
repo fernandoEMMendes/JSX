@@ -3,13 +3,14 @@
 function App() {
 
   const numeros = ["banana", "Laranja", "pera"]
-  numeros.push  ("Maça")
-  numeros.splice  (1, 0, "Bergamota")
+  numeros.push("Maça")
+  numeros.splice(1, 0, "Bergamota")
 
-  console.log(numeros)
-
-
-
+  const objetos = {
+    Nome: "Fernando",
+    Idade: "279",
+  }
+  console.log(objetos)
 }
 
-export default App;
+
