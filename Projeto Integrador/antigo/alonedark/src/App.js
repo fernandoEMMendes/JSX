@@ -8,7 +8,7 @@ function App() {
 
 
   function Frases() {
-    if (ContGraveto === 0) {
+    if (ContGraveto >= 0) {
        setfrases("Darkness... I can't see anything.")
 
     }
@@ -25,7 +25,7 @@ function App() {
   return (
 
     <div>
-      <span>{frases}</span> <br />
+      <h3 value={frases}></h3> <br />
       <p>Equip:  {emmaos}</p> <br /> <br />
       
       <h3>{ContGraveto}</h3>
