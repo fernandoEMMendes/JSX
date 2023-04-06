@@ -9,7 +9,7 @@ function Home() {
                 <div id="area-postagens">
                     <div class="postagem">
                         <h3>A importancia da moda no dia a dia</h3>
-                        <img src={moda} alt="moda"/>
+                        <img class="imgpostagem"src={moda} alt="moda"/>
                         <p class="texto">
                             O fato é que quando a pessoa se sente empoderada,
                             segura através de sua imagem, de sua vestimenta,
@@ -23,10 +23,5 @@ function Home() {
         
     )
 }
-<footer>
-    <p> Fernando Mendes, Luiz Henrique, Renan De Britto <br />
-        Todos os direitos reservados
-    </p>
-</footer>
 
 export default Home

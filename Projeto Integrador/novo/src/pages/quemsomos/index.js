@@ -11,8 +11,8 @@ function QuemSomos() {
 
                     <p>
                         Nossa equipe composta por <b> Fernando Mendes, Luiz Henrique e Renan De Britto </b>
-                        contruiu esse site como nosso projeto definitivo, estamo melhorando o site com cada coisa que
-                        aprendemos no decorrer do curso
+                        construiu esse site como nosso projeto definitivo, estamos melhorando o site com cada coisa que
+                        aprendemos no decorrer do curso.
                     </p><br />
                 </div>
 

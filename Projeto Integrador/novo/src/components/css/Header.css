@@ -34,3 +34,9 @@ a:hover {
     background: #fff;
     text-decoration: none;
 }
+
+.imglogo {
+    float: left;
+    width: 50px;
+    right: 25px;
+}
