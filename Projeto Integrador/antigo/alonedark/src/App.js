@@ -4,18 +4,17 @@ function App() {
   const [frases, setfrases] = useState("")
   const [emmaos, setemmaos] = useState("")
   const [ContGraveto, SetContGraveto] = useState(0)
-  
+
 
 
   function Frases() {
-    if (ContGraveto >= 0) {
-       setfrases("Darkness... I can't see anything.")
-
-    }
+    if (ContGraveto >= 5) { setfrases("I can't see anything.") }
+    else setfrases("I can't hold anymore")
   }
 
   function Coletar() {
-    SetContGraveto(ContGraveto + 1)
+    if (ContGraveto >= 5) { SetContGraveto(ContGraveto + 0) }
+    else SetContGraveto(ContGraveto + 1)
   }
 
   //-----------------------------------------------------------
@@ -25,9 +24,9 @@ function App() {
   return (
 
     <div>
-      <h3 value={frases}></h3> <br />
-      <p>Equip:  {emmaos}</p> <br /> <br />
-      
+      <h3>{Frases}</h3> <br />
+      <p>Equip:{emmaos}</p> <br /> <br />
+
       <h3>{ContGraveto}</h3>
       <button onClick={Coletar}>Gather sticks</button> <br />
 
