@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import "../css/Header.css"
-//configurar css de links e espaçamento entre eles, em Filmes concertar borda
+
 function Header() {
     return (
         <>

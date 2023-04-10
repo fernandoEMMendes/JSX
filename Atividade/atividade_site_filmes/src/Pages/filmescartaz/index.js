@@ -1,3 +1,7 @@
+import { useState } from "react"
+import { useEffect } from "react"
+import api from "../../Services/api.js"
+
 import "../../Componentes/css/pagina.css"
 import box from "../../Componentes/imagens/box.jpg"
 import exor from "../../Componentes/imagens/exor.jpg"
@@ -8,9 +12,34 @@ import urso from "../../Componentes/imagens/urso.jpg"
 
 
 function FilmesCartaz() {
+
+    const [Filmes, setFilmes] = useState([''])
+
+
+    useEffect(() => {
+        async function loadfilmes() {
+            const response = await api.get("/movie/now_playing", {
+                params: {
+                    api_key: "1c3a0bc2c4667ade8dc5844ddf1f3561",
+                    language: "pt-BR"
+                }
+            })
+
+            setFilmes(response.data.results)
+
+        }
+        loadfilmes()
+    }, [])
+
+    console.log(Filmes)
+
+
+
+
+
     return (
         <>
-            <h1>Filmes em cartaz</h1> <br />
+            <h1>Filmes Em Cartaz</h1> <br />
             <div class="areapostagem">
                 <div class="borda">
                     <div class="caixa">
