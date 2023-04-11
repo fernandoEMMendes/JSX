@@ -1,20 +1,21 @@
 import React, { useState } from "react"
 function App() {
   //Cont = Contador
-  const [frases, setfrases] = useState("")
-  const [emmaos, setemmaos] = useState("")
-  const [ContGraveto, SetContGraveto] = useState(0)
+  const [Frases, setFrases] = useState("I can't see anything.")
+  const [OnHand, setOnHand] = useState("None")
+  const [ContGraveto, setContGraveto] = useState(0)
 
-
-
-  function Frases() {
-    if (ContGraveto >= 5) { setfrases("I can't see anything.") }
-    else setfrases("I can't hold anymore")
-  }
 
   function Coletar() {
-    if (ContGraveto >= 5) { SetContGraveto(ContGraveto + 0) }
-    else SetContGraveto(ContGraveto + 1)
+    if (ContGraveto >= 5) { setContGraveto(ContGraveto + 0) }
+    else setContGraveto(ContGraveto + 1)
+
+    if (ContGraveto >= 5) { setFrases("It's too heavy, I can't carry anymore") }
+  }
+
+  function CraftTorch() {
+    if (ContGraveto >= 5) { setContGraveto(ContGraveto - 5)  }
+    if (OnHand("Torch")) { document.body.style.backgroundColor="red" }
   }
 
   //-----------------------------------------------------------
@@ -25,11 +26,12 @@ function App() {
 
     <div>
       <h3>{Frases}</h3> <br />
-      <p>Equip:{emmaos}</p> <br /> <br />
+      <p>Equip: {OnHand}</p> <br /> <br />
 
-      <h3>{ContGraveto}</h3>
-      <button onClick={Coletar}>Gather sticks</button> <br />
+      <h2>{ContGraveto}</h2>
+      <button onClick={Coletar}>Gather sticks</button> <br /> <br />
 
+      <button onClick={CraftTorch}>Torch</button>
 
     </div>
   );

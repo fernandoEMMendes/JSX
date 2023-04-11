@@ -7,21 +7,6 @@ p {
     font-size: 20px;
 }
 
-footer {
-    background-color: darkseagreen;
-    padding: 1px;
-    position: relative;
-    width:100%;
-    position: fixed;
-    bottom:0;
-}
-
-footer p {
-    text-align: center;
-    text-align-last: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
 .caixa {
     display: flex;
     flex-direction: column;
@@ -43,4 +28,8 @@ footer p {
     margin: 0 auto;
     display: flex;
     flex-direction: row
+}
+
+::-webkit-scrollbar {
+    display: none;
 }

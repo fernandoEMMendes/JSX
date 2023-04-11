@@ -1,10 +1,11 @@
 import { useState } from "react"
 import { useEffect } from "react"
+import { Link } from "react-router-dom"
 import api from "../../Services/api.js"
 
-import "../../Componentes/css/pagina.css"
+import "../../Componentes/css/paginaemcartaz.css"
 
-
+//ao deixar em modo janela o header buga
 
 function FilmesCartaz() {
 
@@ -31,18 +32,29 @@ function FilmesCartaz() {
 
 
     return (
-        <div>
-            <h1>Filmes Em Cartaz</h1>
-            {Filmes.map((filme)=> {
-                return(
-                    <p>
-                        <b>{filme.title}</b>
-                    </p>
-                )
-            })}
-        </div>
+        <>
+            <div>
+                <h1>Filmes Em Cartaz</h1>
+            </div>
 
 
+            <div class="caixa">
+                <div class="grid-container">
+                    {Filmes.map((filme) => {
+                        return (
+                            <p key={filme.id}>
+                                <b>{filme.title}</b> <br />
+                                <div><img src={`https://image.tmdb.org/t/p/w300/${filme.poster_path}`} alt={filme.original_title} /></div>
+                                <Link to="/Detalhes "><h2>Detalhes</h2></Link> <br />
+                            </p>
+                        )
+                    })}
+                </div>
+            </div>
+
+
+
+        </>
     )
 }
 

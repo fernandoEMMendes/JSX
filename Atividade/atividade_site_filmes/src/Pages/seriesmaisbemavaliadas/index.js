@@ -5,9 +5,7 @@ function SeriesMaisBemAvaliadas() {
         <>
             <div className="area-principal">
                 <h1> Series Mais Bem Avaliadas</h1>
-            </div><footer>
-                <p>WebFlix - 2023</p>
-            </footer>
+            </div>
         </>
     )
 }

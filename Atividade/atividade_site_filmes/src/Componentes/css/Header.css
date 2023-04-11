@@ -53,12 +53,13 @@ h2 {
     text-align: right;
     display: inline-block;
     position: relative;
-    margin: 20px;
+    margin: 19px;
     border: none;
 }
 
 #areacabecalho {
-    padding: 5px;
+    min-width: fit-content;
+    max-width: auto;
     text-align: right;
     background-color: cadetblue;
     display: flex;

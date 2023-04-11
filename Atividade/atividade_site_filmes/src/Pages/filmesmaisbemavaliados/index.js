@@ -5,9 +5,7 @@ function FilmesMaisBemAvaliados() {
         <>
             <div className="area-principal">
                 <h1> Filmes Mais Bem Avaliados</h1>
-            </div><footer>
-                <p>WebFlix - 2023</p>
-            </footer>
+            </div>
         </>
     )
 }

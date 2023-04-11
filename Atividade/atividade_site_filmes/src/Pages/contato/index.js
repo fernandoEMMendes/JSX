@@ -6,9 +6,7 @@ function Contato() {
         <>
             <div>
                 <Cadastro />
-            </div><footer>
-                <p>WebFlix - 2023</p>
-            </footer>
+            </div>
         </>
     )
 }
