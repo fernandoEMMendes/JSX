@@ -4,6 +4,7 @@ function App() {
   const [Frases, setFrases] = useState("I can't see anything.")
   const [OnHand, setOnHand] = useState("None")
   const [ContGraveto, setContGraveto] = useState(0)
+  const [Torch, setTorch] = useState(0)
 
 
   function Coletar() {
@@ -14,8 +15,8 @@ function App() {
   }
 
   function CraftTorch() {
-    if (ContGraveto >= 5) { setContGraveto(ContGraveto - 5)  }
-    if (OnHand("Torch")) { document.body.style.backgroundColor="red" }
+    if (ContGraveto >= 5) { setContGraveto(ContGraveto - 5) & setOnHand(OnHand("Torch")) }
+    if (OnHand("Torch")) { document.body.style.backgroundColor = "orange" }
   }
 
   //-----------------------------------------------------------
