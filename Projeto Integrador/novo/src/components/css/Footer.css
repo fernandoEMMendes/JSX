@@ -9,3 +9,7 @@ footer {
 footer p {
     text-align: center;
 }
+
+#element::-webkit-scrollbar {
+    display: none;
+    }

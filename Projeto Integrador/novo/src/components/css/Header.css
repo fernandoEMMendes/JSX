@@ -40,3 +40,7 @@ a:hover {
     width: 50px;
     right: 25px;
 }
+
+#element::-webkit-scrollbar {
+    display: none;
+    }
