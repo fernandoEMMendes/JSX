@@ -12,7 +12,9 @@ import SeriesNoAr from "./seriesnoar"
 import SeriesPopulares from "./seriespopulares"
 import Contato from "./contato"
 import Detalhes from "./detalhes"
-// ":id" quer dizer que o id estara sempre mudando por conta dos dois pontos
+
+// ":id" quer dizer que o (id) estara sempre mudando por conta dos dois pontos ":"
+
 function Rota() {
     return (
         <BrowserRouter>

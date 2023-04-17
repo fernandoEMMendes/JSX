@@ -11,7 +11,7 @@ function SeriesNoAr() {
 
     useEffect(() => {
         async function loadseries() {
-            const response = await api.get("/series/on_the_air", {
+            const response = await api.get("/tv/on_the_air", {
                 params: {
                     api_key: "1c3a0bc2c4667ade8dc5844ddf1f3561",
                     language: "pt-BR"
