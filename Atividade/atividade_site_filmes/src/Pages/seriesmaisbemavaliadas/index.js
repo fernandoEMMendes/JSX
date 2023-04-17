@@ -36,16 +36,17 @@ function SeriesMaisBemAvaliadas() {
 
 
             <div class="caixa">
-                <div class="grid-container"></div>
-                {Series.map((series) => {
-                    return (
-                        <p key={series.id}>
-                            <b>{series.name}</b> <br />
-                            <div><img src={`https://image.tmdb.org/t/p/w300/${series.poster_path}`} alt={series.original_name} /></div>
-                            <Link to="/Detalhes"><h2>Detalhes</h2></Link> <br />
-                        </p>
-                    )
-                })}
+                <div class="grid-container">
+                    {Series.map((series) => {
+                        return (
+                            <p key={series.id}>
+                                <b>{series.name}</b> <br />
+                                <div><img src={`https://image.tmdb.org/t/p/w300/${series.poster_path}`} alt={series.original_name} /></div>
+                                <Link to="/Detalhes"><h2>Detalhes</h2></Link> <br />
+                            </p>
+                        )
+                    })}
+                </div>
             </div>
         </>
     )
