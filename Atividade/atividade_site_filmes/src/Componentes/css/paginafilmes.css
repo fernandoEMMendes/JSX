@@ -11,9 +11,8 @@ p {
     display: flex;
     flex-direction: column;
     background-color: lavender;
-    margin: 1 auto;
     border: 2px black;
-    border-radius: 6px;
+    border-radius: 8px;
 }
 
 .grid-container {

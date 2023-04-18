@@ -15,8 +15,8 @@ function App() {
   }
 
   function CraftTorch() {
-    if (ContGraveto >= 5) { setContGraveto(ContGraveto - 5) & setOnHand(OnHand("Torch")) }
-    if (OnHand("Torch")) { document.body.style.backgroundColor = "orange" }
+    if (ContGraveto >= 5) { setContGraveto(ContGraveto - 5) || setOnHand("Torch") }
+    if (setOnHand("Torch")) { document.body.style.backgroundColor = (`#FFA500`) }
   }
 
   //-----------------------------------------------------------
@@ -32,7 +32,7 @@ function App() {
       <h2>{ContGraveto}</h2>
       <button onClick={Coletar}>Gather sticks</button> <br /> <br />
 
-      <button onClick={CraftTorch}>Torch</button>
+      <button onClick={CraftTorch}>Torch (5 Sticks)</button>
 
     </div>
   );

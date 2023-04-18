@@ -1,14 +1,10 @@
-img{
-    display:flex;
-    flex-direction: row;
-    width: 180px;
-    right: 80px;
-}
 
-#area-postagens {
-    width: 660px;
-    display: flex;
-    flex-direction: row;
+
+.postagem{
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    float: center;
 }
 
 #area-principal {
@@ -16,3 +12,7 @@ img{
     margin: 0 auto;
     padding: 15px;
 }
+
+#element::-webkit-scrollbar {
+    display: none;
+    }
