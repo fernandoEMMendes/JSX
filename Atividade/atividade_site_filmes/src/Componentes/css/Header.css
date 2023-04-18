@@ -61,7 +61,7 @@ h2 {
     min-width: fit-content;
     max-width: auto;
     text-align: right;
-    background-color: cadetblue;
+    background-color: lightblue;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
