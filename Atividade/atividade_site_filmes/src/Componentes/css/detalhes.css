@@ -7,13 +7,22 @@
 
 .imgdetalhes {
     float: left;
-    padding: 20px;
+    padding: 1.25rem;
     background-color: darksalmon;
-    border-radius: 8px;
+    border-radius: 0.0625rem;
 }
 
 .h3detalhes {
     text-align: justify;
     text-align: left;
-    font-size: 30px;
+    font-size: 31.875rem;
+}
+
+.cadastroanuncio {
+    bottom: 0;
+    position: fixed;
+}
+
+.linkcadastro{
+    text-decoration: none;
 }

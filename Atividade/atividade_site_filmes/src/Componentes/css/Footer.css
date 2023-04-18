@@ -1,11 +1,11 @@
 p {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 20px;
+    font-size: 1.25rem;
 }
 
 footer {
     background-color: darkseagreen;
-    padding: 1px;
+    padding: 0.0625rem;
     position: relative;
     width:100%;
     position: fixed;
