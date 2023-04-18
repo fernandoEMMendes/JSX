@@ -1,6 +1,11 @@
 footer {
-    background-color: darkseagreen;
+<<<<<<< HEAD
+    background-color: lightgreen;
     padding: 0.0625rem;
+=======
+    background-color: lightgreen;
+    padding: 1px;
+>>>>>>> 74dc4ee0f467fe25dd21c07fb7da08cda4ba1a38
     position: relative;
     width:100%;
     position: fixed;
