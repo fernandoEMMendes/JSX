@@ -84,6 +84,10 @@
     padding: 1rem;
 }
 
+.dropdown-content a:hover {
+    background-color: grey;
+}
+
 .dropdown:hover .dropdown-content {
     display: block;
 }
