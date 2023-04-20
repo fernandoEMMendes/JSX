@@ -15,14 +15,15 @@ function Favoritos() {
             const response = await localStorage.getItem
         }
     })
+
+
+
+    return (
+        <div>
+            {filmes.title}
+        </div>
+    )
+
 }
-
-
-return(
-    <div>
-        {filmes.title}
-    </div>
-)
-
 
 export default Favoritos
