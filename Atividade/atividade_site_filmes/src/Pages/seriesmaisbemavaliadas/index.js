@@ -42,7 +42,7 @@ function SeriesMaisBemAvaliadas() {
                             <p key={series.id}>
                                 <b>{series.name}</b> <br />
                                 <div><img src={`https://image.tmdb.org/t/p/w300/${series.poster_path}`} alt={series.original_name} /></div>
-                                <Link to={`/Detalhes/${filme.id}`}><h2>Detalhes</h2></Link> <br />
+                                <Link to={`/Detalhes/${filmes.id}`}><h2>Detalhes</h2></Link> <br />
                             </p>
                         )
                     })}

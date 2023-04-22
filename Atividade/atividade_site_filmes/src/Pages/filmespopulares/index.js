@@ -40,7 +40,7 @@ function FilmesPopulares() {
                             <p key={filmes.id}>
                                 <b>{filmes.name}</b> <br />
                                 <div><img src={`https://image.tmdb.org/t/p/w300/${filmes.poster_path}`} alt={filmes.original_name} /></div> <br />
-                                <Link to={`/Detalhes/${filme.id}`}><h2>Detalhes</h2></Link> <br />
+                                <Link to={`/Detalhes/${filmes.id}`}><h2>Detalhes</h2></Link> <br />
                             </p>
                         )
                     })}

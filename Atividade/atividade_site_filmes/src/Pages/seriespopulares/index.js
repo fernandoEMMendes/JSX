@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import api from "../../Services/api.js"
 
 import "../../Componentes/css/paginafilmes.css"
+import FilmesPopulares from "../filmespopulares/index.js"
 
 function SeriesPopulares() {
 
@@ -38,7 +39,7 @@ function SeriesPopulares() {
                             <p key={series.id}>
                                 <b>{series.name}</b> <br />
                                 <div><img src={`https://image.tmdb.org/t/p/w300/${series.poster_path}`} alt={series.original_name} /></div> <br />
-                                <Link to={`/Detalhes/${filme.id}`}><h2>Detalhes</h2></Link> <br />
+                                <Link to={`/Detalhes/${FilmesPopulares.id}`}><h2>Detalhes</h2></Link> <br />
                             </p>
                         )
                     })}
