@@ -40,12 +40,12 @@ function FilmesCartaz() {
 
             <div class="caixa">
                 <div class="grid-container">
-                    {Filmes.map((filme) => {
+                    {Filmes.map((filmes) => {
                         return (
-                            <p key={filme.id}>
-                                <b>{filme.title}</b> <br />
-                                <div><img src={`https://image.tmdb.org/t/p/w300/${filme.poster_path}`} alt={filme.original_title} /></div>
-                                <Link to={`/Detalhes/${filme.id}`}><h2>Detalhes</h2></Link> <br />
+                            <p key={filmes.id}>
+                                <b>{filmes.title}</b> <br />
+                                <div><img src={`https://image.tmdb.org/t/p/w300/${filmes.poster_path}`} alt={filmes.original_title} /></div>
+                                <Link to={`/Detalhes/${filmes.id}`}><a>Detalhes</a></Link> <br />
                             </p>
                         )
                     })}

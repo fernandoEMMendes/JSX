@@ -61,7 +61,7 @@ class Cadastro extends Component {
                             <option value=''></option>
                             <option value="Masculino">Masculino</option>
                             <option value="Feminino">Feminino</option>
-                        </select> <br />
+                        </select> <br /> <br />
 
 
                         <button type='submit'>Enviar</button>

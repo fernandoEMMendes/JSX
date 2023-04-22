@@ -4,59 +4,6 @@
     padding: 0;
 }
 
-h2 {
-    text-align: right;
-    display: inline-block;
-    position: relative;
-    margin: 10px;
-    border: none;
-}
-
-.home {
-
-    font-size: 35px;
-    color: black;
-    text-align: right;
-    display: inline-block;
-    position: relative;
-    margin: 16px;
-    border: none;
-}
-
-.filmes {
-
-    font-size: 20;
-    color: black;
-    text-align: right;
-    display: inline-block;
-    position: relative;
-    margin: 10px;
-    border: none;
-
-}
-
-.series {
-
-    font-size: 20;
-    color: black;
-    text-align: right;
-    display: inline-block;
-    position: relative;
-    margin: 10px;
-    border: none;
-}
-
-.contato {
-
-    font-size: 20;
-    color: black;
-    text-align: right;
-    display: inline-block;
-    position: relative;
-    margin: 19px;
-    border: none;
-}
-
 #areacabecalho {
     min-width: fit-content;
     max-width: auto;
@@ -67,24 +14,64 @@ h2 {
     justify-content: space-around;
 }
 
+.home {
+
+    font-size: 20;
+    color: black;
+    display: inline-block;
+    position: relative;
+    margin: 1rem;
+    border: none;
+}
+
+.filmes {
+
+    font-size: 20;
+    color: black;
+    display: inline-block;
+    position: relative;
+    margin: 1rem;
+    border: none;
+
+}
+
+.series {
+
+    font-size: 20;
+    color: black;
+    display: inline-block;
+    position: relative;
+    margin: 1rem;
+    border: none;
+}
+
+.contato {
+
+    font-size: 20;
+    color: black;
+    display: inline-block;
+    position: relative;
+    margin: 1rem;
+    border: none;
+}
+
 .link {
     text-align: right;
     display: inline-block;
     position: relative;
-    margin: 20px;
+    margin: 1.25rem;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .marca {
-    font-size: 40px;
+    font-size: 2.5rem;
     text-align: left;
 }
 
 .dropdown {
     position: relative;
-    display: inline-block;
     font-family: Arial, Helvetica, sans-serif;
-    padding: 10px 8px;
+    padding: 0.0625rem 0.5rem;
     text-align: left;
 }
 
@@ -93,12 +80,12 @@ h2 {
     position: absolute;
     background-color: lavender;
     width: 150%;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0, 2);
-    padding: 12px 16px;
     z-index: 1;
-    padding: 10px 8px 10px 14px;
-    border: 1px solid lavender;
-    border-radius: 6px;
+    padding: 1rem;
+}
+
+.dropdown-content a:hover {
+    background-color: grey;
 }
 
 .dropdown:hover .dropdown-content {
@@ -108,9 +95,11 @@ h2 {
 a:link {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: black;
+    text-decoration: none;
 }
 
 a:visited {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: black;
+    text-decoration: none;
 }
