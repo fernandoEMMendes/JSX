@@ -20,7 +20,7 @@ function Favoritos() {
 
     return (
         <div>
-            {filmes.title}
+            
         </div>
     )
 

@@ -5,8 +5,6 @@ import api from "../../Services/api.js"
 
 import "../../Componentes/css/paginafilmes.css"
 
-//ao deixar em modo janela o header buga
-
 function FilmesCartaz() {
 
     const [Filmes, setFilmes] = useState([''])
