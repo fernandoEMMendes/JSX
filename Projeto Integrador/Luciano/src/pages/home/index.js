@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 import api from "../../services/api.js"
 
-import "../../components/css/Pagina.css"
+import "../../components/css/PaginaHome.css"
 
 function Inicio() {
 
     const [Pokemon, setPokemon] = useState([""])
-    const [Moves, setMoves] = useState([""])
+    const [Sprites, setSprites] = useState([""])
 
     useEffect(() => {
         async function loadpokemons() {
@@ -19,33 +20,40 @@ function Inicio() {
         }
         loadpokemons()
 
-        async function loadmoves() {
-            const response = await api.get("/moves", {
+    }, [Pokemon])
+
+    useEffect(() => {
+        async function loadsprites() {
+            const response2 = await api.get(`/pokemon/1`, {
                 params: {
                     language: "pt-BR"
                 }
             })
-            setMoves(response.data.results)
+            setSprites(response2.data.results)
         }
-        loadmoves()
-
-    }, [Pokemon])
-
-
-
+        loadsprites()
+    }, [Sprites])
 
     console.log(Pokemon)
 
     return (
-        <div>
-            {Pokemon.map((Poke) => {
-                return (
-                    <p key={Poke.id}>
-                        <b>{Poke.name}</b> <br />
-                    </p>
-                )
-            })}
-        </div>
+
+        <>
+            <div className="caixa">
+                <div className="grid-container">
+                    {Pokemon.map((Poke) => {
+                        return (
+
+                            <a key={Poke.id}>
+                                <h2>{Poke.name}</h2> <br />
+                                <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png`} /> <br />
+                                <Link to={``}></Link>
+                            </a>
+                        )
+                    })}
+                </div>
+            </div>
+        </>
     )
 }
 
