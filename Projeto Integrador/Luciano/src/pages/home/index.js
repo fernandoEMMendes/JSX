@@ -8,6 +8,7 @@ import "../../components/css/PaginaHome.css"
 //melhorar css (centralizar elementos), responsibilidade
 //colocar página de favoritos
 //colocar um botão abaixo do pokemon exibido que levara para página "mais informações"
+//página info está quebrada
 
 //atualizar com os conteudo de aula
 
@@ -37,8 +38,9 @@ function Inicio() {
                 ) : (
                     <div>
                         <h1>{details.name}</h1>
-                        <img src={details.sprites.front_default} alt="Imagine algo legal aqui" />
-                        <h3>{details.moves.move}</h3>
+                        <img src={details.sprites.front_default} alt="Imagine algo legal aqui" /> <br />
+                        <h3>{details.type}</h3>
+                        <Link className="link" to={`/informacoes/${pokemon}`}>Mais informações</Link>
                     </div>
                 ))}
         </div>

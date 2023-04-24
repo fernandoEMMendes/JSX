@@ -5,7 +5,8 @@ import api from "../../services/api.js"
 function Info() {
 
     const { id } = useParams()
-    const [Pokemon, setPokemon] = useState({})
+    const [Pokemon, setPokemon] = useState("")
+
 
     useEffect(() => {
         async function loadinfo() {
@@ -14,11 +15,10 @@ function Info() {
                     language: "pt-BR"
                 }
             })
-            setPokemon(response.data.results)
+            setPokemon(response.data)
         }
         loadinfo()
     }, [id])
-    console.log(Pokemon)
 
     function salvarpokemon() {
         const ListaFav = localStorage.getItem("@PokemonsFavoritos")

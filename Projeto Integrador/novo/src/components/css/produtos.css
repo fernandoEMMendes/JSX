@@ -1,0 +1,10 @@
+
+.grid-container{
+    text-align: center;
+    display: grid;
+    box-sizing: border-box;
+    row-gap: 0.5rem;
+    grid-template-columns: 30rem 30rem 30rem;
+    max-width: 50rem;
+    margin: 0.625rem;
+}
