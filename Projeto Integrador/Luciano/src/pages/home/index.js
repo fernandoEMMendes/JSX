@@ -1,61 +1,41 @@
-import { useState, useEffect } from "react"
-import { Link } from "react-router-dom"
-import api from "../../services/api.js"
-
-import "../../components/css/PaginaHome.css"
+import {Link} from "react-router-dom"
+import { useState } from "react"
+import api from "../../services/api";
 
 function Inicio() {
+    const [pokemon, setpokemon] = useState('');
+    const [details, setdetails] = useState(null);
 
-    const [Pokemon, setPokemon] = useState([""])
-    const [Sprites, setSprites] = useState([""])
-
-    useEffect(() => {
-        async function loadpokemons() {
-            const response = await api.get("/pokemon/", {
-                params: {
-                    language: "pt-BR"
-                }
-            })
-            setPokemon(response.data.results)
+    const handleClick = async () => {
+        try {
+            const responce = await api.detalhe(pokemon)
+            setdetails(responce);
+        } catch (err) {
+            setdetails({ error: "Não encontrado" });
         }
-        loadpokemons()
-
-    }, [Pokemon])
-
-    useEffect(() => {
-        async function loadsprites() {
-            const response2 = await api.get(`/pokemon/1`, {
-                params: {
-                    language: "pt-BR"
-                }
-            })
-            setSprites(response2.data.results)
-        }
-        loadsprites()
-    }, [Sprites])
-
-    console.log(Pokemon)
+    };
 
     return (
+        <div>
+            <h1>Procure por um Pokemon</h1> <br />
+            <input value={pokemon} onChange={event => setpokemon(event.target.value)} placeholder="Ex: 'Pikachu' ou '6'"/>
+            <button onClick={handleClick}>Search</button> < br/> <br />
+            <Link to="https://bulbapedia.bulbagarden.net/wiki/List_of_Pokémon_by_National_Pokédex_number">Lista com todos os pokemons (bulbagarden)</Link>
 
-        <>
-            <div className="caixa">
-                <div className="grid-container">
-                    {Pokemon.map((Poke) => {
-                        return (
-
-                            <a key={Poke.id}>
-                                <h2>{Poke.name}</h2> <br />
-                                <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png`} /> <br />
-                                <Link to={``}></Link>
-                            </a>
-                        )
-                    })}
-                </div>
-            </div>
-        </>
-    )
+            {details && (
+                details.error ? (
+                    <h1>{details.error}</h1>
+                ) : (
+                    <div>
+                        <h1>{details.name}</h1>
+                        <img src={details.sprites.front_default} alt="Imagine algo legal aqui" />
+                        <h3>{details.moves.move}</h3>
+                    </div>
+                ))}
+        </div>
+    );
 }
+
 
 
 export default Inicio

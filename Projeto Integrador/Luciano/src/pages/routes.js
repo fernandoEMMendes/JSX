@@ -4,7 +4,7 @@ import Header from '../components/Header'
 import Cadastro from '../components/cadastro'
 
 import Home from './home'
-import info from './informacoes'
+import Info from './informacoes'
 
 
 function Rotas() {
@@ -13,7 +13,7 @@ function Rotas() {
             <Header />
             <Routes>
                 <Route path='/' element={<Home />} />
-                <Route path='/informações' element= {<info />} />
+                <Route path='/informações' element= {<Info />} />
                 <Route path='/Cadastro' element= {<Cadastro />} />
             </Routes>
         </BrowserRouter>
