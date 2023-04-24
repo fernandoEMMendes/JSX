@@ -1,11 +1,9 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import Header from '../components/Header'
-import Cadastro from '../components/cadastro'
 
 import Home from './home'
-import Info from './informacoes'
-
+import Favoritos from './favoritos'
 
 function Rotas() {
     return (
@@ -13,8 +11,7 @@ function Rotas() {
             <Header />
             <Routes>
                 <Route path='/' element={<Home />} />
-                <Route path='/informações' element= {<Info />} />
-                <Route path='/Cadastro' element= {<Cadastro />} />
+                <Route path='/Favoritos' element= {<Favoritos />} />
             </Routes>
         </BrowserRouter>
     )

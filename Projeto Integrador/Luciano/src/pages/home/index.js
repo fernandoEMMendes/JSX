@@ -2,6 +2,15 @@ import {Link} from "react-router-dom"
 import { useState } from "react"
 import api from "../../services/api";
 
+import "../../components/css/PaginaHome.css"
+
+//a fazer:
+//melhorar css (centralizar elementos), responsibilidade
+//colocar página de favoritos
+//colocar um botão abaixo do pokemon exibido que levara para página "mais informações"
+
+//atualizar com os conteudo de aula
+
 function Inicio() {
     const [pokemon, setpokemon] = useState('');
     const [details, setdetails] = useState(null);
@@ -18,9 +27,9 @@ function Inicio() {
     return (
         <div>
             <h1>Procure por um Pokemon</h1> <br />
-            <input value={pokemon} onChange={event => setpokemon(event.target.value)} placeholder="Ex: 'Pikachu' ou '6'"/>
-            <button onClick={handleClick}>Search</button> < br/> <br />
-            <Link to="https://bulbapedia.bulbagarden.net/wiki/List_of_Pokémon_by_National_Pokédex_number">Lista com todos os pokemons (bulbagarden)</Link>
+            <input className="pesquisa" value={pokemon} onChange={event => setpokemon(event.target.value)} placeholder="Ex: 'Pikachu' ou '6'"/>
+            <button className="pesquisa" onClick={handleClick}>Search</button> < br/> <br />
+            <Link to="https://bulbapedia.bulbagarden.net/wiki/List_of_Pokémon_by_National_Pokédex_number" className="link">Lista com todos os pokemons (bulbagarden)</Link> <br /> <br />
 
             {details && (
                 details.error ? (
