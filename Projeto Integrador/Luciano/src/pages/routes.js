@@ -4,7 +4,7 @@ import Header from '../components/Header'
 
 import Home from './home'
 import Favoritos from './favoritos'
-import Info from './informacoes'
+import Info from './info'
 
 function Rotas() {
     return (

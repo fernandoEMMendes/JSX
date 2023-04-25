@@ -2,6 +2,16 @@ body {
     background-color: lavender;
 }
 
+.texto {
+    font-family: 'Courier New', Courier, monospace ;
+    color: white;
+    text-shadow:
+    -2px 0px 0px black,
+    2px 0px 0px black,
+    0px -2px 0px black,
+    0px 2px 0px black;
+}
+
 .pesquisa {
     padding: 0.5rem;
     font-size: 1vw;
@@ -10,7 +20,7 @@ body {
 .link,
 link a:link,
 link a:visited {
-    font-size: 1vw;
+    font-size: 1.5vw;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-decoration: none;
     color: white;
