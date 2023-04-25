@@ -19,7 +19,9 @@ import "../../components/css/PaginaHome.css"
 
 function Inicio() {
     const [pokemon, setpokemon] = useState('');
+    
     const [details, setdetails] = useState(null);
+//    const [abilities, setabilities] = useState(null);
 
     //function campos() {
     //    if (pokemon === "") { alert("Por favor, forneça um nome ou número") }
@@ -31,9 +33,13 @@ function Inicio() {
         try {
             const response = await api.detalhe(pokemon)
             setdetails(response);
+//            const response2 = await api.detalhe(abilities)
+//            setabilities(response2);
         } catch (error) {
-            setdetails({ error: "Não encontrado" });
-        }
+            setdetails({ error: "not found" });
+        };
+
+
     };
 
     return (
@@ -41,7 +47,7 @@ function Inicio() {
             <h1>Procure por um Pokemon</h1> <br />
             <input className="pesquisa" value={pokemon} onChange={event => setpokemon(event.target.value)} placeholder="Ex: 'Pikachu' ou '6'" />
             <button className="pesquisa" onClick={handleClick}>Search</button> < br /> <br />
-            <Link to="https://bulbapedia.bulbagarden.net/wiki/List_of_Pokémon_by_National_Pokédex_number" className="link">Lista com todos os pokemons (bulbagarden)</Link> <br /> <br />
+            <Link to="https://bulbapedia.bulbagarden.net/wiki/List_of_Pokémon_by_National_Pokédex_number" className="link">Botão azul</Link> <br /> <br />
 
             {details && (
                 details.error ? (
@@ -51,8 +57,7 @@ function Inicio() {
                         <h1 className="texto">{details.name}</h1>
                         <img src={details.sprites.front_default} alt="Imagine algo legal aqui" />
                         <img src={details.sprites.back_default} alt="Imagine algo legal aqui" />
-                        <p>{details.height}</p>
-                        <p>{details.weight}</p>
+                        <p>{details.abilities}</p>
                     </div>
                 ))}
         </div>

@@ -1,29 +1,35 @@
-import { localeData } from "moment";
-import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 
-function Favoritos() {
-    const minhaLista = localStorage.getItem("@FilmesFavoritos")
-    const [filme, setfilme] = useState({})
+export default function Favoritos() {
 
-    var FilmesSalvos = JSON.parse(minhaLista)
-    setfilme(FilmesSalvos)
+    const [filmes, setFilmes] = useState([])
 
     useEffect(() => {
-        async function loadfavoritos() {
-            const response = await localStorage.getItem
-        }
-    })
+        const minhaLista = localStorage.getItem('@filmesfavoritos')
+        setFilmes(JSON.parse(minhaLista) || [])
+    }, [])
+
+    console.log(filmes)
 
 
 
     return (
+
         <div>
-            
+            {filmes.map((filme) => {
+                return (
+
+                    <article key={filme.id}>
+                        <h1 className='article'>{filme.title}</h1>
+                        <Link class="Detalhes" to={`/Detalhes/${filme.id}`}>Detalhes</Link><br />
+                        <button class="enviar">Excluir</button>
+                    </article>
+                )
+            })}
+            <div>
+            </div>
         </div>
     )
-
 }
-
-export default Favoritos

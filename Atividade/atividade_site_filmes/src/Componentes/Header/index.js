@@ -25,6 +25,7 @@ function Header() {
                     </div>
                 </div>
                 <Link to="/Contato"><h2 class="contato">Contato</h2></Link>
+                <Link to="/Favoritos"><h2 className="contato">Favoritos</h2></Link>
             </div>
 
         </>

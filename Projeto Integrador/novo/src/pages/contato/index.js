@@ -19,9 +19,10 @@ function Contato() {
 
     return (
         <>
-            <h2>Formulario</h2>
+            
             <div class="borda">
                 <div class="caixa">
+                   <h2>Formulario</h2>
                     <form onSubmit={Cadastro}>
                         <label>Nome:</label>
                         <input type="text"

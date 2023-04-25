@@ -26,7 +26,7 @@ a:hover {
 #area-cabecalho a:link,
 #area-cabecalho a:visited {
     color: darkseagreen;
-    PADDING: 8px 12px;
+    padding: 8px 12px;
 }
 
 #area-cabecalho a:hover {
