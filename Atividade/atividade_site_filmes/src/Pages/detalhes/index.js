@@ -5,7 +5,7 @@ import '../../Componentes/css/detalhes.css'
 import moment from 'moment'
 
 
-export default function Detalhes() {
+function Detalhes() {
     const { id } = useParams()
     const [filme, setFilme] = useState({})
 
@@ -21,8 +21,6 @@ export default function Detalhes() {
         }
         loadFilmeDetail()
     }, [id])
-
-    console.log(filme)
 
 
 
@@ -54,3 +52,5 @@ export default function Detalhes() {
         </div>
     )
 }
+
+export default Detalhes

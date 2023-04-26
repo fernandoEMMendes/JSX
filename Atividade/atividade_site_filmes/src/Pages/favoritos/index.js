@@ -11,7 +11,13 @@ export default function Favoritos() {
         setFilmes(JSON.parse(minhaLista) || [])
     }, [])
 
-    console.log(filmes)
+    function Excluirfilme(id) {
+        var filtroFilme = filmes.filter((item) => {
+            return (item.id !== id)
+        })
+        setFilmes(filtroFilme);
+        localStorage.setItem('@filmesfavoritos', JSON.stringify(filtroFilme))
+    }
 
 
 
@@ -22,9 +28,9 @@ export default function Favoritos() {
                 return (
 
                     <article key={filme.id}>
-                        <h1 className='article'>{filme.title}</h1>
+                        <a className='article'>{filme.title}</a> <br />
                         <Link class="Detalhes" to={`/Detalhes/${filme.id}`}>Detalhes</Link><br />
-                        <button class="enviar">Excluir</button>
+                        <button class="enviar" onClick={() => Excluirfilme (filme.id)}>Excluir</button>
                     </article>
                 )
             })}

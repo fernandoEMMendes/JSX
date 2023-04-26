@@ -10,8 +10,7 @@ import "../../components/css/PaginaHome.css"
 //colocar página de favoritos
 
 //colocar um botão abaixo do pokemon exibido que levara para página "mais informações"
-
-//página info está quebrada e inutilizada
+//página info está quebrada e inutilizada por agora
 
 //Consertar erro ao buscar sem nada na caixa de pesquisa
 
@@ -23,10 +22,10 @@ function Inicio() {
     const [details, setdetails] = useState(null);
 //    const [abilities, setabilities] = useState(null);
 
-    //function campos() {
-    //    if (pokemon === "") { alert("Por favor, forneça um nome ou número") }
-    //    return
-    //}
+//    function campos() {
+//        if (pokemon === "") { alert("Por favor, forneça um nome ou número") }
+//        return
+//    }
 
 
     const handleClick = async () => {
