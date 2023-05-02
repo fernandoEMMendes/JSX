@@ -113,7 +113,7 @@ function Produtos() {
                     Camisetas
                 </div>
                 <div>
-                    Supreme
+                    <a href="https://supremeus.shop/">Supreme (US)</a>
                 </div>
                 <div>
                     {valor}
@@ -123,7 +123,7 @@ function Produtos() {
                     Calças
                 </div>
                 <div>
-                    Nike
+                    <a href="https://www.nike.com/">Nike</a>
                 </div>
                 <div>
                     {valor2}
@@ -133,7 +133,7 @@ function Produtos() {
                     Calçados
                 </div>
                 <div>
-                    Mizuno
+                    <a href="https://www.mizuno.com.br/?gclid=Cj0KCQjw6cKiBhD5ARIsAKXUdyZ2TpqfLahEECOWlfwycHuyOUflP4LSwENN8omkU_ys3yEc9GyTs50aAg9NEALw_wcB">Mizuno</a>
                 </div>
                 <div>
                     {valor3}
@@ -143,7 +143,7 @@ function Produtos() {
                     Acessórios
                 </div>
                 <div>
-                    Oakley
+                    <a href="https://www.oakley.com/pt-br?cid=PM-SGA_000000-1.BR-Oakley-PT-B-Core-Exact_Core_oakley&s_kwcid=AL!16196!3!523560038078!e!!g!!oakley!13228350884!124383166924&gclid=Cj0KCQjw6cKiBhD5ARIsAKXUdyZFGstuI3i_iqmIDWiGpyFtO3WKUGPz_0EezgephBeFeQjpG1dCBtcaAg21EALw_wcB&gclsrc=aw.ds">Oakley</a>
                 </div>
                 <div>
                     {valor4}

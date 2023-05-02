@@ -23,6 +23,10 @@
     padding: 2rem 2rem;
 }
 
+.grid-container a:link, .grid-container a:visited {
+    color: black;
+}
+
 .legenda {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 1vw;
@@ -39,5 +43,5 @@
 .botao {
     height: 2rem;
     -ms-transform: translateX(500%);
-    transform: translateX(500%)
+    transform: translateX(500%);
     }
