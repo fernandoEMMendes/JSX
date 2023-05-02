@@ -1,10 +1,38 @@
 
 .grid-container{
-    text-align: center;
+    justify-content: center;
+    justify-content: space-around;
     display: grid;
     box-sizing: border-box;
-    row-gap: 0.5rem;
-    grid-template-columns: 30rem 30rem 30rem;
-    max-width: 50rem;
-    margin: 0.625rem;
+    border-radius: 1rem;
+    
+    margin-top: 2rem;
+    margin-left: 20rem;
+    margin-right: 20rem;
+    margin-bottom: 2rem;
+    
+    padding: 1rem;
+    gap: 1rem;
+    grid-template-columns: 12rem 12rem 12rem;
+    background-color: gray;
+}
+
+.grid-container div{
+    border-radius: 1rem;
+    background-color: white;
+    text-align: center;
+    padding: 2rem 2rem;
+}
+
+.legenda {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1vw;
+}
+
+.disponivel {
+    color: rgb(2, 177, 2);
+}
+
+.nao-disponivel {
+    color: red;
 }
