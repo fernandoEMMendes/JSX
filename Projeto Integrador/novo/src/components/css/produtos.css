@@ -1,23 +1,22 @@
-
-.grid-container{
+.grid-container {
     justify-content: center;
     justify-content: space-around;
     display: grid;
     box-sizing: border-box;
     border-radius: 1rem;
-    
+
     margin-top: 2rem;
     margin-left: 20rem;
     margin-right: 20rem;
     margin-bottom: 2rem;
-    
+
     padding: 1rem;
     gap: 1rem;
     grid-template-columns: 12rem 12rem 12rem;
     background-color: gray;
 }
 
-.grid-container div{
+.grid-container div {
     border-radius: 1rem;
     background-color: white;
     text-align: center;
@@ -36,3 +35,9 @@
 .nao-disponivel {
     color: red;
 }
+
+.botao {
+    height: 2rem;
+    -ms-transform: translateX(500%);
+    transform: translateX(500%)
+    }
