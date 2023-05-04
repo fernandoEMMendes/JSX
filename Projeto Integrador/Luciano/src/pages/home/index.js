@@ -18,28 +18,42 @@ import "../../components/css/PaginaHome.css"
 
 function Inicio() {
     const [pokemon, setpokemon] = useState('');
-    
-    const [details, setdetails] = useState(null);
-//    const [abilities, setabilities] = useState(null);
 
-//    function campos() {
-//        if (pokemon === "") { alert("Por favor, forneça um nome ou número") }
-//        return
-//    }
+    const [details, setdetails] = useState(null);
+    //    const [abilities, setabilities] = useState(null);
+
+    //    function campos() {
+    //        if (pokemon === "") { alert("Por favor, forneça um nome ou número") }
+    //        return
+    //    }
 
 
     const handleClick = async () => {
         try {
             const response = await api.detalhe(pokemon)
             setdetails(response);
-//            const response2 = await api.detalhe(abilities)
-//            setabilities(response2);
+            //            const response2 = await api.detalhe(abilities)
+            //            setabilities(response2);
         } catch (error) {
             setdetails({ error: "not found" });
         };
 
 
     };
+
+
+    function Info() {
+        const PokeInfo = localStorage.getItem('@pokemonescolhido')
+        var PokeEscolhido = JSON.parse(PokeInfo) || []
+        const verificar = PokeEscolhido.some((PokeInfo) => PokeInfo.id === undefined )
+        if (verificar) {} else {
+            alert('Por favor limpe o console!')
+        }
+
+        PokeEscolhido.push(pokemon)
+        localStorage.setItem('@pokemonescolhido', JSON.stringify(PokeEscolhido))
+    }
+
 
     return (
         <div>
@@ -56,7 +70,7 @@ function Inicio() {
                         <h1 className="texto">{details.name}</h1>
                         <img src={details.sprites.front_default} alt="Imagine algo legal aqui" />
                         <img src={details.sprites.back_default} alt="Imagine algo legal aqui" />
-                        <p>{details.abilities}</p>
+                        <button onClick={Info} to="/informacoes"></button>
                     </div>
                 ))}
         </div>
