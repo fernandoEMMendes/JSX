@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+}
+
+.area-cabecalho {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+    text-align: center;
+    justify-content: space-around;
+    background-color: blueviolet;
+}
+
+.area-cabecalho a:visited,
+.area-cabecalho a:link {
+    font-size: 30px;
+    color: white;
+    text-shadow: 3px 0 black, -3px 0 black, 0 3px black, 0 -3px black,
+        2px 2px black, -2px -2px black, 2px -2px black, -2px 2px black;
+    text-decoration: none;
+    font-style: oblique;
+    font-family: cursive;
+}
