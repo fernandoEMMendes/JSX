@@ -5,7 +5,7 @@
 .area-cabecalho {
     display: flex;
     flex-direction: row;
-    padding: 1rem;
+    padding: 0.5rem;
     text-align: center;
     justify-content: space-around;
     background-color: blueviolet;
