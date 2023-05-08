@@ -4,10 +4,19 @@ import "../../css/Header.css"
 function Header() {
     return (
         <div className="area-cabecalho">
-            <Link to="/">LOGO</Link>
-            <Link to="/Produtos">Produtos</Link>
-            <Link to="/QuemSomos">Quem Somos</Link>
-            <Link to="/Contato">Contato</Link>
+
+            <div className="dropdown">
+                <button className="dropdownbuton">LOGO</button>
+                <div className="dropdown-content">
+                    <Link to="/QuemSomos">Quem Somos</Link>
+                    <Link to="/Produtos">Produtos</Link>
+                </div>
+            </div>
+
+            <div className="linkcssdiv">
+                <Link to="/Contato" className="linkcss">Contato</Link>
+            </div>
+
         </div>
     )
 }
