@@ -14,8 +14,8 @@ class Cadastro extends Component {
         this.cadastrar = this.cadastrar.bind(this)
     }
 
-    cadastrar(event) {
-        event.preventDefault()
+    cadastrar(e) {
+        e.preventDefault()
         const { nome, email, senha, sexo } = this.state
         if (nome === '' || email === '' || senha === '' || sexo === '') {
             alert('Preencha todos os Campos')
