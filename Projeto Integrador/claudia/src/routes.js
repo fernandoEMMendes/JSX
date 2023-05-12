@@ -7,6 +7,7 @@ import Home from "./pages/Home"
 import QuemSomos from "./pages/QuemSomos"
 import Produtos from "./pages/Produtos";
 import Contato from "./pages/Contato";
+import Servicos from "./pages/Servicos";
 
 
 function Rotas() {
@@ -19,6 +20,7 @@ function Rotas() {
                     <Route path="/QuemSomos" element={<QuemSomos />} />
                     <Route path="/Produtos" element={<Produtos  />} />
                     <Route path="/Contato" element={<Contato />} />
+                    <Route path="/servicos" element={<Servicos />} />
                 </Routes>
                 <Footer />
             </BrowserRouter>
