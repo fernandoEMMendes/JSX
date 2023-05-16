@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route, } from "react-router-dom"
 
 import Header from './components/Header';
-import Footer from "./components/Footer";
 
 import Home from "./pages/Home"
 import QuemSomos from "./pages/QuemSomos"
@@ -22,7 +21,6 @@ function Rotas() {
                     <Route path="/Contato" element={<Contato />} />
                     <Route path="/servicos" element={<Servicos />} />
                 </Routes>
-                <Footer />
             </BrowserRouter>
         </div>
     )
