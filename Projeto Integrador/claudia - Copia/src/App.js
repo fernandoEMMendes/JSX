@@ -1,4 +1,5 @@
-import Rotas from "./pages/routes";
+import Rotas from "./routes"
+
 
 function App() {
   return (
