@@ -1,4 +1,3 @@
-import "../../css/Contato.css"
 import zapzap from "../../imgs/whatsapp.png"
 
 function Contato() {

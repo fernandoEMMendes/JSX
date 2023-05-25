@@ -1,23 +1,24 @@
-import { Link } from "react-router-dom";
-import "../../css/Header.css"
+import "./Header.css"
+import { Container, Nav, Navbar } from "react-bootstrap";
+
 
 function Header() {
     return (
-        <div className="area-cabecalho">
-
-            <div className="dropdown">
-                <button className="dropdownbuton">LOGO</button>
-                <div className="dropdown-content">
-                    <Link to="/QuemSomos">Quem Somos</Link>
-                    <Link to="/Produtos">Produtos</Link>
-                </div>
-            </div>
-
-            <div className="linkcssdiv">
-                <Link to="/Contato" className="linkcss">Contato</Link>
-            </div>
-
-        </div>
+        <Navbar className="BackgroundHeader" expand="lg">
+            <Container>
+                <Navbar.Brand href="/">
+                    LOGO
+                </Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="me-auto">
+                        <Nav.Link href="/Servicos">Serviços</Nav.Link>
+                        <Nav.Link href="/Produtos">Produtos</Nav.Link>
+                        <Nav.Link href="/QuemSomos">Quem Somos?</Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
     )
 }
 

@@ -1,0 +1,18 @@
+footer {
+    background-color: blueviolet;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    padding: 0.5rem;
+}
+
+footer a {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    margin-left: 34.3rem;
+    font-size: 1.5vw;
+    font-family: serif;
+    text-shadow: 2px 0 black, -2px 0 black, 0 2px black, 0 -2px black,
+        1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;     
+}

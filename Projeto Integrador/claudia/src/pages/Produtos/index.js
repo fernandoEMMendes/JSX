@@ -1,4 +1,4 @@
-import "../../css/Produtos.css"
+
 
 import vo3 from "../../imgs/IMG-20230511-WA0020.jpg"
 import vo3texto from "../../imgs/IMG-20230511-WA0021.jpg"
