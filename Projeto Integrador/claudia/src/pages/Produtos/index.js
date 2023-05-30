@@ -11,7 +11,7 @@ function Produtos() {
     return (
         <>
             <div className="align">
-                <Carousel className="carousel" interval="99999" variant="dark">
+                <Carousel interval="99999" variant="dark">
                     <Carousel.Item>
                         <img className="d-flex w-100" alt="tes" src={vo3} />
                     </Carousel.Item>
@@ -20,7 +20,7 @@ function Produtos() {
                     </Carousel.Item>
                 </Carousel>
                 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
-                <Carousel className="carousel" interval="99999" variant="dark">
+                <Carousel interval="99999" variant="dark">
                     <Carousel.Item>
                         <img className="d-flex w-100" alt="tes" src={capilarize} />
                     </Carousel.Item>

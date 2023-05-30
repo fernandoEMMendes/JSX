@@ -7,10 +7,5 @@
 }
 
 .align {
-    text-align: center;
-}
-
-.carousel {
-    width: 500px;
-    height: 500px;
+    width: 50%;
 }
