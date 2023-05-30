@@ -1,0 +1,16 @@
+.titulo {
+    text-decoration: none;
+    color: black;
+    font-size: 1.5vw;
+    text-align: center;
+    justify-items: center;
+}
+
+.align {
+    text-align: center;
+}
+
+.carousel {
+    width: 500px;
+    height: 500px;
+}
