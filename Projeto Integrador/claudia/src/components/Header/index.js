@@ -17,6 +17,7 @@ function Header() {
                             <Nav.Link className="TextHeader" href="/Servicos">Serviços</Nav.Link>
                             <Nav.Link href="/Produtos">Produtos</Nav.Link>
                             <Nav.Link href="/QuemSomos">Quem Somos?</Nav.Link>
+                            <Nav.Link href="/Contato">Contate-nos</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

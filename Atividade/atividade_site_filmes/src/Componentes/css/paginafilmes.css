@@ -12,7 +12,8 @@
     row-gap: 0.625rem;
     grid-template-columns: 30.625rem 30.625rem 30.625rem;
     max-width: 50rem;
-    margin: 0.625rem;
+    margin: -1rem;
+    margin-left: -5.2rem;
     box-sizing: border-box;
 }
 

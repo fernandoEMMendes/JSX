@@ -4,7 +4,6 @@ import api from '../../Services/api'
 import '../../Componentes/css/detalhes.css'
 import moment from 'moment'
 
-
 function Detalhes() {
     const { id } = useParams()
     const [filme, setFilme] = useState({})
