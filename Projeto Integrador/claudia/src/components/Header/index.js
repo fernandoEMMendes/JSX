@@ -5,8 +5,8 @@ import Nav from "react-bootstrap/Nav"
 
 function Header() {
     return (
-        <Container>
-            <Navbar className="BackgroundHeader" expand="lg">
+        <Container fluid>
+            <Navbar className="BackgroundHeader" expand="lg" fixed="top">
                 <Container>
                     <Navbar.Brand href="/">
                         LOGO
@@ -14,7 +14,7 @@ function Header() {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="/Servicos">Serviços</Nav.Link>
+                            <Nav.Link className="TextHeader" href="/Servicos">Serviços</Nav.Link>
                             <Nav.Link href="/Produtos">Produtos</Nav.Link>
                             <Nav.Link href="/QuemSomos">Quem Somos?</Nav.Link>
                         </Nav>

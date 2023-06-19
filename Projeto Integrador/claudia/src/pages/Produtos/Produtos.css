@@ -1,5 +1,4 @@
 
-
 .titulo {
     text-decoration: none;
     color: black;
@@ -8,6 +7,10 @@
     justify-items: center;
 }
 
-.align {
-    width: 25%;
+.alignProdutos {
+    width: 50%;
+}
+
+img {
+    border-radius: 1rem;
 }

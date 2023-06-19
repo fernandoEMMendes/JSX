@@ -1,4 +1,7 @@
 import Carousel from "react-bootstrap/Carousel"
+import Container from "react-bootstrap/Container"
+import Row from "react-bootstrap/Row"
+import Col from "react-bootstrap/Col"
 
 
 import "./Produtos.css"
@@ -11,25 +14,33 @@ import capilarizetexto from "../../imgs/IMG-20230511-WA0023cop.jpg"
 function Produtos() {
     return (
         <>
-            <div className="align">
-                <Carousel interval="99999" variant="dark">
-                    <Carousel.Item>
-                        <img className="d-flex w-100" alt="tes" src={vo3} />
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img className="d-flex w-100" alt="tes" src={vo3texto} />
-                    </Carousel.Item>
-                </Carousel>
-                <br />
-                <Carousel interval="99999" variant="dark">
-                    <Carousel.Item>
-                        <img className="d-flex w-100" alt="tes" src={capilarize} />
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img className="d-flex w-100" alt="tes" src={capilarizetexto} />
-                    </Carousel.Item>
-                </Carousel>
-            </div>
+            <Container>
+                <Row>
+                    <div>
+                        <Carousel className="alignProdutos" interval="99999" variant="dark">
+                            <Carousel.Item>
+                                <img className="d-flex w-100" alt="tes" src={vo3} />
+                            </Carousel.Item>
+                            <Carousel.Item>
+                                <img className="d-flex w-100" alt="tes" src={vo3texto} />
+                            </Carousel.Item>
+                        </Carousel>
+                    </div>
+                </Row>
+
+                <Row>
+                    <div>
+                        <Carousel className="alignProdutos" interval="99999" variant="dark">
+                            <Carousel.Item>
+                                <img className="d-flex w-100" alt="tes" src={capilarize} />
+                            </Carousel.Item>
+                            <Carousel.Item>
+                                <img className="d-flex w-100" alt="tes" src={capilarizetexto} />
+                            </Carousel.Item>
+                        </Carousel>
+                    </div>
+                </Row>
+            </Container >
         </>
     )
 }
