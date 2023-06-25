@@ -16,10 +16,9 @@ import SeriesPopulares from "./seriespopulares"
 import Contato from "./contato"
 
 import Detalhes from "./detalhes"
-import DetalhesSeries from "./detalhes_series"
+import Webseries from "./webseries"
 
 import Favoritos from "./favoritos"
-import FavoritosSeries from "./favoritos_series"
 
 // ":id" quer dizer que o (id) estara sempre mudando por conta dos dois pontos ":"
 
@@ -37,9 +36,8 @@ function Rota() {
                 <Route path="/SeriesPopulares" element={<SeriesPopulares />} />
                 <Route path="/Contato" element={<Contato />} />
                 <Route path="/Detalhes/:id" element={<Detalhes />} />
-                <Route path="/Detalhes_Series/:id" element={<DetalhesSeries />} />
                 <Route path="/Favoritos" element={<Favoritos />} />
-                <Route path="/Favoritos_Series" element={<FavoritosSeries />} />
+                <Route path="/webseries" element={<Webseries />} />
             </Routes>
             <Footer />
         </BrowserRouter>

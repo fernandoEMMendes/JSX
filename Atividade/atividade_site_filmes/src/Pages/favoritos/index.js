@@ -30,8 +30,9 @@ export default function Favoritos() {
 
                     <article key={filme.id}>
                         <a className='article'>{filme.title}</a> <br />
+                        
                         <Link class="Detalhes" to={`/Detalhes/${filme.id}`}>Detalhes</Link><br />
-                        <button class="enviar" onClick={() => Excluirfilme (filme.id)}>Excluir</button>
+                        <button class="enviar" onClick={() => Excluirfilme(filme.id)}>Excluir</button>
                     </article>
                 )
             })}

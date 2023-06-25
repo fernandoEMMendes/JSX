@@ -40,7 +40,7 @@ function SeriesNoAr() {
                             <p key={series.id}>
                                 <b>{series.name}</b> < br/>
                                 <div><img src={`https://image.tmdb.org/t/p/w300/${series.poster_path}`} alt={series.original_name}/></div>
-                                <Link to={`/Detalhes/${series.id}`}><a>Detalhes</a></Link> < br/>
+                                <Link to={`/Webseries`}><a>Detalhes</a></Link> < br/>
                             </p>
                         )
                     })}

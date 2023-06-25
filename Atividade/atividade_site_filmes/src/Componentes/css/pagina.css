@@ -7,29 +7,6 @@ p {
     font-size: 1.25rem;
 }
 
-.caixa {
-    display: flex;
-    flex-direction: column;
-    background-color: lavender;
-    margin: 1 auto;
-    border: 0.0625rem    black;
-    border-radius: 0.375rem;
-}
-
-.borda {
-    width: 18.75rem;
-    background-color: black;
-    margin: 0 auto;
-    border: 0.0625rem solid black;
-    border-radius: 0.375rem;
-}
-
-.areapostagem {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row
-}
-
 ::-webkit-scrollbar {
     display: none;
 }

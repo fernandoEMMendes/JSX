@@ -33,7 +33,7 @@ class Cadastro extends Component {
     render() {
         return (
             <div class="borda" >
-                <div class="caixa">
+                <div class="caixa2">
                     <h1> Contato </h1>
                     <form onSubmit={this.cadastrar}>
                         <label>Nome:</label>
