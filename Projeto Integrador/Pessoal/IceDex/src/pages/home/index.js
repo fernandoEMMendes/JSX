@@ -60,7 +60,7 @@ function Inicio() {
             <h1>Procure por um Pokemon</h1> <br />
             <input className="pesquisa" value={pokemon} onChange={event => setpokemon(event.target.value)} placeholder="Ex: 'Pikachu' ou '6'" />
             <button className="pesquisa" onClick={handleClick}>Search</button> < br /> <br />
-            <Link to="https://bulbapedia.bulbagarden.net/wiki/List_of_Pokémon_by_National_Pokédex_number" className="link">Botão azul</Link> <br /> <br />
+            <Link to="https://bulbapedia.bulbagarden.net/wiki/List_of_Pokémon_by_National_Pokédex_number" className="link">Bulbagarden</Link> <br /> <br />
 
             {details && (
                 details.error ? (
