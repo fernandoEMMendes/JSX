@@ -27,23 +27,23 @@ function Home() {
     function alert1() {
         alert(
             `cod_cliente: ${codcliente}
-            nome: ${nome} <br /> 
-            tel_fixo: ${tel_fixo} <br /> 
-            tel_cel: ${tel_cel} <br />
-            rua: ${rua} <br />
-            complemento: ${complemento} <br />
-            cep: ${cep} <br />
-            bairro: ${bairro} <br />
-            cidade: ${cidade} <br />
-            estado: ${estado} <br />`
+            nome: ${nome}
+            tel_fixo: ${tel_fixo} 
+            tel_cel: ${tel_cel}
+            rua: ${rua}
+            complemento: ${complemento}
+            cep: ${cep}
+            bairro: ${bairro}
+            cidade: ${cidade}
+            estado: ${estado}`
         )
     }
 
     function alert2() {
         alert(
-            `cpf: ${cpf} <br />
-            rg: ${rg} <br />
-            data_nascimento: ${data_nas} <br />`
+            `cpf: ${cpf}
+            rg: ${rg}
+            data_nascimento: ${data_nas}`
         )
     }
 
