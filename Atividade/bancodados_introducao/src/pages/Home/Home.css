@@ -3,3 +3,7 @@
     display: block;
     font-size: large;
 }
+
+body {
+    background-color: bisque;
+}
