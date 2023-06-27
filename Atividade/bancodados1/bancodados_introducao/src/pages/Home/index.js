@@ -23,22 +23,6 @@ function Home() {
     const [ie, setie] = useState("")
     const [sit_cadastro, setsit_cadastro] = useState("")
 
-
-    function alert1() {
-        alert(
-            `cod_cliente: ${codcliente}
-            nome: ${nome}
-            tel_fixo: ${tel_fixo} 
-            tel_cel: ${tel_cel}
-            rua: ${rua}
-            complemento: ${complemento}
-            cep: ${cep}
-            bairro: ${bairro}
-            cidade: ${cidade}
-            estado: ${estado}`
-        )
-    }
-
     function alert2() {
         alert(
             `cpf: ${cpf}
@@ -63,10 +47,12 @@ function Home() {
     }, [])
 
 
-    async function NoDefault(e) {
+    async function alert1(e) {
         e.preventDefault()
-        if (nome === "" || tel_cel === "") {
+        if (nome === "" || tel_cel === "" || rua === "" || complemento === "" || cep === "" || bairro === "" || cidade === "" || estado === "") {
             alert("Campos obrigatorios não preenchidos!")
+        } else {
+            alert(`nome: ${nome}\n tel_fixo: ${tel_fixo}\n tel_cel: ${tel_cel}\n rua: ${rua}\n complemento: ${complemento}\n cep: ${cep}\n bairro: ${bairro}\n cidade: ${cidade}\n estado: ${estado}`)
         }
     }
 
@@ -111,8 +97,8 @@ function Home() {
 
             <br />
 
-            <h1>Pessoa Fisica</h1>
-            <div>
+            <div className="align">
+                <h1>Pessoa Fisica</h1>
                 <form>
                     <label>cpf</label> <br />
                     <input type="text" name={setcpf} onChange={(e) => setcpf(e.target.value)} /> <br />
@@ -129,8 +115,8 @@ function Home() {
 
             <br />
 
-            <h1>Pessoa Juridica</h1>
-            <div>
+            <div className="align">
+                <h1>Pessoa Juridica</h1>
                 <form>
                     <label>cnpj</label> <br />
                     <input type="text" name={setcnpj} onChange={(e) => setcnpj(e.target.value)} /> <br />

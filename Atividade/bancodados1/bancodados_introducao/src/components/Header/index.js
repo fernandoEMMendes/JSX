@@ -1,11 +1,16 @@
-
+import "./Header.css"
 
 function Header() {
-    return(
-        <div>
-            <a href="/">Home</a> <br />
-            <a href="/pag2">Pag2</a> <br /> <br /> <br />
-        </div>
+    return (
+        <>
+            <div className="alignLink">
+                <a href="/">Home</a>
+            </div>
+
+            <div className="alignLink">
+                <a href="/pag2">Pag2</a> <br /> <br /> <br />
+            </div>
+        </>
     )
 }
 

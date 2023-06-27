@@ -1,0 +1,6 @@
+.alignLink {
+    display: flex;
+    text-align: center;
+    font-size: large;
+    justify-content: center;
+}
