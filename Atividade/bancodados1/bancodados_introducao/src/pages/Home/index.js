@@ -55,6 +55,13 @@ function Home() {
         )
     }
 
+    useEffect(() => {
+        function cliente() {
+            setcliente(Math.round(Math.random() * 9999))
+        }
+        cliente()
+    }, [])
+
 
 
     return (
@@ -95,7 +102,7 @@ function Home() {
                     <button onClick={alert1} type="submit">submit</button>
                 </form>
             </div>
-            
+
             <br />
 
             <h1>Pessoa Fisica</h1>
