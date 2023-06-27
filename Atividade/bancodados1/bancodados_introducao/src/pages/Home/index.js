@@ -63,41 +63,47 @@ function Home() {
     }, [])
 
 
+    async function NoDefault(e) {
+        e.preventDefault()
+        if (nome === "" || tel_cel === "") {
+            alert("Campos obrigatorios não preenchidos!")
+        }
+    }
 
     return (
-        <div className="align">
-            <div>
+        <div>
+            <div className="align">
                 <h1>Cliente</h1>
                 <form>
                     <label>Codigo do cliente</label> <br />
                     <input disabled type="text" value={codcliente} onChange={(e) => setcliente(e.target.value)} /> <br /> <br /> <br />
 
                     <label >Nome Completo</label> <br />
-                    <input type="text" value={nome} onChange={(e) => setnome(e.target.value)} /> <br />
+                    <input required type="text" value={nome} onChange={(e) => setnome(e.target.value)} placeholder="obrigatório" /> <br />
 
                     <label>Telefone Fixo</label> <br />
                     <input type="text" value={settel_fixo} onChange={(e) => settel_fixo(e.target.value)} /> <br />
 
                     <label>Telefone Celular</label> <br />
-                    <input type="text" value={settel_cel} onChange={(e) => settel_cel(e.target.value)} /> <br />
+                    <input required type="text" value={settel_cel} onChange={(e) => settel_cel(e.target.value)} placeholder="obrigatório" /> <br />
 
                     <label>Rua</label> <br />
-                    <input type="text" value={setrua} onChange={(e) => setrua(e.target.value)} /> <br />
+                    <input required type="text" value={setrua} onChange={(e) => setrua(e.target.value)} placeholder="obrigatório" /> <br />
 
-                    <label>complemento</label> <br />
-                    <input type="text" value={setcomplemento} onChange={(e) => setcomplemento(e.target.value)} /> <br />
+                    <label>complemento(N° da moradia ou andar+N°)</label> <br />
+                    <input required type="text" value={setcomplemento} onChange={(e) => setcomplemento(e.target.value)} placeholder="obrigatório" /> <br />
 
                     <label>cep</label> <br />
-                    <input type="text" value={setcep} onChange={(e) => setcep(e.target.value)} /> <br />
+                    <input required type="text" value={setcep} onChange={(e) => setcep(e.target.value)} placeholder="obrigatório" /> <br />
 
                     <label>bairro</label> <br />
-                    <input type="text" value={setbairro} onChange={(e) => setbairro(e.target.value)} /> <br />
+                    <input required type="text" value={setbairro} onChange={(e) => setbairro(e.target.value)} placeholder="obrigatório" /> <br />
 
                     <label>cidade</label> <br />
-                    <input type="text" value={setcidade} onChange={(e) => setcidade(e.target.value)} /> <br />
+                    <input required type="text" value={setcidade} onChange={(e) => setcidade(e.target.value)} placeholder="obrigatório" /> <br />
 
                     <label>estado</label> <br />
-                    <input type="text" value={setestado} onChange={(e) => setestado(e.target.value)} /> <br />
+                    <input required type="text" value={setestado} onChange={(e) => setestado(e.target.value)} placeholder="obrigatório" /> <br />
 
                     <button onClick={alert1} type="submit">submit</button>
                 </form>

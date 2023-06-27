@@ -1,3 +1,4 @@
-.espacamento{
-    justify-content: space-between;
+.align{
+    display: block;
+    text-align: center;
 }
