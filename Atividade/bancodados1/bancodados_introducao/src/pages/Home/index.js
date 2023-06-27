@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import api from "../../services/api"
 import "./Home.css"
 
 function Home() {
@@ -45,6 +46,15 @@ function Home() {
         }
         cliente()
     }, [])
+
+    useEffect(() => {
+        async function viacep() {
+            const response = await api.get(`/cep`)
+
+            viacep(response.data.results)
+        };
+        viacep()
+    }, []);
 
 
     async function alert1(e) {
