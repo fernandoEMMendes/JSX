@@ -10,6 +10,7 @@ export default function Home() {
     function ataque() {
         if (vida2 <= 0) {
             alert("Venceu!")
+            return
         } else {
             //calculo - erro (personagem) + critico (inimigo)
             if (Math.round(Math.random() * 10) <= 1) {
@@ -33,6 +34,7 @@ export default function Home() {
 
         if (vida <= 0) {
             alert("Perdeu!")
+            return
         } else {
             //calculo - erro (inimigo) ou dano (inimigo)
             if (Math.round(Math.random() * 10) <= 1) {
@@ -47,41 +49,46 @@ export default function Home() {
     }
 
     function cura() {
-        if (vida <= 0) {
-            alert("Perdeu!")
+
+        if (vida2 <= 0) {
+            alert("Venceu!")
+            return
         } else {
-
-            //calculo - erro (personagem)
-            if (Math.round(Math.random() * 20 <= 1)) {
-                alert("Você recua, colocando-o em um estado defensivo [+50% DEF] e utiliza um elixir de cor carmesim.")
-                alert("infelizmente você se descuida e deixa o frasco cair, quebrando-o em pedaços e deixando o líquido vermelho entrar em meio ao terreno rochoso")
-
-                //calculo - erro (inimigo)
-                if (Math.round(Math.random() * 10) <= 1) {
-
-                    alert("O inimigo errou! Considere-se a salvo.")
-                    return
-
-                } else {
-                    setvida(vida - Math.round(Math.random() * 4 + 1))
-                    return
-                }
-
-            } else {
-                alert("Você recua, colocando-o em um estado defensivo [+50% DEF] e utiliza um elixir de cor carmesim.")
-                setvida(vida + 25)
-
-                //calculo - erro (inimigo)
-                if (Math.round(Math.random() * 10) <= 1) {
-
-                    alert("O inimigo errou! Considere-se a salvo.")
-                    return
-
-                } else {
-                    setvida(vida - Math.round(Math.random() * 4 + 1))
-                }
+            if (vida <= 0) {
+                alert("Perdeu!")
                 return
+            } else {
 
+                //calculo - erro (personagem)
+                if (Math.round(Math.random() * 20 <= 1)) {
+                    alert("Você recua, colocando-o em um estado defensivo [+50% DEF], infelizmente você se descuida e deixa o frasco cair, quebrando-o em pedaços e deixando o líquido vermelho entrar em meio ao terreno rochoso")
+
+                    //calculo - erro (inimigo)
+                    if (Math.round(Math.random() * 10) <= 1) {
+
+                        alert("O inimigo errou! Considere-se a salvo.")
+                        return
+
+                    } else {
+                        setvida(vida - Math.round(Math.random() * 4 + 1))
+                        return
+                    }
+
+                } else {
+                    alert("Você recua, colocando-o em um estado defensivo [+50% DEF] e utiliza um elixir de cor carmesim.")
+                    setvida(vida + (25))
+
+                    //calculo - erro (inimigo)
+                    if (Math.round(Math.random() * 10) <= 1) {
+
+                        alert("O inimigo errou! Considere-se a salvo.")
+
+                    } else {
+                        setvida(vida - Math.round(Math.random() * 4 + 1))
+                        setvida(vida + (25))
+                    }
+
+                }
             }
         }
     }
