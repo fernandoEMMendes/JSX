@@ -1,7 +1,11 @@
 import axios from "axios"
 
 const api = axios.create({
-    baseURL: "viacep.com.br/ws"
+    baseURL: "https://viacep.com.br/ws",
+    headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json"
+    }
 })
 
 
