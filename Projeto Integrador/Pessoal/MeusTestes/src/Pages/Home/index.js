@@ -101,7 +101,7 @@ export default function Home() {
                 <button onClick={cura}>Cura (Efeito: +25HP [95%])</button><br /> <br />
 
                 <a>HP: {vida}</a> <br /> <br />
-                <a>(-_-)</a><br /><br />
+                <a>(-_-)</a><br /><br /> <br />
 
                 <a>HP: {vida2}</a><br />
                 <a>FOR: (1 x D10)</a><br /> <br />
