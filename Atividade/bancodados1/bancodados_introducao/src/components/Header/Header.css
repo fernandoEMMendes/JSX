@@ -4,3 +4,7 @@
     font-size: large;
     justify-content: center;
 }
+
+.alignLink a:visited {
+    color: blue;
+}

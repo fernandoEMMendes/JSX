@@ -1,17 +1,21 @@
+import { useState } from "react"
+
+function Pag2() {
+
 const [cpf, setcpf] = useState("")
 const [rg, setrg] = useState("")
 const [data_nas, setdata_nas] = useState("")
-
-function alert2() {
-    alert(
-        `cpf: ${cpf}
+    
+    function alert2() {
+        alert(
+            `cpf: ${cpf}
         rg: ${rg}
         data_nascimento: ${data_nas}`
-    )
-}
+        )
+    }
 
 
-function Pag2() {
+
     return (
         <div>
             <h1>Pessoa Fisica</h1>

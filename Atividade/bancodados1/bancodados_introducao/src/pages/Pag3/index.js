@@ -1,17 +1,21 @@
-const [cnpj, setcnpj] = useState("")
-const [ie, setie] = useState("")
-const [sit_cadastro, setsit_cadastro] = useState("")
-
-function alert3() {
-    alert(
-        `cnpj: ${cnpj}
-        ie: ${ie}
-        situação: ${sit_cadastro}`
-    )
-}
-
+import { useState } from "react"
 
 function Pag3() {
+
+    const [cnpj, setcnpj] = useState("")
+    const [ie, setie] = useState("")
+    const [sit_cadastro, setsit_cadastro] = useState("")
+
+    function alert3() {
+        alert(
+            `cnpj: ${cnpj}
+        ie: ${ie}
+        situação: ${sit_cadastro}`
+        )
+    }
+
+
+
     return (
         <div>
             <h1>Pessoa Juridica</h1>
