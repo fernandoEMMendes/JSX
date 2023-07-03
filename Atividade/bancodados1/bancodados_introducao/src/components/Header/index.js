@@ -8,7 +8,11 @@ function Header() {
             </div>
 
             <div className="alignLink">
-                <a href="/pag2">Pag2</a> <br /> <br /> <br />
+                <a href="/pag2">Pag2</a>
+            </div>
+
+            <div className="alignLink">
+                <a href="/pag3">Pag3</a>
             </div>
         </>
     )
