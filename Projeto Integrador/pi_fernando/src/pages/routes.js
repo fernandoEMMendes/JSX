@@ -6,6 +6,7 @@ import Footer from "../components/Footer"
 import Home from "./Home"
 import RoupaCasual from "./RoupaCasual"
 import RoupaFormal from "./RoupaFormal"
+import Contato from "./contato"
 
 export default function Rotas() {
     return (
@@ -15,6 +16,7 @@ export default function Rotas() {
                 <Route path="/" element={<Home />} />
                 <Route path="/RF" element={<RoupaFormal />} />
                 <Route path="/RC" element={<RoupaCasual />} />
+                <Route path="/Contato" element={<Contato />} />
             </Routes>
             <Footer />
         </BrowserRouter>

@@ -17,3 +17,14 @@
     bottom: 0;
     text-align: center;
 }
+
+
+a {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+}
+
+a:link {
+    color: blue;
+    text-decoration: none;
+}

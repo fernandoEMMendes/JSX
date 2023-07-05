@@ -1,4 +1,6 @@
 import "./Home.css"
+import casual from "../../imgs/download.jpg"
+import formal from "../../imgs/ds.png"
 import demo from "../../imgs/demoman 4k.jpeg"
 
 
@@ -44,14 +46,16 @@ export default function Home() {
 
             <br /> <br /> <br />
 
-            <div>
+            <div className="aligntitle">
                 <h3>google maps aqui</h3>
             </div>
 
             <br /> <br />
 
-            <div>
-                <h3>Encontrou algum erro ou gostaria de enviar alguma recomendação?</h3><a href="/contato">Contate-nos</a>
+            <div className="aligntitle">
+                <a>Encontrou algum erro ou gostaria de enviar alguma recomendação?</a>
+                <br />
+                <a href="/contato">Contate-nos</a>
             </div>
 
         </>
