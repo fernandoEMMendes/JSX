@@ -3,7 +3,7 @@ import api from "../../services/apiCep"
 import apiBack from "../../services/apiBack"
 import "./Home.css"
 
-import { Navigate, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 function Home() {
 
@@ -73,7 +73,6 @@ function Home() {
             tel_fixo,
             tel_cel,
             rua,
-            //numero,
             complemento,
             cep,
             bairro,

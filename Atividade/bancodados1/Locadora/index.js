@@ -35,7 +35,7 @@ const db = mysql.createPool({
 })
 
 
-
+//como para coletar as informações do front-end E envia-los para a DB
 app.post("/CadastroCliente", (req, res) => {
     //req(requisição).body(JSON).codcliente(qual constante quero pegar as infos, O NOME DEVE SER O MESMO)
     const codcliente = req.body.codcliente
@@ -65,6 +65,18 @@ app.post("/CadastroCliente", (req, res) => {
 })
 
 
+//comando para selecionar dados da tabela
+app.get("/VerDados", (req, res) => {
+    db.query(
+    "SELECT * FROM cliente",
+    (err, result) => {
+        if (err) {
+            res.send({ msg: "Dados não encontrado"})
+        }
+        res.send(result)
+    }
+    )
+})
 
 app.listen(3333, () => {
     console.log("Servidor rodando na porta 3333")
