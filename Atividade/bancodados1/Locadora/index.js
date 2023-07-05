@@ -26,6 +26,16 @@ app.use(cors())
 //})
 
 
+//criar uma constante que especificara para qual DB as informações devem ser enviadas
+const db = mysql.createPool({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'locadora'
+})
+
+
+
 app.post("/CadastroCliente", (req, res) => {
     //req(requisição).body(JSON).codcliente(qual constante quero pegar as infos, O NOME DEVE SER O MESMO)
     const codcliente = req.body.codcliente
@@ -33,20 +43,26 @@ app.post("/CadastroCliente", (req, res) => {
     const tel_cel = req.body.tel_cel
     const tel_fixo = req.body.tel_fixo
     const rua = req.body.rua
-    const numero = req.body.numero
+
     const complemento = req.body.complemento
     const cep = req.body.cep
     const bairro = req.body.bairro
     const cidade = req.body.cidade
     const estado = req.body.estado
 
-    console.log(codcliente, nome, tel_cel, tel_fixo, rua, numero, complemento, cep, bairro, cidade, estado)
+    db.query(
+        'INSERT INTO cliente ( cod_cliente, nome, tel_fixo, tel_celular, rua, complemento, cep, bairro, cidade, estado) VALUES (?,?,?,?,?,?,?,?,?,?)',
+        [codcliente, nome, tel_fixo, tel_cel, rua, complemento, cep, bairro, cidade, estado],
+        (err) => {
+            if (err) {
+                res.send(err)
+            }
+            res.send({ msg: 'Cliente Cadastrado com Sucesso' })
+
+
+        }
+    )
 })
-
-
-
-
-
 
 
 

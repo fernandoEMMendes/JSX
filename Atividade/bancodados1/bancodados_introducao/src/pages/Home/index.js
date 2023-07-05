@@ -3,7 +3,11 @@ import api from "../../services/apiCep"
 import apiBack from "../../services/apiBack"
 import "./Home.css"
 
+import { Navigate, useNavigate } from "react-router-dom"
+
 function Home() {
+
+    const navigate = useNavigate()
 
     const [codcliente, setcliente] = useState("")
 
@@ -11,7 +15,7 @@ function Home() {
     const [tel_fixo, settel_fixo] = useState("")
     const [tel_cel, settel_cel] = useState("")
     const [rua, setrua] = useState("")
-    const [numero, setnumero] = useState("")
+    //const [numero, setnumero] = useState("")
     const [complemento, setcomplemento] = useState("")
     const [cep, setcep] = useState("")
     const [bairro, setbairro] = useState("")
@@ -60,7 +64,7 @@ function Home() {
     async function alert1(e) {
         e.preventDefault()
 
-        alert(`nome: ${nome}\n tel_fixo: ${tel_fixo}\n tel_cel: ${tel_cel}\n rua: ${rua}\n numero: ${numero} \n complemento: ${complemento}\n cep: ${cep}\n bairro: ${bairro}\n cidade: ${cidade}\n estado: ${estado}`)
+        //alert(`nome: ${nome}\n tel_fixo: ${tel_fixo}\n tel_cel: ${tel_cel}\n rua: ${rua}\n numero: ${numero} \n complemento: ${complemento}\n cep: ${cep}\n bairro: ${bairro}\n cidade: ${cidade}\n estado: ${estado}`)
         console.log(cep)
 
         apiBack.post("/CadastroCliente", {
@@ -69,13 +73,14 @@ function Home() {
             tel_fixo,
             tel_cel,
             rua,
-            numero,
+            //numero,
             complemento,
             cep,
             bairro,
             cidade,
             estado
         })
+        navigate("/pagm")
     }
 
     return (
@@ -97,9 +102,6 @@ function Home() {
 
                     <label>cep</label> <br />
                     <input required type="text" value={cep} onBlur={Handlecep} onChange={(e) => setcep(e.target.value)} placeholder="(obrigatório)" /> <br />
-
-                    <label>Número</label> <br />
-                    <input required type="text" value={numero} onChange={(e) => setnumero(e.target.value)} placeholder="N° da moradia (obrigatório)" /> <br />
 
                     <label>complemento (N°) ou (andar + N°)</label> <br />
                     <input type="text" value={complemento} onChange={(e) => setcomplemento(e.target.value)} placeholder="Ex: andar" /> <br />
