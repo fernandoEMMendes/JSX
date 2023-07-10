@@ -20,7 +20,7 @@ export default function Home() {
                         <div className="col-md">
 
                             <div className="card bg-dark w-100">
-                                <img className="card-img-top" src={demo} width="300" href="/RC" />
+                                <img className="card-img-top" src={formal} width="300" href="/RC" />
                                 <div className="card-body">
                                     <a role="button" className="btn btn-lg btn-primary text-light" href="/RC">Que tal algo Casual?</a>
                                 </div>
@@ -32,7 +32,7 @@ export default function Home() {
                         <div className="col-md">
 
                             <div className="card bg-dark w-100">
-                                <img className="card-img-top" src={demo} width="300" href="/RF" />
+                                <img className="card-img-top" src={formal} width="300" href="/RF" />
                                 <div className="card-body">
                                     <a href="/RF"  role="button" className="btn btn-lg btn-primary text-light" >Ou algo mais Formal?</a>
                                 </div>
