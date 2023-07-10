@@ -1,10 +1,11 @@
 .alignLink {
-    display: flex;
+
     text-align: center;
-    font-size: large;
-    justify-content: center;
+    font-size: larger;
+    text-decoration: none;
 }
 
 .alignLink a:visited {
     color: blue;
+    text-decoration: none;
 }

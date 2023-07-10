@@ -5,11 +5,10 @@ function Header() {
         <>
             <div className="alignLink">
                 <a href="/">Home</a>
-            </div>
-
-
-            <div className="alignLink">
+                <br />
                 <a href="/pagm">PagM</a>
+                <br/>
+                <a href="/pagv">PagV</a>
             </div>
         </>
     )
