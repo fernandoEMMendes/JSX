@@ -70,9 +70,24 @@ app.post("/CadastroCliente", (req, res) => {
 
 
 //comando para visualizar dados da tabela
-app.get("/VerDados", (req, res) => {
+app.get("/VerDados/", (req, res) => {
     db.query(
         "SELECT * FROM cliente",
+        (err, result) => {
+            if (err) {
+                res.send({ msg: "Dados não encontrado" })
+            }
+            res.send(result)
+        }
+    )
+})
+
+//comando para visualizar dados unicos
+app.get("/VerDadosUnico/:id", (req, res) => {
+    const { id } = req.params
+    db.query(
+        "SELECT * FROM cliente WHERE cod_cliente = ?",
+        [id],
         (err, result) => {
             if (err) {
                 res.send({ msg: "Dados não encontrado" })
@@ -85,16 +100,33 @@ app.get("/VerDados", (req, res) => {
 //comando para deletar dados da tabela
 app.delete(`/deleteUser/:id`, (req, res) => {
     const { id } = req.params
-    console.log(id)
     db.query(
         "DELETE FROM cliente WHERE id_cliente = ?",
-        [id],     
+        [id],
+        (err, result) => {
+            if (err) {
+                res.send({ msg: "Dados não encontrado" })
+            }
+            res.send({ msg: "Deletado com sucesso"})
+        }
     )
 })
 
 //comando para editar dados da tabela
-app.put(`/editUser/:id`, (req, res) => {
-    const {id} = req.params
+app.put(`/AlterarDados/:id`, (req, res) => {
+    const { id } = req.params
+    const Alterar = req.body.nome
+
+    db.query(
+        "UPDATE cliente SET nome = ? WHERE cod_cliente = ?",
+        [Alterar, id],
+        (err, result) => {
+            if (err) {
+                res.send({ msg: "Dados não encontrado" })
+            }
+            res.send({ msg: "Altereação feita com sucesso"})
+        }
+    )
 })
 
 
