@@ -1,0 +1,15 @@
+.aligntitle{
+    text-align: center;
+}
+
+.imgs {
+    text-align: center;
+    display: grid;
+    row-gap: 0.5rem;
+    padding-left: 15.4rem;
+    grid-template-columns: 30rem 30rem 30rem;
+    max-width: 50rem;
+    margin: 1rem;
+    margin-left: -5.2rem;
+    box-sizing: border-box;
+}

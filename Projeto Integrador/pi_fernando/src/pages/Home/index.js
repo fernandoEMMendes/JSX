@@ -14,13 +14,13 @@ export default function Home() {
 
 
             <div className="aligncard">
-                <div className="container">
+                <div className="container-fluid container-sm">
                     <div className="row">
 
-                        <div className="col-md">
+                        <div className="col ">
 
-                            <div className="card bg-dark w-100">
-                                <img className="card-img-top" src={formal} width="300" href="/RC" />
+                            <div className="card bg-dark" >
+                                <img className="card-img-top" src={formal} style={{ width: 300, height: 300 }} href="/RC" alt="" />
                                 <div className="card-body">
                                     <a role="button" className="btn btn-lg btn-primary text-light" href="/RC">Que tal algo Casual?</a>
                                 </div>
@@ -29,12 +29,12 @@ export default function Home() {
                         </div>
 
 
-                        <div className="col-md">
+                        <div className="col">
 
-                            <div className="card bg-dark w-100">
-                                <img className="card-img-top" src={formal} width="300" href="/RF" />
+                            <div className="card bg-dark" >
+                                <img className="card-img-top" src={formal} style={{ width: 300, height: 300 }} href="/RF" alt="" />
                                 <div className="card-body">
-                                    <a href="/RF"  role="button" className="btn btn-lg btn-primary text-light" >Ou algo mais Formal?</a>
+                                    <a href="/RF" role="button" className="btn btn-lg btn-primary text-light" >Ou algo mais Formal?</a>
                                 </div>
                             </div>
 
