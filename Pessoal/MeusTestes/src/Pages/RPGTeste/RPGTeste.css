@@ -1,0 +1,19 @@
+h1 {
+    text-align: center;
+}
+
+.habilidades{
+    text-align: center;
+}
+
+.personagem{
+margin-top: 2rem;
+margin-left: 43rem;
+justify-content: space-around;
+}
+
+.inimigo{
+    margin-top: 2rem;
+    margin-right: 40rem;
+    justify-content: space-around;
+}

@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, } from "react-router-dom"
 
-import Home from "./Pages/Home"
+import RPGTeste from "./Pages/RPGTeste"
 
 
 function Rotas() {
@@ -8,7 +8,7 @@ function Rotas() {
         <div>
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={<Home />} />
+                    <Route path="/" element={<RPGTeste />} />
                 </Routes>
             </BrowserRouter>
         </div>
