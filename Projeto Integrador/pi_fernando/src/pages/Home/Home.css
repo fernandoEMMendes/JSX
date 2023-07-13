@@ -7,17 +7,13 @@
     text-align: center;
 }
 
-.aligncard img{
-    width: 100%;
+.info{
+    text-decoration: underline;
 }
 
-.alignfooter{
-    color: white;
-    background: black;
-    bottom: 0;
-    text-align: center;
+.infoimg{
+    border-radius: 1rem;
 }
-
 
 a {
     font-family: 'Times New Roman', Times, serif;

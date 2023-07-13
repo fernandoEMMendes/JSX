@@ -13,17 +13,44 @@ export default function RoupaCasual() {
     return (
         <>
             <div className="aligntitle">
-                <h1>Roupa Casual</h1>
+                <h1>Casual</h1>
             </div>
 
-            <div className="imgs">
-                <img className="img-fluid img-thumbnail" src={casualM1} alt="img1" style={{ width: 300 }} />
-                <img className="img-fluid img-thumbnail" src={casualM2} alt="img2" style={{ width: 300 }} />
-                <img className="img-fluid img-thumbnail" src={casualM3} alt="img3" style={{ width: 300 }} />
+            <div className="container-xxl">
 
-                <img className="img-fluid img-thumbnail" src={casualF1} alt="img4" style={{ height: 380, width: 300 }} />
-                <img className="img-fluid img-thumbnail" src={casualF2} alt="img5" style={{ width: 300 }} />
-                <img className="img-fluid img-thumbnail" src={casualF3} alt="img6" style={{ height: 380, width: 300 }} />
+                <div className="row justify-content-md-center">
+
+                    <div className="col-md-3">
+                        <img className="img-fluid img-thumbnail" src={casualM1} alt="img1" style={{ width: 300 }} />
+                    </div>
+
+                    <div className="col-md-3">
+                        <img className="img-fluid img-thumbnail" src={casualM2} alt="img2" style={{ width: 300 }} />
+                    </div>
+
+                    <div className="col-md-3">
+                        <img className="img-fluid img-thumbnail" src={casualM3} alt="img3" style={{ width: 300 }} />
+                    </div>
+
+                </div>
+
+                <br />
+                
+                <div className="row justify-content-center">
+
+                    <div className="col-md-3">
+                        <img className="img-fluid img-thumbnail" src={casualF1} alt="img4" style={{ width: 300 }} />
+                    </div>
+
+                    <div className="col-md-3">
+                        <img className="img-fluid img-thumbnail" src={casualF2} alt="img5" style={{ width: 300 }} />
+                    </div>
+
+                    <div className="col-md-3">
+                        <img className="img-fluid img-thumbnail" src={casualF3} alt="img6" style={{ width: 300 }} />
+                    </div>
+
+                </div>
             </div>
         </>
     )
