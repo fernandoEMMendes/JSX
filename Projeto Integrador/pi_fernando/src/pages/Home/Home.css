@@ -1,3 +1,15 @@
+a {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+
+
+
 
 .aligntitle {
     text-align: center;
@@ -13,11 +25,6 @@
 
 .infoimg{
     border-radius: 1rem;
-}
-
-a {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 30px;
 }
 
 a:link {

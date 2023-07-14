@@ -6,36 +6,45 @@ export default function Home() {
 
     const [vida, setvida] = useState(100)
     const [vida2, setvida2] = useState(100)
+    const [pers, setpers] = useState(" o (o_-) o|)->")
+
+
+
+
+
 
     function ataque() {
+
         if (vida2 <= 0) {
             alert("Venceu!")
             return
         } else {
-            //calculo - erro (personagem) + critico (inimigo)
-            if (Math.round(Math.random() * 10) <= 1) {
+            if (vida <= 0) {
+                alert("Perdeu!")
+                return
+            } else {
 
-                alert("O ataque falhou! Você abaixou sua defesa o suficiente para um acerto crítico!")
+                //calculo - erro (personagem) + critico (inimigo)
                 if (Math.round(Math.random() * 10) <= 1) {
 
-                    alert("O inimigo errou! Considere-se a salvo.")
+                    alert("O ataque falhou! Você abaixou sua defesa o suficiente para um acerto crítico!")
+                    if (Math.round(Math.random() * 10) <= 1) {
+
+                        alert("O inimigo errou! Considere-se a salvo.")
+                        return
+
+                    } else {
+                        setvida(vida - Math.round(Math.random() * 9 + 11))
+                    }
                     return
 
+                    //calculo dano (personagem)
                 } else {
-                    setvida(vida - Math.round(Math.random() * 9 + 11))
+                    setvida2(vida2 - Math.round(Math.random() * 4 + 1))
                 }
-                return
-
-                //calculo dano (personagem)
-            } else {
-                setvida2(vida2 - Math.round(Math.random() * 4 + 1))
             }
-        }
 
-        if (vida <= 0) {
-            alert("Perdeu!")
-            return
-        } else {
+
 
             //calculo - erro (inimigo) ou dano (inimigo)
             if (Math.round(Math.random() * 10) <= 1) {
@@ -48,6 +57,11 @@ export default function Home() {
             }
         }
     }
+
+
+
+
+
 
     function cura() {
 
@@ -106,26 +120,38 @@ export default function Home() {
 
 
 
+    function funny() {
+        setpers("( ▀ ͜͞ʖ▀) /̵͇̿̿/’̿’̿ ̿ ̿̿ ̿̿ ̿̿")
+        setvida2(vida2 - 100)
+    }
+
+
+
+
+
+
+
     return (
         <>
             <div>
                 <div className="habilidades">
                     <h1>Teste</h1><br /><br />
-                    <button onClick={ataque}>Magia (Força: 1 x D5 [90%])</button>
+                    <button onClick={ataque}>Arco (Força: 1 x D5 [90%])</button>
                     <button onClick={cura}>Cura (Efeito: +25HP [95%])</button><br /> <br />
+                    <button onClick={funny}>9mm</button>
                 </div>
             </div>
 
-            <div className="container-fluid">
+            <div className="container personagem">
                 <div className="row">
-                    <div className="col personagem">
+                    <div className="col">
                         <a>HP: {vida}</a> <br />
                         <a>???: ???</a> <br />
                         <a>???: ???</a> <br /> <br />
-                        <a>{" o (o_-) o|)->"}</a>
+                        <a>{pers}</a>
                     </div>
 
-                    <div className="col inimigo">
+                    <div className="col">
                         <a>HP: {vida2}</a>  <br />
                         <a>FOR: (1 x D10)</a>   <br />
                         <a>Precisão: [80%]</a>  <br /> <br />

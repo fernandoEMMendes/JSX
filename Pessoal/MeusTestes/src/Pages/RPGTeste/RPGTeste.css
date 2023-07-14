@@ -8,12 +8,8 @@ h1 {
 
 .personagem{
 margin-top: 2rem;
-margin-left: 43rem;
-justify-content: space-around;
-}
-
-.inimigo{
-    margin-top: 2rem;
-    margin-right: 40rem;
-    justify-content: space-around;
+margin-left: 1rem;
+margin-right: 1rem;
+text-align: center;
+justify-content: space-evenly;
 }

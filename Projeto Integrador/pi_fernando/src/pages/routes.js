@@ -7,6 +7,7 @@ import Home from "./Home"
 import RoupaCasual from "./RoupaCasual"
 import RoupaFormal from "./RoupaFormal"
 import Contato from "./contato"
+import Login from "./Login"
 
 export default function Rotas() {
     return (
@@ -17,6 +18,7 @@ export default function Rotas() {
                 <Route path="/RF" element={<RoupaFormal />} />
                 <Route path="/RC" element={<RoupaCasual />} />
                 <Route path="/Contato" element={<Contato />} />
+                <Route path="/Login" element={<Login />} />
             </Routes>
             <Footer />
         </BrowserRouter>
