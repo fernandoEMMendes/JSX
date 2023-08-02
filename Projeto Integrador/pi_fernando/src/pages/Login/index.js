@@ -8,7 +8,7 @@ export default function Login() {
     const [senha, setSenha] = useState('')
 
 
-    function handleLogar(event) {
+    function handleLogin(event) {
         event.preventDefault()
         if (nome === '' || email === '' || senha === '') {
             alert('Tem Campos em branco')
@@ -20,10 +20,12 @@ export default function Login() {
 
     return (
         <div className='container-fluid alignform'>
+            <br />
+
             <h1>Login Vista-se !</h1><br />
 
 
-            <form onSubmit={handleLogar}>
+            <form onSubmit={handleLogin}>
 
 
                 <label><strong>Nome:</strong></label>
@@ -51,7 +53,7 @@ export default function Login() {
 
                 <button type='submit' ><strong>logar</strong></button>
             </form>
-            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
         </div>
     )
 }
