@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#areacabecalho {
+    min-width: fit-content;
+    max-width: auto;
+    text-align: right;
+    background-color: lightblue;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.home {
+
+    font-size: 20;
+    color: black;
+    display: inline-block;
+    position: relative;
+    margin: 1rem;
+    border: none;
+}
+
+.filmes {
+
+    font-size: 20;
+    color: black;
+    display: inline-block;
+    position: relative;
+    margin: 1rem;
+    border: none;
+
+}
+
+.series {
+
+    font-size: 20;
+    color: black;
+    display: inline-block;
+    position: relative;
+    margin: 1rem;
+    border: none;
+}
+
+.contato {
+
+    font-size: 20;
+    color: black;
+    display: inline-block;
+    position: relative;
+    margin: 1rem;
+    border: none;
+}
+
+.link {
+    text-align: right;
+    display: inline-block;
+    position: relative;
+    margin: 1.25rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.marca {
+    font-size: 2.5rem;
+    text-align: left;
+}
+
+.dropdown {
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0.0625rem 0.5rem;
+    text-align: left;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: lavender;
+    width: 150%;
+    z-index: 1;
+    padding: 1rem;
+}
+
+.dropdown-content a:hover {
+    background-color: grey;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+a:link {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
+    text-decoration: none;
+}
+
+a:visited {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
+    text-decoration: none;
+}
