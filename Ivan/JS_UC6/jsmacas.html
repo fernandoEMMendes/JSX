@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+
+<html>
+
+<head>
+    <title>ComprarMaçasOnline</title>
+</head>
+
+<body>
+    <h1>Comprar Maças Online :]</h1>
+
+    <label for="quantidade">Quantas maças gostaria de comprar?</label> <br />
+    <input type="text" id="quantidade"> <br />
+    <button onclick="comprar()">Calcular Compra</button> <br />
+
+    <script>
+        function comprar() {
+            const preco = 3
+            const quantidadeinput = document.getElementById("quantidade")
+            let quantidade = parseFloat(quantidadeinput.value)
+            let total = preco * quantidade
+
+            alert("Você comprou", quantidade, "maças pelo total de R$", total, ",00")
+        }
+    </script>
+</body>
+
+</html>
