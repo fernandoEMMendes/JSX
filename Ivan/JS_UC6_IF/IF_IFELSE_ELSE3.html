@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<html>
+    <head>
+        <script>
+            function clickar(){
+                
+                let animal = clic.value
+
+            if (animal == "cachorro" || animal == "gato" || animal == "coelho" || animal == "hamster") {
+                document.write("Esse é um animal domestico!")
+            } else if (animal == "leão" || animal == "tigre" || animal == "elefante") {
+                document.write("Esse é um animal selvagem!")
+            }
+        }
+        </script>
+    </head>
+    <body>
+
+        <select id="clic">
+            <option value="cachorro">cachorro</option>
+            <option value="gato">gato</option>
+            <option value="coelho">coelho</option>
+            <option value="hamster">hamster</option>
+            <option value="leão">leão</option>
+            <option value="tigre">tigre</option>
+            <option value="elefante">elefante</option>
+        </select>
+        <button onclick="clickar()">botão</button>
+
+    </body>
+</html>
