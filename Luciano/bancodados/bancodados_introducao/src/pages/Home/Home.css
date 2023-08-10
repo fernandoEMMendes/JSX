@@ -1,0 +1,9 @@
+.align {
+    text-align: center;
+    display: block;
+    font-size: large;
+}
+
+body {
+    background-color: bisque;
+}

@@ -1,0 +1,15 @@
+footer {
+    background-color: lightgreen;
+    padding: 0.0625rem;
+    position: relative;
+    width:100%;
+    position: fixed;
+    bottom:0;
+}
+
+footer p {
+    text-align: center;
+    text-align-last: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.25rem;
+}

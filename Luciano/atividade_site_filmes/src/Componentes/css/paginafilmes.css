@@ -1,0 +1,36 @@
+.caixa {
+    display: flex;
+    flex-direction: column;
+    background-color: lavender;
+    border: 0.125rem black;
+    border-radius: 0.5rem;
+}
+
+.grid-container {
+    text-align: center;
+    display: grid;
+    row-gap: 0.625rem;
+    grid-template-columns: 30.625rem 30.625rem 30.625rem;
+    max-width: 50rem;
+    margin: -1rem;
+    margin-left: -5.2rem;
+    box-sizing: border-box;
+}
+
+.grid-container a {
+    text-align: center;
+    background-color: blue;
+    color: white;
+    
+    padding-left: 3.3125rem;
+    padding-right: 3.3125rem;
+    padding-top: 0.6875rem;
+    padding-bottom: 0.6875rem;
+
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius:0.5rem;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}

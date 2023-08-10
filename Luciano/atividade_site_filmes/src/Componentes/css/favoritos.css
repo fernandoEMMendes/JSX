@@ -1,0 +1,21 @@
+.article {
+    display: flex;
+    text-align: center;
+    padding: 10px;
+}
+
+.Detalhes {
+    text-align: center;
+    color: #DAA520;
+    text-decoration: none;
+}
+
+.enviar {
+    color: black;
+    padding: 15px;
+    cursor: pointer;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
