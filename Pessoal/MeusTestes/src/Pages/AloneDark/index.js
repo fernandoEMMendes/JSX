@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react"
 
 
 
-function App() {
+function AloneDark() {
 
   //Cont = Contador
   const [Frases, setFrases] = useState("I can't see anything.")
@@ -53,4 +53,4 @@ function App() {
   );
 }
 
-export default App;
+export default AloneDark;
