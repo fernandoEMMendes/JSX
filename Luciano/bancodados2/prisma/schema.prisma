@@ -8,13 +8,37 @@ datasource db {
     url = env("DATABASE_URL")
 }
 
-model User{
+model user{
     id String @id @default(uuid())
     nome String
     email String
     senha String
+
     create_at DateTime? @default(now())
     update_at DateTime? @default(now())
 
     @@map("usuario")
 }
+
+model client{
+    id String @id @default(uuid())
+    nome String
+    cpf String
+    cel_tel String
+    cel_fixo String
+    rua String
+    numero String
+    complemento String
+    bairro String
+    cidade String
+    estado String
+
+    create_at DateTime? @default(now())
+    update_at DateTime? @default(now())
+
+    @@map("clientes")
+}
+
+
+
+//npx prisma migrate dev - criar banco de dados especificados

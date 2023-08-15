@@ -28,13 +28,13 @@ class CriarUsuarioService {
                 email: email,
                 senha: senha
             },
-            select:{
-                id:true,
-                nome:true,
-                email:true
+            select: {
+                id: true,
+                nome: true,
+                email: true
             }
         })
-        return {dados: usuario}
+        return { dados: usuario }
     }
 }
 
