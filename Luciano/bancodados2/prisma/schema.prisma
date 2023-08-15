@@ -23,7 +23,8 @@ model user{
 model client{
     id String @id @default(uuid())
     nome String
-    cpf String
+    cpf_cnpj String
+    rg_ie String
     cel_tel String
     cel_fixo String
     rua String
@@ -37,6 +38,8 @@ model client{
     update_at DateTime? @default(now())
 
     @@map("clientes")
+
+    @@unique(fields: [cpf_cnpj, rg_ie], name: "requisitos")
 }
 
 
