@@ -23,9 +23,7 @@ class CriarClienteService {
         const cpfJaCadastrado = await prismaClient.client.findFirst({
             where: {
                 OR: [
-                    {
-                        cpf_cnpj: { endsWith: cpf_cnpj,},
-                    },
+                    {cpf_cnpj: { endsWith: cpf_cnpj}},
                     {rg_ie: {endsWith: rg_ie}}
                 ]
             }
