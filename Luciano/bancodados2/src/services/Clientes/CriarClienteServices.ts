@@ -20,12 +20,14 @@ class CriarClienteService {
         if (!nome || !cpf_cnpj || !rg_ie || !cel_tel || !rua || !numero || !bairro || !cidade || !estado)
             throw new Error("Campos em brancos!")
 
-        const cpfJaCadastrado = await prismaClient.client.findUnique({
+        const cpfJaCadastrado = await prismaClient.client.findFirst({
             where: {
-                requisitos: {
-                    cpf_cnpj: cpf_cnpj,
-                    rg_ie: rg_ie,
-                }
+                OR: [
+                    {
+                        cpf_cnpj: { endsWith: cpf_cnpj,},
+                    },
+                    {rg_ie: {endsWith: rg_ie}}
+                ]
             }
         })
 
