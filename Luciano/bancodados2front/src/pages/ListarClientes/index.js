@@ -19,7 +19,7 @@ export default function ListarClientes() {
 
     return (
         <div>
-            <h1>Dashboard</h1>
+            <h1>Listar Clientes</h1>
 
             {infoClientes.map((infos) => {
                 return (

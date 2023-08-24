@@ -1,5 +1,5 @@
 import { Request, Response } from "express"
-import { CriarUsuarioService } from "../../services/Usuarios/CriarUsuarioServices"
+import { CriarUsuarioService } from "../../services/Usuarios/CriarUsuarioService"
 
 
 class CriarUsuarioController{
