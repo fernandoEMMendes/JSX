@@ -1,3 +1,4 @@
+import {useEffect, useState} from "react"
 import apiBack from "../../services/apiBack";
 
 
@@ -12,15 +13,23 @@ export default function ListarProdutos() {
             const response = await apiBack.get("/ListarProdutos")
             setinfoProdutos(response.data)
         }
-        verInfo
+        verInfo()
     }, [infoProdutos]);
+
+
+
+    return (
+        <div>
+            <h1>Listar Produtos</h1>
+
+            {infoProdutos.map((infos) => {
+                return (
+                    <a key={infos.id}>
+                        {infos.nome}
+                    </a>
+                )
+            })}
+        </div>
+    )
+
 }
-
-
-return(
-    <div>
-        <h1>Listar Produtos</h1>
-        {/*incompleto*/}
-        {infoProdutos.map()}
-    </div>
-)
