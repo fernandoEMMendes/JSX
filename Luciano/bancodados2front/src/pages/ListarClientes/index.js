@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react"
 import apiBack from "../../services/apiBack.js"
+import { FiTrash2 } from 'react-icons/fi';
 
 
 
 export default function ListarClientes() {
 
     const [infoClientes, setinfoClientes] = useState([""])
+    const [ID, setID] = useState([""])
 
 
     useEffect(() => {
@@ -17,17 +19,23 @@ export default function ListarClientes() {
     }, [infoClientes]);
 
 
+
+
     return (
         <div>
             <h1>Listar Clientes</h1>
 
             {infoClientes.map((infos) => {
                 return (
-                    <a key={infos.id}>
-                        {infos.nome}
+                    <div>
+                        <a key={infos.id}>
+                            {infos.nome}
 
-                        <br /> <br />
-                    </a>
+                            <br /> <br />
+                        </a>
+
+                        <FiTrash2 color="red"/>
+                    </div>
                 )
             })}
         </div>

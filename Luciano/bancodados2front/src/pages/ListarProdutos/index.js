@@ -1,6 +1,6 @@
-import {useEffect, useState} from "react"
+import { useEffect, useState } from "react"
 import apiBack from "../../services/apiBack";
-
+import { FiTrash2 } from "react-icons"
 
 
 
@@ -16,6 +16,10 @@ export default function ListarProdutos() {
         verInfo()
     }, [infoProdutos]);
 
+    async function deleteProdutos(id) {
+        await apiBack.delete(`/ApagarProdutos/${id}`)
+    }
+
 
 
     return (
@@ -25,7 +29,11 @@ export default function ListarProdutos() {
             {infoProdutos.map((infos) => {
                 return (
                     <a key={infos.id}>
-                        {infos.nome}
+                        {infos.nome} <br />
+                        {infos.fabricante} <br /> <br />
+
+
+                        <FiTrash2 color="red" onClick={() => deleteProdutos(infos.id)}/>
                     </a>
                 )
             })}

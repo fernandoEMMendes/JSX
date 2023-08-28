@@ -1,4 +1,5 @@
 import { useState } from "react"
+import apiBack from "../../services/apiBack"
 import "./CadastroClientes.css"
 
 
@@ -19,6 +20,22 @@ export default function CadastroClientes() {
 
     function alert(e) {
         e.preventDefault()
+
+        apiBack.post("/CriarClientes", {
+            nome,
+            cpf_cnpj,
+            rg_ie,
+            tel_cel,
+            tel_fixo,
+            rua,
+            numero,
+            complemento,
+            bairro,
+            cidade,
+            estado
+        })
+
+        alert("Enviado")
     }
 
     return (

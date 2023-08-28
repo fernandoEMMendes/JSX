@@ -1,4 +1,5 @@
 import { useState } from "react"
+import apiBack from "../../services/apiBack"
 import "./CadastroUsuario.css"
 
 
@@ -10,6 +11,14 @@ export default function CadastroUsuario() {
 
     function alert(e) {
         e.preventDefault()
+
+        apiBack.post("/CriarUsuarios", {
+            nome,
+            email,
+            senha
+        })
+
+        alert("Enviado")
     }
 
     return (
