@@ -2,11 +2,15 @@ import { Router } from "express";
 
 import { CriarUsuarioController } from './controllers/Usuarios/CriarUsuarioController'
 import { CriarClienteController } from "./controllers/Clientes/CriarClienteController";
-import { ListarClienteController } from "./controllers/Clientes/ListarClienteController";
 import { CriarProdutosController } from "./controllers/Produtos/CriarProdutosController";
+
+import { ListarClienteController } from "./controllers/Clientes/ListarClienteController";
 import { ListarUsuarioController } from "./controllers/Usuarios/ListarUsuarioController";
 import { ListarProdutosController } from "./controllers/Produtos/ListarProdutosController";
+
 import { ApagarProdutosController } from "./controllers/Produtos/ApagarProdutosController";
+import { ApagarUsuarioController } from "./controllers/Usuarios/ApagarUsuarioController";
+import { ApagarClienteController } from "./controllers/Clientes/ApagarClienteController";
 
 const router = Router()
 
@@ -19,8 +23,8 @@ router.get("/ListarUsuarios", new ListarUsuarioController().handle)
 router.get("/ListarClientes", new ListarClienteController().handle)
 router.get("/ListarProdutos", new ListarProdutosController().handle)
 
-router.delete("/ApagarProdutos/:id", new ApagarProdutosController().handle)
-
-
+router.delete("/ApagarProdutos", new ApagarProdutosController().handle)
+router.delete("/ApagarUsuarios", new ApagarUsuarioController().handle)
+router.delete("/ApagarCliente", new ApagarClienteController().handle)
 
 export { router }

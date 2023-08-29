@@ -15,7 +15,7 @@ class ApagarProdutosServices {
                 id: remove
             }
         })
-        return { dados: "apagados com sucesso" }
+        return { dados: "apagado com sucesso" }
     }
 }
 
