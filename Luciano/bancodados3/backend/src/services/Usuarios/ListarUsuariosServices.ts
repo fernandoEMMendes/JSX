@@ -1,10 +1,10 @@
-import prismaClient from '../../prisma'
+import prismaClient from "../../prisma"
 
 
-class ListarUsuariosServices{
-    async execute(){
-        const usuarios = await prismaClient.user.findMany({})
-        return (usuarios)
+class ListarUsuariosServices {
+    async execute() {
+        const listarUsuarios = await prismaClient.user.findMany({})
+        return listarUsuarios
     }
 }
 

@@ -1,41 +1,33 @@
-import React, { useState, useEffect } from 'react'
-import api from '../../Api/api'
-import './listar.estilo.scss'
-import { GiTrashCan } from 'react-icons/gi'
+import { useEffect, useState } from "react"
+import api from "../../Api/api"
+
 
 export default function ListarUsuarios() {
 
-    const [usuarios, setUsuarios] = useState([''])
+    const [usuarios, setusuarios] = useState([''])
 
     useEffect(() => {
         async function listarUsuarios() {
-            const resposta = await api.get('/ListarUsuarios')
-            setUsuarios(resposta.data)
+            const response = await api.get('/ListarUsuarios')
+            setusuarios(response.data)
         }
         listarUsuarios()
     }, [usuarios])
 
-    async function excluirUsuario(id) {
-      await api.delete('/Apagarusuario', {
-        data:{
-            apagar: id
-        }
-      })
-    }
 
 
     return (
-        <div className='conteinerListar'>
-            <h1>Listar Usuários</h1>
+        <div>
+            <h1>Listar Usuarios</h1>
             {usuarios.map((usuario) => {
-                return (
-                    <div className='listarUsuarios'>
-                        <p key={usuario.id}>{usuario.id} - {usuario.nome}</p>
-                        <GiTrashCan color='red' onClick={() => excluirUsuario(usuario.id)} />
-                    </div>
-
+                return(
+                    <a key={usuario.id}>
+                        {usuario.id} <br />
+                        {usuario.nome} <br /> <br />
+                    </a>
                 )
             })}
         </div>
     )
 }
+
