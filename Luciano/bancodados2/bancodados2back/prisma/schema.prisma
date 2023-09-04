@@ -7,7 +7,7 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-model user {
+model User {
     id    String @id @default(uuid())
     nome  String
     email String
@@ -19,7 +19,7 @@ model user {
     @@map("usuario")
 }
 
-model client {
+model Client {
     id          String @id @default(uuid())
     nome        String
     cpf_cnpj    String
@@ -39,7 +39,7 @@ model client {
     @@map("clientes")
 }
 
-model produtos {
+model Produtos {
     id         String    @id @default(uuid())
     nome       String
     fabricante String
