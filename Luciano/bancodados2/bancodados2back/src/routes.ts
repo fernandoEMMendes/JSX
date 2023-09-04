@@ -14,15 +14,17 @@ import { ApagarClienteController } from "./controllers/Clientes/ApagarClienteCon
 
 const router = Router()
 
-
+//Criar
 router.post('/CriarUsuarios', new CriarUsuarioController().handle)
 router.post("/CriarClientes", new CriarClienteController().handle)
 router.post("/CriarProdutos", new CriarProdutosController().handle)
 
+//Listar
 router.get("/ListarUsuarios", new ListarUsuarioController().handle)
 router.get("/ListarClientes", new ListarClienteController().handle)
 router.get("/ListarProdutos", new ListarProdutosController().handle)
 
+//Apagar
 router.delete("/ApagarProdutos", new ApagarProdutosController().handle)
 router.delete("/ApagarUsuarios", new ApagarUsuarioController().handle)
 router.delete("/ApagarCliente", new ApagarClienteController().handle)

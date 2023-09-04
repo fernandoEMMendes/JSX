@@ -34,8 +34,6 @@ export default function CadastroClientes() {
             cidade,
             estado
         })
-
-        alert("Enviado")
     }
 
     return (
