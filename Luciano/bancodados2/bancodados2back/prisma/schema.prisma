@@ -36,7 +36,6 @@ model client {
     create_at DateTime? @default(now())
     update_at DateTime? @default(now())
 
-    @@unique(fields: [cpf_cnpj, rg_ie], name: "requisitos")
     @@map("clientes")
 }
 
