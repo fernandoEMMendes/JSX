@@ -19,7 +19,7 @@ export default function ListarClientes() {
     }, [infoClientes]);
 
     async function deleteCliente(id) {
-        await apiBack.delete("/ApagarCliente", {
+        await apiBack.delete("/DeletarCliente", {
             data: {
                 remove: id
             }

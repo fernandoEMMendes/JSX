@@ -25,8 +25,8 @@ router.get("/ListarClientes", new ListarClienteController().handle)
 router.get("/ListarProdutos", new ListarProdutosController().handle)
 
 //Apagar
-router.delete("/ApagarProdutos", new ApagarProdutosController().handle)
-router.delete("/ApagarUsuarios", new ApagarUsuarioController().handle)
-router.delete("/ApagarCliente", new ApagarClienteController().handle)
+router.delete("/DeletarProdutos", new ApagarProdutosController().handle)
+router.delete("/DeletarUsuarios", new ApagarUsuarioController().handle)
+router.delete("/DeletarCliente", new ApagarClienteController().handle)
 
 export { router }

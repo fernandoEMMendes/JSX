@@ -19,7 +19,7 @@ export default function ListarProdutos() {
     }, [infoProdutos]);
 
     async function deleteProdutos(id) {
-        await apiBack.delete(`/ApagarProdutos/`, {
+        await apiBack.delete(`/DeletarProdutos/`, {
             data: {
                 remove: id
             }

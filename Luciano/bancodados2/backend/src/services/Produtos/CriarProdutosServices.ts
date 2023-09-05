@@ -3,7 +3,6 @@ import prismaClient from '../../prisma'
 interface CriarProdutos{
     nome: string
     fabricante: string
-    quantidade: string
     preco: string
 }
 
@@ -11,18 +10,16 @@ class CriarProdutosServices{
     async execute({
         nome,
         fabricante,
-        quantidade,
         preco
     }: CriarProdutos){
-      if(!nome || !fabricante || !quantidade || !preco){
+      if(!nome || !fabricante || !preco){
         throw new Error('Existem campos em Branco')
       }
 
-        await prismaClient.produtos.create({
+        await prismaClient.products.create({
           data:{
             nome: nome,
             fabricante: fabricante,
-            quantidade: quantidade,
             preco: preco
           }  
         })

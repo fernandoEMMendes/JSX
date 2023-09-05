@@ -8,7 +8,7 @@ class ListarProdutosController {
 
     async handle(req: Request, res: Response) {
 
-        const produtos = await prismaClient.produtos.findMany({})
+        const produtos = await prismaClient.products.findMany({})
         return res.json(produtos)
     }
 }

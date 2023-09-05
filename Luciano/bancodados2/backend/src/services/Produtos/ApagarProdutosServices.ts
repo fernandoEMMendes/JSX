@@ -1,4 +1,3 @@
-import { PrismaClient } from "@prisma/client";
 import prismaClient from "../../prisma";
 
 
@@ -10,7 +9,7 @@ class ApagarProdutosServices {
 
     async execute({ remove }: ApagarProdutos) {
 
-        await prismaClient.produtos.delete({
+        await prismaClient.products.delete({
             where: {
                 id: remove
             }

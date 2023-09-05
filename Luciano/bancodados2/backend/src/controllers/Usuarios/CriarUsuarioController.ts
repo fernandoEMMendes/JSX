@@ -2,14 +2,13 @@ import { Request, Response } from "express"
 import { CriarUsuarioService } from "../../services/Usuarios/CriarUsuarioService"
 
 
-class CriarUsuarioController{
+class CriarUsuarioController {
 
-    async handle(req:Request , res:Response){
-        const { nome, email, senha } = req.body
-        
+    async handle(req: Request, res: Response) {
+        const { email, senha } = req.body
+
         const criarUsuarioService = new CriarUsuarioService()
         const usuarios = await criarUsuarioService.execute({
-            nome,
             email,
             senha
         })
@@ -18,4 +17,4 @@ class CriarUsuarioController{
 }
 
 
-export {CriarUsuarioController}
+export { CriarUsuarioController }

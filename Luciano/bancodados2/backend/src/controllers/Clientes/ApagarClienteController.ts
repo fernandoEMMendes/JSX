@@ -9,6 +9,7 @@ class ApagarClienteController {
         const apagar = await apagarClienteController.execute({
             remove
         })
+        return res.json(apagar)
     }
 }
 

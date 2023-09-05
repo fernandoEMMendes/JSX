@@ -19,7 +19,7 @@ export default function ListarUsuarios() {
     }, [infoUsuarios]);
 
     async function deleteUsuarios(id) {
-        await apiBack.delete("/ApagarUsuarios", {
+        await apiBack.delete("/DeletarUsuarios", {
             data: {
                 remove: id
             }
