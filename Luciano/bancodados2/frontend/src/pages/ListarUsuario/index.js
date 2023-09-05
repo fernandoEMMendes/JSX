@@ -33,7 +33,7 @@ export default function ListarUsuarios() {
             <div className="align">
                 <h1>Listar Usuarios</h1>
             </div>
-            
+
             <div className="align2">
                 {
                     infoUsuarios.map((infos) => {
@@ -41,7 +41,8 @@ export default function ListarUsuarios() {
                             <a key={infos.id}>
                                 {infos.nome}
                                 <FiTrash2 color="red" onClick={() => { deleteUsuarios(infos.id) }} /> <br />
-                                {infos.email}
+                                {infos.email} <br />
+                                -----------------------------------
                                 <br /> <br />
                             </a>
                         )

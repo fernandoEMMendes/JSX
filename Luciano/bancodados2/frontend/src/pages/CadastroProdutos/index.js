@@ -27,7 +27,7 @@ export default function CadastroProdutos() {
 
     return (
         <div className="align">
-            <h1>CadastroProdutos</h1>
+            <h1>Cadastro Produtos</h1>
 
             <form onSubmit={alert}>
                 <label>Cadatrar Produto</label> <br /> <br />

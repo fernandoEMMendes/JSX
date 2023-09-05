@@ -23,7 +23,7 @@ export default function CadastroUsuario() {
 
     return (
         <div className="align">
-            <h1>CadastroUsuario</h1>
+            <h1>Cadastro Usuario</h1>
 
             <form onSubmit={alert}>
                 <label>Cadastre-se</label> <br /> <br />

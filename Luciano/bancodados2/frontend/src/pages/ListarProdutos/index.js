@@ -42,8 +42,9 @@ export default function ListarProdutos() {
 
                             {infos.nome}
                             <FiTrash2 color="red" onClick={() => { deleteProdutos(infos.id) }} /><br />
-                            {infos.fabricante} <br /> <br />
-
+                            {infos.fabricante} <br />
+                            -----------------------------------
+                            <br /> <br />
                         </a>
                     )
                 })}

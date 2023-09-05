@@ -34,11 +34,12 @@ export default function CadastroClientes() {
             cidade,
             estado
         })
+        alert("Enviado")
     }
 
     return (
         <div className="align">
-            <h1>CadastroClientes</h1>
+            <h1>Cadastro Clientes</h1>
 
             <form onSubmit={alert}>
                 <label>Cadastre-se</label> <br /> <br />
@@ -53,7 +54,7 @@ export default function CadastroClientes() {
                 <input required type="text" onChange={(e) => setbairro(e.target.value)} value={bairro} placeholder="Bairro" /> <br />
                 <input required type="text" onChange={(e) => setcidade(e.target.value)} value={cidade} placeholder="Cidade" /> <br />
                 <input required type="text" onChange={(e) => setestado(e.target.value)} value={estado} placeholder="Estado" /> <br />
-            
+
                 <button type="submit">Cadastrar</button>
             </form>
         </div>

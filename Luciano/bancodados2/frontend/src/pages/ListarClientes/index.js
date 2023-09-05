@@ -41,8 +41,8 @@ export default function ListarClientes() {
                                 {infos.nome}
                                 <FiTrash2 color="red" onClick={() => { deleteCliente(infos.id) }} /> <br />
                                 {infos.bairro} <br />
-                                {infos.cidade}
-
+                                {infos.cidade} <br />
+                                ----------------------------------- 
                                 <br /> <br />
                             </a>
                         </div>
