@@ -10,6 +10,7 @@ import LoginUsuario from "./pages/LoginUsuario"
 import ListarClientes from "./pages/ListarClientes"
 import ListarProdutos from "./pages/ListarProdutos"
 import ListarUsuarios from "./pages/ListarUsuario"
+import AlterarUsuario from "./pages/Usuarios/AlterarUsuario"
 
 
 
@@ -26,6 +27,7 @@ export default function Rotas() {
                 <Route path="/ListarClientes" element={<ListarClientes />} />
                 <Route path="/ListarProdutos" element={<ListarProdutos />} />
                 <Route path="/ListarUsuarios" element={<ListarUsuarios />} />
+                <Route path="/AlterarUsuario" element={<AlterarUsuario />} />
             </Routes>
         </BrowserRouter>
     )

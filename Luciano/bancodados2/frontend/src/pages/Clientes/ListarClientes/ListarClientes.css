@@ -1,0 +1,11 @@
+.align {
+    text-align: center;
+}
+
+.align2 {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.5rem;
+}

@@ -8,6 +8,8 @@ import { ListarClienteController } from "./controllers/Clientes/ListarClienteCon
 import { ListarUsuarioController } from "./controllers/Usuarios/ListarUsuarioController";
 import { ListarProdutosController } from "./controllers/Produtos/ListarProdutosController";
 
+//import { ListarClienteUnicoController } from "./controllers/Clientes/ListarClienteUnicoController";
+
 import { ApagarProdutosController } from "./controllers/Produtos/ApagarProdutosController";
 import { ApagarUsuarioController } from "./controllers/Usuarios/ApagarUsuarioController";
 import { ApagarClienteController } from "./controllers/Clientes/ApagarClienteController";
@@ -27,6 +29,6 @@ router.get("/ListarProdutos", new ListarProdutosController().handle)
 //Apagar
 router.delete("/DeletarProdutos", new ApagarProdutosController().handle)
 router.delete("/DeletarUsuarios", new ApagarUsuarioController().handle)
-router.delete("/DeletarCliente", new ApagarClienteController().handle)
+router.delete("/DeletarClientes", new ApagarClienteController().handle)
 
 export { router }
