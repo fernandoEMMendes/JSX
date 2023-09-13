@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { toast } from "react-toastify"
-import apiBack from "../../services/apiBack"
+import apiBack from "../../../services/apiBack"
 import "./CadastroProdutos.css"
 
 

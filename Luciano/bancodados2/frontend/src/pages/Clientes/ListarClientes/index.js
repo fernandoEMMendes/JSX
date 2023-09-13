@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import apiBack from "../../services/apiBack.js"
+import apiBack from "../../../services/apiBack"
 import { FiTrash2, FiEdit3, FiAirplay } from 'react-icons/fi';
 
 import "./ListarClientes.css"

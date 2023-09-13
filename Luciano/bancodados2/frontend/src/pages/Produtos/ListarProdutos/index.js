@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import apiBack from "../../services/apiBack";
+import apiBack from "../../../services/apiBack"
 import { FiTrash2, FiEdit3 } from "react-icons/fi"
 import { toast } from "react-toastify"
 
