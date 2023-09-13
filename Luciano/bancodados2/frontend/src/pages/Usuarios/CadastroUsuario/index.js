@@ -5,6 +5,7 @@ import { toast } from "react-toastify"
 
 export default function CadastroUsuario() {
 
+    const [nome, setnome] = useState("")
     const [email, setemail] = useState("")
     const [senha, setsenha] = useState("")
 
@@ -12,6 +13,7 @@ export default function CadastroUsuario() {
         e.preventDefault(e)
 
         const response = await apiBack.post("/CriarUsuarios", {
+            nome,
             email,
             senha
         })
@@ -24,6 +26,7 @@ export default function CadastroUsuario() {
 
             <form onSubmit={alerta}>
                 <label>Cadastre-se</label> <br /> <br />
+                <input required type="text" value={nome} onChange={(e) => setnome(e.target.value)} placeholder="Nome" /> <br />
                 <input required type="text" value={email} onChange={(e) => setemail(e.target.value)} placeholder="E-Mail" /> <br />
                 <input required type="text" value={senha} onChange={(e) => setsenha(e.target.value)} placeholder="Senha" /> <br />
 

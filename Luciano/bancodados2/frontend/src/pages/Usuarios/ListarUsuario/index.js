@@ -41,6 +41,7 @@ export default function ListarUsuarios() {
                     infoUsuarios.map((resultados) => {
                         return (
                             <a key={resultados.id}>
+                                {resultados.nome} <br />
                                 {resultados.email}
 
                                 <FiTrash2 color="red" onClick={() => { deleteUsuarios(resultados.id) }} />
