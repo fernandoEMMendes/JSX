@@ -27,7 +27,7 @@ export default function Rotas() {
                 <Route path="/ListarClientes" element={<ListarClientes />} />
                 <Route path="/ListarProdutos" element={<ListarProdutos />} />
                 <Route path="/ListarUsuarios" element={<ListarUsuarios />} />
-                <Route path="/AlterarUsuario" element={<AlterarUsuario />} />
+                <Route path="/AlterarUsuario/:id" element={<AlterarUsuario />} />
             </Routes>
         </BrowserRouter>
     )

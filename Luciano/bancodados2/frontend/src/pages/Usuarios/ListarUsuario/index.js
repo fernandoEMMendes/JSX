@@ -4,6 +4,7 @@ import { FiTrash2, FiEdit3 } from "react-icons/fi";
 
 import "./ListarUsuario.css"
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 
 export default function ListarUsuarios() {
@@ -43,7 +44,7 @@ export default function ListarUsuarios() {
                                 {resultados.email}
 
                                 <FiTrash2 color="red" onClick={() => { deleteUsuarios(resultados.id) }} />
-                                <FiEdit3 color="green" onClick={() => { }} />
+                                <Link to={`/AlterarUsuario/${resultados.id}`}><FiEdit3 color="green" /></Link>
                                 <br />
                                 -----------------------------------
                                 <br /> <br />
