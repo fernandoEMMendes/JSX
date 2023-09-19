@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react"
 import apiBack from "../../../services/apiBack"
-import { FiTrash2, FiEdit3, FiAirplay } from 'react-icons/fi';
+import { FiTrash2, FiEdit3 } from 'react-icons/fi';
 
 import "./ListarClientes.css"
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 
 export default function ListarClientes() {
@@ -41,8 +42,8 @@ export default function ListarClientes() {
                         <div>
                             <a key={resultados.id}>
                                 {resultados.nome}
-                                <FiTrash2 color="red" onClick={() => { deleteCliente(resultados.id) }} /> 
-                                <FiEdit3 color="green" onClick={() => {}} /> <br />
+                                <FiTrash2 color="red" onClick={() => { deleteCliente(resultados.id) }} />
+                                <Link to={`/AlterarCliente/${resultados.id}`}><FiEdit3 color="green" /> </Link><br />
                                 {resultados.bairro} <br />
                                 {resultados.cidade} <br />
                                 -----------------------------------

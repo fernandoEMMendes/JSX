@@ -4,6 +4,7 @@ import { FiTrash2, FiEdit3 } from "react-icons/fi"
 import { toast } from "react-toastify"
 
 import "./ListarProdutos.css"
+import { Link } from "react-router-dom"
 
 
 
@@ -28,10 +29,6 @@ export default function ListarProdutos() {
         toast.success(response.data.dados)
     }
 
-    async function editProdutos(id) {
-        toast.success(id)
-    }
-
 
     return (
 
@@ -46,8 +43,9 @@ export default function ListarProdutos() {
                         <a key={resultados.id}>
                             {resultados.nome}
                             <FiTrash2 color="red" onClick={() => { deleteProdutos(resultados.id) }} />
-                            <FiEdit3 color="green" onClick={() => { editProdutos(resultados.id) }} /> <br />
+                            <Link to={`/AlterarProdutos/${resultados.id}`}><FiEdit3 color="green" /></Link> <br />
                             {resultados.fabricante} <br />
+                            R${resultados.preco} <br />
                             -----------------------------------
                             <br /> <br />
                         </a>
