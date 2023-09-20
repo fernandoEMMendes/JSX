@@ -18,6 +18,7 @@ export default function CadastroClientes() {
     const [estado, setestado] = useState("")
 
     async function alerta(e) {
+        if (!nome, !cpf_cnpj, !rg_ie, !telefone, !rua, !casa, !complemento, !bairro, !cidade, !estado) { toast.warning("Existem campos em Branco") }
         e.preventDefault(e)
 
         const response = await apiBack.post("/CriarClientes", {

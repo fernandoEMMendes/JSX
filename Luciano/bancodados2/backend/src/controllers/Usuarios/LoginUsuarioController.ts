@@ -4,11 +4,11 @@ import { LoginUsuarioServices } from "../../services/Usuarios/LoginUsuarioServic
 
 class LoginUsuarioController {
     async handle(req: Request, res: Response) {
-        const { email, senha } = req.body
+        const { email, password } = req.body
         const loginUsuarioServices = new LoginUsuarioServices()
         const response = loginUsuarioServices.execute({
             email,
-            senha
+            password
         })
         return res.json(response)
     }
