@@ -26,9 +26,9 @@ export default function LoginUsuario() {
 
             <form onSubmit={alerta}>
 
-                <h2>Email</h2>
+                <h1>Email</h1>
                 <input type="text" value={email} onChange={(e) => setemail(e.target.value)} placeholder="E-Mail" /> <br />
-                <h2>Senha</h2>
+                <h1>Senha</h1>
                 <input type="text" value={senha} onChange={(e) => setsenha(e.target.value)} placeholder="Senha" /> <br />
                 <br />
                 <button type="submit">Logar</button>
