@@ -7,7 +7,10 @@ import { CriarProdutosController } from "./controllers/Produtos/CriarProdutosCon
 import { ListarClienteController } from "./controllers/Clientes/ListarClienteController";
 import { ListarUsuarioController } from "./controllers/Usuarios/ListarUsuarioController";
 import { ListarProdutosController } from "./controllers/Produtos/ListarProdutosController";
+
 import { ListarUnicoUsuarioController } from "./controllers/Usuarios/ListarUnicoUsuarioController";
+import { ListarUnicoProdutoController } from "./controllers/Produtos/ListarUnicoProdutoController";
+import { ListarUnicoClienteController } from "./controllers/Clientes/ListarUnicoClienteController";
 
 import { ApagarProdutosController } from "./controllers/Produtos/ApagarProdutosController";
 import { ApagarUsuarioController } from "./controllers/Usuarios/ApagarUsuarioController";
@@ -16,13 +19,13 @@ import { ApagarClienteController } from "./controllers/Clientes/ApagarClienteCon
 import { AlterarUsuarioController } from "./controllers/Usuarios/AlterarUsuarioController";
 import { AlterarProdutosController } from "./controllers/Produtos/AlterarProdutosController";
 import { AlterarClienteController } from "./controllers/Clientes/AlterarClienteController";
-import { ListarUnicoProdutoController } from "./controllers/Produtos/ListarUnicoProdutoController";
-import { ListarUnicoClienteController } from "./controllers/Clientes/ListarUnicoClienteController";
+
+import { LoginUsuarioController } from "./controllers/Usuarios/LoginUsuarioController";
 
 const router = Router()
 
 //Criar
-router.post('/CriarUsuarios', new CriarUsuarioController().handle)
+router.post("/CriarUsuarios", new CriarUsuarioController().handle)
 router.post("/CriarClientes", new CriarClienteController().handle)
 router.post("/CriarProdutos", new CriarProdutosController().handle)
 
@@ -45,6 +48,9 @@ router.delete("/DeletarClientes", new ApagarClienteController().handle)
 router.put("/AlterarUsuario", new AlterarUsuarioController().handle)
 router.put("/AlterarProdutos", new AlterarProdutosController().handle)
 router.put("/AlterarCliente", new AlterarClienteController().handle)
+
+//Login
+router.post("/LoginUsuario", new LoginUsuarioController().handle)
 
 
 export { router }

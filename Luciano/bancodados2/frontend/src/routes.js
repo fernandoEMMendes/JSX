@@ -9,7 +9,7 @@ import CadastroProdutos from "./pages/Produtos/CadastroProdutos"
 import CadastroUsuario from "./pages/Usuarios/CadastroUsuario"
 
 //Login
-import LoginUsuario from "./pages/LoginUsuario"
+import LoginUsuario from "./pages/Usuarios/LoginUsuario"
 
 //Listar
 import ListarClientes from "./pages/Clientes/ListarClientes"
