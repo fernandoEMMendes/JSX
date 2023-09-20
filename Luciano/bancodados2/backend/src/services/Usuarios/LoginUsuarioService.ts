@@ -6,6 +6,7 @@ interface Login {
 class LoginUsuarioServices {
     async execute({ email, senha }: Login) {
         console.log(email, senha)
+    return {dados: "Os dados chegaram ao Services"}
     }
 }
 

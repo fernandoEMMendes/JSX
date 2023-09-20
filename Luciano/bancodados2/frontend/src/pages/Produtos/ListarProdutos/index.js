@@ -37,6 +37,16 @@ export default function ListarProdutos() {
                 <h1>Listar Produtos</h1>
             </div>
 
+            <div className="align">
+                <a>Refrigerante 250ml</a>
+                <FiTrash2 color="red" /> {/*Esse icone é um recurso do JSX*/}
+                <FiEdit3 color="green" /> <br /> {/*Esse icone é um recurso do JSX*/}
+                <a>Fabricante: Coca-Cola</a><br />
+                <a>R$4,99</a>
+            </div>
+
+            <br />
+
             <div className="align2">
                 {infoProdutos.map((resultados) => {
                     return (

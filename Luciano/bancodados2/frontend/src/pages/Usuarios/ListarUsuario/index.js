@@ -36,16 +36,24 @@ export default function ListarUsuarios() {
                 <h1>Listar Usuarios</h1>
             </div>
 
+            <div className="align">
+                <a>Usuario Teste</a>
+                <FiTrash2 color="red" /> {/*Esse icone é um recurso do JSX*/}
+                <FiEdit3 color="green" /> <br /> {/*Esse icone é um recurso do JSX*/}
+                <a>EmailTeste@Teste.com.br</a>
+            </div>
+
+            <br />
+
             <div className="align2">
                 {
                     infoUsuarios.map((resultados) => {
                         return (
                             <a key={resultados.id}>
-                                {resultados.nome} <br />
-                                {resultados.email}
-
+                                {resultados.nome}
                                 <FiTrash2 color="red" onClick={() => { deleteUsuarios(resultados.id) }} />
-                                <Link to={`/AlterarUsuario/${resultados.id}`}><FiEdit3 color="green" /></Link>
+                                <Link to={`/AlterarUsuario/${resultados.id}`}><FiEdit3 color="green" /></Link> <br />
+                                {resultados.email}
                                 <br />
                                 -----------------------------------
                                 <br /> <br />
