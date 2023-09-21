@@ -21,6 +21,9 @@ import AlterarUsuario from "./pages/Usuarios/AlterarUsuario"
 import AlterarProduto from "./pages/Produtos/AlterarProdutos"
 import AlterarCliente from "./pages/Clientes/AlterarCliente"
 
+//Dashboard
+import Dashboard from "./pages/Dashboard"
+
 
 export default function Rotas() {
     return (
@@ -29,6 +32,7 @@ export default function Rotas() {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/LoginUsuario" element={<LoginUsuario />} />
+                <Route path="/Dashboard" element={<Dashboard />} />
 
                 <Route path="/CadastroClientes" element={<CadastroClientes />} />
                 <Route path="/CadastroProdutos" element={<CadastroProdutos />} />

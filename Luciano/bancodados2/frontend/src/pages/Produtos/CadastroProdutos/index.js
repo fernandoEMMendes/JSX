@@ -13,8 +13,11 @@ export default function CadastroProdutos() {
 
 
     async function alerta(e) {
-        if (!nome, !fabricante, !preco) { toast.warning("Existem campos em Branco") }
         e.preventDefault(e)
+        if (!nome, !fabricante, !preco) {
+            toast.warning("Existem campos em Branco")
+            return
+        }
 
         const response = await apiBack.post("/CriarProdutos", {
             nome,

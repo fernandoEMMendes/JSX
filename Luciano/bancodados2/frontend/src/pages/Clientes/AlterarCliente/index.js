@@ -94,7 +94,6 @@ export default function AlterarCliente() {
                 <br /> <br />
 
                 <button type="submit">submit</button><br />
-                <button onClick={() => navigation("/")}>Voltar</button>
             </form>
         </div>
     )

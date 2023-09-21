@@ -20,7 +20,7 @@ import { AlterarUsuarioController } from "./controllers/Usuarios/AlterarUsuarioC
 import { AlterarProdutosController } from "./controllers/Produtos/AlterarProdutosController";
 import { AlterarClienteController } from "./controllers/Clientes/AlterarClienteController";
 
-import { LoginUsuarioController } from "./controllers/Usuarios/LoginUsuarioController";
+import { AuthUsuarioController } from "./controllers/Usuarios/AuthUsuarioController";
 
 const router = Router()
 
@@ -50,7 +50,7 @@ router.put("/AlterarProdutos", new AlterarProdutosController().handle)
 router.put("/AlterarCliente", new AlterarClienteController().handle)
 
 //Login
-router.post("/LoginUsuario", new LoginUsuarioController().handle)
+router.post("/AuthLogin", new AuthUsuarioController().handle)
 
 
 export { router }

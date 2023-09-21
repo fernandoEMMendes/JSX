@@ -7,8 +7,16 @@ function App() {
     <div>
       <Rotas />
       <ToastContainer
+        position="top-right"
         autoClose={5000}
-        theme="colored"
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
       />
     </div>
   );

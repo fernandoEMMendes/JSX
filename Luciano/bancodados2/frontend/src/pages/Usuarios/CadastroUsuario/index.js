@@ -10,9 +10,12 @@ export default function CadastroUsuario() {
     const [senha, setsenha] = useState("")
 
     async function alerta(e) {
-        if (!nome, !email, !senha) { toast.warning("Existem campos em Branco") }
         e.preventDefault(e)
-
+        if (!nome, !email, !senha) {
+            toast.warning("Existem campos em Branco")
+            return
+        }
+        
         const response = await apiBack.post("/CriarUsuarios", {
             nome,
             email,
@@ -27,9 +30,9 @@ export default function CadastroUsuario() {
 
             <form onSubmit={alerta}>
                 <label>Cadastre-se</label> <br /> <br />
-                <input required type="text" value={nome} onChange={(e) => setnome(e.target.value)} placeholder="Nome" /> <br />
-                <input required type="text" value={email} onChange={(e) => setemail(e.target.value)} placeholder="E-Mail" /> <br />
-                <input required type="password" value={senha} onChange={(e) => setsenha(e.target.value)} placeholder="Senha" /> <br />
+                <input type="text" value={nome} onChange={(e) => setnome(e.target.value)} placeholder="Nome" /> <br />
+                <input type="text" value={email} onChange={(e) => setemail(e.target.value)} placeholder="E-Mail" /> <br />
+                <input type="password" value={senha} onChange={(e) => setsenha(e.target.value)} placeholder="Senha" /> <br />
 
                 <button type="submit">Cadastrar</button>
             </form>

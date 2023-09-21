@@ -31,7 +31,12 @@ export default function AlterarProduto() {
     }, [ListarProdutos])
 
     async function AlterarProdutos(e) {
-        e.preventDefault()
+        e.preventDefault(e)
+        if (!NovoNome, !NovoFabricante, !NovoPreco) {
+            toast.warning("Existem campos em Branco")
+            return
+        }
+        
         const response = await apiBack.put("/AlterarProdutos", {
             id,
             NovoNome,
@@ -63,7 +68,6 @@ export default function AlterarProduto() {
                 <br /> <br />
 
                 <button type="submit">submit</button> <br />
-                <button onClick={() => navigation("/")}>Voltar</button>
             </form>
         </div>
     )

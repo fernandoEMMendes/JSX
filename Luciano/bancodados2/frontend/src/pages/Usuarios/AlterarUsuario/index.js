@@ -26,7 +26,12 @@ export default function AlterarUsuario() {
     }, [ListarUsuario])
 
     async function AlterarUsuario(e) {
-        e.preventDefault()
+        e.preventDefault(e)
+        if (!NovoEmail, !NovoNome) {
+            toast.warning("Existem campos em Branco")
+            return
+        }
+
         const response = await apiBack.put("/AlterarUsuario", {
             id,
             NovoNome,
@@ -52,7 +57,6 @@ export default function AlterarUsuario() {
                 <br /> <br />
 
                 <button type="submit">submit</button> <br />
-                <button onClick={() => navigation('/')}>Voltar</button>
             </form>     
         </div>
     )
