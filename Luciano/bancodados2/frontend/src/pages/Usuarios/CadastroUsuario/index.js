@@ -14,6 +14,9 @@ export default function CadastroUsuario() {
         if (!nome, !email, !senha) {
             toast.warning("Existem campos em Branco")
             return
+        } else if (senha.length < 5){
+            toast.warning("A senha deve conter no minimo 5 caracteres")
+            return
         }
         
         const response = await apiBack.post("/CriarUsuarios", {
@@ -31,7 +34,7 @@ export default function CadastroUsuario() {
             <form onSubmit={alerta}>
                 <label>Cadastre-se</label> <br /> <br />
                 <input type="text" value={nome} onChange={(e) => setnome(e.target.value)} placeholder="Nome" /> <br />
-                <input type="text" value={email} onChange={(e) => setemail(e.target.value)} placeholder="E-Mail" /> <br />
+                <input type="email" value={email} onChange={(e) => setemail(e.target.value)} placeholder="E-Mail" /> <br />
                 <input type="password" value={senha} onChange={(e) => setsenha(e.target.value)} placeholder="Senha" /> <br />
 
                 <button type="submit">Cadastrar</button>

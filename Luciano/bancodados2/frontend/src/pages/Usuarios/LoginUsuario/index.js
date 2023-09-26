@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import apiBack from '../../../services/apiBack'
 import { toast } from 'react-toastify'
@@ -8,13 +8,18 @@ export default function Login() {
     const navigation = useNavigate()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [passwordC, setPasswordC] = useState('')
 
     async function AuthLogin(e) {
         e.preventDefault(e)
         if (!email || !password) {
             toast.warn('Existem Campos em Branco')
             return
+        } else if (password !== passwordC) {
+            toast.warn("As senhas não são iguais")
+            return
         }
+
         try {
             const response = await apiBack.post('/AuthLogin', {
                 email,
@@ -44,6 +49,14 @@ export default function Login() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Senha"
+                />
+
+                <br />
+
+                <input type="password"
+                    value={passwordC}
+                    onChange={(e) => setPasswordC(e.target.value)}
+                    placeholder="Confirmar senha"
                 />
                 <div>
                     <button type='submit'>Enviar</button>
