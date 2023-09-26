@@ -1,4 +1,8 @@
+//importação com chaves é feita quando há metodo de export default
+
 import { Router } from "express";
+import multer from "multer"
+import uploadConfig from "./config/multer"
 
 import { CriarUsuarioController } from './controllers/Usuarios/CriarUsuarioController'
 import { CriarClienteController } from "./controllers/Clientes/CriarClienteController";
@@ -23,11 +27,12 @@ import { AlterarClienteController } from "./controllers/Clientes/AlterarClienteC
 import { AuthUsuarioController } from "./controllers/Usuarios/AuthUsuarioController";
 
 const router = Router()
+const envio = multer(uploadConfig.upload("./tpm"))
 
 //Criar
 router.post("/CriarUsuarios", new CriarUsuarioController().handle)
 router.post("/CriarClientes", new CriarClienteController().handle)
-router.post("/CriarProdutos", new CriarProdutosController().handle)
+router.post("/CriarProdutos", envio.single("file"), new CriarProdutosController().handle)
 
 //Listar
 router.get("/ListarUsuarios", new ListarUsuarioController().handle)
