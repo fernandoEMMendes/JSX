@@ -6,6 +6,6 @@ import "./header.css"
 export default function Header() {
 
     return (
-        <Link to="/" className="link">Voltar </Link>
+        <Link to="/" className="link">Home</Link>
     )   
 }

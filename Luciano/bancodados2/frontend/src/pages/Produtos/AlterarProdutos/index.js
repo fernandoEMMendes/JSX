@@ -36,7 +36,7 @@ export default function AlterarProduto() {
             toast.warning("Existem campos em Branco")
             return
         }
-        
+
         const response = await apiBack.put("/AlterarProdutos", {
             id,
             NovoNome,
@@ -53,17 +53,17 @@ export default function AlterarProduto() {
 
             <form onSubmit={AlterarProdutos}>
                 <label>Nome: </label>
-                <input type="text" value={NovoNome} onChange={(e) => { setNovoNome(e.target.value) }} />
+                <input type="text" value={NovoNome} onChange={(e) => { setNovoNome(e.target.value) }} style={{ width: 300, height: 20 }} />
 
                 <br />
 
                 <label>Fabricante: </label>
-                <input type="text" value={NovoFabricante} onChange={(e) => { setNovoFabricante(e.target.value) }} />
+                <input type="text" value={NovoFabricante} onChange={(e) => { setNovoFabricante(e.target.value) }} style={{ width: 300, height: 20 }} />
 
                 <br />
 
                 <label>Preço: </label>
-                <input type="text" value={NovoPreco} onChange={(e) => { setNovoPreco(e.target.value) }} />
+                <input type="text" value={NovoPreco} onChange={(e) => { setNovoPreco(e.target.value) }} style={{ width: 300, height: 20 }} />
 
                 <br /> <br />
 

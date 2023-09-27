@@ -14,7 +14,7 @@ export default function ListarProdutos() {
 
     useEffect(() => {
         async function verInfo() {
-            const response = await apiBack.get("/ListarProdutos")
+            const response = await apiBack.get("/ListarProdutos/files")
             setinfoProdutos(response.data)
         }
         verInfo()
@@ -33,16 +33,9 @@ export default function ListarProdutos() {
     return (
 
         <div>
+            <Link to="/Dashboard"><button href="/Dashboard" style={{ fontSize: 30 }}>Retornar ao Dashboard</button></Link>
             <div className="align">
                 <h1>Listar Produtos</h1>
-            </div>
-
-            <div className="align">
-                <a>Refrigerante 250ml</a>
-                <FiTrash2 color="red" /> {/*Esse icone é um recurso do JSX*/}
-                <FiEdit3 color="green" /> <br /> {/*Esse icone é um recurso do JSX*/}
-                <a>Fabricante: Coca-Cola</a><br />
-                <a>R$4,99</a>
             </div>
 
             <br />
@@ -50,14 +43,25 @@ export default function ListarProdutos() {
             <div className="align2">
                 {infoProdutos.map((resultados) => {
                     return (
-                        <a key={resultados.id}>
-                            {resultados.nome}
-                            <FiTrash2 color="red" onClick={() => { deleteProdutos(resultados.id) }} />
-                            <Link to={`/AlterarProdutos/${resultados.id}`}><FiEdit3 color="green" /></Link> <br />
-                            {resultados.fabricante} <br />
-                            R${resultados.preco} <br />
-                            -----------------------------------
-                            <br /> <br />
+                        <a key={resultados.id}> 
+                            <table class="table">
+                                <tr>
+                                    <td class="table"><a>IMG</a></td>
+                                    <td class="table"><a>Nome</a></td>
+                                    <td class="table"><a>Fabricante</a></td>
+                                    <td class="table"><a>Preço (R$)</a></td>
+                                    <td class="table"><a>Editar</a></td>
+                                    <td class="table"><a>Apagar</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="table"><img class="img" src={`http://localhost:3333/files/${resultados.banner}`} alt={`${resultados.banner}`} /></td>
+                                    <td class="table">{resultados.nome}</td>
+                                    <td class="table">{resultados.fabricante}</td>
+                                    <td class="table">{resultados.preco}</td>
+                                    <td class="table"><Link to={`/AlterarProdutos/${resultados.id}`}><FiEdit3 color="green" /></Link></td>
+                                    <td class="table"><FiTrash2 color="red" onClick={() => { deleteProdutos(resultados.id) }} /></td>
+                                </tr>
+                            </table>
                         </a>
                     )
                 })}

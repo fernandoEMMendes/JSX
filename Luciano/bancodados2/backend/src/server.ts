@@ -2,25 +2,29 @@
 import express, { Request, Response, NextFunction } from 'express'
 import 'express-async-errors';
 import cors from 'cors';
-import {router} from './routes'
+import { router } from './routes'
+import path from "path"
 
 const app = express()
-
+app.use(
+    "/files",
+    express.static(path.resolve(__dirname, "..", "tmp"))
+)
 app.use(express.json())
 app.use(cors())
 app.use(router)
 
-app.use((err:Error, req: Request, res: Response, next: NextFunction)=>{
-    if(err instanceof Error){
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+    if (err instanceof Error) {
         return res.status(400).json({
-            error:err.message
-        })    
+            error: err.message
+        })
     }
     return res.status(500).json({
-        status:'Erro',
-        message:'Erro Interno Servidor'
+        status: 'Erro',
+        message: 'Erro Interno Servidor'
     })
 })
 
-app.listen(3333,() => console.log("Servidor rodando na porta 3333"))
+app.listen(3333, () => console.log("Servidor rodando na porta 3333"))
 console.log("Mais um dia programando.")

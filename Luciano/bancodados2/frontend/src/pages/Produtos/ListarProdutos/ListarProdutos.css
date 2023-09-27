@@ -1,11 +1,27 @@
 .align {
     text-align: center;
+   
 }
 
 .align2 {
-    display: flex;
-    justify-content: space-evenly;
+    display: inline-block;
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
     font-size: 1.5rem;
+}
+
+.img {
+    width: 10rem;
+    height: auto;
+}
+
+.tableAlign {
+    display: block;
+}
+
+.table {
+    border: solid black 2px;
+    background: white;
+    width: fit-content;
+    height: auto;
 }

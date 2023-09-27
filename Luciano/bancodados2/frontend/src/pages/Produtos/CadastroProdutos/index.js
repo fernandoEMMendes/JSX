@@ -33,11 +33,11 @@ export default function CadastroProdutos() {
 
             <form onSubmit={alerta}>
                 <label>Cadatrar Produto</label> <br /> <br />
-                <input type="text" placeholder="Nome" onChange={(e) => setnome(e.target.value)} value={nome} />  <br />
-                <input type="text" placeholder="Fabricante" onChange={(e) => setfabricante(e.target.value)} value={fabricante} /> <br />
-                <input type="text" placeholder="Preço" onChange={(e) => setpreco(e.target.value)} value={preco} />  <br />
+                <input type="text" placeholder="Nome" onChange={(e) => setnome(e.target.value)} value={nome} style={{ width: 300, height: 20 }} />  <br />
+                <input type="text" placeholder="Fabricante" onChange={(e) => setfabricante(e.target.value)} value={fabricante} style={{ width: 300, height: 20 }} /> <br />
+                <input type="text" placeholder="Preço" onChange={(e) => setpreco(e.target.value)} value={preco} style={{ width: 300, height: 20 }} />  <br />
 
-                <button type="submit">Cadastrar</button>
+                <button type="submit" style={{ fontSize: 20 }}>Cadastrar</button>
             </form>
         </div>
     )

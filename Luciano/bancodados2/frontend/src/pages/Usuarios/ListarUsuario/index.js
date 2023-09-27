@@ -32,15 +32,9 @@ export default function ListarUsuarios() {
 
     return (
         <div>
+            <Link to="/Dashboard"><button href="/Dashboard" style={{ fontSize: 30 }}>Retornar ao Dashboard</button></Link>
             <div className="align">
                 <h1>Listar Usuarios</h1>
-            </div>
-
-            <div className="align">
-                <a>Usuario Teste</a>
-                <FiTrash2 color="red" /> {/*Esse icone é um recurso do JSX*/}
-                <FiEdit3 color="green" /> <br /> {/*Esse icone é um recurso do JSX*/}
-                <a>EmailTeste@Teste.com.br</a>
             </div>
 
             <br />
@@ -50,13 +44,20 @@ export default function ListarUsuarios() {
                     infoUsuarios.map((resultados) => {
                         return (
                             <a key={resultados.id}>
-                                {resultados.nome}
-                                <FiTrash2 color="red" onClick={() => { deleteUsuarios(resultados.id) }} />
-                                <Link to={`/AlterarUsuario/${resultados.id}`}><FiEdit3 color="green" /></Link> <br />
-                                {resultados.email}
-                                <br />
-                                -----------------------------------
-                                <br /> <br />
+                                <table class="table">
+                                    <tr>
+                                        <td class="table">Nome</td>
+                                        <td class="table">Email</td>
+                                        <td class="table">Editar</td>
+                                        <td class="table">Apagar</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="table">{resultados.nome}</td>
+                                        <td class="table">{resultados.email}</td>
+                                        <td class="table"><FiTrash2 color="red" onClick={() => { deleteUsuarios(resultados.id) }} /></td>
+                                        <td class="table"><Link to={`/AlterarUsuario/${resultados.id}`}><FiEdit3 color="green" /></Link></td>
+                                    </tr>
+                                </table>
                             </a>
                         )
                     })

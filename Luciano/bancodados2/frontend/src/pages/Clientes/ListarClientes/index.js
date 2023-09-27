@@ -32,6 +32,7 @@ export default function ListarClientes() {
 
     return (
         <div>
+            <Link to="/Dashboard"><button href="/Dashboard" style={{ fontSize: 30 }}>Retornar ao Dashboard</button></Link>
             <div className="align">
                 <h1>Listar Clientes</h1>
             </div>

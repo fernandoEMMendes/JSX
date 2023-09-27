@@ -8,7 +8,7 @@ export default function AlterarUsuario() {
     const { id } = useParams()
     const navigation = useNavigate()
     const [ListarUsuario, setListarUsuario] = useState("")
-    
+
     const [NovoNome, setNovoNome] = useState("")
     const [NovoEmail, setNovoEmail] = useState("")
 
@@ -47,17 +47,17 @@ export default function AlterarUsuario() {
             <form onSubmit={AlterarUsuario}>
 
                 <label>Nome: </label>
-                <input type="text" value={NovoNome} onChange={(e) => setNovoNome(e.target.value)} />
+                <input type="text" value={NovoNome} onChange={(e) => setNovoNome(e.target.value)} style={{ width: 300, height: 20 }} />
 
                 <br />
 
                 <label>Email: </label>
-                <input type="text" value={NovoEmail} onChange={(e) => setNovoEmail(e.target.value)} />
+                <input type="text" value={NovoEmail} onChange={(e) => setNovoEmail(e.target.value)} style={{ width: 300, height: 20 }} />
 
                 <br /> <br />
 
                 <button type="submit">submit</button> <br />
-            </form>     
+            </form>
         </div>
     )
 }

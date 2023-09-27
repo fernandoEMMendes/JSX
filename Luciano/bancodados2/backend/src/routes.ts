@@ -27,7 +27,7 @@ import { AlterarClienteController } from "./controllers/Clientes/AlterarClienteC
 import { AuthUsuarioController } from "./controllers/Usuarios/AuthUsuarioController";
 
 const router = Router()
-const envio = multer(uploadConfig.upload("./tpm"))
+const envio = multer(uploadConfig.upload("./tmp"))
 
 //Criar
 router.post("/CriarUsuarios", new CriarUsuarioController().handle)
@@ -37,7 +37,7 @@ router.post("/CriarProdutos", envio.single("file"), new CriarProdutosController(
 //Listar
 router.get("/ListarUsuarios", new ListarUsuarioController().handle)
 router.get("/ListarClientes", new ListarClienteController().handle)
-router.get("/ListarProdutos", new ListarProdutosController().handle)
+router.get("/ListarProdutos/files", new ListarProdutosController().handle)
 
 //Listar Unico
 router.get("/ListarUnicoUsuario/:id", new ListarUnicoUsuarioController().handle)

@@ -59,37 +59,37 @@ export default function AlterarCliente() {
             <h1>Editar Cliente</h1>
             <form onSubmit={AlterarCliente}>
                 <label>Nome: </label>
-                <input type="text" value={NovoNome} onChange={(e) => setNovoNome(e.target.value)} />
+                <input type="text" value={NovoNome} onChange={(e) => setNovoNome(e.target.value)} style={{ width: 300, height: 20 }} />
 
                 <br />
 
                 <label>Telefone: </label>
-                <input type="text" value={NovoTelefone} onChange={(e) => setNovoTelefone(e.target.value)} />
+                <input type="text" value={NovoTelefone} onChange={(e) => setNovoTelefone(e.target.value)} style={{ width: 300, height: 20 }} />
 
                 <br />
 
                 <label>Rua: </label>
-                <input type="text" value={NovoRua} onChange={(e) => setNovoRua(e.target.value)} />
+                <input type="text" value={NovoRua} onChange={(e) => setNovoRua(e.target.value)} style={{ width: 300, height: 20 }} />
 
                 <br />
                 <label>Casa: </label>
-                <input type="text" value={NovoCasa} onChange={(e) => setNovoCasa(e.target.value)} />
+                <input type="text" value={NovoCasa} onChange={(e) => setNovoCasa(e.target.value)} style={{ width: 300, height: 20 }} />
 
                 <br />
                 <label>Complemento: </label>
-                <input type="text" value={NovoComplemento} onChange={(e) => setNovoComplemento(e.target.value)} />
+                <input type="text" value={NovoComplemento} onChange={(e) => setNovoComplemento(e.target.value)} style={{ width: 300, height: 20 }} />
 
                 <br />
                 <label>Bairro: </label>
-                <input type="text" value={NovoBairro} onChange={(e) => setNovoBairro(e.target.value)} />
+                <input type="text" value={NovoBairro} onChange={(e) => setNovoBairro(e.target.value)} style={{ width: 300, height: 20 }} />
 
                 <br />
                 <label>Cidade: </label>
-                <input type="text" value={NovoCidade} onChange={(e) => setNovoCidade(e.target.value)} />
+                <input type="text" value={NovoCidade} onChange={(e) => setNovoCidade(e.target.value)} style={{ width: 300, height: 20 }} />
 
                 <br />
                 <label>Estado: </label>
-                <input type="text" value={NovoEstado} onChange={(e) => setNovoEstado(e.target.value)} />
+                <input type="text" value={NovoEstado} onChange={(e) => setNovoEstado(e.target.value)} style={{ width: 300, height: 20 }} />
 
                 <br /> <br />
 
