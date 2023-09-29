@@ -1,14 +1,11 @@
 import "./Home.css"
-import casual from "../../imgs/download.jpg"
-import formal from "../../imgs/ds.png"
-import demo from "../../imgs/demoman 4k.jpeg"
+import placeholder from "../../imgs/placeholder.png"
 
 
 export default function Home() {
     return (
         <>
 
-            <h1 className="aligntitle">Vista-se!</h1>
             <h1 className="aligntitle">De uma cara nova a você!</h1><br />
             <h1 className="aligntitle">O que você está procurando hoje?</h1> <br />
 
@@ -20,7 +17,7 @@ export default function Home() {
                         <div className="col ">
 
                             <div className="card bg-dark" >
-                                <img className="card-img-top" src={demo}  href="/RC" alt="" />
+                                <img className="card-img-top" src={placeholder}  href="/RC" alt="" />
                                 <div className="card-body">
                                     <a role="button" className="btn btn-lg btn-primary text-light" href="/RC">Que tal algo Casual?</a>
                                 </div>
@@ -32,7 +29,7 @@ export default function Home() {
                         <div className="col">
 
                             <div className="card bg-dark" >
-                                <img className="card-img-top" src={demo}  href="/RF" alt="" />
+                                <img className="card-img-top" src={placeholder}  href="/RF" alt="" />
                                 <div className="card-body">
                                     <a href="/RF" role="button" className="btn btn-lg btn-primary text-light" >Ou algo mais Formal?</a>
                                 </div>
