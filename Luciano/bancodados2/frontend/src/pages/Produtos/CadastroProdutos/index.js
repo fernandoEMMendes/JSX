@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { toast } from "react-toastify"
 import apiBack from "../../../services/apiBack"
 import "./CadastroProdutos.css"
@@ -10,7 +10,15 @@ export default function CadastroProdutos() {
     const [fabricante, setfabricante] = useState("")
     const [preco, setpreco] = useState("")
 
+    const [categoriaId, setcategoriaId] = useState([""])
 
+    useEffect(() => {
+        async function verCategoria() {
+            const response = await apiBack.get("/ListarCategorias")
+            setcategoriaId(response.data)
+        }
+        verCategoria()
+    }, [categoriaId]);
 
     async function alerta(e) {
         e.preventDefault(e)
@@ -36,6 +44,20 @@ export default function CadastroProdutos() {
                 <input type="text" placeholder="Nome" onChange={(e) => setnome(e.target.value)} value={nome} style={{ width: 300, height: 20 }} />  <br />
                 <input type="text" placeholder="Fabricante" onChange={(e) => setfabricante(e.target.value)} value={fabricante} style={{ width: 300, height: 20 }} /> <br />
                 <input type="text" placeholder="Preço" onChange={(e) => setpreco(e.target.value)} value={preco} style={{ width: 300, height: 20 }} />  <br />
+
+                <br />
+
+                <select style={{fontSize: 20}}>
+                    {categoriaId.map((id) => {
+                        return (
+                            <option value={id.id} id={id.id}>
+                            {id.nome}      
+                            </option>
+                        ) 
+                    })}
+                </select>
+
+                <br /> <br />
 
                 <button type="submit" style={{ fontSize: 20 }}>Cadastrar</button>
             </form>

@@ -12,6 +12,8 @@ export default function ListarProdutos() {
 
     const [infoProdutos, setinfoProdutos] = useState([""])
 
+    const [infoCategoria, setinfoCategoria] = useState([""])
+
     useEffect(() => {
         async function verInfo() {
             const response = await apiBack.get("/ListarProdutos/files")
@@ -19,6 +21,14 @@ export default function ListarProdutos() {
         }
         verInfo()
     }, [infoProdutos]);
+
+    useEffect(() => {
+        async function verCategoria() {
+            const response = await apiBack.get("/ListarCategorias")
+            setinfoCategoria(response.data)
+        }
+        verCategoria()
+    }, [infoCategoria])
 
     async function deleteProdutos(id) {
         const response = await apiBack.delete(`/DeletarProdutos/`, {
@@ -43,7 +53,8 @@ export default function ListarProdutos() {
             <div className="align2">
                 {infoProdutos.map((resultados) => {
                     return (
-                        <a key={resultados.id}> 
+                       
+                        <a key={resultados.id}>
                             <table class="table">
                                 <tr>
                                     <td class="table"><a>IMG</a></td>
@@ -62,9 +73,13 @@ export default function ListarProdutos() {
                                     <td class="table"><FiTrash2 color="red" onClick={() => { deleteProdutos(resultados.id) }} /></td>
                                 </tr>
                             </table>
+                            
+                            <div style={{ clear: "both" }}></div>
                         </a>
+                        
                     )
                 })}
+
             </div>
         </div>
     )

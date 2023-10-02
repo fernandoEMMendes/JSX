@@ -39,15 +39,30 @@ model Client {
 }
 
 model Products {
-    id         String    @id @default(uuid())
+    id         String @id @default(uuid())
     nome       String
     fabricante String
     preco      String
     banner     String
-    create_at  DateTime? @default(now())
-    update_at  DateTime? @default(now())
+
+    categoria   Categories @relation(fields: [categoriaId], references: [id])
+    categoriaId String
+
+    create_at DateTime? @default(now())
+    update_at DateTime? @default(now())
 
     @@map("produtos")
+}
+
+model Categories {
+    id        String     @id @default(uuid())
+    nome      String
+    create_at DateTime?  @default(now())
+    update_at DateTime?  @default(now())
+    
+    Products  Products[]
+
+    @@map("categorias")
 }
 
 //npx prisma migrate dev - criar banco de dados especificados

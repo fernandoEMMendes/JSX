@@ -37,14 +37,6 @@ export default function ListarClientes() {
                 <h1>Listar Clientes</h1>
             </div>
 
-            <div className="align">
-                <a>Cliente Teste</a>
-                <FiTrash2 color="red" /> {/*Esse icone é um recurso do JSX*/}
-                <FiEdit3 color="green" /> <br /> {/*Esse icone é um recurso do JSX*/}
-                <a>Mary Dota</a>< br />
-                <a>Bauru</a>
-            </div>
-
             <br />
 
             <div className="align2">

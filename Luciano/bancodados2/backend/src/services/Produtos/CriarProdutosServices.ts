@@ -5,6 +5,7 @@ interface CriarProdutos {
   fabricante: string
   preco: string
   banner: string
+  categoriaId: string
 }
 
 class CriarProdutosServices {
@@ -12,9 +13,10 @@ class CriarProdutosServices {
     nome,
     fabricante,
     preco,
-    banner
+    banner,
+    categoriaId
   }: CriarProdutos) {
-    if (!nome || !fabricante || !preco || !banner) {
+    if (!nome || !fabricante || !preco || !banner || !categoriaId) {
       throw new Error('Existem campos em Branco')
     }
 
@@ -23,7 +25,8 @@ class CriarProdutosServices {
         nome: nome,
         fabricante: fabricante,
         preco: preco,
-        banner: banner
+        banner: banner,
+        categoriaId: categoriaId
       }
     })
     return { dados: 'Produto Cadastrado com Sucesso' }
