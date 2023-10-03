@@ -53,30 +53,32 @@ export default function ListarProdutos() {
             <div className="align2">
                 {infoProdutos.map((resultados) => {
                     return (
-                       
+
                         <a key={resultados.id}>
-                            <table class="table">
-                                <tr>
-                                    <td class="table"><a>IMG</a></td>
-                                    <td class="table"><a>Nome</a></td>
-                                    <td class="table"><a>Fabricante</a></td>
-                                    <td class="table"><a>Preço (R$)</a></td>
-                                    <td class="table"><a>Editar</a></td>
-                                    <td class="table"><a>Apagar</a></td>
-                                </tr>
-                                <tr>
-                                    <td class="table"><img class="img" src={`http://localhost:3333/files/${resultados.banner}`} alt={`${resultados.banner}`} /></td>
-                                    <td class="table">{resultados.nome}</td>
-                                    <td class="table">{resultados.fabricante}</td>
-                                    <td class="table">{resultados.preco}</td>
-                                    <td class="table"><Link to={`/AlterarProdutos/${resultados.id}`}><FiEdit3 color="green" /></Link></td>
-                                    <td class="table"><FiTrash2 color="red" onClick={() => { deleteProdutos(resultados.id) }} /></td>
-                                </tr>
-                            </table>
-                            
+                            <div>
+                                <div className="caixa">
+                                    <a>IMG</a>
+                                    <a>Nome</a>
+                                    <a>Fabricante</a>
+                                    <a>Preço (R$)</a>
+                                    <a>Editar</a>
+                                    <a>Apagar</a>
+                                </div>
+
+                                <div className="caixa">
+                                    <img class="img" src={`http://localhost:3333/files/${resultados.banner}`} alt={`${resultados.banner}`} />
+                                    {resultados.nome}
+                                    {resultados.fabricante}
+                                    {resultados.preco}
+                                    <Link to={`/AlterarProdutos/${resultados.id}`}><FiEdit3 color="green" /></Link>
+                                    <FiTrash2 color="red" onClick={() => { deleteProdutos(resultados.id) }} />
+                                </div>
+                            </div>
+
+
                             <div style={{ clear: "both" }}></div>
                         </a>
-                        
+
                     )
                 })}
 

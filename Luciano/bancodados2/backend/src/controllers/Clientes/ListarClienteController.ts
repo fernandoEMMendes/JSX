@@ -1,5 +1,5 @@
 import { Request, Response } from "express"
-import prismaClient from "../../prisma"
+import { ListarClienteService } from "../../services/Clientes/ListarClienteService"
 
 
 
@@ -7,7 +7,8 @@ class ListarClienteController {
 
     async handle(req: Request, res: Response) {
 
-        const clientes = await prismaClient.client.findMany({})
+        const listarClienteService = new ListarClienteService
+        const clientes = await listarClienteService.execute()
         return res.json(clientes)
     }
 }

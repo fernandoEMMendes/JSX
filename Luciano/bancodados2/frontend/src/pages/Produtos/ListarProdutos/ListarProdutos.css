@@ -1,12 +1,6 @@
 
 
-.align {
-    text-align: center;
-}
-
 .align2 {
-    
-   
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
     font-size: 1.5rem;
@@ -17,13 +11,7 @@
     height: auto;
 }
 
-.tableAlign {
-    display: block;
-}
-
-.table {
-    
-    border: solid black 2px;
-    background: white;
-    
+.caixa {
+    display: inline-block;
+    margin: 20px;
 }

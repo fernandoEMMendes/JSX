@@ -7,7 +7,7 @@ class ListarProdutosService {
     async execute() {
 
         const produtos = await prismaClient.products.findMany({})
-        return { dados: produtos }
+        return produtos
     }
 }
 
