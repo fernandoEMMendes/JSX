@@ -1,0 +1,48 @@
+generator client {
+    provider = "prisma-client-ts"
+}
+
+datasource db {
+    provider = "mysql"
+    url      = env("DATABASE_URL")
+}
+
+model User {
+    id String @id @default(uuid())
+    nome String
+    email String
+    senha String
+
+    create_at DateTime? @default(now())
+    update_at DateTime? @default(now())
+
+    @@map("user")
+}
+
+model Client {
+    id String @id @default(uuid())
+    nome String
+    idade String
+    cpf_cnpj String
+    casa String
+    cidade String
+
+    create_at DateTime? @default(now())
+    update_at DateTime? @default(now())
+
+    @@map("client")
+}
+
+model Films {
+    id String @id @default(uuid())
+    nome String
+    sinopse String
+    lancamento String
+
+    create_at DateTime? @default(now())
+    update_at DateTime? @default(now())
+
+    @@map("films")
+}
+
+//npx prisma migrate dev - criar banco de dados especificados
