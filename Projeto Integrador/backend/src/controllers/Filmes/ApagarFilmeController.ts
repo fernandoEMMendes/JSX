@@ -4,11 +4,11 @@ import { ApagarFilmeService } from "../../services/Filmes/ApagarFilmeService";
 class ApagarFilmeController {
     async handle(req: Request, res: Response) {
         const { filmeId } = req.body
-        const service = new ApagarFilmeService()
-        const apagar = await service.execute({
+        const apagar = new ApagarFilmeService()
+        const response = await apagar.execute({
             filmeId
         })
-        return res.json(apagar)
+        return res.json(response)
     }
 }
 

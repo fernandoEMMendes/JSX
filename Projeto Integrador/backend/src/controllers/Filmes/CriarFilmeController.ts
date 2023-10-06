@@ -4,13 +4,13 @@ import { CriarFilmeService } from "../../services/Filmes/CriarFilmeService"
 class CriarFilmeController {
     async handle(req: Request, res: Response) {
         const {nome, sinopse, lancamento} = req.body
-        const criarFilmeService = new CriarFilmeService()
-        const filmes = await criarFilmeService.execute({
+        const criar = new CriarFilmeService()
+        const response = await criar.execute({
             nome,
             sinopse,
             lancamento
         })
-        return res.json(filmes)
+        return res.json(response)
     }
 }
 

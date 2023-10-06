@@ -2,9 +2,8 @@ import prisma from "../../prisma"
 
 class ListarFilmeService {
     async execute() {
-
-        const filmes = await prisma.films.findMany({})
-        return filmes
+        const response = await prisma.films.findMany({})
+        return response
     }
 }
 
