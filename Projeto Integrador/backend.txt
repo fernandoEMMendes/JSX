@@ -1,8 +1,5 @@
 Passos para criar uma tabela
 
-new =
-class = molde
-
 
 1) criação do model (modelo) que será utilizado para fazer
 as ligações com a tabela e criação do @@map (nome da tabela)
