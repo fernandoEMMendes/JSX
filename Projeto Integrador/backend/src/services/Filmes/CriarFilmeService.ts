@@ -8,14 +8,14 @@ interface CriarFilme {
 
 class CriarFilmeService {
     async execute({ nome, sinopse, lancamento }: CriarFilme) {
-        const response = await prismaClient.films.create({
+        await prismaClient.films.create({
             data: {
                 nome: nome,
                 sinopse: sinopse,
-                lancamento:lancamento
+                lancamento: lancamento
             },
         })
-        return {dados: "Filme criado com sucesso"}
+        return { dados: "Filme criado com sucesso" }
     }
 }
 

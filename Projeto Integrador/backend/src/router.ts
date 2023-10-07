@@ -12,6 +12,9 @@ import { ListarUnicoFilmeController } from "./controllers/Filmes/ListarUnicoFilm
 //Apagar
 import { ApagarFilmeController } from "./controllers/Filmes/ApagarFilmeController";
 
+//Alterar
+import { AlterarFilmeController } from "./controllers/Filmes/AlterarFilmeController";
+
 const router = Router()
 
 //Criar
@@ -25,6 +28,9 @@ router.get("/ListarUnicoFilmes", new ListarUnicoFilmeController().handle)
 
 //Apagar
 router.delete("/ApagarFilmes", new ApagarFilmeController().handle)
+
+//Alterar
+router.put("/AlterarFilmes", new AlterarFilmeController().handle)
 
 
 
