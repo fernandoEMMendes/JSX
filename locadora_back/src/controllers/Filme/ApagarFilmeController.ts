@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { ApagarFilmeService } from "../../services/Filmes/ApagarFilmeService";
+import { ApagarFilmeService } from "../../services/Filme/ApagarFilmeService";
 
 class ApagarFilmeController {
     async handle(req: Request, res: Response) {

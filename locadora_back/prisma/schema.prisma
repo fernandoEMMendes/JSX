@@ -9,8 +9,7 @@ datasource db {
 
 model User {
     id String @id @default(uuid())
-
-    nome  String
+    nome String
     email String
     senha String
 
@@ -22,13 +21,11 @@ model User {
 
 model Client {
     id String @id @default(uuid())
-
-    nome     String
-    idade    String
+    nome String
+    idade String
     cpf_cnpj String
-    rg_ie    String
-    casa     String
-    cidade   String
+    casa String
+    cidade String
 
     create_at DateTime? @default(now())
     update_at DateTime? @default(now())
@@ -36,18 +33,16 @@ model Client {
     @@map("client")
 }
 
-model Products {
+model Films {
     id String @id @default(uuid())
-
-    nome       String
-    categoria  String
-    marca      String
-    tamanho    String
-    quantidade String
-    preco      String
+    nome String
+    sinopse String
+    lancamento String
 
     create_at DateTime? @default(now())
     update_at DateTime? @default(now())
 
-    @@map("products")
+    @@map("films")
 }
+
+//npx prisma migrate dev - criar banco de dados especificados

@@ -1,11 +1,11 @@
 import prisma from "../../prisma";
 
-interface ListarUnicoFilme {
+interface ListarUnico {
     filmeId: string
 }
 
 class ListarUnicoFilmeService {
-    async execute({ filmeId }: ListarUnicoFilme) {
+    async execute({ filmeId }: ListarUnico) {
         const response = await prisma.films.findUnique({
             where: {
                 id: filmeId

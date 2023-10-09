@@ -1,11 +1,11 @@
 import prisma from "../../prisma";
 
-interface ApagarFilme {
+interface Apagar {
     filmeId: string
 }
 
 class ApagarFilmeService {
-    async execute({ filmeId }: ApagarFilme) {
+    async execute({ filmeId }: Apagar) {
         await prisma.films.delete({
             where: {
                 id: filmeId

@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { ListarFilmeService } from "../../services/Filmes/ListarFilmeService";
+import { ListarFilmeService } from "../../services/Filme/ListarFilmeService";
 
 class ListarFilmeController {
     async handle(req: Request, res: Response) {

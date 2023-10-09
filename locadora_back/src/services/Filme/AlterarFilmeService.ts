@@ -1,6 +1,6 @@
 import prisma from "../../prisma/index"
 
-interface AlterarFilme {
+interface Alterar {
     filmeId: string
     novoNome: string
     novoSinopse: string
@@ -8,7 +8,7 @@ interface AlterarFilme {
 }
 
 class AlterarFilmeService {
-    async execute({ filmeId, novoNome, novoSinopse, novoLancamento }: AlterarFilme) {
+    async execute({ filmeId, novoNome, novoSinopse, novoLancamento }: Alterar) {
 
         await prisma.films.update({
             where: {

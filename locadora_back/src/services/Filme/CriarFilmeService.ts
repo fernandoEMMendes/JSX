@@ -1,13 +1,13 @@
 import prismaClient from "../../prisma/index"
 
-interface CriarFilme {
+interface Criar {
     nome: string
     sinopse: string
     lancamento: string
 }
 
 class CriarFilmeService {
-    async execute({ nome, sinopse, lancamento }: CriarFilme) {
+    async execute({ nome, sinopse, lancamento }: Criar) {
         await prismaClient.films.create({
             data: {
                 nome: nome,
