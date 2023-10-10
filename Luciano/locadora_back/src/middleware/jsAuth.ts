@@ -20,7 +20,7 @@ export function Autenticado(req: Request, res: Response, next: NextFunction) {
             process.env.KEY_JWT
         ) as PayLoad
 
-        console.log(sub)
+        return next()
 
     } catch (err) {
         return res.status(401).end()
