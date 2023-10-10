@@ -20,6 +20,9 @@ import { ApagarUsuarioController } from "./controllers/Usuario/ApagarUsuarioCont
 import { AlterarFilmeController } from "./controllers/Filme/AlterarFilmeController";
 import { AlterarUsuarioController } from "./controllers/Usuario/AlterarUsuarioController";
 
+//Login
+import { AuthUsuarioController } from "./controllers/Usuario/AuthUsuarioController";
+
 const router = Router()
 import { Autenticado } from "./middleware/jsAuth";
 
@@ -43,5 +46,7 @@ router.delete("/ApagarUsuarios", Autenticado, new ApagarUsuarioController().hand
 router.put("/AlterarFilmes", Autenticado, new AlterarFilmeController().handle)
 router.put("/AlterarUsuarios", Autenticado, new AlterarUsuarioController().handle)
 
+//Login
+router.post("/Login", new AuthUsuarioController().handle)
 
 export { router }
