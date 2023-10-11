@@ -55,12 +55,12 @@ model Products {
 }
 
 model Categories {
-    id        String     @id @default(uuid())
+    id        String    @id @default(uuid())
     nome      String
-    create_at DateTime?  @default(now())
-    update_at DateTime?  @default(now())
-    
-    Products  Products[]
+    create_at DateTime? @default(now())
+    update_at DateTime? @default(now())
+
+    Products Products[]
 
     @@map("categorias")
 }
