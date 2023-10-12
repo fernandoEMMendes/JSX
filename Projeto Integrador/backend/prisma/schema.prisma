@@ -39,6 +39,7 @@ model Client {
 model Products {
     id String @id @default(uuid())
 
+    img        String
     nome       String
     categoria  String
     marca      String
