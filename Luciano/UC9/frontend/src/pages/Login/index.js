@@ -1,12 +1,17 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 import "./Login.scss"
 
 export default function Login() {
 
-    const [email, setemail] = useState("")
-    const [senha, setsenha] = useState("")
-    
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+
+    function handleSubmit(e) {
+        e.preventDefault()
+        console.log(email, password)
+    }
 
     return (
         <div>
@@ -15,13 +20,13 @@ export default function Login() {
             </div>
 
             <div className="login_form">
-                <form>
+                <form onSubmit={handleSubmit}>
                     <label>Email:</label>
-                    <input type="text" />
+                    <input type="text" value={email} onChange={(e) => { setEmail(e.target.value) }} />
                     <label>Senha:</label>
-                    <input type="text" />
+                    <input type="text" value={password} onChange={(e) => { setPassword(e.target.value) }} />
 
-                    <button>Enviar</button>
+                    <button type="submit">Enviar</button>
                 </form>
                 <p>Para se cadastrar <Link to="/Cadastro">clique aqui</Link></p>
             </div>

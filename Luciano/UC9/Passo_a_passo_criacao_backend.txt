@@ -1,0 +1,38 @@
+Iniciando um backend 
+
+/*npm install --global yarn*\ 
+Para instalar o YARN para ser utilizado no console 
+
+ 
+
+Yarn init –Y 
+Para criar o package.json do backend 
+
+ 
+
+Instalar o typescritpt, cors, express e instalar as funcionalidades do cors e express do typescript (@types/cors @types/express) 
+Instalar ts-node-dev (funcionalidade do comando dev do npm) 
+
+ 
+
+Criar o src do backend  
+Criar o server.ts e routes.ts 
+/*Instruções dentro do codigo server.ts e routes.ts*\ 
+
+ 
+
+Adicionar a seção de script no package.json 
+E aplicar uma funcionalidade para o comando dev 
+(Aplicar que ele deve executar ts-node-js e utilizar server.ts)
+
+"scripts": {
+"dev": "ts-node-dev src/server.ts"
+},
+
+ 
+
+Instalar prisma e prisma client (prisma, @prisma/client) 
+Inicializar o prisma (npx prisma init) (Isso vai criar o arquivo de modelos do prisma e o .env) 
+/*Campos que podem ser em branco na tabela devem conter “?” após o tipo *\ 
+
+Instalar o encripitador bcrypt e suas dependencias para o types (bcryptjs e @types/bcryptjs)

@@ -1,10 +1,13 @@
 import { Request, Response } from "express";
+import { LoginService } from "../../Services/Login/LoginService";
 
-class LoginController {
+export class LoginController {
     async handle(req:Request, res:Response){
-        const {email, senha} = req.body
-        console.log(email, senha)
+        const {email, password} = req.body
+        const login = new LoginService()
+        const response = await login.execute({
+            email, password
+        })
+        return res.json(response)
     }
 }
-
-export {LoginController}
