@@ -1,16 +1,34 @@
-import { Link } from "react-router-dom";
-import { useState } from "react";
-
+import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../../Contexts/AuthContext"
 import "./Login.scss"
+import { toast } from "react-toastify"
 
 export default function Login() {
+
+    const navigation = useNavigate()
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
-    function handleSubmit(e) {
-        e.preventDefault()
-        console.log(email, password)
+    const { signIn } = useContext(AuthContext)
+
+    async function handleLogin(e) {
+        e.preventDefault(e)
+        let data = {
+            email,
+            password
+        }
+        const response = await signIn(data)
+        if (!response) {
+            toast.error("Erro de login")
+            return
+        } else if (response.status === 200) {
+            localStorage.setItem("@tklogin2023", JSON.stringify(response.data.token))
+            toast.success("Login efetuado com sucesso")
+            navigation("/Dashboard")
+            return
+        }
     }
 
     return (
@@ -20,7 +38,7 @@ export default function Login() {
             </div>
 
             <div className="login_form">
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleLogin}>
                     <label>Email:</label>
                     <input type="text" value={email} onChange={(e) => { setEmail(e.target.value) }} />
                     <label>Senha:</label>
