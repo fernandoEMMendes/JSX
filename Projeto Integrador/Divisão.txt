@@ -4,17 +4,18 @@ Divisão de trabalhos
 Luiz
 
 -Criação do controllers e services de clientes
+-Criação do controllers e services de produtos
 
 Renan
 
 -Criação do server
+-Criação do Front-end
 
 Fernando
 
 -Criação dos controllers e services de produtos
-
-			
+-Criação do Front-end
 
 todos
 
--Discução e planejamento do front-end e back-end
+-Discussão e planejamento do front-end e back-end

@@ -4,13 +4,13 @@ import { hash } from "bcryptjs"
 interface Criar {
     nome: string
     email: string
-    senha: string
+    password: string
 }
 
 class CriarUsuarioService {
-    async execute({ nome, email, senha }: Criar) {
+    async execute({ nome, email, password }: Criar) {
 
-        if (!nome || !email || !senha) {
+        if (!nome || !email || !password) {
             throw new Error("Campos obrigatórios em branco!")
         }
 
@@ -24,7 +24,7 @@ class CriarUsuarioService {
             throw new Error("Email já cadastrado!")
         }
 
-        const senhaCrypt = await hash(senha, 8)
+        const senhaCrypt = await hash(password, 8)
         await prisma.user.create({
             data: {
                 nome: nome,

@@ -27,7 +27,7 @@
     "dev": "ts-node-dev src/server.ts"
   },
   "keywords": [],
-  "author": "",
+  "author": "Luiz, Fernando, Renan",
   "license": "ISC",
-  "description": ""
+  "description": "Projeto integrador em técnico em informática para internet"
 }
