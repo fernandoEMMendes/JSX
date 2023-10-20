@@ -16,6 +16,10 @@ Fernando
 -Criação dos controllers e services de produtos
 -Criação do Front-end
 
-todos
+Todos
 
 -Discussão e planejamento do front-end e back-end
+
+A fazer
+
+-Front_end
