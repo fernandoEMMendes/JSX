@@ -31,7 +31,6 @@ import { LoginUsuarioController } from "./Controllers/Usuario/LoginUsuarioContro
 //--------------------\\
 
 //Usuário
-
 router.post("/CriarUsuario", new CriarUsuarioController().handle)
 router.get("/ListarUsuario", autenticado, new ListarUsuarioController().handle)
 router.get("/ListarUnicoUsuario", autenticado, new ListarUnicoUsuarioController().handle)
@@ -40,7 +39,6 @@ router.put("/AlterarUsuario", autenticado, new AlterarUsuarioController().handle
 router.post("/Login", new LoginUsuarioController().handle)
 
 //Cliente
-
 router.post('/CriarCliente', autenticado, new CriarClientesController().handle )
 router.get('/ListarCliente', autenticado,  new ListarClientesController().handle)
 router.get('/ListarUnicoCliente/:id', autenticado, new ListarClienteUnicoController().handle)

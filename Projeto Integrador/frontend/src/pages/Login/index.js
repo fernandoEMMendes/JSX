@@ -1,20 +1,32 @@
 import React, { useState } from 'react'
 import "./Login.css"
+import { toast } from "react-toastify"
+import apiBack from "../../services/apiBack"
+import { useNavigate } from "react-router-dom"
 
 export default function Login() {
-
-    const [nome, setNome] = useState('')
+    const navigation = useNavigate()
     const [email, setEmail] = useState('')
     const [senha, setSenha] = useState('')
 
 
-    function handleLogin(event) {
-        event.preventDefault()
-        if (nome === '' || email === '' || senha === '') {
-            alert('Tem Campos em branco')
+    async function handleLogin(event) {
+        event.preventDefault(event)
+        if (!email || !senha) {
+            toast.warn('Há campos em branco!')
             return
         }
-        alert(`Nome: ${nome} \nE-mail: ${email} \nSenha: ${senha}`)
+
+        try {
+            const response = await apiBack.post("/Login", {
+                email,
+                senha
+            })
+            toast.success(response.data.dados)
+            navigation("/")
+        } catch (err) {
+            toast.error(err.response.data.error)
+        }
     }
 
 
@@ -22,19 +34,9 @@ export default function Login() {
         <div className='container-fluid alignform'>
             <br />
 
-            <h1>Login Vista-se !</h1><br />
-
+            <h1>Login Vista-se !</h1>
 
             <form onSubmit={handleLogin}>
-
-
-                <label><strong>Nome:</strong></label>
-                <input
-                    type='text'
-                    value={nome}
-                    onChange={(e) => setNome(e.target.value)}
-
-                /><br />
                 <label><strong>E-mail:</strong></label>
                 <input
                     type='email'
@@ -53,7 +55,6 @@ export default function Login() {
 
                 <button type='submit' ><strong>logar</strong></button>
             </form>
-            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
         </div>
     )
 }

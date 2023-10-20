@@ -54,9 +54,6 @@ export default function Home() {
                 <a>Encontrou algum erro ou gostaria de enviar alguma recomendação?</a>
                 <a href="/contato"> Contate-nos</a>
             </div>
-
-            <br />  
-
         </>
     )
 }
