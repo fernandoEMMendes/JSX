@@ -39,8 +39,8 @@ router.put("/AlterarUsuario", autenticado, new AlterarUsuarioController().handle
 router.post("/Login", new LoginUsuarioController().handle)
 
 //Cliente
-router.post('/CriarCliente', autenticado, new CriarClientesController().handle )
-router.get('/ListarCliente', autenticado,  new ListarClientesController().handle)
+router.post('/CriarCliente', autenticado, new CriarClientesController().handle)
+router.get('/ListarCliente', autenticado, new ListarClientesController().handle)
 router.get('/ListarUnicoCliente/:id', autenticado, new ListarClienteUnicoController().handle)
-router.put('/AlterarCliente', autenticado,  new AlterarClientesController().handle)
+router.put('/AlterarCliente', autenticado, new AlterarClientesController().handle)
 router.delete('/DeletarCliente', autenticado, new DeletarClientesController().handle)
