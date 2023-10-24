@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
-
 import Cadastro from "./Cadastro"
 import Login from "./Login"
 import Dashboard from "./Dashboard"

@@ -1,6 +1,7 @@
 import express, { Request, Response, NextFunction } from "express"
 import "express-async-errors"
 import cors from "cors"
+import path from "path"
 
 import { router } from "./routes"
 
@@ -17,7 +18,7 @@ app.use(router)
 
 //função use do express() : Chamar os metodos que seram utilizados na função anonima
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-    
+
     //Retornando erros comums do servidor para o usuario
     //Retornando o erro 401 com uma mensagem já pronto
     if (err instanceof Error) {
@@ -32,5 +33,10 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
     })
 })
 
+app.use(
+    '/files',
+    express.static(path.resolve(__dirname, '..', 'tmp'))
+)
+
 //Subindo o servidor : Porta que será utilizada : Mensagem que será enviada ao iniciar servidor
-app.listen(7602, () => {console.log("Servidor iniciado na partoa 7602")})
+app.listen(7602, () => { console.log("Servidor iniciado na porta 7602") })

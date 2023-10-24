@@ -1,3 +1,7 @@
+body {
+    background-color: bisque;
+}
+
 .login_titulo {
 
     display: flex;
@@ -22,7 +26,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-    
+
         label {
             margin-top: 1rem;
         }
