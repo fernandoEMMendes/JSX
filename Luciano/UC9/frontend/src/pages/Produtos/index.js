@@ -8,6 +8,7 @@ export default function Produtos() {
     const [fabricante, setFabricante] = useState("")
     const [quantidade, setQuantidade] = useState("")
     const [preco, setPreco] = useState("")
+    const [idCategoria, setIdcategoria] = useState("")
 
     const [categoria, setCategoria] = useState([""])
 
@@ -19,6 +20,17 @@ export default function Produtos() {
         verCategorias()
     }, [categoria]);
 
+    function Criar(e) {
+        e.preventDefault()
+
+        if (!nome || !fabricante || !quantidade || !preco || !idCategoria) {
+            alert("Campos em branco")
+            return
+        }
+        console.log(nome, fabricante, quantidade, preco, idCategoria)
+    }
+
+
     return (
         <div>
             <div className="titulo">
@@ -26,7 +38,7 @@ export default function Produtos() {
             </div>
 
             <div>
-                <form className="forms">
+                <form className="forms" onSubmit={Criar}>
                     <label>Nome</label>
                     <input type="text" value={nome} onChange={(e) => { setNome(e.target.value) }} />
 
@@ -40,18 +52,23 @@ export default function Produtos() {
                     <input type="text" value={preco} onChange={(e) => { setPreco(e.target.value) }} />
 
                     <label>Banner</label>
-                    <input type="file" value="" />
+                    <input type="file" />
 
                     <label>Categoria</label>
-                    <select>
+                    <select value={idCategoria} onChange={(e) => { setIdcategoria(e.target.value) }}>
+                        <option value="" id="">{">Selecione um<"}</option>
                         {categoria.map((id) => {
                             return (
-                                <option value={id.id}>
-                                    {id.nome}
+                                <option value={id.id} id={id.id}>
+                                    {`>${id.nome}<`}
                                 </option>
                             )
                         })}
                     </select>
+
+                    <br />
+
+                    <button type="submit">Enviar</button>
                 </form>
             </div>
         </div>
