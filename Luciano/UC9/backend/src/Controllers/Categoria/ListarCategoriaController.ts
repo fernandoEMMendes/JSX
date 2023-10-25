@@ -3,6 +3,7 @@ import { ListarCategoriaService } from "../../Services/Categoria/ListarCategoria
 
 export class ListarCategoriaController {
     async handle(req: Request, res: Response) {
+        
         const listar = new ListarCategoriaService()
         const response = await listar.execute()
         

@@ -17,7 +17,7 @@ router.post("/Login", new LoginController().handle)
 
 router.post("/CriarUsuario", new CriarUsuarioController().handle)
 
-router.post("/CriarProduto", upload.single('file'), new CriarProdutos().handle)
+router.post("/CriarProduto", isAuth, upload.single('file'), new CriarProdutos().handle)
 
-router.post("/CriarCategoria", new CriarCategorias().handle)
-router.get("/ListarCategoria", new ListarCategoriaController().handle)
+router.post("/CriarCategoria", isAuth, new CriarCategorias().handle)
+router.get("/ListarCategoria", isAuth, new ListarCategoriaController().handle)

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import apiLocal from "../../apiBack/apiLocal/api";
-import {toast} from "react-toastify"
+import { toast } from "react-toastify"
 import "./Produtos.scss"
 
 export default function Produtos() {
@@ -14,9 +14,16 @@ export default function Produtos() {
 
     const [listarCategoria, setListarCategoria] = useState([""])
 
+    const authToken = localStorage.getItem("@tklogin2023")
+    const token = JSON.parse(authToken)
+
     useEffect(() => {
         async function verCategorias() {
-            const response = await apiLocal.get("/ListarCategoria")
+            const response = await apiLocal.get("/ListarCategoria", {
+                headers: {
+                    Authorization: "Bearer " + `${token}`
+                }
+            })
             setListarCategoria(response.data)
         }
         verCategorias()
@@ -49,7 +56,7 @@ export default function Produtos() {
             const response = await apiLocal.post("/CriarProduto", data)
             toast.success(response.data.dados)
         } catch (err) {
-            if(err = 401) {toast.error("Campos em branco ou inválidos")}
+            if (err = 401) { toast.error("Campos em branco ou inválidos") }
         }
     }
 
