@@ -1,9 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import Rotas from './pages/routes';
 
 function App() {
   return (
-    <div>Ronaldo Fenomeno</div>
+    <div>
+      <Rotas />
+      </div>
   )
 }
 
