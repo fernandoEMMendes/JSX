@@ -1,7 +1,15 @@
-import {Link} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
+import {useContext} from "react"
+import { AuthContext } from "../../Contexts/AuthContext"
+
 import "./Dashboard.scss"
 
 export default function Dashboard() {
+
+    const navigation = useNavigate()
+    const {loginToken} = useContext(AuthContext)
+    loginToken()
+
     return (
         <div>
             <div className="titulo">

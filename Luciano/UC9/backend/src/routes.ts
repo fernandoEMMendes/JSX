@@ -12,10 +12,12 @@ import { CriarUsuarioController } from "./Controllers/Usuario/CriarUsuarioContro
 import { CriarCategorias } from "./Controllers/Categoria/CriarCategoriaController";
 import { CriarProdutos } from "./Controllers/Produto/CriarProdutoController";
 import { ListarCategoriaController } from "./Controllers/Categoria/ListarCategoriaController";
+import { ListarUsuarioTokenController } from "./Controllers/Usuario/ListarUsuarioTokenController";
 
 router.post("/Login", new LoginController().handle)
 
 router.post("/CriarUsuario", new CriarUsuarioController().handle)
+router.get("/ListarUsuarioToken", isAuth, new ListarUsuarioTokenController().handle)
 
 router.post("/CriarProduto", isAuth, upload.single('file'), new CriarProdutos().handle)
 
