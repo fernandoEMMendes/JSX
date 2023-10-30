@@ -1,6 +1,6 @@
 import {createContext, useState} from "react"
 import {toast} from "react-toastify"
-import apiLocal from "../apiBack/apiLocal/api"
+import apiLocal from "../api/apiLocal/api"
 
 export const AuthContext = createContext()
 

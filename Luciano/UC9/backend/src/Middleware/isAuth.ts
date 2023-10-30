@@ -18,6 +18,7 @@ export function isAuth(req: Request, res: Response, next: NextFunction) {
             token,
             process.env.JWT_KEY
         ) as PayLoad
+        req.user_id = sub
         return next()
 
     } catch (err) {

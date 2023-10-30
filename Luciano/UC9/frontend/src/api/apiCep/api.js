@@ -5,7 +5,6 @@ const apiCep = axios.create({
     Headers: {
         "Access-Control-Allow-Origin": "*",
         "Content-Type": "application/json"
-
     }
 })
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import apiLocal from "../../apiBack/apiLocal/api";
+import apiLocal from "../../api/apiLocal/api";
 import { toast } from "react-toastify"
 import "./Produtos.scss"
 
