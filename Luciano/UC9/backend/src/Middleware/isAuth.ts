@@ -9,19 +9,21 @@ export function isAuth(req: Request, res: Response, next: NextFunction) {
     const autentToken = req.headers.authorization
 
     if (!autentToken) {
-        return res.status(401).end()
+        return res.json({ dados: "Token invalido" })
+        //return res.status(401).end()
     }
     const [, token] = autentToken.split(' ')
-    
     try {
         const { sub } = verify(
             token,
             process.env.JWT_KEY
         ) as PayLoad
         req.user_id = sub
+
         return next()
 
     } catch (err) {
+        //return res.json({ dados: "Token invalido" })
         return res.status(401).end()
     }
 }

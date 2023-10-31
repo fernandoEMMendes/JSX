@@ -1,18 +1,18 @@
-import {createContext, useState} from "react"
-import {toast} from "react-toastify"
+import { createContext, useState } from "react"
+import { toast } from "react-toastify"
 import apiLocal from "../api/apiLocal/api"
 
 export const AuthContext = createContext()
 
-export default function AuthProvider({children}){
+export default function AuthProvider({ children }) {
     const [user, setUser] = useState("")
-    
+
     const autenticado = !!user
 
     const lsToken = localStorage.getItem("@tklogin2023")
     const token = JSON.parse(lsToken)
 
-    async function loginToken(){
+    async function loginToken() {
         try {
             const response = await apiLocal.get("/ListarUsuarioToken", {
                 headers: {
@@ -21,27 +21,26 @@ export default function AuthProvider({children}){
             })
             console.log(response)
 
-        } catch(err) {
-            toast.warning("Token inválido")
+        } catch (err) {
+            toast.warning("Erro ao validar login")
         }
     }
 
-
-    async function signIn({email, password}){
+    async function signIn({ email, password }) {
         try {
             const response = await apiLocal.post("Login", {
                 email,
                 password
             })
             return response
-        } catch(err) {
-            
+        } catch (err) {
+
         }
     }
 
-    return(
-        <AuthContext.Provider value={{signIn, loginToken}}>
-{children}
+    return (
+        <AuthContext.Provider value={{ signIn, loginToken }}>
+            {children}
         </AuthContext.Provider>
     )
 }
