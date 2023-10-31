@@ -9,8 +9,8 @@ export default function AuthProvider({children}){
     
     const autenticado = !!user
 
-    const LSToken = localStorage.getItem("@tklogin2023")
-    const token = JSON.parse(LSToken)
+    const lsToken = localStorage.getItem("@tklogin2023")
+    const token = JSON.parse(lsToken)
 
     async function loginToken(){
         try {

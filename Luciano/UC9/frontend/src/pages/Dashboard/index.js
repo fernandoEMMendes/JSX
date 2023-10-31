@@ -1,5 +1,5 @@
-import {Link, useNavigate} from "react-router-dom"
-import {useContext} from "react"
+import { Link, useNavigate } from "react-router-dom"
+import { useContext, useEffect } from "react"
 import { AuthContext } from "../../Contexts/AuthContext"
 
 import "./Dashboard.scss"
@@ -7,8 +7,19 @@ import "./Dashboard.scss"
 export default function Dashboard() {
 
     const navigation = useNavigate()
-    const {loginToken} = useContext(AuthContext)
-    loginToken()
+
+    const { loginToken } = useContext(AuthContext)
+    useEffect(() => {
+        const lsToken = localStorage.getItem("@tklogin2023")
+        const token = JSON.parse(lsToken)
+        
+        if (!token) {
+            navigation("/")
+            return
+        }
+
+        loginToken()
+    }, [])
 
     return (
         <div>
