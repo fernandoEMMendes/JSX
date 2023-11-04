@@ -1,9 +1,25 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
+import { useNavigate } from "react-router-dom"
+import { AuthContext } from "../../Contexts/AuthContext";
 import apiLocal from "../../api/apiLocal/api";
 import { toast } from "react-toastify"
 import "./Produtos.scss"
 
 export default function Produtos() {
+
+    const navigation = useNavigate()
+    const { loginToken } = useContext(AuthContext)
+    useEffect(() => {
+        const lsToken = localStorage.getItem("@tklogin2023")
+        const token = JSON.parse(lsToken)
+
+        if (!token) {
+            navigation("/")
+            return
+        }
+
+        loginToken()
+    }, [])
 
     const [nome, setNome] = useState("")
     const [fabricante, setFabricante] = useState("")

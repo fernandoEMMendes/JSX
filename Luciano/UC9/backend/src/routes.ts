@@ -17,7 +17,7 @@ import { ListarUsuarioTokenController } from "./Controllers/Usuario/ListarUsuari
 router.post("/Login", new LoginController().handle)
 
 router.post("/CriarUsuario", new CriarUsuarioController().handle)
-router.get("/ListarUsuarioToken", isAuth, new ListarUsuarioTokenController().handle)
+router.get("/ListarUsuarioToken", new ListarUsuarioTokenController().handle)
 
 router.post("/CriarProduto", isAuth, upload.single('file'), new CriarProdutos().handle)
 
