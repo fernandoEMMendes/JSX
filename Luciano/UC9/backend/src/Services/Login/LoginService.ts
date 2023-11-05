@@ -27,7 +27,7 @@ export class LoginService {
             process.env.JWT_KEY,
             {
                 subject: usuario.id,
-                expiresIn: 10
+                expiresIn: "10h"
             }
         )
             return {

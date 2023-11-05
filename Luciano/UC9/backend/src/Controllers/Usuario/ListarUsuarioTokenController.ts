@@ -4,7 +4,7 @@ import { ListarUsuarioTokenService } from "../../Services/Usuario/ListarUsuarioT
 export class ListarUsuarioTokenController{
     async handle(req:Request, res:Response) {
         const tokenId = req.user_id
-        console.log(tokenId)
+        //console.log(tokenId)
         const listar = new ListarUsuarioTokenService()
         const response = await listar.execute({
              tokenId

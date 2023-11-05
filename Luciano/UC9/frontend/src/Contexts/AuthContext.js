@@ -7,7 +7,7 @@ export const AuthContext = createContext()
 export default function AuthProvider({ children }) {
     const [user, setUser] = useState("")
 
-    const autenticado = !!user
+    const isAuth = !!user
 
     const lsToken = localStorage.getItem("@tklogin2023")
     const token = JSON.parse(lsToken)
@@ -19,9 +19,11 @@ export default function AuthProvider({ children }) {
                     Authorization: "Bearer " + `${token}`
                 }
             })
-            console.log(response)
+            //console.log(response)
+            setUser(response)
 
         } catch (err) {
+            //return (err)
             toast.warning("Erro ao validar login")
         }
     }
@@ -34,7 +36,7 @@ export default function AuthProvider({ children }) {
             })
             return response
         } catch (err) {
-
+            toast.warning("Erro ao validar login")
         }
     }
 
