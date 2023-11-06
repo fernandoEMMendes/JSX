@@ -15,23 +15,30 @@ export default function Login() {
 
     async function handleLogin(e) {
         e.preventDefault(e)
-        
-        let data = {
-            email,
-            password
-        }
-        const response = await signIn(data)
 
-        if (!response) {
-            toast.error("Erro de login")
-            return
-            
-            //status 200 = OK
-        } else if (response.status === 200) {
+        if (!email || !password) {
+            toast.warning("Campos obrigatorios em branco!")
+        }
+
+        try {
+            let data = {
+                email,
+                password
+            }
+            const response = await signIn(data)
+
+            if (!response) {
+                toast.error("Erro de login")
+                return
+
+                //status 200 = OK
+            }
             localStorage.setItem("@tklogin2023", JSON.stringify(response.data.token))
             toast.success("Login efetuado com sucesso")
             navigation("/Dashboard")
             return
+        } catch (err) {
+            toast.error("Email ou senha incorretos!")
         }
     }
 
