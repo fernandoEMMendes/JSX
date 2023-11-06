@@ -16,7 +16,7 @@ export default function AuthProvider({ children }) {
         try {
             const response = await apiLocal.get("/ListarUsuarioToken", {
                 headers: {
-                    Authorization: "Bearer " + `${token}`
+                    Authorization: "Bearer" + `${token}`
                 }
             })
             //console.log(response)
