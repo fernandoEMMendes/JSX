@@ -37,6 +37,7 @@ export default function AuthProvider({ children }) {
             return response
         } catch (err) {
             toast.warning("Erro ao validar login")
+            return
         }
     }
 

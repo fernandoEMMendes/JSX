@@ -1,18 +1,17 @@
 import { Link, useNavigate } from "react-router-dom"
 import { useContext, useEffect } from "react"
 import { AuthContext } from "../../Contexts/AuthContext"
-
 import "./Dashboard.scss"
+import { toast } from "react-toastify"
 
 export default function Dashboard() {
 
     const navigation = useNavigate()
-
     const { loginToken } = useContext(AuthContext)
     useEffect(() => {
         const lsToken = localStorage.getItem("@tklogin2023")
         const token = JSON.parse(lsToken)
-        
+
         if (!token) {
             navigation("/")
             return
@@ -20,6 +19,12 @@ export default function Dashboard() {
 
         loginToken()
     }, [])
+
+    function handleSair() {
+        localStorage.removeItem("@tklogin2023")
+        toast.info("Logout efetuado com sucesso!")
+        navigation("/")
+    }
 
     return (
         <div>
@@ -29,6 +34,7 @@ export default function Dashboard() {
 
             <div className="Dashboard">
                 <a><Link to="/Produtos">Produtos</Link></a>
+                <button onClick={handleSair}>Sair</button>
             </div>
         </div>
     )

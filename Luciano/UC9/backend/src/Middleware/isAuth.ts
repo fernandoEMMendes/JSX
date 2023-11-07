@@ -23,7 +23,7 @@ export function isAuth(req: Request, res: Response, next: NextFunction) {
         return next()
 
     } catch (err) {
-        //return res.json({ dados: "Token invalido" })
-        return res.status(401).end()
+        return res.json({ dados: "Token expirado" })
+        //return res.status(401).end()
     }
 }

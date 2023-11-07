@@ -18,6 +18,7 @@ export default function Login() {
 
         if (!email || !password) {
             toast.warning("Campos obrigatorios em branco!")
+            return
         }
 
         try {
@@ -26,14 +27,8 @@ export default function Login() {
                 password
             }
             const response = await signIn(data)
-
-            if (!response) {
-                toast.error("Erro de login")
-                return
-
-                //status 200 = OK
-            }
-            localStorage.setItem("@tklogin2023", JSON.stringify(response.data.token))
+            const token = response.data.token
+            localStorage.setItem("@tklogin2023", JSON.stringify(token))
             toast.success("Login efetuado com sucesso")
             navigation("/Dashboard")
             return
