@@ -6,13 +6,6 @@
     align-items: center;
     padding: 10px;
 
-    p{
-        text-align: center;
-              margin-top: 1rem;
-              font-size: 2rem;
-              font-weight: bold;
-    }
-
     button{
         margin-top: 1rem;
         height: 3rem;
@@ -31,4 +24,14 @@
             color: #FFFF;
         }
     }
+}
+
+.conteinerTitulo{
+    p{
+        text-align: center;
+              margin-top: 1rem;
+              font-size: 2rem;
+              font-weight: bold;
+    }
+
 }

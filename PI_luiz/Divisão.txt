@@ -13,7 +13,7 @@ Renan
 
 Fernando
 
--Criação dos controllers e services de produtos
+-Criação dos controllers e services de produtos e usuarios
 -Criação do Frontend - Dashboard (Clientes)
 			
 
@@ -21,7 +21,7 @@ todos
 
 -Discussão e planejamento do front-end e back-end
 
---------------------
+-Anotações Luiz-
 
 08/11
 fazer área de login, levando para o dashboard exclusivo para os donos
