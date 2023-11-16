@@ -53,7 +53,27 @@ export default function CriarCliente() {
         addBuscaCep()
     }, [handleCep]);
 
-    async function handleCadastrar(e) { }
+    async function handleCadastrar(e) {
+        e.preventDefault()
+        try {
+            if (
+                !nome || !idade || !cpf_cnpj || !rg_ie || !tel || !cep ||
+                !estado || !cidade || !!bairro || !rua || !complemento || !endereco
+            ) {
+                toast.warn("Campo em branco não são permitidos!")
+                return
+            }
+
+            await apiLocal.post("/CriarCliente", {
+                nome, idade, cpf_cnpj, rg_ie, tel, cep, estado, cidade,
+                bairro, rua, complemento, endereco
+            })
+            toast.success('Cliente cadastrado com sucesso!')
+        } catch (err) {
+            toast.error(err.response.data.error)
+            return
+        }
+    }
 
 
 
@@ -80,7 +100,7 @@ export default function CriarCliente() {
                     <label>Telefone_Celular:</label>
                     <input
                         placeholder="Insira um número telefonico" type="int"
-                        value={idade} onChange={(e) => setTel(e.target.value)}
+                        value={tel} onChange={(e) => setTel(e.target.value)}
                     />
 
                     <label>cpf ou cnpj:</label>
