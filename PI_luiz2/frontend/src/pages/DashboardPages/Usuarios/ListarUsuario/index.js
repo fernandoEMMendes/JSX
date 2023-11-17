@@ -2,8 +2,8 @@ import { useState, useEffect, useContext } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { FaTrashAlt, FaPencilAlt } from 'react-icons/fa'
 import { toast } from 'react-toastify'
-import { AuthContext } from '../../../Context/authContext'
-import apiLocal from '../../../API/apiLocal/api'
+import { AuthContext } from '../../../../Context/authContext'
+import apiLocal from '../../../../API/apiLocal/api'
 import './listarUsuario.css'
 
 export default function ListarUsuario(){

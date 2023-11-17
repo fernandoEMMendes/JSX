@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import { AuthContext } from '../../../Context/authContext'
-import apiLocal from '../../../API/apiLocal/api'
+import { AuthContext } from '../../../../Context/authContext'
+import apiLocal from '../../../../API/apiLocal/api'
 import './altera.scss'
 
 export default function AlterarUsuario(){

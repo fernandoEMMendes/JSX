@@ -1,12 +1,12 @@
 import "./Casual.css"
 
-import casualM1 from "../../imgs/casualM1.jpg"
-import casualM2 from "../../imgs/casualM2.jpg"
-import casualM3 from "../../imgs/casualM3.jpg"
+import casualM1 from "../../../imgs/casualM1.jpg"
+import casualM2 from "../../../imgs/casualM2.jpg"
+import casualM3 from "../../../imgs/casualM3.jpg"
 
-import casualF1 from "../../imgs/casualF1.png"
-import casualF2 from "../../imgs/casualF2.jpg"
-import casualF3 from "../../imgs/casualF3.png"
+import casualF1 from "../../../imgs/casualF1.png"
+import casualF2 from "../../../imgs/casualF2.jpg"
+import casualF3 from "../../../imgs/casualF3.png"
 
 
 export default function RoupaCasual() {

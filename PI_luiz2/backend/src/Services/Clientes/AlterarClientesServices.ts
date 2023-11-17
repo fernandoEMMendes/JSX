@@ -1,28 +1,44 @@
 import prismaClient from '../../prisma'
 
-interface AlterarCliente{
-    id:           string
-    alteraIdade:  string
-    alteraCasa:   string
+interface AlterarCliente {
+    id: string
+    alteraNome: string
+    alteraIdade: string
+    alteraCep: string
+    alteraEstado: string
     alteraCidade: string
+    alteraBairro: string
+    alteraRua: string
+    alteraComplemento: string
+    alteraEndereco: string
 }
 
-class AlterarClientesServices{
+class AlterarClientesServices {
     async execute({
         id,
         alteraIdade,
-        alteraCasa,
-        alteraCidade
-    }:AlterarCliente){
-       
+        alteraCep,
+        alteraEstado,
+        alteraCidade,
+        alteraBairro,
+        alteraRua,
+        alteraComplemento,
+        alteraEndereco
+    }: AlterarCliente) {
+
         await prismaClient.client.update({
-            where:{
+            where: {
                 id: id
             },
-            data:{
+            data: {
                 idade: alteraIdade,
-                casa: alteraCasa,
-                cidade: alteraCidade
+                cep: alteraCep,
+                estado: alteraEstado,
+                cidade: alteraCidade,
+                bairro: alteraBairro,
+                rua: alteraRua,
+                complemento: alteraComplemento,
+                endereco: alteraEndereco
             }
         })
         return { dados: 'Dados Alterados com sucesso!' }

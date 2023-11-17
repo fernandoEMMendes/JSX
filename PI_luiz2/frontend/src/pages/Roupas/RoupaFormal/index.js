@@ -1,10 +1,10 @@
-import formalM1 from "../../imgs/formalM1.png"
-import formalM2 from "../../imgs/formalM2.png"
-import formalM3 from "../../imgs/formalM3.png"
+import formalM1 from "../../../imgs/formalM1.png"
+import formalM2 from "../../../imgs/formalM2.png"
+import formalM3 from "../../../imgs/formalM3.png"
 
-import formalF1 from "../../imgs/formalF1.png"
-import formalF2 from "../../imgs/formalF2.png"
-import formalF3 from "../../imgs/formalF3.png"
+import formalF1 from "../../../imgs/formalF1.png"
+import formalF2 from "../../../imgs/formalF2.png"
+import formalF3 from "../../../imgs/formalF3.png"
 
 
 export default function RoupaFormal() {

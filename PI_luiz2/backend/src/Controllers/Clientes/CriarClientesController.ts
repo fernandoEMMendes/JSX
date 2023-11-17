@@ -3,15 +3,20 @@ import { CriarClientesServices } from '../../Services/Clientes/CriarClientesServ
 
 class CriarClientesController {
     async handle(req: Request, res: Response){
-    const { nome, idade, cpf_cnpj, rg_ie, casa, cidade } = req.body
+    const { nome, idade, cpf_cnpj, rg_ie, cep, cidade, estado, bairro, rua, complemento, endereco } = req.body
     const criarClientesServices = new CriarClientesServices()
     const cliente = await criarClientesServices.execute({
         nome,
         idade,
         cpf_cnpj,
         rg_ie,
-        casa,
-        cidade
+        cep,
+        estado,
+        cidade,
+        bairro,
+        rua,
+        complemento,
+        endereco
     })
     return res.json(cliente)
     }
