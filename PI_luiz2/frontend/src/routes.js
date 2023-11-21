@@ -12,6 +12,7 @@ import Dashboard from "./pages/DashboardPages/dashboard"
 import CriarUsuario from './pages/DashboardPages/Usuarios/CriarUsuarios'
 import ListarUsuario from "./pages/DashboardPages/Usuarios/ListarUsuario"
 import AlterarUsuario from "./pages/DashboardPages/Usuarios/AlterarUsuario"
+import CriarCliente from "./pages/DashboardPages/Clientes/CriarClientes"
 
 export default function Rotas() {
     return (
@@ -23,10 +24,11 @@ export default function Rotas() {
                 <Route path="/RC" element={<RoupaCasual />} />
                 <Route path="/Contato" element={<Contato />} />
                 <Route path="/Login" element={<Login />} />
-                <Route path='/Dashboard' element={<Dashboard/>} />
-                <Route path='/CriarUsuario' element={<CriarUsuario />}/>
-                <Route path='/ListarUsuario' element={<ListarUsuario />}/>
-                <Route path='/AlteraUsuario/:id' element={<AlterarUsuario/>}/>
+                <Route path='/Dashboard' element={<Dashboard />} />
+                <Route path='/CriarUsuario' element={<CriarUsuario />} />
+                <Route path='/ListarUsuario' element={<ListarUsuario />} />
+                <Route path='/AlteraUsuario/:id' element={<AlterarUsuario />} />
+                <Route path="/CriarCliente" element={<CriarCliente />} />
             </Routes>
             <Footer />
         </BrowserRouter>

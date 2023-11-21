@@ -29,7 +29,7 @@ model Client {
     cidade      String
     bairro      String
     rua         String
-    complemento String
+    complemento String?
     endereco    String
 
     create_at DateTime? @default(now())

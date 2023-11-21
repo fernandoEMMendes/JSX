@@ -9,12 +9,14 @@ export function autenticado(
     req: Request,
     res: Response,
     next: NextFunction
-){ 
+) {
     const authToken = req.headers.authorization
+    console.log(authToken)
 
     if (!authToken) {
-        return res.json({dados: 'Token Inválido'})
+        return res.json({ dados: 'Token Inválido' })
     }
+
 
     const [, token] = authToken.split(' ')
 
@@ -27,6 +29,6 @@ export function autenticado(
         return next()
 
     } catch (err) {
-        return res.json({dados: 'Token Inválido'})
+        return res.json({ dados: 'Token Inválido' })
     }
 }

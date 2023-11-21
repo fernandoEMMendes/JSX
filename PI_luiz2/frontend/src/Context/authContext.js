@@ -6,11 +6,13 @@ export const AuthContext = createContext()
 
 export default function AuthProvider({ children }) {
     const [ user, setUser ] = useState('')
-
+    
     const isAuth = !!user
 
     const iToken = localStorage.getItem("@vistaseToken")
     const token = JSON.parse(iToken)
+    console.log("AuthContext", token)
+    console.log("AuthContext", user)
 
     async function loginVerify() {
         try {
@@ -21,7 +23,9 @@ export default function AuthProvider({ children }) {
             })
             setUser(response.data.id)
         } catch (err) {
-            toast.error('Erro de login')
+            if(err.response.status === 401){
+                setUser('')
+            }
         }
     }
 
@@ -33,12 +37,12 @@ export default function AuthProvider({ children }) {
             })
             return response
         } catch (err) {
-            
+            return(err.data.dados)
         }
     }
 
     return (
-        <AuthContext.Provider value={{ isAuth, loginVerify, signIn }}>
+        <AuthContext.Provider value={{ loginVerify, signIn, isAuth }}>
             {children}
         </AuthContext.Provider>
     )

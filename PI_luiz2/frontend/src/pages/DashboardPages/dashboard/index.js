@@ -47,6 +47,10 @@ export default function Dashboard(){
             <div className='direita'>
             <button><Link to='/ListarUsuario'>Listar Usuário</Link></button>
             </div>
+            <div className='esquerda'>
+            <button><Link to='/CriarCliente'>Criar Cliente</Link></button>
+            </div>
+            <br />
             <button onClick={handleSair}>sair</button>
             </div>
             <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>

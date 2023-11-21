@@ -18,7 +18,7 @@ class CriarClientesServices {
   async execute({
     nome, idade, cpf_cnpj, rg_ie, cep, estado, cidade, bairro, rua, complemento, endereco
   }: CriarClientes) {
-    if (!nome || !idade || !cpf_cnpj || !rg_ie || !cep || !estado || !cidade || !bairro || !rua || !complemento || !endereco) {
+    if (!nome || !idade || !cpf_cnpj || !rg_ie || !cep || !estado || !cidade || !bairro || !rua || !endereco) {
       throw new Error('Faltou um ou mais campos sem registro!')
     }
 

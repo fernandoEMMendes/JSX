@@ -1,4 +1,4 @@
-import react, { useState, useEffect, useContext } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import { AuthContext } from "../../../../Context/authContext"
 import apiLocal from "../../../../API/apiLocal/api"
@@ -8,20 +8,20 @@ import "./insert.scss"
 
 export default function CriarCliente() {
     const navigation = useNavigate()
+
     const { loginVerify } = useContext(AuthContext)
 
+
     useEffect(() => {
-        const lsToken = localStorage.getItem("@vistasetoken")
-        const token = JSON.parse(lsToken)
+        const iToken = localStorage.getItem('@vistaseToken')
+        const token = JSON.parse(iToken)
 
         if (!token) {
-            navigation("/login")
+            navigation('/Login')
             return
         }
         loginVerify()
     }, [])
-
-
 
     const [nome, setNome] = useState("")
     const [idade, setIdade] = useState("")
@@ -56,19 +56,28 @@ export default function CriarCliente() {
     async function handleCadastrar(e) {
         e.preventDefault()
         try {
-            if (
-                !nome || !idade || !cpf_cnpj || !rg_ie || !tel || !cep ||
-                !estado || !cidade || !!bairro || !rua || !complemento || !endereco
-            ) {
-                toast.warn("Campo em branco não são permitidos!")
-                return
-            }
-
+            const iToken = localStorage.getItem('@vistaseToken')
+            const token = JSON.parse(iToken)
+           // console.log(token)
             await apiLocal.post("/CriarCliente", {
-                nome, idade, cpf_cnpj, rg_ie, tel, cep, estado, cidade,
-                bairro, rua, complemento, endereco
+                nome: nome,
+                idade: idade,
+                cpf_cnpj: cpf_cnpj,
+                rg_ie: rg_ie,
+                tel: tel,
+                cep: cep,
+                estado: estado,
+                cidade: cidade,
+                bairro: bairro,
+                rua: rua,
+                complemento: complemento,
+                endereco: endereco               
+            }, {
+                headers: {
+                    Authorization: 'Bearer ' + `${token}`
+                }
             })
-            toast.success('Cliente cadastrado com sucesso!')
+            toast.success("Cliente registrado com êxito.")
         } catch (err) {
             toast.error(err.response.data.error)
             return
@@ -123,7 +132,7 @@ export default function CriarCliente() {
 
                     <label>complemento:</label>
                     <input
-                        placeholder="Insira um complemento caso necessário" type="text"
+                        placeholder="Opcional" type="text"
                         value={complemento} onChange={(e) => setComplemento(e.target.value)}
                     />
 
@@ -157,6 +166,11 @@ export default function CriarCliente() {
                         value={rua} onChange={(e) => setRua(e.target.value)}
                     />
 
+                    <br /> <br />
+
+                    <button type="submit">Cadastrar</button>
+
+                    <br /> <br />
                 </form>
             </div>
         </div>

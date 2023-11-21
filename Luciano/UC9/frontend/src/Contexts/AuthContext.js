@@ -20,7 +20,7 @@ export default function AuthProvider({ children }) {
                 }
             })
             //console.log(response)
-            setUser(response)
+            setUser(response.data.id)
 
         } catch (err) {
             //return (err)
@@ -42,7 +42,7 @@ export default function AuthProvider({ children }) {
     }
 
     return (
-        <AuthContext.Provider value={{ signIn, loginToken }}>
+        <AuthContext.Provider value={{ isAuth, signIn, loginToken }}>
             {children}
         </AuthContext.Provider>
     )
