@@ -55,4 +55,33 @@ export default function AlterarCliente() {
         setAlteraComplemento(ListarUnicoCliente.alteraComplemento)
         setAlteraEndereco(ListarUnicoCliente.alteraEndereco)
     }, [ListarUnicoCliente]);
+
+    async function AlterarCliente(e) {
+        e.preventDefault()
+        const response = await apiLocal.put("/AlterarCliente", {
+            id,
+            alteraNome,
+            alteraIdade,
+            alteraCep,
+            alteraEstado,
+            alteraCidade,
+            alteraBairro,
+            alteraRua,
+            alteraComplemento,
+            alteraEndereco
+        })
+        toast.info(response.data.dados)
+        navigation("/ListarCliente")
+    }
+
+    return(
+        <div className='alignForm'>
+            <div>
+                <h1>Alteração de Cliente</h1>
+            </div>
+            <div className='formInicio'>
+                
+            </div>
+        </div>
+    )
 }
