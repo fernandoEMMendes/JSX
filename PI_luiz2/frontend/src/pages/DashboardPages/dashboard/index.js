@@ -3,26 +3,26 @@ import { Link, useNavigate } from 'react-router-dom'
 import apiLocal from '../../../API/apiLocal/api'
 import './dashboard.scss'
 
-export default function Dashboard(){
+export default function Dashboard() {
     const navigation = useNavigate()
     const iToken = localStorage.getItem('@vistaseToken')
     const token = JSON.parse(iToken)
 
-    useEffect (() => {
-        if(!token){
-        navigation('/')
-        return
-        } else if(token){
-            async function verificaToken(){
+    useEffect(() => {
+        if (!token) {
+            navigation('/')
+            return
+        } else if (token) {
+            async function verificaToken() {
                 const resposta = await apiLocal.get('/ListarUsuarioToken', {
                     headers: {
                         Authorization: 'Bearer ' + `${token}`
                     }
                 })
-                if(resposta.data.dados){
+                if (resposta.data.dados) {
                     navigation('/')
                     return
-                } else if (resposta.data.id){
+                } else if (resposta.data.id) {
                     navigation('/Dashboard')
                 }
             }
@@ -30,30 +30,33 @@ export default function Dashboard(){
         }
     }, [token])
 
-    function handleSair(){
+    function handleSair() {
         localStorage.removeItem("@vistaseToken")
         navigation("/")
     }
-//ListarUsuario
-    return(
+    //ListarUsuario
+    return (
         <div>
             <div>
-            <h1>Dashboard</h1>
+                <h1>Dashboard</h1>
             </div>
             <div className='dashboard'>
-            <div className='esquerda'>
-            <button><Link to='/CriarUsuario'>Criar Usuário</Link></button>
+                <div className='esquerda'>
+                    <button><Link to='/CriarUsuario'>Criar Usuário</Link></button>
+                </div>
+                <div className='direita'>
+                    <button><Link to='/ListarUsuario'>Listar Usuário</Link></button>
+                </div>
+                <div className='esquerda'>
+                    <button><Link to='/CriarCliente'>Criar Cliente</Link></button>
+                </div>
+                <div className='direta'>
+                    <button><Link to="/ListarCliente">Listar Cliente</Link></button>
+                </div>
+                <br />
+                <button onClick={handleSair}>sair</button>
             </div>
-            <div className='direita'>
-            <button><Link to='/ListarUsuario'>Listar Usuário</Link></button>
-            </div>
-            <div className='esquerda'>
-            <button><Link to='/CriarCliente'>Criar Cliente</Link></button>
-            </div>
-            <br />
-            <button onClick={handleSair}>sair</button>
-            </div>
-            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
         </div>
     )
 }

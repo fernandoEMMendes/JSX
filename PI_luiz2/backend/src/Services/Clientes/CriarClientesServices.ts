@@ -39,6 +39,24 @@ class CriarClientesServices {
       throw new Error('CPF/CNPJ ou RG/IE já registrado!')
     }
 
+    if (complemento === "") {
+      await prismaClient.client.create({
+        data: {
+          nome: nome,
+          idade: idade,
+          cpf_cnpj: cpf_cnpj,
+          rg_ie: rg_ie,
+          cep: cep,
+          estado: estado,
+          cidade: cidade,
+          bairro: bairro,
+          rua: rua,
+          complemento: "null",
+          endereco: endereco
+        }
+      })
+    }
+
     await prismaClient.client.create({
       data: {
         nome: nome,
@@ -54,6 +72,7 @@ class CriarClientesServices {
         endereco: endereco
       }
     })
+
     return { dados: 'Cliente registrado com sucesso!' }
   }
 }

@@ -13,6 +13,8 @@ import CriarUsuario from './pages/DashboardPages/Usuarios/CriarUsuarios'
 import ListarUsuario from "./pages/DashboardPages/Usuarios/ListarUsuario"
 import AlterarUsuario from "./pages/DashboardPages/Usuarios/AlterarUsuario"
 import CriarCliente from "./pages/DashboardPages/Clientes/CriarClientes"
+import ListarCliente from "./pages/DashboardPages/Clientes/ListarCliente"
+import AlterarCliente from "./pages/DashboardPages/Clientes/AlterarCliente"
 
 export default function Rotas() {
     return (
@@ -29,6 +31,8 @@ export default function Rotas() {
                 <Route path='/ListarUsuario' element={<ListarUsuario />} />
                 <Route path='/AlteraUsuario/:id' element={<AlterarUsuario />} />
                 <Route path="/CriarCliente" element={<CriarCliente />} />
+                <Route path="/ListarCliente" element={<ListarCliente />} />
+                <Route path="/AlteraCliente/:id" element={<AlterarCliente />} />
             </Routes>
             <Footer />
         </BrowserRouter>
