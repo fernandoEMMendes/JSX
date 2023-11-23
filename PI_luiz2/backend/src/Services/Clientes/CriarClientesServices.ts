@@ -55,23 +55,23 @@ class CriarClientesServices {
           endereco: endereco
         }
       })
+    } else {
+      await prismaClient.client.create({
+        data: {
+          nome: nome,
+          idade: idade,
+          cpf_cnpj: cpf_cnpj,
+          rg_ie: rg_ie,
+          cep: cep,
+          estado: estado,
+          cidade: cidade,
+          bairro: bairro,
+          rua: rua,
+          complemento: complemento,
+          endereco: endereco
+        }
+      })
     }
-
-    await prismaClient.client.create({
-      data: {
-        nome: nome,
-        idade: idade,
-        cpf_cnpj: cpf_cnpj,
-        rg_ie: rg_ie,
-        cep: cep,
-        estado: estado,
-        cidade: cidade,
-        bairro: bairro,
-        rua: rua,
-        complemento: complemento,
-        endereco: endereco
-      }
-    })
 
     return { dados: 'Cliente registrado com sucesso!' }
   }

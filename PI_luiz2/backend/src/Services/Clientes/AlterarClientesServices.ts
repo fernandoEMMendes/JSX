@@ -26,21 +26,39 @@ class AlterarClientesServices {
         alteraEndereco
     }: AlterarCliente) {
 
-        await prismaClient.client.update({
-            where: {
-                id: id
-            },
-            data: {
-                idade: alteraIdade,
-                cep: alteraCep,
-                estado: alteraEstado,
-                cidade: alteraCidade,
-                bairro: alteraBairro,
-                rua: alteraRua,
-                complemento: alteraComplemento,
-                endereco: alteraEndereco
-            }
-        })
+        if (alteraComplemento === "") {
+            await prismaClient.client.update({
+                where: {
+                    id: id
+                },
+                data: {
+                    idade: alteraIdade,
+                    cep: alteraCep,
+                    estado: alteraEstado,
+                    cidade: alteraCidade,
+                    bairro: alteraBairro,
+                    rua: alteraRua,
+                    complemento: "null",
+                    endereco: alteraEndereco
+                }
+            })
+        } else {
+            await prismaClient.client.update({
+                where: {
+                    id: id
+                },
+                data: {
+                    idade: alteraIdade,
+                    cep: alteraCep,
+                    estado: alteraEstado,
+                    cidade: alteraCidade,
+                    bairro: alteraBairro,
+                    rua: alteraRua,
+                    complemento: alteraComplemento,
+                    endereco: alteraEndereco
+                }
+            })
+        }
         return { dados: 'Dados Alterados com sucesso!' }
     }
 }
