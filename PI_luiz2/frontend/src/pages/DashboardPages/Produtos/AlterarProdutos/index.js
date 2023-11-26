@@ -60,7 +60,17 @@ export default function AlterarProduto(){
         }
         listarProdutoUnico()
     }, [id])
-
+    
+    function handleImagem(e){
+        if (!e.target.files){
+            return
+        }
+        const image = e.target.files[0]
+        if (image.type === 'image/png' || image.type === 'image/jpeg' || image.type === 'image/jpg'){
+            setAlteraImg(image)
+        }
+       }
+       
     useEffect(() => {
         setAlteraNome(listarUnicoProduto.alteraNome)
         setAlteraMarca(listarUnicoProduto.alteraMarca)
@@ -72,15 +82,6 @@ export default function AlterarProduto(){
         setAlteraImg(listarUnicoProduto.alteraImg)
     }, [listarUnicoProduto])
 
-    function handleImagem(e){
-        if (!e.target.files){
-            return
-        }
-        const image = e.target.files[0]
-        if (image.type === 'image/png' || image.type === 'image/jpeg' || image.type === 'image/jpg'){
-            setAlteraImg(image)
-        }
-       }
 
     async function AlterarProduto(e) {
         e.preventDefault()
