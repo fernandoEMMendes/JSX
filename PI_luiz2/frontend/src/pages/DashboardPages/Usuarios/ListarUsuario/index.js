@@ -64,8 +64,8 @@ return(
                         <article key={item.id}>
                     <strong className='Info linhaDivision'>______________________________</strong><br/>
                     <div className='Info'>
-                        <p>{item.nome}</p><br/>
-                        <p>{item.email}</p>
+                        <p className='p'>{item.nome}</p>
+                        <p className='p'>{item.email}</p>
                         <h3 className='icones'>
                             <Link to ={`/AlteraUsuario/${item.id}`}><FaPencilAlt size='1.4rem' color='blue'/></Link>
                         </h3>
@@ -76,6 +76,7 @@ return(
                 </article>
                     )
                 })}
+                <br/><br/><br/><br/>
                 </div>
              )
 

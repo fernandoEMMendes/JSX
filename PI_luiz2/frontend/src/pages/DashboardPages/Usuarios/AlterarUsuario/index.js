@@ -81,6 +81,7 @@ export default function AlterarUsuario(){
                 <button type='submit'>Alterar</button>
                 </form>
             </div>
+            <br/>
         </div>
     )
 }

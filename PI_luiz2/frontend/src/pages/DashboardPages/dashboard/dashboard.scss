@@ -1,8 +1,8 @@
 .dashboard{
-    display: grid;
-    row-gap: 50px;
+    display: flex;
+    flex-direction:column;
+    row-gap: 1px;
     grid-template-columns: 600px 600px;
-    text-align: center;
     box-sizing:border-box;
     max-width: 800px;
      margin: 1px;
@@ -27,12 +27,4 @@
 
         }
     }
-}
-
-.direita{
-   text-align: right;
-}
-
-.esquerda{
-   text-align: left;
 }
