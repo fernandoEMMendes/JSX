@@ -30,7 +30,7 @@ export default function AuthProvider({ children }) {
 
     async function signIn({ email, password }) {
         try {
-            const response = await apiLocal.post("Login", {
+            const response = await apiLocal.post("/Login", {
                 email,
                 password
             })
