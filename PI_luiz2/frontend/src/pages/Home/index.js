@@ -14,7 +14,7 @@ export default function Home() {
                 <div className="container-fluid container-sm">
                     <div className="row">
 
-                        <div className="col ">
+                        <div className="col-md-6">
 
                             <div className="card bg-dark" >
                                 <img className="card-img-top" src={placeholder}  href="/RC" alt="" />
@@ -26,7 +26,7 @@ export default function Home() {
                         </div>
 
 
-                        <div className="col">
+                        <div className="col-md-6">
 
                             <div className="card bg-dark" >
                                 <img className="card-img-top" src={placeholder}  href="/RF" alt="" />

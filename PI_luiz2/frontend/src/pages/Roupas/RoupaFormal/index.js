@@ -46,9 +46,8 @@ export default function RoupaFormal() {
                         <img className="img-fluid img-thumbnail" src={formalF3} alt="img6" style={{ width: 300 }} />
                     </div>
                 </div>
-
             </div>
-
+            <br /> <br /> <br /> <br /> <br />
         </>
     )
 }
