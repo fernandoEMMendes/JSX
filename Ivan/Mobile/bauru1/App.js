@@ -10,7 +10,7 @@ export default function App() {
       </View>
       <View style={styles.distancia}>
         <Text style={styles.conteudo}>
-          Bauru é um município brasileiro do interiro de São Paulo
+          Bauru é um município brasileiro do interioro de São Paulo
           sendo o mais populoso do Centro-Oeste paulista, É uma das 19 cidades que
           integram a Região Imediata de Bauru que, por sua vez, é uma das quatro
           regiões imediatas que integram a Região Intermediária de Bauru, que é formada por 48 cidades
