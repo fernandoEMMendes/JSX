@@ -1,77 +1,103 @@
-import React, { useState, useEffect } from 'react';
-import MapView from "react-native-maps"
-import { StyleSheet, View, StatusBar, Text } from 'react-native';
-
-import { requestBackgroundPermissionsAsync, getCurrentPositionAsync } from "expo-location"
-//import * as Location from "expo-location"
+import React, { useState, useEffect, useRef } from 'react'
+import {
+  StyleSheet,
+  StatusBar,
+  View,
+  Text
+} from 'react-native'
+import MapView, { Marker } from 'react-native-maps'
+import {
+  requestBackgroundPermissionsAsync,
+  getCurrentPositionAsync,
+  watchPositionAsync,
+  LocationAccuracy
+} from 'expo-location'
 
 export default function App() {
+
   const [localizacao, setLocalizacao] = useState(null)
-  //const [localizacao2, setLocalizacao2] = useState(null)
   const [loading, setLoading] = useState(false)
 
-  useEffect(() => {
-    async function gerarLocal() {
-      const { granted } = await requestBackgroundPermissionsAsync()
-      if (granted) {
-        const posicaoAtual = await getCurrentPositionAsync()
-        setLocalizacao(posicaoAtual.coords)
-        setLoading(true)
-      }
+  const mapaRef = useRef(MapView)
+
+  async function requisitarLocal() {
+    const { granted } = await requestBackgroundPermissionsAsync()
+    if (granted) {
+      const positionAtual = await getCurrentPositionAsync()
+      setLocalizacao(positionAtual)
+      setLoading(true)
     }
-    gerarLocal()
+  }
+  useEffect(() => {
+    requisitarLocal()
   }, [localizacao])
 
-
-  //useEffect(() => {
-  //  async function gerarLocal2() {
-  //    const { granted } = await Location.requestBackgroundPermissionsAsync({})
-  //    if (granted) {
-  //      const posicaoAtual2 = await Location.getCurrentPositionAsync({})
-  //      setLoading(true)
-  //    }
-  //  }
-  //  gerarLocal2()
-  //}, [localizacao2]);
+  useEffect(() => {
+    setLoading(false)
+    watchPositionAsync({
+      accuracy: LocationAccuracy.Highest,
+      timeInterval: 1000,
+      distanceInterval: 1
+    }, (resposta) => {
+      setLocalizacao(resposta)
+      mapaRef.current.animateCamera({
+        center: resposta.coords
+      })
+      setLoading(true)
+    })
+  }, [])
 
   if (loading === false) {
-    return(
+    return (
       <View style={styles.container}>
-        <StatusBar backgroundColor="orange" translucent={false}/>
-        <Text style={styles.loading}>Aguarde. . . .</Text>
+        <StatusBar backgroundColor='orange' barStyle='light-content' translucent={false} />
+        <Text>Aguarde Carregando.....</Text>
       </View>
     )
   }
 
-
   return (
     <View style={styles.container}>
-      <StatusBar backgroundColor="orange" translucent={false}/>
-      <MapView style={styles.MapView}
-        loadingEnabled={true}
-        initialRegion={{
-          latitude: localizacao.latitude,
-          longitude: localizacao.longitude,
-          latitudeDelta: 0.006,  //quanto menor o número mair próximo o zoom vai ser
-          longitudeDelta: 0.006,
-        }}
-      ></MapView>
+      <StatusBar backgroundColor='orange' barStyle='light-content' translucent={false} />
+      {
+        localizacao &&
+        <MapView
+          ref={mapaRef}
+          style={styles.mapview}
+          loadingEnabled={true}
+          initialRegion={{
+            latitude: localizacao.coords.latitude,
+            longitude: localizacao.coords.longitude,
+            latitudeDelta: 0.006,
+            longitudeDelta: 0.006
+          }}
+        >
+          <Marker
+            coordinate={{
+              latitude: localizacao.coords.latitude,
+              longitude: localizacao.coords.longitude
+            }}
+          />
+        </MapView>
+      }
+
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
-
-  loading: {
-    textAlign: "center",
-    textAlignVertical: "center",
+  textAG: {
+    fontSize: 35,
+    fontWeight: 'bold',
+    color: 'red',
   },
-
-  MapView: {
-    height: "100%",
-    width: "100%",
-  },
+  mapview: {
+    height: '100%',
+    width: '100%'
+  }
 })
