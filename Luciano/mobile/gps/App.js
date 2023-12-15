@@ -1,103 +1,95 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from "react"
+import { Image, View, Text, StyleSheet, StatusBar } from "react-native";
+import MapView, { Marker } from "react-native-maps"
 import {
-  StyleSheet,
-  StatusBar,
-  View,
-  Text
-} from 'react-native'
-import MapView, { Marker } from 'react-native-maps'
-import {
-  requestBackgroundPermissionsAsync,
-  getCurrentPositionAsync,
-  watchPositionAsync,
-  LocationAccuracy
-} from 'expo-location'
+    requestForegroundPermissionsAsync, getCurrentPositionAsync,
+    watchPositionAsync, LocationAccuracy
+} from "expo-location"
+import { useKeepAwake } from "expo-keep-awake"
 
 export default function App() {
+    useKeepAwake()
+    const [localizacao, setLocalizacao] = useState(null)
+    const mapaRef = useRef(MapView)
 
-  const [localizacao, setLocalizacao] = useState(null)
-  const [loading, setLoading] = useState(false)
+    useEffect(() => {
+        async function reqLoc() {
+            const { granted } = await requestForegroundPermissionsAsync()
+            if (granted) {
+                const posicaoAtual = await getCurrentPositionAsync()
+                setLocalizacao(posicaoAtual)
+            }
+        }
+        reqLoc()
+    }, [localizacao]);
 
-  const mapaRef = useRef(MapView)
+    useEffect(() => {
+        watchPositionAsync({
+            accuracy: LocationAccuracy.Highest,
+            timeInterval: 1000,
+        }, (response) => {
+            setLocalizacao(response)
+            mapaRef.current.animateCamera({
+                pitch: 0,
+                center: response.coords
+            })
+        })
+    }, [])
 
-  async function requisitarLocal() {
-    const { granted } = await requestBackgroundPermissionsAsync()
-    if (granted) {
-      const positionAtual = await getCurrentPositionAsync()
-      setLocalizacao(positionAtual)
-      setLoading(true)
-    }
-  }
-  useEffect(() => {
-    requisitarLocal()
-  }, [localizacao])
-
-  useEffect(() => {
-    setLoading(false)
-    watchPositionAsync({
-      accuracy: LocationAccuracy.Highest,
-      timeInterval: 1000,
-      distanceInterval: 1
-    }, (resposta) => {
-      setLocalizacao(resposta)
-      mapaRef.current.animateCamera({
-        center: resposta.coords
-      })
-      setLoading(true)
-    })
-  }, [])
-
-  if (loading === false) {
     return (
-      <View style={styles.container}>
-        <StatusBar backgroundColor='orange' barStyle='light-content' translucent={false} />
-        <Text>Aguarde Carregando.....</Text>
-      </View>
+        <View style={Styles.centralizar}>
+            <StatusBar translucent={false} />
+            {localizacao &&
+                <View>
+                    <Text style={Styles.texto}>APP GPS</Text>
+                    <MapView
+                        ref={mapaRef}
+                        style={Styles.mapview}
+                        initialRegion={{
+                            latitude: localizacao.coords.latitude,
+                            longitude: localizacao.coords.longitude,
+                            latitudeDelta: 0.003,
+                            longitudeDelta: 0.003,
+                        }}
+                    >
+
+                        <Marker
+                            coordinate={{
+                                latitude: localizacao.coords.latitude,
+                                longitude: localizacao.coords.longitude,
+                            }} >
+
+                            <Image style={Styles.iconMaker} source={require("./src/imgs/kiwi.png")} />
+                        </Marker>
+                    </MapView>
+                    <Text style={Styles.texto}>Fernando EM Mendes</Text>
+                </View>
+            }
+        </View>
     )
-  }
-
-  return (
-    <View style={styles.container}>
-      <StatusBar backgroundColor='orange' barStyle='light-content' translucent={false} />
-      {
-        localizacao &&
-        <MapView
-          ref={mapaRef}
-          style={styles.mapview}
-          loadingEnabled={true}
-          initialRegion={{
-            latitude: localizacao.coords.latitude,
-            longitude: localizacao.coords.longitude,
-            latitudeDelta: 0.006,
-            longitudeDelta: 0.006
-          }}
-        >
-          <Marker
-            coordinate={{
-              latitude: localizacao.coords.latitude,
-              longitude: localizacao.coords.longitude
-            }}
-          />
-        </MapView>
-      }
-
-    </View>
-  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  textAG: {
-    fontSize: 35,
-    fontWeight: 'bold',
-    color: 'red',
-  },
-  mapview: {
-    height: '100%',
-    width: '100%'
-  }
+const Styles = StyleSheet.create({
+    centralizar: {
+        flex: 1,
+    },
+
+    texto: {
+        fontSize: 30,
+        color: "white",
+        backgroundColor: "black",
+        textAlign: "center",
+        textAlignVertical: "center"
+    },
+
+    mapview: {
+        height: "90%",
+        width: "100%",
+    },
+
+    iconMaker: {
+        height: 50,
+        width: 45,
+        resizeMode: 'contain'
+    }
 })
