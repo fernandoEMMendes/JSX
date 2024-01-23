@@ -21,20 +21,20 @@ class CriarusuariosServices {
         if (emailExiste) {
             throw new Error('Email já cadastrado')
         }
-         const senhaCrypt = await hash(password, 8)
-         const resposta = await prismaClient.usuario.create({
-            data:{
+        const senhaCrypt = await hash(password, 8)
+        const resposta = await prismaClient.usuario.create({
+            data: {
                 nome: nome,
                 email: email,
                 senha: senhaCrypt
             },
-            select:{
+            select: {
                 id: true,
                 nome: true,
                 email: true
             }
-         })
-         return ({resposta})
+        })
+        return ({ resposta })
     }
 }
 

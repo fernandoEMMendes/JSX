@@ -3,8 +3,13 @@ import multer from 'multer'
 import uploadConfig from './config/multer'
 
 import { LoginController } from './Controller/Login/LoginController'
+import { LoginMotoqueiroController } from './Controller/Login/LoginMotoqueiroController'
+
 import { CriarusuariosController } from './Controller/Usuarios/CriarUsuariosController'
 import { ListarUsuarioTokenController } from './Controller/Usuarios/listarUsuarioTokenController'
+
+import { CriarMotoqueiroController } from './Controller/Motoqueiros/CriarMotoqueiroController'
+import { ListarMotoqueiroController } from './Controller/Motoqueiros/ListarMotoqueiroController'
 
 import { CriarProdutosController } from './Controller/Produtos/CriarProdutosController'
 
@@ -18,6 +23,11 @@ const upload = multer(uploadConfig.upload('./tmp'))
 
 //Rotas de Logins
 router.post('/LoginUsuarios', new LoginController().handle)
+router.post("/LoginMotoqueiros", new LoginMotoqueiroController().handle)
+
+//Estrutura de Motoqueiros
+router.post("/CriarMotoqueiros", new CriarMotoqueiroController().handle)
+router.get("/ListarMotoqueiro", new ListarMotoqueiroController().handle)
 
 //Estrutura de Usuários
 router.post('/CriarUsuarios', new CriarusuariosController().handle)
