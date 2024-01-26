@@ -21,6 +21,5 @@ export default function AppRoutes() {
             options={{ headerShown: false}}
             />
         </Stack.Navigator>
-
     )
 }
