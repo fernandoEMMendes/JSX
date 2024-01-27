@@ -50,7 +50,7 @@ export default function CadastroProdutos() {
                 <select style={{fontSize: 20}}>
                     {categoriaId.map((id) => {
                         return (
-                            <option value={id.id} id={id.id}>
+                            <option value={id.id}>
                             {id.nome}      
                             </option>
                         ) 

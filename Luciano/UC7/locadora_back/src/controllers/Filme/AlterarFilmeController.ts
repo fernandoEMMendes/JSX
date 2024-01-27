@@ -1,6 +1,6 @@
 import { Request, Response } from "express"
 import { AlterarFilmeService } from "../../services/Filme/AlterarFilmeService"
-2
+
 class AlterarFilmeController {
     async handle(req: Request, res: Response) {
         const { filmeId, novoNome, novoSinopse, novoLancamento } = req.body
