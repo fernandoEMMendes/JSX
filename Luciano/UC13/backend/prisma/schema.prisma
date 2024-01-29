@@ -12,15 +12,33 @@ datasource db {
 }
 
 model Motoqueiro {
-  id String @id @default(uuid())
-  nome String
+  id       String @id @default(uuid())
+  nome     String
   nusuario String
-  senha String
+  senha    String
 
   create_at DateTime @default(now())
   update_at DateTime @default(now())
 
   @@map("motoqueiros")
+}
+
+model Cliente {
+  id       String @id @default(uuid())
+  nome     String
+  email    String
+  senha    String
+  cpf      String
+  cep      String
+  nMoradia String
+  rua      String
+  bairro   String
+  cidade   String
+
+  create_at DateTime? @default(now())
+  update_at DateTime? @default(now())
+
+  @@map("clientes")
 }
 
 model Usuario {
