@@ -3,10 +3,10 @@ import { CriarClientesService } from "../../Services/Clientes/CriarClientesServi
 
 export class CriarClientesController {
     async handle(req: Request, res: Response) {
-        const { nome, email, senha, cpf, cep, nMoradia, rua, bairro, cidade } = req.body
+        const { nome, tel_cel, email, senha, cpf, cep, nMoradia, rua, bairro, cidade } = req.body
         const criar = new CriarClientesService()
         const resposta = await criar.execute({
-            nome, email, senha, cpf, cep, nMoradia, rua, bairro, cidade
+            nome, tel_cel, email, senha, cpf, cep, nMoradia, rua, bairro, cidade
         })
         return res.json(resposta)
     }

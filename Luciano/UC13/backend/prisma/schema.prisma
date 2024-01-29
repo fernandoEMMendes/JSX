@@ -26,6 +26,7 @@ model Motoqueiro {
 model Cliente {
   id       String @id @default(uuid())
   nome     String
+  tel_cel  String
   email    String
   senha    String
   cpf      String

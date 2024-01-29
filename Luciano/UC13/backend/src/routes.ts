@@ -28,7 +28,7 @@ const upload = multer(uploadConfig.upload('./tmp'))
 //Rotas de Logins
 router.post('/LoginUsuarios', new LoginController().handle)
 router.post("/LoginMotoqueiros", new LoginMotoqueiroController().handle)
-router.post("LoginClientes", new LoginClienteController().handle)
+router.post("/LoginClientes", new LoginClienteController().handle)
 
 //Estrutura de Motoqueiros
 router.post("/CriarMotoqueiros", new CriarMotoqueiroController().handle)

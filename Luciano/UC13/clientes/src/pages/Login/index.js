@@ -27,7 +27,7 @@ export default function Login() {
 
             await AsyncStorage.setItem("@token", JSON.stringify(resposta.data.token))
             await AsyncStorage.setItem("@email", JSON.stringify(resposta.data.email))
-            navigation.navigate("login")
+            navigation.navigate("Dashboard")
 
 
         } catch (err) {
@@ -39,22 +39,30 @@ export default function Login() {
         <SafeAreaView style={styles.container}>
             <ScrollView>
                 <View>
-                    <Text>Login de Clientes🧡</Text>
+                    <Text style={styles.titulo}>Login de Clientes🧡</Text>
                 </View>
 
-                <View>
-                    <Text>email</Text>
-                    <TextInput placeholder='Nome aqui' value={email} onChangeText={setEmail} />
-                </View>
+                <View style={styles.distancia} />
 
                 <View>
-                    <Text>Senha</Text>
-                    <TextInput placeholder='Senha aqui' secureTextEntry={true} value={password} onChange={setPassword} />
+                    <Text style={styles.inputTitulo}>email</Text>
+                    <View style={styles.distanciaPequena} />
+                    <TextInput style={styles.input} placeholder='Nome aqui' value={email} onChangeText={setEmail} />
                 </View>
+
+                <View style={styles.distanciaPequena} />
+
+                <View>
+                    <Text style={styles.inputTitulo}>Senha</Text>
+                    <View style={styles.distanciaPequena} />
+                    <TextInput style={styles.input} placeholder='Senha aqui' secureTextEntry={true} value={password} onChange={setPassword} />
+                </View>
+
+                <View style={styles.distancia} />
 
                 <View>
                     <TouchableOpacity onPress={handleLogin}>
-                        <Text>Enviar</Text>
+                        <Text style={styles.botao}>[Enviar]</Text>
                     </TouchableOpacity>
                 </View>
             </ScrollView>
