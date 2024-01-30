@@ -26,8 +26,6 @@ export default function Login() {
                 nusuario, password
             })
 
-            alert("Login feito com sucesso ༼ つ ◕_◕ ༽つ")
-
             await AsyncStorage.setItem("@token", JSON.stringify(resposta.data.token))
             await AsyncStorage.setItem("@nusuario", JSON.stringify(resposta.data.nusuario))
 

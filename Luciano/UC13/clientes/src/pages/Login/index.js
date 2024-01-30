@@ -27,8 +27,10 @@ export default function Login() {
 
             await AsyncStorage.setItem("@token", JSON.stringify(resposta.data.token))
             await AsyncStorage.setItem("@email", JSON.stringify(resposta.data.email))
-            navigation.navigate("Dashboard")
+            navigation.navigate("dashboard")
 
+            setEmail("")
+            setPassword("")
 
         } catch (err) {
             alert("Login incorreto!")
@@ -47,7 +49,7 @@ export default function Login() {
                 <View>
                     <Text style={styles.inputTitulo}>email</Text>
                     <View style={styles.distanciaPequena} />
-                    <TextInput style={styles.input} placeholder='Nome aqui' value={email} onChangeText={setEmail} />
+                    <TextInput style={styles.input} placeholder='Email aqui' value={email} onChangeText={setEmail} />
                 </View>
 
                 <View style={styles.distanciaPequena} />
@@ -55,7 +57,7 @@ export default function Login() {
                 <View>
                     <Text style={styles.inputTitulo}>Senha</Text>
                     <View style={styles.distanciaPequena} />
-                    <TextInput style={styles.input} placeholder='Senha aqui' secureTextEntry={true} value={password} onChange={setPassword} />
+                    <TextInput style={styles.input} placeholder='Senha aqui' secureTextEntry={true} value={password} onChangeText={setPassword} />
                 </View>
 
                 <View style={styles.distancia} />

@@ -15,7 +15,7 @@ export default function Rotas() {
                 options={{ headerShown: false }}
             />
             <Stack.Screen
-                name="dashbarod"
+                name="dashboard"
                 component={Dashboard}
                 options={{ headerShown: false }}
             />
