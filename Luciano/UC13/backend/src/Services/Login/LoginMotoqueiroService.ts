@@ -34,7 +34,7 @@ export class LoginMotoqueiroService {
             }
         )
         return {
-            id: motoqueiro. id,
+            id: motoqueiro.id,
             nusuario: motoqueiro.nusuario,
             token: token
         }

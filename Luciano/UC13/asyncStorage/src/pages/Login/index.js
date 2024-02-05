@@ -4,12 +4,12 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { styles } from "./LoginCSS"
 import apiLocal from "../../APIs/apiLocal"
 import { useNavigation } from '@react-navigation/native';
-
+import firebase from "../../../firebaseConnect"
 
 export default function Login() {
 
     const navigation = useNavigation()
-    
+
     const [nusuario, setNusuario] = useState("")
     const [password, setPassword] = useState("")
 
@@ -27,7 +27,23 @@ export default function Login() {
             })
 
             await AsyncStorage.setItem("@token", JSON.stringify(resposta.data.token))
+
+            await AsyncStorage.setItem("@idusuario", JSON.stringify(resposta.data.id))
             await AsyncStorage.setItem("@nusuario", JSON.stringify(resposta.data.nusuario))
+
+            const firebaseNome = await AsyncStorage.getItem("@nusuario")
+            const parseNome = JSON.parse(firebaseNome)
+
+            const firebaseId = await AsyncStorage.getItem("@idusuario")
+            const parseId = JSON.parse(firebaseId)
+
+            let motoca = await firebase.database().ref("motoqueiros").child(parseId)
+            let chave = motoca.push().key
+
+            motoca.child(chave).set({
+                id: parseId,
+                nome: parseNome
+            })
 
             navigation.navigate("dashboard")
 
