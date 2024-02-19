@@ -1,44 +1,57 @@
-import { useState, useEffect } from 'react';
-import { StatusBar, StyleSheet, Text, View, TouchableOpacity, TextInput, Keyboard } from 'react-native';
-import firebase from './firebaseConnect';
+import React, { useState, useEffect } from 'react'
+import firebase from './FirebaseConnect'
+import {
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  TouchableOpacity,
+  Keyboard
+} from 'react-native';
 
 export default function App() {
 
-  //Essa é o ID do motoqueiro que vem do backend
-  const motoqueiro = "8b11e447-9fdf-4b97-a431-44bda4a02967"
+  //identificação do vendedor
+  const vendedor = Math.floor(Math.random() * 999999)
 
-  const [nome, setNome] = useState("")
-  const [cidade, setCidade] = useState("")
+  const [nome, setNome] = useState('')
+  const [cidade, setCidade] = useState('')
 
-  async function handleCadastrar() {
+  async function cadastroFB() {
     if (!nome || !cidade) {
-      alert("Campos vazios!")
-      return
+      alert('Campos Vazios')
     }
-
-    let usuarios = await firebase.database().ref("vendedores").child(motoqueiro)
+    let usuarios = await firebase.database().ref('vendedores').child(vendedor)
     let chave = usuarios.push().key
 
     usuarios.child(chave).set({
       nome: nome,
-      cidade: cidade,
+      cidade: cidade
     })
-
     Keyboard.dismiss()
   }
 
   return (
     <View style={styles.container}>
-      <StatusBar translucent={false} barStyle={"default"} backgroundColor="#000000" />
-      <Text>ヾ(•ω•`)o</Text>
+      <StatusBar backgroundColor='#000000' barStyle={'default'} translucent={false} />
+      <Text style={styles.textoTitulo}>Usando o Firebase</Text>
 
-      <TextInput value={nome} onChangeText={setNome} placeholder='Nome aqui' />
-      <TextInput value={cidade} onChangeText={setCidade} placeholder='Cidade aqui' />
-
-      <TouchableOpacity onPress={handleCadastrar}>
-        <Text>Salvar</Text>
+      <TextInput
+        style={styles.inputFormulario}
+        placeholder='Digite Seu Nome'
+        value={nome}
+        onChangeText={setNome}
+      />
+      <TextInput
+        style={styles.inputFormulario}
+        placeholder='Digite Sua Cidade'
+        value={cidade}
+        onChangeText={setCidade}
+      />
+      <TouchableOpacity style={styles.botaoEnviar} onPress={cadastroFB}>
+        <Text style={styles.textoBotao}>Enviar</Text>
       </TouchableOpacity>
-
     </View>
   );
 }
@@ -46,8 +59,36 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'bisque',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#fff',
+    alignItems: 'center'
   },
+  textoTitulo: {
+    marginTop: 20,
+    fontSize: 35,
+    fontWeight: 'bold'
+  },
+  inputFormulario: {
+    marginTop: 10,
+    height: 50,
+    width: '95%',
+    fontSize: 20,
+    padding: 7.5,
+    borderWidth: 1,
+    borderRadius: 10,
+    textAlign: 'center'
+  },
+  botaoEnviar: {
+    marginTop: 10,
+    backgroundColor: '#005CFF',
+    height: 50,
+    width: '50%',
+    borderRadius: 10
+  },
+  textoBotao: {
+    color: '#FFFFFF',
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    padding: 7.5
+  }
 });
