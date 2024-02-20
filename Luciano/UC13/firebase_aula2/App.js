@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import firebase from './FirebaseConnect'
+import firebase from './firebaseConnect'
 import {
   StatusBar,
   StyleSheet,
@@ -17,12 +17,13 @@ export default function App() {
 
   const [nome, setNome] = useState('')
   const [cidade, setCidade] = useState('')
+  const [vendedores, setVendedores] = useState("")
 
   async function cadastroFB() {
     if (!nome || !cidade) {
       alert('Campos Vazios')
     }
-    let usuarios = await firebase.database().ref('vendedores').child(vendedor)
+    let usuarios = await firebase.database().ref('vendedores')
     let chave = usuarios.push().key
 
     usuarios.child(chave).set({
@@ -31,6 +32,23 @@ export default function App() {
     })
     Keyboard.dismiss()
   }
+
+  useEffect(() => {
+    async function buscarVendedores() {
+      await firebase.database().ref("vendedores").on("value", (palmito) => {
+        palmito?.forEach((search) => {
+          let data = {
+            key: search.key,
+            nome: search.val().nome,
+            cidade: search.val().cidade
+          }
+          setVendedores(oldArray => [...oldArray, data])
+          console.log(vendedores)
+        })
+      })
+    }
+    buscarVendedores()
+  }, [])
 
   return (
     <View style={styles.container}>
@@ -52,6 +70,9 @@ export default function App() {
       <TouchableOpacity style={styles.botaoEnviar} onPress={cadastroFB}>
         <Text style={styles.textoBotao}>Enviar</Text>
       </TouchableOpacity>
+
+      <Text>{vendedores.nome}</Text>
+      <Text>{vendedores.cidade}</Text>
     </View>
   );
 }

@@ -2,9 +2,13 @@ import { SafeAreaView, ScrollView, Text, View, TouchableOpacity } from "react-na
 import { useNavigation } from "@react-navigation/native"
 import { styles } from "./DashboardCSS"
 
+import React, { useEffect, useState } from "react";
+import firebase from "../../../firebaseConnect"
+
 export default function Dashboard() {
 
     const navigation = useNavigation()
+    
 
     return (
         <SafeAreaView style={styles.container}>
