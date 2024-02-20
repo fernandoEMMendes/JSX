@@ -42,4 +42,36 @@ export const styles = StyleSheet.create({
         width: 300,
         height: 300,
     },
+
+    buttonFirebase: {
+        borderColor: 'black',
+        backgroundColor: 'green',
+        borderRadius: 15,
+        padding: 10,
+        width: 390,
+        marginTop: 150
+    },
+
+    textButtonFire: {
+        fontSize: 30,
+        fontWeight: 'bold',
+        color: 'white',
+        textAlign: 'center'
+    },
+
+    buttonInicio: {
+        marginTop: 30,
+        borderColor: 'black',
+        backgroundColor: "red",
+        borderRadius: 11,
+        padding: 10,
+        width: 390
+    },
+
+    textButtonInicio: {
+        fontSize: 30,
+        fontWeight: 'bold',
+        color: 'white',
+        textAlign: 'center'
+    },
 })

@@ -1,10 +1,12 @@
 import { Text, View, SafeAreaView, ScrollView, TextInput, TouchableOpacity } from 'react-native';
-import { useState } from "react"
+import React, { useState, useEffect } from "react"
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { styles } from "./LoginCSS"
 import apiLocal from "../../APIs/apiLocal"
 import { useNavigation } from '@react-navigation/native';
 import firebase from "../../../firebaseConnect"
+import { requestForegroundPermissionsAsync } from 'expo-location'
+
 
 export default function Login() {
 
@@ -12,6 +14,13 @@ export default function Login() {
 
     const [nusuario, setNusuario] = useState("")
     const [password, setPassword] = useState("")
+
+    useEffect(() => {
+        async function requisitarLocal() {
+            const { granted } = await requestForegroundPermissionsAsync()
+        }
+        requisitarLocal()
+    }, [])
 
     async function handleLogin(e) {
         e.preventDefault()

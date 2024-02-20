@@ -1,7 +1,15 @@
-import { SafeAreaView, View, Text, ScrollView, TouchableOpacity } from "react-native"
-import { styles } from "./DashboardCSS.js"
-import { useNavigation } from "@react-navigation/native"
+import { SafeAreaView, ScrollView, View, Text, TouchableOpacity, Keyboard } from 'react-native'
 
+import { requestForegroundPermissionsAsync, getCurrentPositionAsync } from 'expo-location'
+
+import React, { useState, useEffect } from 'react'
+
+import { useNavigation } from '@react-navigation/native'
+
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import firebase from '../../../firebaseConnect'
+
+import { styles } from "./DashboardCSS"
 import GifImage from '@lowkey/react-native-gif';
 
 export default function Dashboard() {
@@ -14,15 +22,8 @@ export default function Dashboard() {
 
     async function handleInicio() {
         await AsyncStorage.clear()
-        navigation.navigate('Inicio')
+        navigation.navigate('login')
     }
-
-    useEffect(() => {
-        async function dados() {
-            await firebase.database().ref('usuarios').set('nome')
-        }
-        dados()
-    }, [])
 
     useEffect(() => {
         async function requisitarLocal() {
@@ -39,7 +40,7 @@ export default function Dashboard() {
 
     useEffect(() => {
         async function loadNome() {
-            const iNome = await AsyncStorage.getItem('@nome')
+            const iNome = await AsyncStorage.getItem('@nusuario')
             const nome = JSON.parse(iNome)
             setUser(nome)
         }
@@ -48,7 +49,7 @@ export default function Dashboard() {
 
     useEffect(() => {
         async function loadID() {
-            const iID = await AsyncStorage.getItem('@id')
+            const iID = await AsyncStorage.getItem('@idusuario')
             const Id = JSON.parse(iID)
             setId(Id)
         }
@@ -57,7 +58,7 @@ export default function Dashboard() {
 
     async function botaoFireBase() {
 
-        const RecuperadoId = await AsyncStorage.getItem('@id')
+        const RecuperadoId = await AsyncStorage.getItem('@idusuario')
         const recId = JSON.parse(RecuperadoId)
 
         let usuarios = await firebase.database().ref('motoqueiros').child(recId)
@@ -88,7 +89,7 @@ export default function Dashboard() {
 
                 <View>
                     <Text style={styles.titulo}>Dashboard</Text>
-                    <Text style={styles.textDadosNome}>Motoqueiro: {user}</Text>
+                    <Text style={styles.subTitulo}>Motoqueiro: {user}</Text>
                     <Text style={styles.subTitulo}>Pedido Selecionados</Text>
                     <Text style={styles.subTitulo}>Pedido Disponíveis</Text>
                     <TouchableOpacity
@@ -102,6 +103,8 @@ export default function Dashboard() {
                         <Text style={styles.textButtonInicio}>Limpar dados</Text>
                     </TouchableOpacity>
                 </View>
+
+                <View style={styles.distanciaPequena} />
 
                 <View style={styles.gifCaixa}>
                     <GifImage
