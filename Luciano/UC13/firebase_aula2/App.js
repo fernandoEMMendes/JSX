@@ -36,6 +36,7 @@ export default function App() {
   useEffect(() => {
     async function buscarVendedores() {
       await firebase.database().ref("vendedores").on("value", (palmito) => {
+        setVendedores([""])
         palmito?.forEach((search) => {
           let data = {
             key: search.key,
@@ -43,7 +44,6 @@ export default function App() {
             cidade: search.val().cidade
           }
           setVendedores(oldArray => [...oldArray, data])
-          console.log(vendedores)
         })
       })
     }
@@ -71,8 +71,14 @@ export default function App() {
         <Text style={styles.textoBotao}>Enviar</Text>
       </TouchableOpacity>
 
-      <Text>{vendedores.nome}</Text>
-      <Text>{vendedores.cidade}</Text>
+      {vendedores.map((issomesmo)=>{
+        return(
+          <View>
+            <Text>{issomesmo.nome}</Text>
+            <Text>{issomesmo.cidade}</Text>
+          </View>
+        )
+      })}
     </View>
   );
 }
