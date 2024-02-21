@@ -76,6 +76,7 @@ export default function App() {
           <View>
             <Text>{issomesmo.nome}</Text>
             <Text>{issomesmo.cidade}</Text>
+            <Text>------------------</Text>
           </View>
         )
       })}
