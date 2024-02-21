@@ -8,7 +8,29 @@ import firebase from "../../../firebaseConnect"
 export default function Dashboard() {
 
     const navigation = useNavigation()
-    
+    const [motoqueiros, setMotoqueiros] = useState([""])
+    const [latitudeFb, setLatitudeFb] = useState([""])
+    const [LongitudeFb, setLongitudeFb] = useState([""])
+    const [pedidos, setPedidos] = useState("")
+    const [chave, setChave] = useState([""])
+
+    useEffect(() => {
+        async function acompanharPedido() {
+            await firebase.database().ref("motoqueiros").on("value", (snapshot) => {
+                setLatitudeFb([""])
+                setLongitudeFb([""])
+                snapshot?.forEach((search) => {
+                    let data = {
+                        latitude: search.val().locacao.latitude,
+                        longitude: search.val().locacao.longitude
+                    }
+                    setLatitudeFb(data.latitude)
+                    setLongitudeFb(data.longitude)
+                })
+            })
+        }
+        acompanharPedido()
+    }, [])
 
     return (
         <SafeAreaView style={styles.container}>
@@ -24,8 +46,10 @@ export default function Dashboard() {
                 <View>
                     <Text style={styles.titulo}>Dashboard</Text>
                     <Text style={styles.subTitulo}>Acompanhar Pedidos</Text>
+                    <Text>{latitudeFb}</Text>
+                    <Text>{LongitudeFb}</Text>
                 </View>
             </ScrollView>
-        </SafeAreaView>
+        </SafeAreaView >
     )
 }
