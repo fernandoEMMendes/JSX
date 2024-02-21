@@ -10,6 +10,10 @@ import {
   Keyboard
 } from 'react-native';
 
+import Feather from 'react-native-vector-icons/Feather'
+
+console.disableYellowBox = false
+
 export default function App() {
 
   //identificação do vendedor
@@ -17,7 +21,7 @@ export default function App() {
 
   const [nome, setNome] = useState('')
   const [cidade, setCidade] = useState('')
-  const [vendedores, setVendedores] = useState("")
+  const [vendedores, setVendedores] = useState([""])
 
   async function cadastroFB() {
     if (!nome || !cidade) {
@@ -35,9 +39,9 @@ export default function App() {
 
   useEffect(() => {
     async function buscarVendedores() {
-      await firebase.database().ref("vendedores").on("value", (palmito) => {
+      await firebase.database().ref("vendedores").on("value", (snapshot) => {
         setVendedores([""])
-        palmito?.forEach((search) => {
+        snapshot?.forEach((search) => {
           let data = {
             key: search.key,
             nome: search.val().nome,
@@ -49,6 +53,10 @@ export default function App() {
     }
     buscarVendedores()
   }, [])
+
+  async function handleDeletar(key) {
+    await firebase.database().ref("vendedores").child(key).remove()
+  }
 
   return (
     <View style={styles.container}>
@@ -71,16 +79,25 @@ export default function App() {
         <Text style={styles.textoBotao}>Enviar</Text>
       </TouchableOpacity>
 
-      {vendedores.map((issomesmo)=>{
-        return(
-          <View>
-            <Text>{issomesmo.nome}</Text>
-            <Text>{issomesmo.cidade}</Text>
-            <Text>------------------</Text>
+      {vendedores.map((issomesmo) => {
+        return (
+          <View style={styles.textArrayAlign}>
+            {issomesmo.length !== 0 && (
+              <>
+                <Text style={styles.textArray}>{issomesmo.nome}</Text>
+                <Text> | </Text>
+                <Text style={styles.textArray}>{issomesmo.cidade}</Text>
+                <TouchableOpacity onPress={() => { handleDeletar(issomesmo.key) }}>
+                  <Feather name='trash-2' size={30} color="red" />
+                </TouchableOpacity>
+              </>
+            )
+            }
           </View>
         )
       })}
-    </View>
+
+    </View >
   );
 }
 
@@ -118,5 +135,15 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     padding: 7.5
+  },
+  textArrayAlign: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "row"
+  },
+  textArray: {
+    fontWeight: "bold",
+    fontSize: 20,
   }
 });
