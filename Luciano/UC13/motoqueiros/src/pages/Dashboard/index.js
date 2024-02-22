@@ -19,6 +19,7 @@ export default function Dashboard() {
     const [id, setId] = useState('')
     const [localizacao, setLocalizacao] = useState(null)
 
+    const numeroBrabo = Math.floor(Math.random() * 999)
 
     async function handleInicio() {
         await AsyncStorage.clear()
@@ -62,13 +63,14 @@ export default function Dashboard() {
         const recId = JSON.parse(RecuperadoId)
 
         let usuarios = await firebase.database().ref('motoqueiros').child(recId)
-        let chave = usuarios.push().key
 
-        usuarios.child(chave).set({
-            id: id,
-            nome: user,
+        usuarios.child("localizacao").set({
             latitude: localizacao.coords.latitude,
             longitude: localizacao.coords.longitude
+        })
+
+        usuarios.child("pedidos").set({
+            pedido: numeroBrabo
         })
         alert('Dados enviados ao FireBase!')
 
