@@ -11,14 +11,30 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Usuario {
+  id    String @id @default(uuid())
+  nome  String
+  email String
+  senha String
+
+  Pedidos   Pedidos[]
+  
+  create_at DateTime? @default(now())
+  update_at DateTime? @default(now())
+
+  @@map("usuarios")
+}
+
 model Motoqueiro {
   id       String @id @default(uuid())
   nome     String
   nusuario String
   senha    String
 
-  create_at DateTime @default(now())
-  update_at DateTime @default(now())
+  Pedidos   Pedidos[]
+  
+  create_at DateTime  @default(now())
+  update_at DateTime  @default(now())
 
   @@map("motoqueiros")
 }
@@ -36,32 +52,22 @@ model Cliente {
   bairro   String
   cidade   String
 
+  Pedidos   Pedidos[]
+  
   create_at DateTime? @default(now())
   update_at DateTime? @default(now())
 
   @@map("clientes")
 }
 
-model Usuario {
-  id    String @id @default(uuid())
-  nome  String
-  email String
-  senha String
-
-  create_at DateTime? @default(now())
-  update_at DateTime? @default(now())
-
-  @@map("usuarios")
-}
-
 model Categoria {
   id   String @id @default(uuid())
   nome String
 
+  produtos Produto[]
+
   create_at DateTime? @default(now())
   update_at DateTime? @default(now())
-
-  produtos Produto[]
 
   @@map("categorias")
 }
@@ -74,11 +80,50 @@ model Produto {
   preco      String
   banner     String
 
-  create_at DateTime? @default(now())
-  update_at DateTime? @default(now())
-
   categorias  Categoria @relation(fields: [categoriaId], references: [id])
   categoriaId String
 
+  Pedidos_item Pedidos_item[]
+
+  create_at DateTime? @default(now())
+  update_at DateTime? @default(now())
+
   @@map("produtos")
+}
+
+model Pedidos_item {
+  id        String @id @default(uuid())
+  quant     String
+  val_unit  String
+  val_total String
+
+  produto   Produto @relation(fields: [produtoId], references: [id])
+  produtoId String
+
+  Pedidos Pedidos[]
+
+  create_at DateTime? @default(now())
+  update_at DateTime? @default(now())
+}
+
+model Pedidos {
+  id         String @id @default(uuid())
+  num        String
+  status     String
+  observacao String?
+
+  cliente   Cliente @relation(fields: [clienteId], references: [id])
+  clienteId String
+
+  usuario   Usuario @relation(fields: [usuarioId], references: [id])
+  usuarioId String
+
+  motoqueiro   Motoqueiro @relation(fields: [motoqueiroId], references: [id])
+  motoqueiroId String
+
+  pedido_item   Pedidos_item @relation(fields: [pedido_itemNum], references: [id])
+  pedido_itemNum String
+
+  create_at DateTime? @default(now())
+  update_at DateTime? @default(now())
 }

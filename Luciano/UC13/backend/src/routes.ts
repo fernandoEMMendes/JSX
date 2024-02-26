@@ -17,6 +17,9 @@ import { ListarClientesUnicoController } from './Controller/Clientes/ListarClien
 
 import { CriarProdutosController } from './Controller/Produtos/CriarProdutosController'
 
+import { criarPedidositemController } from './Controller/Pedidos_item/criarPedidositemController'
+import { deletarPedidositemController } from './Controller/Pedidos_item/deletarPedidositemController'
+
 import { CriarCategoriasController } from './Controller/Categorias/CriarCategoriasController'
 import { ListarCategoriasController } from './Controller/Categorias/ListarCategoriasController'
 
@@ -45,6 +48,9 @@ router.get("/ListarClienteUnico", new ListarClientesUnicoController().handle)
 //Estrutura de Produtos
 router.post('/CriarProdutos', isAutenticado, upload.single('file'), new CriarProdutosController().handle)
 
+//Estrutura de Pedidos
+router.post("/CriarPedidosItem", new criarPedidositemController().handle)
+router.delete("/DeletarPedidosItem", new deletarPedidositemController().handle)
 
 //Estrutura de Categorias
 router.post('/CriarCategorias', isAutenticado, new CriarCategoriasController().handle)

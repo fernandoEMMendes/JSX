@@ -4,7 +4,6 @@ import { CriarMotoqueiroService } from "../../Services/Motoqueiros/CriarMotoquei
 export class CriarMotoqueiroController {
     async handle(req:Request, res:Response){
         const {nome, nusuario, senha} = req.body
-        console.log(nome)
         const criarMotoqueiroService = new CriarMotoqueiroService()
         const Criar = await criarMotoqueiroService.execute({
             nome, nusuario, senha
