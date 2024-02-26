@@ -115,8 +115,8 @@ model Pedidos {
   cliente   Cliente @relation(fields: [clienteId], references: [id])
   clienteId String
 
-  usuario   Usuario @relation(fields: [usuarioId], references: [id])
-  usuarioId String
+  usuario   Usuario? @relation(fields: [usuarioId], references: [id])
+  usuarioId String?
 
   motoqueiro   Motoqueiro @relation(fields: [motoqueiroId], references: [id])
   motoqueiroId String
