@@ -3,29 +3,29 @@ import prismaClient from "../../prisma";
 interface criar {
     num: string
     status: string
+    draft: boolean
+    entrega: boolean
     observacao: string
+    ped_val_total: string
     clienteId: string
-    usuarioId: string
     motoqueiroId: string
-    pedido_itemId: string
 }
 
 export class criarPedidosService {
-    async execute({ num, status, observacao, clienteId, usuarioId, motoqueiroId, pedido_itemId }: criar) {
-        if (!num || !status || !observacao || !clienteId || !usuarioId || !motoqueiroId || !pedido_itemId) {
-            throw new Error("Campos obrigátorios em branco")
-        }
+    async execute({ ped_val_total, draft, entrega, num, status, observacao, clienteId, motoqueiroId }: criar) {
 
         await prismaClient.pedidos.create({
             data: {
                 num: num,
                 status: status,
+                draft: draft,
+                entrega: entrega,
                 observacao: observacao,
+                ped_val_total: ped_val_total,
                 clienteId: clienteId,
-                usuarioId: usuarioId,
                 motoqueiroId: motoqueiroId,
-                pedido_itemId
             }
         })
+        return { msg: "pedido criado com sucesso!" }
     }
 }

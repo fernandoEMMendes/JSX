@@ -17,8 +17,6 @@ model Usuario {
   email String
   senha String
 
-  Pedidos   Pedidos[]
-  
   create_at DateTime? @default(now())
   update_at DateTime? @default(now())
 
@@ -31,10 +29,10 @@ model Motoqueiro {
   nusuario String
   senha    String
 
-  Pedidos   Pedidos[]
-  
-  create_at DateTime  @default(now())
-  update_at DateTime  @default(now())
+  Pedidos Pedidos[]
+
+  create_at DateTime @default(now())
+  update_at DateTime @default(now())
 
   @@map("motoqueiros")
 }
@@ -52,8 +50,8 @@ model Cliente {
   bairro   String
   cidade   String
 
-  Pedidos   Pedidos[]
-  
+  Pedidos Pedidos[]
+
   create_at DateTime? @default(now())
   update_at DateTime? @default(now())
 
@@ -76,7 +74,6 @@ model Produto {
   id         String  @id @default(uuid())
   nome       String
   fabricante String?
-  quantidade String
   preco      String
   banner     String
 
@@ -85,44 +82,43 @@ model Produto {
 
   Pedidos_item Pedidos_item[]
 
-  create_at DateTime? @default(now())
+  create_at DateTime? @default(now()) 
   update_at DateTime? @default(now())
 
   @@map("produtos")
 }
 
-model Pedidos_item {
-  id        String @id @default(uuid())
-  quant     String
-  val_unit  String
-  val_total String
+model Pedidos {
+  id            String  @id @default(uuid())
+  num           String
+  status        String  @default("Rascunho")
+  draft         Boolean @default(true)
+  entrega       Boolean @default(false)
+  observacao    String?
+  ped_val_total String?
 
-  produto   Produto @relation(fields: [produtoId], references: [id])
-  produtoId String
+  cliente   Cliente @relation(fields: [clienteId], references: [id])
+  clienteId String
 
-  Pedidos Pedidos[]
+  motoqueiro   Motoqueiro? @relation(fields: [motoqueiroId], references: [id])
+  motoqueiroId String?
+
+  Pedidos_item Pedidos_item[]
 
   create_at DateTime? @default(now())
   update_at DateTime? @default(now())
 }
 
-model Pedidos {
-  id         String @id @default(uuid())
-  num        String
-  status     String
-  observacao String?
+model Pedidos_item {
+  id        String @id @default(uuid())
+  quant     String
+  val_total String
 
-  cliente   Cliente @relation(fields: [clienteId], references: [id])
-  clienteId String
+  produto   Produto @relation(fields: [produtoId], references: [id])
+  produtoId String
 
-  usuario   Usuario? @relation(fields: [usuarioId], references: [id])
-  usuarioId String?
-
-  motoqueiro   Motoqueiro @relation(fields: [motoqueiroId], references: [id])
-  motoqueiroId String
-
-  pedido_item   Pedidos_item @relation(fields: [pedido_itemNum], references: [id])
-  pedido_itemNum String
+  pedido   Pedidos @relation(fields: [pedidoId], references: [id])
+  pedidoId String
 
   create_at DateTime? @default(now())
   update_at DateTime? @default(now())

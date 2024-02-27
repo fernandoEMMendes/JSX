@@ -24,6 +24,7 @@ import { CriarCategoriasController } from './Controller/Categorias/CriarCategori
 import { ListarCategoriasController } from './Controller/Categorias/ListarCategoriasController'
 
 import { isAutenticado } from './middleware/isAutenticado'
+import { criarPedidosController } from './Controller/Pedidos/criarPedidosController'
 const router = Router()
 const upload = multer(uploadConfig.upload('./tmp'))
 
@@ -39,22 +40,23 @@ router.get("/ListarMotoqueiro", new ListarMotoqueiroController().handle)
 
 //Estrutura de Usuários
 router.post('/CriarUsuarios', new CriarusuariosController().handle)
-router.get('/ListarUsuarioToken', isAutenticado, new ListarUsuarioTokenController().handle)
+router.get('/ListarUsuarioToken', new ListarUsuarioTokenController().handle)
 
 //Estrutura de Clientes
 router.post("/CriarClientes", new CriarClientesController().handle)
 router.get("/ListarClienteUnico", new ListarClientesUnicoController().handle)
 
 //Estrutura de Produtos
-router.post('/CriarProdutos', isAutenticado, upload.single('file'), new CriarProdutosController().handle)
+router.post('/CriarProdutos', upload.single('file'), new CriarProdutosController().handle)
 
 //Estrutura de Pedidos
+router.post("/CriarPedidos", new criarPedidosController().handle)
 router.post("/CriarPedidosItem", new criarPedidositemController().handle)
 router.delete("/DeletarPedidosItem", new deletarPedidositemController().handle)
 
 //Estrutura de Categorias
-router.post('/CriarCategorias', isAutenticado, new CriarCategoriasController().handle)
-router.get('/ListarCategorias', isAutenticado, new ListarCategoriasController().handle)
+router.post('/CriarCategorias', new CriarCategoriasController().handle)
+router.get('/ListarCategorias', new ListarCategoriasController().handle)
 
 
 export { router }

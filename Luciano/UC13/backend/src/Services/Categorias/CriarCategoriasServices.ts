@@ -1,18 +1,18 @@
 import prismaClient from '../../prisma'
 
-interface CadCategoria{
+interface CadCategoria {
     nome: string
 }
 
-class CriarCategoriasServices{
-    async execute({nome}: CadCategoria ){
+class CriarCategoriasServices {
+    async execute({ nome }: CadCategoria) {
 
         const resposta = await prismaClient.categoria.create({
-            data:{
-                nome
+            data: {
+                nome: nome
             }
         })
-        return {dados: 'Cadastro efetuado com sucesso'}     
+        return { dados: 'Cadastro efetuado com sucesso' }
     }
 }
 

@@ -1,24 +1,24 @@
 import prismaClient from "../../prisma";
 
 interface criar {
-    produtoId: string
     quant: string
-    val_unit: string
     val_total: string
+    produtoId: string
+    pedidoId: string
 }
 
 export class criarPedidositemService {
-    async execute({ produtoId, quant, val_total, val_unit }: criar) {
-        if (!produtoId || !quant || !val_total || !val_unit) {
+    async execute({ produtoId, quant, val_total, pedidoId }: criar) {
+        if (!produtoId || !quant || !val_total || !pedidoId) {
             throw new Error("Campos em branco não permitidos!")
         }
 
         await prismaClient.pedidos_item.create({
             data: {
-                produtoId: produtoId,
                 quant: quant,
                 val_total: val_total,
-                val_unit: val_unit
+                produtoId: produtoId,
+                pedidoId: pedidoId
             }
         })
         return { msg: "pedido_item adicionado com sucesso!" }
