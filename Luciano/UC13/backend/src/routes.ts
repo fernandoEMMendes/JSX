@@ -17,6 +17,9 @@ import { ListarClientesUnicoController } from './Controller/Clientes/ListarClien
 
 import { CriarProdutosController } from './Controller/Produtos/CriarProdutosController'
 
+import { criarPedidosController } from './Controller/Pedidos/criarPedidosController'
+import { deletarPedidosController } from './Controller/Pedidos/deletarPedidosController'
+import { atualizarPedidosController } from './Controller/Pedidos/atualizarPedidosController'
 import { criarPedidositemController } from './Controller/Pedidos_item/criarPedidositemController'
 import { deletarPedidositemController } from './Controller/Pedidos_item/deletarPedidositemController'
 
@@ -24,10 +27,9 @@ import { CriarCategoriasController } from './Controller/Categorias/CriarCategori
 import { ListarCategoriasController } from './Controller/Categorias/ListarCategoriasController'
 
 import { isAutenticado } from './middleware/isAutenticado'
-import { criarPedidosController } from './Controller/Pedidos/criarPedidosController'
+
 const router = Router()
 const upload = multer(uploadConfig.upload('./tmp'))
-
 
 //Rotas de Logins
 router.post('/LoginUsuarios', new LoginController().handle)
@@ -51,6 +53,8 @@ router.post('/CriarProdutos', upload.single('file'), new CriarProdutosController
 
 //Estrutura de Pedidos
 router.post("/CriarPedidos", new criarPedidosController().handle)
+router.delete("/DeletarPedidos", new deletarPedidosController().handle)
+router.put("AtualizarPedidos", new atualizarPedidosController().handle)
 router.post("/CriarPedidosItem", new criarPedidositemController().handle)
 router.delete("/DeletarPedidosItem", new deletarPedidositemController().handle)
 
