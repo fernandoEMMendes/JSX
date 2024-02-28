@@ -21,8 +21,8 @@ export default function Dashboard() {
                 setLongitudeFb([""])
                 snapshot?.forEach((search) => {
                     let data = {
-                        latitude: search.val().locacao.latitude,
-                        longitude: search.val().locacao.longitude
+                        latitude: search.val().localizacao.latitude,
+                        longitude: search.val().localizacao.longitude
                     }
                     setLatitudeFb(data.latitude)
                     setLongitudeFb(data.longitude)

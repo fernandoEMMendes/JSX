@@ -20,6 +20,8 @@ import { CriarProdutosController } from './Controller/Produtos/CriarProdutosCont
 import { criarPedidosController } from './Controller/Pedidos/criarPedidosController'
 import { deletarPedidosController } from './Controller/Pedidos/deletarPedidosController'
 import { atualizarPedidosController } from './Controller/Pedidos/atualizarPedidosController'
+import { listarPedidosController } from './Controller/Pedidos/listarPedidosController'
+
 import { criarPedidositemController } from './Controller/Pedidos_item/criarPedidositemController'
 import { deletarPedidositemController } from './Controller/Pedidos_item/deletarPedidositemController'
 
@@ -55,6 +57,8 @@ router.post('/CriarProdutos', upload.single('file'), new CriarProdutosController
 router.post("/CriarPedidos", new criarPedidosController().handle)
 router.delete("/DeletarPedidos", new deletarPedidosController().handle)
 router.put("AtualizarPedidos", new atualizarPedidosController().handle)
+router.get("/ListarPedidos", new listarPedidosController().handle)
+
 router.post("/CriarPedidosItem", new criarPedidositemController().handle)
 router.delete("/DeletarPedidosItem", new deletarPedidositemController().handle)
 

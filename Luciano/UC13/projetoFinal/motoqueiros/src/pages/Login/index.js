@@ -52,31 +52,6 @@ export default function Login() {
 
     }
 
-    async function handleAsyncToken() {
-        const recuperaToken = await AsyncStorage.getItem("@token")
-        if (recuperaToken == null) {
-            alert("Por favor, faço o login primeiro")
-            return
-        }
-        const transformaToken = JSON.parse(recuperaToken)
-        alert(`${transformaToken}`)
-    }
-
-    async function handleAsyncNusuario() {
-        const recuperaNusuario = await AsyncStorage.getItem("@nusuario")
-        if (recuperaNusuario == null) {
-            alert("Por favor, faço o login primeiro")
-            return
-        }
-        const transformaNusuario = JSON.parse(recuperaNusuario)
-        alert(`${transformaNusuario}`)
-    }
-
-    async function handleAsyncApagar() {
-        await AsyncStorage.removeItem("@token")
-        await AsyncStorage.removeItem("@nusuario")
-    }
-
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView>
@@ -104,18 +79,6 @@ export default function Login() {
                 <View>
                     <TouchableOpacity onPress={handleLogin}>
                         <Text style={styles.botao}>[Enviar]</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity onPress={handleAsyncNusuario}>
-                        <Text style={styles.botao}>[async_Nome]</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity onPress={handleAsyncToken}>
-                        <Text style={styles.botao}>[async_Token]</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity onPress={handleAsyncApagar}>
-                        <Text style={styles.botao}>[async_Apagar]</Text>
                     </TouchableOpacity>
                 </View>
             </ScrollView>
