@@ -8,5 +8,6 @@ export class atualizarPedidosController {
         const resposta = await criar.execute({
             pedidoId, novoClienteId, novoDraft, novoEntrega, novoMotoqueiroId, novoNum, novoObservacao, novoPed_val_total, novoStatus
         })
+        return (resposta)
     }
 }

@@ -30,5 +30,6 @@ export class atualizarPedidosService {
                 status: novoStatus
             }
         })
+        return { msg: "Atualizado com sucesso!" }
     }
 }
