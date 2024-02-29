@@ -1,4 +1,4 @@
-import apiLocal from "../../src/API/apiLocal/api";
+import apiLocal from "../../API/apiLocal/api";
 import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 
@@ -23,6 +23,22 @@ export default function PedidosListar() {
     }, [verPedidos])
 
     return (
-        <h1>Listar Pedidos</h1>
+        <div>
+            <div>
+                <h1>Listar Pedidos</h1>
+            </div>
+
+            <div>
+                {verPedidos.map((palmito) => {
+                    return (
+                        <div>
+                            <h1>Num: {palmito.num}</h1>
+                            <h2>Status: {palmito.status}</h2>
+                            {palmito.observacao === null ? (<h2>Obs: Sem observação</h2>) : (<h2>Obs: {palmito.observacao}</h2>)}
+                        </div>
+                    )
+                })}
+            </div>
+        </div>
     )
 }
