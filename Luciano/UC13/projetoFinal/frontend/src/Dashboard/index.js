@@ -19,7 +19,7 @@ export default function Dashboard() {
             navigation('/')
         } else if (token) {
             async function verificaToken() {
-                const resposta = await apiLocal.get('/ListarUsuarioToken', {
+                const resposta = await apiLocal.post('/ListarUsuarioToken', {
                     headers: {
                         Authorization: 'Bearer ' + `${token}`
                     }

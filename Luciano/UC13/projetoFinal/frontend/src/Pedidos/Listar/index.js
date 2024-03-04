@@ -28,17 +28,21 @@ export default function PedidosListar() {
                 <h1>Listar Pedidos</h1>
             </div>
 
-            <div>
-                {verPedidos.map((palmito) => {
-                    return (
-                        <div>
-                            <h1>Num: {palmito.num}</h1>
-                            <h2>Status: {palmito.status}</h2>
-                            {palmito.observacao === null ? (<h2>Obs: Sem observação</h2>) : (<h2>Obs: {palmito.observacao}</h2>)}
-                        </div>
-                    )
-                })}
-            </div>
+            {verPedidos.length > 0 ? (
+                <div>
+                    {verPedidos.map((palmito) => {
+                        return (
+                            <div>
+                                <h1>Num: {palmito.num}</h1>
+                                <h2>Status: {palmito.status}</h2>
+                                {palmito.observacao === null ? (<h2>Obs: Sem observação</h2>) : (<h2>Obs: {palmito.observacao}</h2>)}
+                            </div>
+                        )
+                    })}
+                </div>
+            ) : (
+                <h2>Carregando</h2>
+            )}
         </div>
     )
 }
