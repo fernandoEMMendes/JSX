@@ -23,7 +23,7 @@ export default function Inicio() {
             return
         } else if (token) {
             async function verificaToken() {
-                const resposta = await apiLocal.post('/ListarUsuarioToken', {
+                const resposta = await apiLocal.get('/ListarUsuarioToken', {
                     headers: {
                         Authorization: 'Bearer ' + `${token}`
                     }
