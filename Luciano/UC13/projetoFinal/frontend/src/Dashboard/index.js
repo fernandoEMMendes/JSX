@@ -6,7 +6,7 @@ import apiLocal from '../API/apiLocal/api'
 export default function Dashboard() {
     const navigation = useNavigate()
 
-    function handleSair(){
+    function handleSair() {
         localStorage.removeItem('@tklogin2023')
         navigation('/')
     }
@@ -34,14 +34,16 @@ export default function Dashboard() {
             }
             verificaToken()
         }
-    }, [token]) 
+    }, [token])
 
     return (
         <div>
             <h1>Dashboard</h1>
 
             <Link to='/Produtos'>Cadastrar Produtos</Link>
+            <br />
             <Link to="/PedidosListar">Listar Pedidos</Link>
+            <br />
             <button onClick={handleSair}>Sair</button>
         </div>
     )
