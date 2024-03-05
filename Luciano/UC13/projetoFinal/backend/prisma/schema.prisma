@@ -75,6 +75,7 @@ model Produto {
   nome       String
   fabricante String?
   preco      String
+  quantidade String @default("0")
   banner     String
 
   categorias  Categoria @relation(fields: [categoriaId], references: [id])
