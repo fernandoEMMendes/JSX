@@ -4,7 +4,7 @@ import Inicio from './Inicio'
 import Dashboard from './Dashboard'
 import Produtos from './Produtos'
 import PedidosListar from './Pedidos/Listar'
-import VerUnico from './Pedidos/VerUnico'
+import CriarPedidosBalcao from './Pedidos/Criar'
 
 export default function Rotas() {
     return (
@@ -14,7 +14,7 @@ export default function Rotas() {
                 <Route path='/Dashboard' element={<Dashboard />} />
                 <Route path='/Produtos' element={<Produtos />} />
                 <Route path='/PedidosListar' element={<PedidosListar />} />
-                <Route path='/PedidoVer/:id' element={<VerUnico />} />
+                <Route path='/PedidosCriar' element={<CriarPedidosBalcao />} />
             </Routes>
         </BrowserRouter>
     )

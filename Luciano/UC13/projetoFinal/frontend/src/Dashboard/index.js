@@ -44,6 +44,8 @@ export default function Dashboard() {
             <br />
             <Link to="/PedidosListar">Listar Pedidos</Link>
             <br />
+            <Link to="/PedidosCriar">Criar Pedidos</Link>
+            <br />
             <button onClick={handleSair}>Sair</button>
         </div>
     )

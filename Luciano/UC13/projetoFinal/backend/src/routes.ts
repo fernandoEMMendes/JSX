@@ -14,6 +14,7 @@ import { ListarMotoqueiroController } from './Controller/Motoqueiros/ListarMotoq
 
 import { CriarClientesController } from './Controller/Clientes/CriarClientesController'
 import { ListarClientesUnicoController } from './Controller/Clientes/ListarClientesUnicoController'
+import { ListarClientesController } from './Controller/Clientes/ListarClientesController'
 
 import { CriarProdutosController } from './Controller/Produtos/CriarProdutosController'
 
@@ -49,6 +50,7 @@ router.get('/ListarUsuarioToken', new ListarUsuarioTokenController().handle)
 //Estrutura de Clientes
 router.post("/CriarClientes", new CriarClientesController().handle)
 router.get("/ListarClienteUnico", new ListarClientesUnicoController().handle)
+router.get("/ListarClientes", new ListarClientesController().handle)
 
 //Estrutura de Produtos
 router.post('/CriarProdutos', upload.single('file'), new CriarProdutosController().handle)
