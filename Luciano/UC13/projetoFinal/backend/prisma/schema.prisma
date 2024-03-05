@@ -82,7 +82,7 @@ model Produto {
 
   Pedidos_item Pedidos_item[]
 
-  create_at DateTime? @default(now()) 
+  create_at DateTime? @default(now())
   update_at DateTime? @default(now())
 
   @@map("produtos")
@@ -93,6 +93,7 @@ model Pedidos {
   num           String
   status        String  @default("Rascunho")
   draft         Boolean @default(true)
+  aceito        Boolean @default(false)
   entrega       Boolean @default(false)
   observacao    String?
   ped_val_total String?
