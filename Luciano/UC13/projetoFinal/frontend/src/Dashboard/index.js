@@ -42,9 +42,9 @@ export default function Dashboard() {
 
             <Link to='/Produtos'>Cadastrar Produtos</Link>
             <br />
-            <Link to="/PedidosListar">Listar Pedidos</Link>
+            <Link to="/PedidosListar">Listar Pedidos Cozinha</Link>
             <br />
-            <Link to="/PedidosCriar">Criar Pedidos</Link>
+            <Link to="/PedidosCriar">Criar Pedidos Balcão</Link>
             <br />
             <button onClick={handleSair}>Sair</button>
         </div>

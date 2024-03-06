@@ -75,7 +75,7 @@ model Produto {
   nome       String
   fabricante String?
   preco      String
-  quantidade String @default("0")
+  quantidade String  @default("0")
   banner     String
 
   categorias  Categoria @relation(fields: [categoriaId], references: [id])
@@ -90,14 +90,14 @@ model Produto {
 }
 
 model Pedidos {
-  id            String  @id @default(uuid())
-  num           String
-  status        String  @default("Rascunho")
-  draft         Boolean @default(true)
-  aceito        Boolean @default(false)
-  entrega       Boolean @default(false)
+  id            String   @id @default(uuid())
+  num           Int      @unique @default(autoincrement())
+  status        String   @default("Rascunho")
+  draft         Boolean  @default(true)
+  aceito        Boolean  @default(false)
+  entrega       Boolean  @default(false)
   observacao    String?
-  ped_val_total String?
+  ped_val_total Decimal? @db.Decimal(9, 2)
 
   cliente   Cliente @relation(fields: [clienteId], references: [id])
   clienteId String

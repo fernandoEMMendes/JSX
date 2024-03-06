@@ -15,6 +15,6 @@ export class deletarPedidosService {
                 id: pedidoId
             }
         })
-        return {msg : "Pedido deletado com sucesso!"}
+        return { msg: "Pedido deletado com sucesso!" }
     }
 }

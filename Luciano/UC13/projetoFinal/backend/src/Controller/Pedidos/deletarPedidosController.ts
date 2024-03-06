@@ -5,7 +5,7 @@ export class deletarPedidosController {
     async handle(req: Request, res: Response) {
         const { pedidoId } = req.body
         const criar = new deletarPedidosService()
-        const resposta = criar.execute({
+        const resposta = await criar.execute({
             pedidoId
         })
         return res.json(resposta)

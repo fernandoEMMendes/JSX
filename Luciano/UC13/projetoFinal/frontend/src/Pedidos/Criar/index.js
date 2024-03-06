@@ -1,13 +1,16 @@
 import { useState, useEffect } from "react"
 import Modal from "react-modal"
 import apiLocal from "../../API/apiLocal/api"
-import { Link } from "react-router-dom"
 
 export default function CriarPedidosBalcao() {
 
-    const [clienteId, setClienteId] = useState("")
-    const [modalAberto, setModalAberto] = useState(false)
     const [clientes, setClientes] = useState([""])
+    const [clienteId, setClienteId] = useState("")
+
+    const [pedNum, setPedNum] = useState("")
+    const [observation, setObservation] = useState("")
+
+    const [modalAberto, setModalAberto] = useState(false)
 
     const lsToken = localStorage.getItem("@tklogin2023")
     const token = JSON.parse(lsToken)
@@ -24,11 +27,37 @@ export default function CriarPedidosBalcao() {
         verClientes()
     }, [clientes])
 
-    function abrirModal() {
+    async function abrirModal() {
+
+        if (clienteId === "") {
+            alert("Selecione um usuario")
+            return
+        }
+
         setModalAberto(true)
+        const resposta = await apiLocal.post("/CriarPedidos", {
+            clienteId
+        })
+        setPedNum(resposta.data)
     }
 
-    function fecharModal() {
+    async function fecharModalApagar(id) {
+
+        await apiLocal.delete("/DeletarPedidos", {
+            data: {
+                pedidoId: id
+            }
+        })
+        setModalAberto(false)
+    }
+
+    async function fecharModalAceitar(id, obs) {
+
+        await apiLocal.put("/ConfirmarPedidos", {
+            pedidoId: id,
+            novoObservacao: obs,
+            novoDraft: false
+        })
         setModalAberto(false)
     }
 
@@ -48,9 +77,15 @@ export default function CriarPedidosBalcao() {
 
             <button onClick={abrirModal}>Abrir modal</button>
             <Modal isOpen={modalAberto}>
-                <h1>Boa tarde</h1>
+                <h1>Painel - Criar Pedidos</h1>
+                <h2>Número: {pedNum.num}</h2> <br /> <br />
 
-                <button onClick={fecharModal}>Fechar modal</button>
+                <h1>Observação</h1>
+                <input value={observation} onChange={(e) => { setObservation(e.target.value) }} /> <br /> <br />
+
+                <button onClick={() => fecharModalApagar(pedNum.id)}>Cancelar Pedido</button>
+
+                <button onClick={() => fecharModalAceitar(pedNum.id, observation)}>Aceitar Pedido</button>
             </Modal>
         </div>
     )

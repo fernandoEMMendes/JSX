@@ -30,6 +30,7 @@ import { CriarCategoriasController } from './Controller/Categorias/CriarCategori
 import { ListarCategoriasController } from './Controller/Categorias/ListarCategoriasController'
 
 import { isAutenticado } from './middleware/isAutenticado'
+import { confirmarPedidoController } from './Controller/Pedidos/confirmarPedidoController'
 
 const router = Router()
 const upload = multer(uploadConfig.upload('./tmp'))
@@ -58,8 +59,11 @@ router.post('/CriarProdutos', upload.single('file'), new CriarProdutosController
 //Estrutura de Pedidos
 router.post("/CriarPedidos", new criarPedidosController().handle)
 router.delete("/DeletarPedidos", new deletarPedidosController().handle)
-router.put("AtualizarPedidos", new atualizarPedidosController().handle)
 router.get("/ListarPedidos", new listarPedidosController().handle)
+
+router.put("/AtualizarPedidos", new atualizarPedidosController().handle)
+router.put("/ConfirmarPedidos", new confirmarPedidoController().handle)
+
 
 router.post("/CriarPedidosItem", new criarPedidositemController().handle)
 router.delete("/DeletarPedidosItem", new deletarPedidositemController().handle)

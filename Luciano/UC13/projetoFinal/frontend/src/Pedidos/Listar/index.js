@@ -22,25 +22,39 @@ export default function PedidosListar() {
         loadPedidos()
     }, [verPedidos])
 
+    
+    async function handleConfirmarCozinha(){
+
+        await apiLocal.put
+    }
+    
+    
+    
+    
+    
     return (
         <div>
             <div>
                 <h1>Listar Pedidos</h1>
             </div>
 
-            {verPedidos.length === 0 ? (
+            {verPedidos.draft === 0 ? (
                 <h2>Carregando</h2>
             ) : (
                 <div>
                     {verPedidos.map((palmito) => {
                         return (
                             <div>
-                                <Link to={`/PedidoVer/${palmito.id}`}>
-                                    <h1>Num: {palmito.num}</h1>
-                                </Link>
-
-                                <h2>Status: {palmito.status}</h2>
-                                {palmito.observacao === null ? (<h2>Obs: Sem observação</h2>) : (<h2>Obs: {palmito.observacao}</h2>)}
+                                {palmito.draft === false && (
+                                    <>
+                                        <Link to={`/PedidoVer/${palmito.id}`}>
+                                            <h1>Num: {palmito.num}</h1>
+                                        </Link><h2>Status: {palmito.status}</h2>
+                                        {palmito.observacao === null ? (<h2>Obs: Sem observação</h2>) : (<h2>Obs: {palmito.observacao}</h2>)}
+                                        <br /> <br />
+                                        <button onClick={handleConfirmarCozinha}>Confirmar Pedido!</button>
+                                    </>
+                                )}
                             </div>
                         )
                     })}

@@ -2,7 +2,6 @@ import prismaClient from "../../prisma";
 
 interface atualizar {
     pedidoId: string
-    novoNum: string
     novoStatus: string
     novoDraft: boolean
     novoEntrega: boolean
@@ -13,7 +12,7 @@ interface atualizar {
 }
 
 export class atualizarPedidosService {
-    async execute({ pedidoId, novoClienteId, novoDraft, novoEntrega, novoMotoqueiroId, novoNum, novoObservacao, novoPed_val_total, novoStatus }: atualizar) {
+    async execute({ pedidoId, novoClienteId, novoDraft, novoEntrega, novoMotoqueiroId, novoObservacao, novoPed_val_total, novoStatus }: atualizar) {
 
         await prismaClient.pedidos.update({
             where: {
@@ -25,7 +24,6 @@ export class atualizarPedidosService {
                 draft: novoDraft,
                 entrega: novoEntrega,
                 motoqueiroId: novoMotoqueiroId,
-                num: novoNum,
                 observacao: novoObservacao,
                 status: novoStatus
             }
