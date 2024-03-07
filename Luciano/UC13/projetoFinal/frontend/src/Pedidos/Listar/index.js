@@ -36,6 +36,16 @@ export default function PedidosListar() {
     }
 
 
+    async function handleFinalizarCozinha(id) {
+
+        const rascunho = "Aguardando entregador..."
+
+            //fazer o finilizar pedidos Controller/Services. Resto já está efeito
+        await apiLocal.put("/FinalizarPedidos", {
+            pedidoId: id,
+            novoRascunho: rascunho
+        })
+    }
 
 
 
@@ -85,6 +95,32 @@ export default function PedidosListar() {
                             <>
                                 <div>
                                     {palmito.aceito === true && (
+                                        <>
+                                            <h1>Num: {palmito.num}</h1>
+                                            <h2>Status: {palmito.status}</h2>
+                                            {palmito.observacao === null ? (<h2>Obs: Sem observação</h2>) : (<h2>Obs: {palmito.observacao}</h2>)}
+                                        </>
+                                    )}
+                                </div>
+
+
+                            </>
+                        )
+                    })}
+                </div>
+            )}
+
+            <h3>---Pedidos prontos---</h3>
+
+            {verPedidos.draft === 0 ? (
+                <h2>Carregando</h2>
+            ) : (
+                <div>
+                    {verPedidos.map((palmito) => {
+                        return (
+                            <>
+                                <div>
+                                    {palmito.status === "Aguardando entregador..." && (
                                         <>
                                             <h1>Num: {palmito.num}</h1>
                                             <h2>Status: {palmito.status}</h2>
