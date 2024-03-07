@@ -53,10 +53,13 @@ export default function CriarPedidosBalcao() {
 
     async function fecharModalAceitar(id, obs) {
 
+        const rascunho = "Aguardando confirmação"
+
         await apiLocal.put("/ConfirmarPedidos", {
             pedidoId: id,
             novoObservacao: obs,
-            novoDraft: false
+            novoDraft: false,
+            novoRascunho: rascunho
         })
         setModalAberto(false)
     }

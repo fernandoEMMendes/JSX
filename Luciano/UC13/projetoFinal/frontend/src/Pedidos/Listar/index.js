@@ -22,21 +22,30 @@ export default function PedidosListar() {
         loadPedidos()
     }, [verPedidos])
 
-    
-    async function handleConfirmarCozinha(){
 
-        await apiLocal.put
+    async function handleConfirmarCozinha(id) {
+
+        const aceitar = true
+        const rascunho = "Em preparo..."
+
+        await apiLocal.put("/AceitarPedidos", {
+            novoAceito: aceitar,
+            pedidoId: id,
+            novoRascunho: rascunho
+        })
     }
-    
-    
-    
-    
-    
+
+
+
+
+
     return (
         <div>
             <div>
                 <h1>Listar Pedidos</h1>
             </div>
+
+            <h3>---Pedidos para aceitar---</h3>
 
             {verPedidos.draft === 0 ? (
                 <h2>Carregando</h2>
@@ -44,18 +53,48 @@ export default function PedidosListar() {
                 <div>
                     {verPedidos.map((palmito) => {
                         return (
-                            <div>
-                                {palmito.draft === false && (
-                                    <>
-                                        <Link to={`/PedidoVer/${palmito.id}`}>
+                            <>
+                                <div>
+                                    {palmito.draft === false && palmito.aceito === false && (
+                                        <>
                                             <h1>Num: {palmito.num}</h1>
-                                        </Link><h2>Status: {palmito.status}</h2>
-                                        {palmito.observacao === null ? (<h2>Obs: Sem observação</h2>) : (<h2>Obs: {palmito.observacao}</h2>)}
-                                        <br /> <br />
-                                        <button onClick={handleConfirmarCozinha}>Confirmar Pedido!</button>
-                                    </>
-                                )}
-                            </div>
+                                            <h2>Status: {palmito.status}</h2>
+                                            {palmito.observacao === null ? (<h2>Obs: Sem observação</h2>) : (<h2>Obs: {palmito.observacao}</h2>)}
+                                            <br />
+                                            <button onClick={() => handleConfirmarCozinha(palmito.id)}>Confirmar Pedido!</button>
+                                            <br /> <br />
+                                        </>
+                                    )}
+                                </div>
+
+
+                            </>
+                        )
+                    })}
+                </div>
+            )}
+
+            <h3>---Pedidos aceitos---</h3>
+
+            {verPedidos.draft === 0 ? (
+                <h2>Carregando</h2>
+            ) : (
+                <div>
+                    {verPedidos.map((palmito) => {
+                        return (
+                            <>
+                                <div>
+                                    {palmito.aceito === true && (
+                                        <>
+                                            <h1>Num: {palmito.num}</h1>
+                                            <h2>Status: {palmito.status}</h2>
+                                            {palmito.observacao === null ? (<h2>Obs: Sem observação</h2>) : (<h2>Obs: {palmito.observacao}</h2>)}
+                                        </>
+                                    )}
+                                </div>
+
+
+                            </>
                         )
                     })}
                 </div>
