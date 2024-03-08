@@ -32,6 +32,8 @@ import { ListarCategoriasController } from './Controller/Categorias/ListarCatego
 import { isAutenticado } from './middleware/isAutenticado'
 import { confirmarPedidoController } from './Controller/Pedidos/confirmarPedidoController'
 import { aceitarPedidoController } from './Controller/Pedidos/aceitarPedidoController'
+import { ListarProdutosController } from './Controller/Produtos/ListarProdutosController'
+import { ListarProdutosCategoriaController } from './Controller/Produtos/ListarProdutosCategoriaController'
 
 const router = Router()
 const upload = multer(uploadConfig.upload('./tmp'))
@@ -56,6 +58,8 @@ router.get("/ListarClientes", new ListarClientesController().handle)
 
 //Estrutura de Produtos
 router.post('/CriarProdutos', upload.single('file'), new CriarProdutosController().handle)
+router.get("/ListarProdutos", new ListarProdutosController().handle)
+router.get("/ListarProdutosCategoria", new ListarProdutosCategoriaController().handle)
 
 //Estrutura de Pedidos
 router.post("/CriarPedidos", new criarPedidosController().handle)

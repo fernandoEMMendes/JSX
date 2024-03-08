@@ -114,7 +114,7 @@ model Pedidos {
 model Pedidos_item {
   id        String @id @default(uuid())
   quant     String
-  val_total String
+  val_total String?
 
   produto   Produto @relation(fields: [produtoId], references: [id])
   produtoId String

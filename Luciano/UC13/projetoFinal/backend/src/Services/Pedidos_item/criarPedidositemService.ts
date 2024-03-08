@@ -9,7 +9,7 @@ interface criar {
 
 export class criarPedidositemService {
     async execute({ produtoId, quant, val_total, pedidoId }: criar) {
-        if (!produtoId || !quant || !val_total || !pedidoId) {
+        if (!produtoId || !quant || !pedidoId) {
             throw new Error("Campos em branco não permitidos!")
         }
 
