@@ -77,15 +77,22 @@ export default function CriarPedidosBalcao() {
 
     async function fecharModalApagar(id) {
 
+        await apiLocal.delete("/CancelarPedido", {
+            data: {
+                pedidoId: id
+            }
+        })
+        
         await apiLocal.delete("/DeletarPedidos", {
             data: {
                 pedidoId: id
             }
         })
+        
         setModalAberto(false)
     }
 
-    async function fecharModalAceitar(id, obs, prod, quantidade) {
+    async function fecharModalAceitar(id, obs) {
 
         const rascunho = "Aguardando confirmação"
 
@@ -96,6 +103,10 @@ export default function CriarPedidosBalcao() {
             novoRascunho: rascunho
         })
 
+        setModalAberto(false)
+    }
+
+    async function adicionarProduto(id, prod, quantidade) {
         await apiLocal.post("/CriarPedidosItem", {
             produtoId: prod,
             quant: quantidade,
@@ -104,8 +115,6 @@ export default function CriarPedidosBalcao() {
 
         setQuant(null)
         setObservation(null)
-
-        setModalAberto(false)
     }
 
     return (
@@ -151,12 +160,14 @@ export default function CriarPedidosBalcao() {
 
                 <input type="number" onChange={(e) => setQuant(e.target.value)} />
 
+                <button onClick={() => adicionarProduto(pedNum.id, produtosId, quant)}>ADD Produto</button>
+
                 <h1>Observação</h1>
                 <input value={observation} onChange={(e) => { setObservation(e.target.value) }} /> <br /> <br />
 
                 <button onClick={() => fecharModalApagar(pedNum.id)}>Cancelar Pedido</button>
 
-                <button onClick={() => fecharModalAceitar(pedNum.id, observation, produtosId, quant)}>Aceitar Pedido</button>
+                <button onClick={() => fecharModalAceitar(pedNum.id, observation)}>Aceitar Pedido</button>
             </Modal>
         </div>
     )

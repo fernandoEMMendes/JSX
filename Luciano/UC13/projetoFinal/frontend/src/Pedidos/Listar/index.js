@@ -40,7 +40,7 @@ export default function PedidosListar() {
 
         const rascunho = "Aguardando entregador..."
 
-            //fazer o finilizar pedidos Controller/Services. Resto já está efeito
+        //fazer o finilizar pedidos Controller/Services. Resto já está efeito
         await apiLocal.put("/FinalizarPedidos", {
             pedidoId: id,
             novoRascunho: rascunho
@@ -55,9 +55,13 @@ export default function PedidosListar() {
                 <h1>Listar Pedidos</h1>
             </div>
 
+            <br />
+
             <h3>---Pedidos para aceitar---</h3>
 
-            {verPedidos.draft === 0 ? (
+            <br />
+
+            {verPedidos.length === 0 ? (
                 <h2>Carregando</h2>
             ) : (
                 <div>
@@ -84,7 +88,11 @@ export default function PedidosListar() {
                 </div>
             )}
 
+            <br />
+
             <h3>---Pedidos aceitos---</h3>
+
+            <br />
 
             {verPedidos.draft === 0 ? (
                 <h2>Carregando</h2>
@@ -110,7 +118,11 @@ export default function PedidosListar() {
                 </div>
             )}
 
+            <br />
+
             <h3>---Pedidos prontos---</h3>
+
+            <br />
 
             {verPedidos.draft === 0 ? (
                 <h2>Carregando</h2>

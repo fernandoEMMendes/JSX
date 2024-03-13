@@ -15,30 +15,6 @@ export default function Inicio() {
 
     const [modalAberto, setModalAberto] = useState(false)
 
-    useEffect(() => {
-        const iToken = localStorage.getItem('@tklogin2023')
-        const token = JSON.parse(iToken)
-        if (!token) {
-            navigation('/')
-            return
-        } else if (token) {
-            async function verificaToken() {
-                const resposta = await apiLocal.get('/ListarUsuarioToken', {
-                    headers: {
-                        Authorization: 'Bearer ' + `${token}`
-                    }
-                })
-                if (resposta.data.dados) {
-                    navigation('/')
-                    return
-                } else if (resposta.data.id) {
-                    navigation('/Dashboard')
-                }
-            }
-            verificaToken()
-        }
-    }, [])
-
     async function handleLogin(e) {
         e.preventDefault()
         if (!email || !password) {

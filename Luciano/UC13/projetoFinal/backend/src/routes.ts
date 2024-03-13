@@ -34,6 +34,7 @@ import { confirmarPedidoController } from './Controller/Pedidos/confirmarPedidoC
 import { aceitarPedidoController } from './Controller/Pedidos/aceitarPedidoController'
 import { ListarProdutosController } from './Controller/Produtos/ListarProdutosController'
 import { ListarProdutosCategoriaController } from './Controller/Produtos/ListarProdutosCategoriaController'
+import { cancelarPedidosItemController } from './Controller/Pedidos_item/cancelarPedidositemController'
 
 const router = Router()
 const upload = multer(uploadConfig.upload('./tmp'))
@@ -72,6 +73,7 @@ router.put("/AceitarPedidos", new aceitarPedidoController().handle)
 
 router.post("/CriarPedidosItem", new criarPedidositemController().handle)
 router.delete("/DeletarPedidosItem", new deletarPedidositemController().handle)
+router.delete("/CancelarPedido", new cancelarPedidosItemController().handle)
 
 //Estrutura de Categorias
 router.post('/CriarCategorias', new CriarCategoriasController().handle)
