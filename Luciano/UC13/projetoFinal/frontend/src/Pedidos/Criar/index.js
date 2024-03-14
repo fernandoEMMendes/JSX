@@ -18,6 +18,8 @@ export default function CriarPedidosBalcao() {
     const [pedNum, setPedNum] = useState("")
     const [observation, setObservation] = useState("")
 
+    const [listarPedidos, setListarPedidos] = useState("")
+
     const [modalAberto, setModalAberto] = useState(false)
 
     const lsToken = localStorage.getItem("@tklogin2023")
@@ -59,9 +61,59 @@ export default function CriarPedidosBalcao() {
         }
         verProdutosCategoria()
         return
-    }, [categorias])
+    }, [CategoriasId])
+
+    useEffect(() => {
+        async function somarItensPedido() {
+            const id = pedNum.id
+            console.log(id)
+            //------------------------Parou aqui!!!------------------------//
+        }
+    }, [listarPedidos])
+
+    async function adicionarProduto(id, prod, quant) {
+
+        try {
+            const prodExt = produtos.filter((item) => item.id === produtosId)
+            const valor = Number(prodExt.map((item) => item.preco) * quant)
+
+            if (quant === null || quant <= 0) {
+                alert("quantidade invalida")
+                return
+            }
+
+            const resposta = await apiLocal.post("/CriarPedidosItem", {
+                produtoId: prod,
+                quant: quant,
+                pedidoId: id,
+                val_total: valor
+            })
+
+            let dados = {
+                id: resposta.data.id,
+                produto: resposta.data.produto.nome,
+                quantidade: resposta.data.quant,
+                valor: resposta.data.val_total
+            }
+            setListarPedidos(oldArray => [...oldArray, dados])
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+    async function retirarProduto(id) {
+
+        await apiLocal.delete("/DeletarPedidosItem", {
+            data: {
+                pedidositemId: id
+            }
+        })
+        setListarPedidos(listarPedidos.filter((item) => item.id !== id))
+    }
 
     async function abrirModal() {
+
+        setListarPedidos([""])
 
         if (clienteId === "") {
             alert("Selecione um usuario")
@@ -104,28 +156,6 @@ export default function CriarPedidosBalcao() {
         })
 
         setModalAberto(false)
-    }
-
-    async function adicionarProduto(id, prod, quantidade) {
-
-        const prodExt = produtos.filter((item) => item.id === produtosId)
-        const valor = Number(prodExt.map((item) => item.preco) * quantidade)
-
-        if (quantidade === null || quantidade <= 0) {
-            quantidade = 1
-        }
-
-        await apiLocal.post("/CriarPedidosItem", {
-            produtoId: prod,
-            quant: quantidade,
-            pedidoId: id,
-            val_total: valor
-        })
-    }
-
-    async function handleItemPedido(e) {
-        e.preventDefault()
-        const prodExt = produtos
     }
 
     return (
@@ -172,6 +202,28 @@ export default function CriarPedidosBalcao() {
                 <input type="number" onChange={(e) => setQuant(e.target.value)} />
 
                 <button onClick={() => adicionarProduto(pedNum.id, produtosId, quant)}>ADD Produto</button>
+
+                {listarPedidos.length === 0 ? (
+                    <h2>Aguardando produtos...</h2>
+                ) : (
+                    <>
+                        {
+                            listarPedidos.map((palmito) => {
+                                return (
+                                    <>
+                                        {palmito.length !== 0 && (
+                                            <h3>
+                                                {palmito.produto} - {palmito.quantidade} - {palmito.valor}
+                                                <button onClick={() => retirarProduto(palmito.id)}>Apagar</button>
+                                            </h3>
+                                        )}
+                                    </>
+                                )
+                            })
+                        }
+                    </>
+
+                )}
 
                 <h1>Observação</h1>
                 <input value={observation} onChange={(e) => { setObservation(e.target.value) }} /> <br /> <br />

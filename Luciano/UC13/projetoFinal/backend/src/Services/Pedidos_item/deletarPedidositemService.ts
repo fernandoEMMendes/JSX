@@ -6,9 +6,6 @@ interface deletar {
 
 export class deletarPedidositemService {
     async execute({ pedidositemId }: deletar) {
-        if (!pedidositemId){
-            throw new Error("Campos obrigatorios em branco!")
-        }
 
         await prismaClient.pedidos_item.delete({
             where: {
