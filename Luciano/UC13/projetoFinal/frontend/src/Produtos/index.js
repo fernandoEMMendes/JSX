@@ -103,7 +103,7 @@ export default function Produtos() {
                     />
                     <label>Quantidade:</label>
                     <input
-                        type="text"
+                        type="number"
                         value={quantidade}
                         onChange={(e) => setQuantidade(e.target.value)}
                     />
