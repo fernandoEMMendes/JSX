@@ -88,7 +88,7 @@ export default function Inicio() {
                 <p>Para se cadastrar clique <button className='buttonAqui' onClick={abrirModal}>AQUI</button></p>
                 <Modal
                     isOpen={modalAberto}
-                    onRequestClose={fecharModal}
+                       onRequestClose={fecharModal}
                 >
                     <div className='formInicio'>
                         <h2>Cadastro de Usuário</h2>

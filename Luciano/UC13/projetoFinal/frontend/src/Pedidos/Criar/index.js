@@ -82,13 +82,13 @@ export default function CriarPedidosBalcao() {
                 pedidoId: id
             }
         })
-        
+
         await apiLocal.delete("/DeletarPedidos", {
             data: {
                 pedidoId: id
             }
         })
-        
+
         setModalAberto(false)
     }
 
@@ -107,14 +107,25 @@ export default function CriarPedidosBalcao() {
     }
 
     async function adicionarProduto(id, prod, quantidade) {
+
+        const prodExt = produtos.filter((item) => item.id === produtosId)
+        const valor = Number(prodExt.map((item) => item.preco) * quantidade)
+
+        if (quantidade === null || quantidade <= 0) {
+            quantidade = 1
+        }
+
         await apiLocal.post("/CriarPedidosItem", {
             produtoId: prod,
             quant: quantidade,
             pedidoId: id,
+            val_total: valor
         })
+    }
 
-        setQuant(null)
-        setObservation(null)
+    async function handleItemPedido(e) {
+        e.preventDefault()
+        const prodExt = produtos
     }
 
     return (
