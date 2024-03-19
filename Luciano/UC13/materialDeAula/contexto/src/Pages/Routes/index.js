@@ -1,10 +1,13 @@
+import {useContext} from "react"
+import { Contexts } from "../../Contexts/AuthContext"
 import RotasAuth from "./auth.routes"
 import Rotas from "./app.routes"
 
 export default function RotasIndex() {
 
-    const auth = false
+    const {autenticado} = useContext(Contexts)
+
     return (
-        auth === true ? <RotasAuth /> : <Rotas />
+        autenticado  === true ? <RotasAuth /> : <Rotas />
     )
 }
