@@ -19,7 +19,7 @@ export default function AuthProvider({ children }) {
                 email, password
             })
             toast.success("Logado com sucesso! 👌")
-            console.log(resposta.data)
+            return resposta.data
 
         } catch (err) {
             toast.warning(err.response.data.error)
