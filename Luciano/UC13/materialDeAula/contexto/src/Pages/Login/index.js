@@ -11,13 +11,10 @@ export default function Login() {
     async function handleLogin() {
         
         const resposta = await FazerLogin(email, password)
-        
         let data = JSON.stringify(resposta)
-        console.log(JSON.parse(data))
-
         
 
-        //localStorage.setItem("@LoginToken", data)
+        localStorage.setItem("@LoginToken", data)
     }
 
     return (

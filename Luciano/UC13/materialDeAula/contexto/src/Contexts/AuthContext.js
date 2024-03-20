@@ -6,7 +6,28 @@ export const Contexts = createContext()
 
 export default function AuthProvider({ children }) {
 
-    const autenticado = false
+    const [token, setToken] = useState("")
+    const autenticado = !!token
+
+    const lsToken = localStorage.getItem("@LoginToken")
+    const stToken = JSON.parse(lsToken)
+
+    useEffect(() => {
+        async function verificarToken() {
+            try {
+                if (stToken) {
+                    console.log(stToken)
+                }
+
+                //fazer consulta no BD para verificar Token
+                // /ListarUsuarioToken <- Rota BackEnd
+
+            } catch (err) {
+                toast.error(err.response.data.error)
+            }
+        }
+        verificarToken()
+    }, [token])
 
     async function FazerLogin(email, password) {
         try {
@@ -18,7 +39,9 @@ export default function AuthProvider({ children }) {
             const resposta = await apiLocal.post("/LoginUsuarios", {
                 email, password
             })
-            toast.success("Logado com sucesso! 👌")
+            toast.success("Logado com sucesso! 👌", {
+                toastId: "toastId"
+            })
             return resposta.data
 
         } catch (err) {

@@ -50,7 +50,7 @@ router.get("/ListarMotoqueiro", new ListarMotoqueiroController().handle)
 
 //Estrutura de Usuários
 router.post('/CriarUsuarios', new CriarusuariosController().handle)
-router.get('/ListarUsuarioToken', new ListarUsuarioTokenController().handle)
+router.get('/ListarUsuarioToken', isAutenticado, new ListarUsuarioTokenController().handle)
 
 //Estrutura de Clientes
 router.post("/CriarClientes", new CriarClientesController().handle)
