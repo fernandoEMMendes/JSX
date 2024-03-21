@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect } from "react";
 import { toast } from "react-toastify"
 import apiLocal from "../APIs/apiLocal";
+import { Navigate } from "react-router-dom"
 
 export const Contexts = createContext()
 
@@ -14,16 +15,27 @@ export default function AuthProvider({ children }) {
 
     useEffect(() => {
         async function verificarToken() {
-            try {
-                if (stToken) {
-                    console.log(stToken)
-                }
 
-                //fazer consulta no BD para verificar Token
-                // /ListarUsuarioToken <- Rota BackEnd
+            if (!lsToken) {
+                <Navigate to="/" />
+                return
+            }
+
+            try {
+
+                const bearerToken = (stToken.token)
+
+                const response = await apiLocal.get("/ListarUsuarioToken", {
+                    headers: {
+                        Authorization: "Bearer " + `${bearerToken}`
+                    }
+                })
+
+                setToken(response.data.id)
 
             } catch (err) {
                 toast.error(err.response.data.error)
+                setToken("")
             }
         }
         verificarToken()

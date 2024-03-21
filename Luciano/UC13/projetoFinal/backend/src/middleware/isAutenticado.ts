@@ -12,23 +12,24 @@ export function isAutenticado(
 ) {
     const autToken = req.headers.authorization
     //console.log(autToken)
-    
+
     const [, token] = autToken.split(' ')
-    
+    //console.log(token)
+
     if (!token || token === '' || token === 'null') {
-        return res.json({dados: 'Token Invalido'})
+        return res.json({ dados: 'Token Invalido' })
     }
-    
-    
+
     try {
         const { sub } = verify(
             token,
             process.env.JWT_SECRET
-            ) as Payload
-            req.user_id = sub
-            return next()
-        } catch (err) {
-            return res.json({dados: 'Token Expirado'})
-            //return res.status(401).end()
+        ) as Payload
+    
+        req.user_id = sub
+        return next()
+    } catch (err) {
+        return res.json({ dados: 'Token Expirado' })
+        //return res.status(401).end()
     }
 }
