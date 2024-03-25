@@ -49,14 +49,16 @@ export const styles = StyleSheet.create({
         borderRadius: 15,
         padding: 10,
         width: 390,
-        marginTop: 150
+        marginTop: 150,
+        marginLeft: 12,
+        marginRight: 10,
     },
 
     textButtonFire: {
         fontSize: 30,
         fontWeight: 'bold',
         color: 'white',
-        textAlign: 'center'
+        textAlign: 'center',
     },
 
     buttonInicio: {
@@ -65,7 +67,9 @@ export const styles = StyleSheet.create({
         backgroundColor: "red",
         borderRadius: 11,
         padding: 10,
-        width: 390
+        width: 390,
+        marginLeft: 12,
+        marginRight: 10,
     },
 
     textButtonInicio: {

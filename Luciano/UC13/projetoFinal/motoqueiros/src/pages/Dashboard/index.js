@@ -72,7 +72,6 @@ export default function Dashboard() {
         usuarios.child("pedidos").set({
             pedido: numeroBrabo
         })
-        alert('Dados enviados ao FireBase!')
 
         Keyboard.dismiss()
     }
@@ -91,9 +90,13 @@ export default function Dashboard() {
 
                 <View>
                     <Text style={styles.titulo}>Dashboard</Text>
+
                     <Text style={styles.subTitulo}>Motoqueiro: {user}</Text>
+
                     <Text style={styles.subTitulo}>Pedido Selecionados</Text>
+
                     <Text style={styles.subTitulo}>Pedido Disponíveis</Text>
+
                     <TouchableOpacity
                         style={styles.buttonFirebase}
                         onPress={botaoFireBase}>
@@ -104,17 +107,6 @@ export default function Dashboard() {
                         onPress={handleInicio}>
                         <Text style={styles.textButtonInicio}>Limpar dados</Text>
                     </TouchableOpacity>
-                </View>
-
-                <View style={styles.distanciaPequena} />
-
-                <View style={styles.gifCaixa}>
-                    <GifImage
-                        source={{
-                            uri: "https://media1.tenor.com/m/qDk_KMn1d1MAAAAC/coffee-morning-good-morning-coffee-images.gif"
-                        }}
-                        style={styles.gif}
-                    />
                 </View>
 
             </ScrollView>
