@@ -7,6 +7,7 @@ export default function Rotas() {
         <BrowserRouter>
             <Routes>
                 <Route path='/' element={<Login />} />
+                <Route path='*' element={<Login />} />
             </Routes>
         </BrowserRouter>
     )

@@ -9,6 +9,7 @@ export default function RotasAuth() {
             <Routes>
                 <Route path="/" element={<Dashboard />} />
                 <Route path="/Produtos" element={<Produtos />} />
+                <Route path="*" element={<Dashboard />} />
             </Routes>
         </BrowserRouter>
     )

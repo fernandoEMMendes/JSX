@@ -1,19 +1,24 @@
-import { useContext, useState } from "react"    
+import React, { useContext, useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 import { Contexts } from "../../Contexts/AuthContext"
 
 export default function Login() {
 
-    const { FazerLogin } = useContext(Contexts)
+    const navigation = useNavigate()
+
+    const { FazerLogin, VerificarToken } = useContext(Contexts)
 
     const email = "123"
     const password = "123"
 
-    async function handleLogin() {
+    useEffect(() => {
+        VerificarToken()
+    }, []);
 
-        const resposta = await FazerLogin(email, password)
-        let data = JSON.stringify(resposta)
-
-        localStorage.setItem("@LoginToken", data)
+    async function handleLogin(e) {
+        e.preventDefault()
+        await FazerLogin(email, password)
+        VerificarToken()
     }
 
     return (

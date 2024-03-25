@@ -1,7 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import { toast } from "react-toastify"
 import apiLocal from "../APIs/apiLocal";
-import { Navigate } from "react-router-dom"
 
 export const Contexts = createContext()
 
@@ -10,36 +9,36 @@ export default function AuthProvider({ children }) {
     const [token, setToken] = useState("")
     const autenticado = !!token
 
-    const lsToken = localStorage.getItem("@LoginToken")
-    const stToken = JSON.parse(lsToken)
+    async function VerificarToken() {
+        try {
 
-    useEffect(() => {
-        async function verificarToken() {
-
+            const lsToken = localStorage.getItem("@LoginToken")
             if (!lsToken) {
-                <Navigate to="/" />
+                setToken("")
                 return
             }
 
-            try {
 
-                const bearerToken = (stToken.token)
+            const stToken = JSON.parse(lsToken)
+            const bearerToken = (stToken.token)
 
-                const response = await apiLocal.get("/ListarUsuarioToken", {
-                    headers: {
-                        Authorization: "Bearer " + `${bearerToken}`
-                    }
-                })
+            const response = await apiLocal.get("/ListarUsuarioToken", {
+                headers: {
+                    Authorization: "Bearer " + `${bearerToken}`
+                }
+            })
 
+            if (response.data.id) {
                 setToken(response.data.id)
-
-            } catch (err) {
-                toast.error(err.response.data.error)
+            } else {
                 setToken("")
             }
+
+        } catch (err) {
+            toast.error(err.response.data.error)
+            setToken("")
         }
-        verificarToken()
-    }, [token])
+    }
 
     async function FazerLogin(email, password) {
         try {
@@ -54,15 +53,18 @@ export default function AuthProvider({ children }) {
             toast.success("Logado com sucesso! 👌", {
                 toastId: "toastId"
             })
-            return resposta.data
+
+            localStorage.removeItem("@LoginToken")
+            localStorage.setItem("@LoginToken", JSON.stringify(resposta.data))
 
         } catch (err) {
             toast.warning(err.response.data.error)
+            setToken("")
         }
     }
 
     return (
-        <Contexts.Provider value={{ autenticado, FazerLogin }}>
+        <Contexts.Provider value={{ autenticado, FazerLogin, VerificarToken }}>
             {children}
         </Contexts.Provider>
     )
