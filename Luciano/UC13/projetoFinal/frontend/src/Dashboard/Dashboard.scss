@@ -14,8 +14,7 @@ $color5:white;
     max-width: 600px;
     width: 98%;
     margin: auto;
-    height: 100vh;
-    
+    max-height: 100vh;
 }
 #Header_Dashboard{
   background-color: $color2;
@@ -30,6 +29,7 @@ $color5:white;
 
 #Sessao_Dashboard{
     text-align: center;
+    
     .Links_Dashboard{
         text-decoration: none;
         p{
@@ -62,6 +62,7 @@ $color5:white;
         font-weight: bold;
         width: 20%;
         border-radius: 6px;
+        margin-bottom: 40%;
     }
     button:hover{
         background-color:rgba(87, 5, 5, 0.478);
@@ -74,8 +75,10 @@ $color5:white;
 }
 
 #Footer_Dashboard{
-    height: 100px;
+    height: 80px;
     background-color: $color2;
+    border-radius: 100px 100px 0px 0px;
+    
 }
 
 
