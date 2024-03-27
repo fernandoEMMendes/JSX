@@ -18,7 +18,8 @@ export default function CriarPedidosBalcao() {
     const [pedNum, setPedNum] = useState("")
     const [observation, setObservation] = useState("")
 
-    const [listarPedidos, setListarPedidos] = useState("")
+    const [listarPedidos, setListarPedidos] = useState([""])
+    const [valorTotal, setValorTotal] = useState("")
 
     const [modalAberto, setModalAberto] = useState(false)
 
@@ -54,10 +55,10 @@ export default function CriarPedidosBalcao() {
         }
 
         async function verProdutosCategoria() {
-            const resposta = await apiLocal.get("/ListarProdutosCategoria", {
-                categoriasId: CategoriasId
+
+            const resposta = await apiLocal.get(`/ListarProdutosCategoria/${CategoriasId}`, {
             })
-            setProdutos(resposta.data)
+            setProdutos(resposta.data.filter((item) => item.categoriaId === CategoriasId))
         }
         verProdutosCategoria()
         return
@@ -66,9 +67,10 @@ export default function CriarPedidosBalcao() {
     useEffect(() => {
         async function somarItensPedido() {
             const id = pedNum.id
-            console.log(id)
-            //------------------------Parou aqui!!!------------------------//
+            const resposta = await apiLocal.get(`/SomarItensPedido/${id}`)
+            setValorTotal(resposta.data)
         }
+        somarItensPedido()
     }, [listarPedidos])
 
     async function adicionarProduto(id, prod, quant) {
@@ -95,6 +97,7 @@ export default function CriarPedidosBalcao() {
                 quantidade: resposta.data.quant,
                 valor: resposta.data.val_total
             }
+
             setListarPedidos(oldArray => [...oldArray, dados])
         } catch (err) {
             console.log(err)
@@ -152,16 +155,18 @@ export default function CriarPedidosBalcao() {
             pedidoId: id,
             novoObservacao: obs,
             novoDraft: false,
-            novoRascunho: rascunho
+            novoRascunho: rascunho,
+            novoValor: valorTotal
         })
 
+        setObservation("")
         setModalAberto(false)
     }
 
     return (
         <div>
             <h1>Criar Pedidos Balcão</h1>
-            <select onChange={(e) => { setClienteId(e.target.value) }}>
+            <select value={clienteId} onChange={(e) => { setClienteId(e.target.value) }}>
                 <option value="" id="">Selecione</option>
                 {clientes.map((palmito) => {
                     return (
@@ -177,18 +182,18 @@ export default function CriarPedidosBalcao() {
                 <h1>Painel - Criar Pedidos</h1>
                 <h2>Número: {pedNum.num}</h2> <br /> <br />
 
-                <select onChange={(e) => setCategoriasId(e.target.value)}>
+                <select value={CategoriasId} onChange={(e) => setCategoriasId(e.target.value)}>
                     <option value="" id="">Selecione</option>
                     {categorias.map((frango) => {
                         return (
-                            <option value={frango.id} id={frango.id}>
+                            <option value={frango.id}>
                                 {frango.nome}
                             </option>
                         )
                     })}
                 </select>
 
-                <select onChange={(e) => setProdutosId(e.target.value)}>
+                <select value={produtosId} onChange={(e) => setProdutosId(e.target.value)}>
                     <option value="" id="">Selecione</option>
                     {produtos.map((presunto) => {
                         return (
@@ -227,6 +232,9 @@ export default function CriarPedidosBalcao() {
 
                 <h1>Observação</h1>
                 <input value={observation} onChange={(e) => { setObservation(e.target.value) }} /> <br /> <br />
+
+                <h3>Valor total do pedido</h3>
+                <h3>{valorTotal}</h3>
 
                 <button onClick={() => fecharModalApagar(pedNum.id)}>Cancelar Pedido</button>
 

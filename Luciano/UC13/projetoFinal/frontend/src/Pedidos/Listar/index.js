@@ -40,10 +40,9 @@ export default function PedidosListar() {
 
         const rascunho = "Aguardando entregador..."
 
-        //fazer o finilizar pedidos Controller/Services. Resto já está efeito
         await apiLocal.put("/FinalizarPedidos", {
             pedidoId: id,
-            novoRascunho: rascunho
+            novoStatus: rascunho
         })
     }
 
@@ -102,11 +101,12 @@ export default function PedidosListar() {
                         return (
                             <>
                                 <div>
-                                    {palmito.aceito === true && (
+                                    {palmito.aceito === true && palmito.status === "Em preparo..." && (
                                         <>
                                             <h1>Num: {palmito.num}</h1>
                                             <h2>Status: {palmito.status}</h2>
                                             {palmito.observacao === null ? (<h2>Obs: Sem observação</h2>) : (<h2>Obs: {palmito.observacao}</h2>)}
+                                            <button onClick={() => handleFinalizarCozinha(palmito.id)}>Finalizar Pedido!</button>
                                         </>
                                     )}
                                 </div>
