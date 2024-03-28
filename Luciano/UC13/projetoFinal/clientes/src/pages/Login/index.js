@@ -26,11 +26,8 @@ export default function Login() {
             })
 
             await AsyncStorage.setItem("@token", JSON.stringify(resposta.data.token))
-            await AsyncStorage.setItem("@email", JSON.stringify(resposta.data.email))
+            await AsyncStorage.setItem("@cliente", JSON.stringify(resposta.data.id))
             navigation.navigate("dashboard")
-
-            setEmail("")
-            setPassword("")
 
         } catch (err) {
             alert("Login incorreto!")
@@ -41,7 +38,7 @@ export default function Login() {
         <SafeAreaView style={styles.container}>
             <ScrollView>
                 <View>
-                    <Text style={styles.titulo}>Login de Clientes🧡</Text>
+                    <Text style={styles.titulo}>Login de Clientes</Text>
                 </View>
 
                 <View style={styles.distancia} />

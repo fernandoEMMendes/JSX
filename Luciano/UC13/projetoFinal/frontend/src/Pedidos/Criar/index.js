@@ -28,11 +28,7 @@ export default function CriarPedidosBalcao() {
 
     useEffect(() => {
         async function verClientes() {
-            const resposta = await apiLocal.get("/ListarClientes", {
-                headers: {
-                    Authorization: "Bearer " + `${token}`
-                }
-            })
+            const resposta = await apiLocal.get("/ListarClientes")
             setClientes(resposta.data)
         }
         verClientes()

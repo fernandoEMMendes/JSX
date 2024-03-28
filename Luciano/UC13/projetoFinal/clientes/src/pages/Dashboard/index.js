@@ -37,7 +37,11 @@ export default function Dashboard() {
             <ScrollView>
                 <View>
                     <TouchableOpacity>
-                        <Text style={styles.botao} onPress={() => { navigation.navigate("login") }}>Voltar</Text>
+                        <Text style={styles.botao} onPress={() => { navigation.navigate("login") }}>Sair</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity>
+                        <Text style={styles.botaoCriar} onPress={()=>{navigation.navigate("CriarPedidos")}}>Pedidos     </Text>
                     </TouchableOpacity>
                 </View>
 
