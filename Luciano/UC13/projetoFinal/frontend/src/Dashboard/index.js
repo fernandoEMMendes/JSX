@@ -29,7 +29,7 @@ export default function Dashboard() {
             
             </section>
             <footer id='Footer_Dashboard'>
-
+              
             </footer>
         </main>
     )

@@ -1,0 +1,49 @@
+
+$color1:#0E23E6;
+
+$color2:#0E67E6;
+
+$color3:#850EE6;
+
+$color4:rgba(0, 0, 0, 0.517);
+
+$color5:white;
+
+
+
+#Main_Listar_Pedidos{
+    max-width: 800px;
+    min-height: 100vh;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.075);
+    margin: auto;
+    text-align: center;
+    header{
+        background-color: $color2;
+        border-radius: 0px 0px 100px 100px;
+        color: $color5;
+        border-bottom: 2px solid $color5;
+    }
+
+    .Titulos_Listar_Pedidos{
+        background-color: $color2;
+        color: $color5;
+        width: 80%;
+        margin: auto;
+        border-radius: 6px;
+        padding-top: 5px;
+        padding-bottom: 6px;
+        margin-top: 30px;
+        border: 2px solid $color5;
+    }
+
+    #Footer_Listar_Pedidos{
+        height: 10px;
+        max-width: 800px;
+        width: 100%;
+        border-radius: 10px 10px 0px 0px;
+        background-color: $color2;
+        position: fixed;
+        bottom: 0;
+    }
+}

@@ -70,16 +70,18 @@ export default function Produtos() {
 
     return (
         <div className="conteinerProdutosCadastro">
-            <div>
+            <header id='Header_Produtos'>
                 <h1>Produtos</h1>
-            </div>
+            </header>
+            <main id='Main_Produtos'>
             <div>
                 <form onSubmit={handleCadastrar}>
                     <select
+                    id='Select_Produto'
                         value={idCategoria}
                         onChange={(e) => setIdCategoria(e.target.value)}
                     >
-                        <option>Selecione...</option>
+                        <option >Selecione...</option>
                         {categorias.map((item) => {
                             return (
                                 <option
@@ -103,13 +105,15 @@ export default function Produtos() {
                     />
                     <label>Quantidade:</label>
                     <input
+                        className='Input_Number_Produtos'
                         type="number"
                         value={quantidade}
                         onChange={(e) => setQuantidade(e.target.value)}
                     />
                     <label>Preço:</label>
                     <input
-                        type="text"
+                        className='Input_Number_Produtos'
+                        type="number"
                         value={preco}
                         onChange={(e) => setPreco(e.target.value)}
                     />
@@ -123,6 +127,8 @@ export default function Produtos() {
                     <button type='submit'>Enviar</button>
                 </form>
             </div>
+            </main>
+            <footer id='Footer_Produtos'></footer>
         </div>
     )
 }

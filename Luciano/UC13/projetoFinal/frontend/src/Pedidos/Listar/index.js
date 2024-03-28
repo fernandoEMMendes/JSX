@@ -2,6 +2,7 @@ import apiLocal from "../../API/apiLocal/api";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+import './ListarPedidos.scss'
 
 export default function PedidosListar() {
 
@@ -49,19 +50,19 @@ export default function PedidosListar() {
 
 
     return (
-        <div>
-            <div>
+        <main id="Main_Listar_Pedidos">
+            <header>
                 <h1>Listar Pedidos</h1>
-            </div>
+            </header>
 
             <br />
 
-            <h3>---Pedidos para aceitar---</h3>
+            <h3 className='Titulos_Listar_Pedidos'>---Pedidos para aceitar---</h3>
 
             <br />
 
             {verPedidos.length === 0 ? (
-                <h2>Carregando</h2>
+                <h2 className='Titulos_Listar_Pedidos'>Carregando</h2>
             ) : (
                 <div>
                     {verPedidos.map((palmito) => {
@@ -89,7 +90,7 @@ export default function PedidosListar() {
 
             <br />
 
-            <h3>---Pedidos aceitos---</h3>
+            <h3 className='Titulos_Listar_Pedidos'>---Pedidos aceitos---</h3>
 
             <br />
 
@@ -120,7 +121,7 @@ export default function PedidosListar() {
 
             <br />
 
-            <h3>---Pedidos prontos---</h3>
+            <h3 className='Titulos_Listar_Pedidos'>---Pedidos prontos---</h3>
 
             <br />
 
@@ -147,6 +148,8 @@ export default function PedidosListar() {
                     })}
                 </div>
             )}
-        </div>
+
+            <footer id="Footer_Listar_Pedidos"></footer>
+        </main>
     )
 }
