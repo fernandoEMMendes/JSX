@@ -20,8 +20,7 @@ $color5:white;
     h1 {
         background-color: $color2;
         color: $color5;
-        border-bottom-left-radius: 0.5rem;
-        border-bottom-right-radius: 0.5rem;
+        border-radius: 0px 0px 100px 100px;
         text-align: center;
         height: rem;
         padding: 0.5rem;
