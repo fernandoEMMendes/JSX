@@ -7,4 +7,10 @@ export class listarPedidosController {
         const resposta = await listar.execute()
         return res.json(resposta)
     }
+
+    async listarItemPedido(req: Request, res: Response){
+        const listar = new listarPedidosService()
+        const resposta = await listar.listarItemPedido()
+        return res.json(resposta)
+    }
 }
