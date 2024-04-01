@@ -9,4 +9,14 @@ export class listarPedidosService {
         })
         return resposta
     }
+
+    async listarItemPedido(){
+        const resposta = await prismaClient.pedidos_item.findMany({
+            orderBy:{
+                create_at: 'asc'
+            }
+        })
+        return resposta
+    }
+
 }

@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react"
 import Modal from "react-modal"
 import apiLocal from "../../API/apiLocal/api"
+import {useNavigate} from 'react-router-dom'
 
 export default function CriarPedidosBalcao() {
 
+    const navegar = useNavigate()
     const [clientes, setClientes] = useState([""])
     const [clienteId, setClienteId] = useState("")
 
@@ -159,6 +161,10 @@ export default function CriarPedidosBalcao() {
         setModalAberto(false)
     }
 
+    function Navega(){
+        navegar('/Dashboard')
+    }
+
     return (
         <div>
             <h1>Criar Pedidos Balcão</h1>
@@ -236,6 +242,7 @@ export default function CriarPedidosBalcao() {
 
                 <button onClick={() => fecharModalAceitar(pedNum.id, observation)}>Aceitar Pedido</button>
             </Modal>
+            <button onClick={Navega}>Voltar</button>
         </div>
     )
 }

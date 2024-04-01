@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import {useNavigate} from 'react-router-dom'
 import Modal from 'react-modal'
 import { toast } from 'react-toastify'
 import apiLocal from '../API/apiLocal/api'
@@ -6,6 +7,7 @@ import './produtos.estilo.scss'
 
 
 export default function Produtos() {
+    const navegacao = useNavigate()
 
     const [categorias, setCategorias] = useState([''])
     const [nomeProd, setNomeProd] = useState('')
@@ -102,6 +104,10 @@ export default function Produtos() {
         setImagem(null)
     }
 
+    function navegar(){
+        navegacao('/Dashboard')
+    }
+
     return (
         <div className="conteinerProdutosCadastro">
             <header id='Header_Produtos'>
@@ -172,6 +178,7 @@ export default function Produtos() {
                             onChange={handleImagem}
                         />
                         <button type='submit'>Enviar</button>
+                        <button onClick={navegar} >Voltar</button>
                     </form>
                 </div>
             </main>
