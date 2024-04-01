@@ -3,9 +3,13 @@ import { useNavigation } from "@react-navigation/native"
 import { styles } from "./DashboardCSS"
 
 import React, { useEffect, useState } from "react";
+import apiLocal from "../../APIs/apiLocal";
 import firebase from "../../../firebaseConnect"
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Dashboard() {
+
+    const [clienteId, setClienteId] = useState("")
 
     const navigation = useNavigation()
     const [motoqueiros, setMotoqueiros] = useState([""])
@@ -32,6 +36,17 @@ export default function Dashboard() {
         acompanharPedido()
     }, [])
 
+    async function CriarNovoPedido() {
+        setClienteId(await AsyncStorage.getItem("@cliente"))
+        const resposta = await apiLocal.post("/CriarPedidos", {
+            clienteId
+        })
+        console.log(resposta)
+
+        //não está criando produto, arrumar isso
+        //navigation.navigate("CriarPedidos")
+    }
+
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView>
@@ -41,7 +56,7 @@ export default function Dashboard() {
                     </TouchableOpacity>
 
                     <TouchableOpacity>
-                        <Text style={styles.botaoCriar} onPress={()=>{navigation.navigate("CriarPedidos")}}>Pedidos     </Text>
+                        <Text style={styles.botaoCriar} onPress={CriarNovoPedido}>Pedidos     </Text>
                     </TouchableOpacity>
                 </View>
 
