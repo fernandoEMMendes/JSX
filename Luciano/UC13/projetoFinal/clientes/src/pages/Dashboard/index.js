@@ -37,14 +37,13 @@ export default function Dashboard() {
     }, [])
 
     async function CriarNovoPedido() {
-        setClienteId(await AsyncStorage.getItem("@cliente"))
-        const resposta = await apiLocal.post("/CriarPedidos", {
-            clienteId
-        })
-        console.log(resposta)
+        // setClienteId(await AsyncStorage.getItem("@cliente"))
+        // const resposta = await apiLocal.post("/CriarPedidos", {
+        //     clienteId
+        // })
+        // console.log(resposta)
 
-        //não está criando produto, arrumar isso
-        //navigation.navigate("CriarPedidos")
+        navigation.navigate("CriarPedidos")
     }
 
     return (

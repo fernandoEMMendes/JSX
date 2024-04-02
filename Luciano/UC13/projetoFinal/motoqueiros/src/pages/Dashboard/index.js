@@ -21,11 +21,6 @@ export default function Dashboard() {
 
     const numeroBrabo = Math.floor(Math.random() * 999)
 
-    async function handleInicio() {
-        await AsyncStorage.clear()
-        navigation.navigate('login')
-    }
-
     useEffect(() => {
         async function requisitarLocal() {
             const { granted } = await requestForegroundPermissionsAsync()
@@ -56,6 +51,12 @@ export default function Dashboard() {
         }
         loadID()
     }, [])
+
+    async function handleInicio() {
+        await AsyncStorage.clear()
+        navigation.navigate('login')
+    }
+
 
     async function botaoFireBase() {
 
@@ -107,6 +108,14 @@ export default function Dashboard() {
                         onPress={handleInicio}>
                         <Text style={styles.textButtonInicio}>Limpar dados</Text>
                     </TouchableOpacity>
+
+                    <View style={styles.distanciaPequena} />
+
+                    <GifImage
+                        source={{ uri: 'https://media1.tenor.com/m/QkvTVI1zwDoAAAAC/dragon-ball-dragon-ball-z.gif' }}
+                        style={{ width: 420, height: 200 }}
+                        resizeMode={"cover"}
+                    />
                 </View>
 
             </ScrollView>

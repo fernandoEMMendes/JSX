@@ -2,18 +2,17 @@ import firebase from "firebase/app"
 import "firebase/database"
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDeu1-LecJqfnQRQwyLYA1ZyiTYvbkPYho",
-    authDomain: "aulasenac-3f085.firebaseapp.com",
-    databaseURL: "https://aulasenac-3f085-default-rtdb.firebaseio.com",
-    projectId: "aulasenac-3f085",
-    storageBucket: "aulasenac-3f085.appspot.com",
-    messagingSenderId: "662899992715",
-    appId: "1:662899992715:web:344bff63456d403b574c8e",
-    measurementId: "G-291S3DJMPD"
-  };
+  apiKey: "AIzaSyCMRUEF3JZgNSEherIlK7uXNSBBkKLPvxU",
+  authDomain: "projetomotoca-b8cd2.firebaseapp.com",
+  databaseURL: "https://projetomotoca-b8cd2-default-rtdb.firebaseio.com",
+  projectId: "projetomotoca-b8cd2",
+  storageBucket: "projetomotoca-b8cd2.appspot.com",
+  messagingSenderId: "816766006663",
+  appId: "1:816766006663:web:f5f19037443a30345c0f22"
+};
 
 if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig)
+  firebase.initializeApp(firebaseConfig)
 }
 
 export default firebase
