@@ -9,8 +9,6 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Dashboard() {
 
-    const [clienteId, setClienteId] = useState("")
-
     const navigation = useNavigation()
     const [motoqueiros, setMotoqueiros] = useState([""])
     const [latitudeFb, setLatitudeFb] = useState([""])
@@ -37,13 +35,16 @@ export default function Dashboard() {
     }, [])
 
     async function CriarNovoPedido() {
-        // setClienteId(await AsyncStorage.getItem("@cliente"))
-        // const resposta = await apiLocal.post("/CriarPedidos", {
-        //     clienteId
-        // })
-        // console.log(resposta)
+        const clienteId = await AsyncStorage.getItem("@cliente")
+        
+        const resposta = await apiLocal.post("/CriarPedidos", {
+            
+                clienteId
+            
+            })
+        
 
-        navigation.navigate("CriarPedidos")
+        navigation("/CriarPedidos")
     }
 
     return (
