@@ -6,7 +6,7 @@ interface criar {
 
 export class criarPedidosService {
     async execute({ clienteId }: criar) {
-
+        
         const resposta = await prismaClient.pedidos.create({
             data: {
                 clienteId: clienteId,

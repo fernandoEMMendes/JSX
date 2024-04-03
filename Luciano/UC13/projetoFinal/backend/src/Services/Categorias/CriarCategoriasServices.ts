@@ -9,9 +9,10 @@ class CriarCategoriasServices {
 
         const resposta = await prismaClient.categoria.create({
             data: {
-                nome: nome
+                nome:nome
             }
         })
+        
         return { dados: 'Cadastro efetuado com sucesso' }
     }
 }

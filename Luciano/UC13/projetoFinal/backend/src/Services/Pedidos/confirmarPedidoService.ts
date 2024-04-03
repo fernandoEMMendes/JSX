@@ -5,10 +5,11 @@ interface confirmar {
     novoObservacao: string
     novoDraft: boolean
     novoRascunho: string
+    novoValor: number
 }
 
 export class confirmarPedidoService {
-    async execute({ pedidoId, novoObservacao, novoDraft, novoRascunho }: confirmar) {
+    async execute({ pedidoId, novoObservacao, novoDraft, novoRascunho, novoValor }: confirmar) {
 
         await prismaClient.pedidos.update({
             where: {
@@ -16,7 +17,8 @@ export class confirmarPedidoService {
             }, data: {
                 observacao: novoObservacao,
                 draft: novoDraft,
-                status: novoRascunho
+                status: novoRascunho,
+                ped_val_total: novoValor
             }
         })
     }

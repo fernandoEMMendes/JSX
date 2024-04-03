@@ -21,7 +21,9 @@ export default function Dashboard() {
 
             <Link className='Links_Dashboard' to='/Produtos'><p>Cadastrar Produtos</p></Link>
             <br />
-            <Link className='Links_Dashboard' to="/PedidosListar"><p>Listar Pedidos Cozinha</p></Link>
+            <Link className='Links_Dashboard' to="/PedidosListar"><p>Listar Pedidos</p></Link>
+            <br />
+            <Link className='Links_Dashboard' to="/Cozinha"><p>Cozinha</p></Link>
             <br />
             <Link className='Links_Dashboard' to="/PedidosCriar"><p>Criar Pedidos Balcão</p></Link>
             <br />
@@ -29,7 +31,11 @@ export default function Dashboard() {
             
             </section>
             <footer id='Footer_Dashboard'>
+<<<<<<< HEAD
             
+=======
+              
+>>>>>>> 119cad3c7cdfef52ea6e2714b55d351edbf08bc0
             </footer>
         </main>
     )

@@ -1,21 +1,75 @@
+
+
+$color1:#0E23E6;
+
+$color2:#0E67E6;
+
+$color3:#850EE6;
+
+$color4:rgba(0, 0, 0, 0.517);
+
+$color5:white;
+
+
+
+
 .conteinerProdutosCadastro{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    max-width: 600px;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.071);
+    height: 100%;
+    #Main_Produtos{
+        max-width: 400px;
+        width: 100%;
+        margin: auto;
+
+    }
+    #Header_Produtos{
+        text-align: center;
+        background-color: $color2;
+        color: $color5;
+        width: 100%;
+        border-radius: 0px 0px 100px 100px;
+    }
 
     form{
         display: flex;
         flex-direction: column;
         width: 100%;
-
+        margin-top: 30px;
+        font-weight: bold;
+        color: $color4;
+        #Select_Produto{
+            text-align: center;
+            outline: none;
+        }
        
         label{
             margin-top: 1rem;
         }
-
-        button{
-            margin-top: 1rem;
+        input{
+            border: none;
+            border-radius: 6px;
+            color: $color4;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            font-size: 20px;
         }
+        .Input_Number_Produtos::-webkit-inner-spin-button{
+            -webkit-appearance: none;
+        }
+        button{
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+            border-radius: 10px;
+        }
+    }   
+    #Footer_Produtos{
+        max-width: 600px;
+        height: 10px;
+        width: 100%;
+        background-color:$color2;
+        border-radius: 100px 100px 0px 0px;
     }
 }

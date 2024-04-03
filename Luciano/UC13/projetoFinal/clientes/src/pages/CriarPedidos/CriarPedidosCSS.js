@@ -29,6 +29,12 @@ export const styles = StyleSheet.create({
         textAlign: "center"
     },
 
+    tercTitulo: {
+        fontSize: 35,
+        textAlign:"center",
+        color:"blue"
+    },
+
     botao: {
         fontSize: 30,
         textAlign: "left",

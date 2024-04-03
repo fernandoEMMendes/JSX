@@ -13,8 +13,17 @@ $color5:white;
 #Main_Dashboard{
     max-width: 600px;
     width: 98%;
+<<<<<<< HEAD
     margin: auto;
     max-height: 100vh;
+=======
+    height: 100vh;
+    margin: auto;
+    background-image: url(../Multimidia/PlanoDeFundo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+>>>>>>> 119cad3c7cdfef52ea6e2714b55d351edbf08bc0
 }
 #Header_Dashboard{
   background-color: $color2;
@@ -57,28 +66,45 @@ $color5:white;
         }
     }
     button{
-        background-color:$color4;
+        background-color:rgba(255, 0, 0, 0.698);
+        color: $color5;
         border: transparent;
         font-weight: bold;
         width: 20%;
         border-radius: 6px;
+<<<<<<< HEAD
         margin-bottom: 40%;
+=======
+        float: right;
+        margin-right: 50px;
+>>>>>>> 119cad3c7cdfef52ea6e2714b55d351edbf08bc0
     }
     button:hover{
-        background-color:rgba(87, 5, 5, 0.478);
+        background-color:red;
+        color: $color5;
         border: transparent;
         font-weight: bold;
-        font-size: 20px;
+        font-size: 25px;
         width: 20%;
         border-radius: 6px;
     }
 }
 
 #Footer_Dashboard{
+<<<<<<< HEAD
     height: 80px;
     background-color: $color2;
     border-radius: 100px 100px 0px 0px;
     
+=======
+    height: 10px;
+    max-width: 600px;
+    width: 100%;
+    background-color: $color2;
+    border-radius: 100px 100px 0px 0px;
+    position: fixed;
+    bottom: 0px;
+>>>>>>> 119cad3c7cdfef52ea6e2714b55d351edbf08bc0
 }
 
 

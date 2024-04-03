@@ -3,10 +3,10 @@ import { confirmarPedidoService } from "../../Services/Pedidos/confirmarPedidoSe
 
 export class confirmarPedidoController {
     async handle(req: Request, res: Response) {
-        const { pedidoId, novoObservacao, novoDraft, novoRascunho } = req.body
+        const { pedidoId, novoObservacao, novoDraft, novoRascunho, novoValor } = req.body
         const confirmar = new confirmarPedidoService()
         const resposta = await confirmar.execute({
-            pedidoId, novoObservacao, novoDraft, novoRascunho
+            pedidoId, novoObservacao, novoDraft, novoRascunho, novoValor
         })
         return res.json(resposta)
     }

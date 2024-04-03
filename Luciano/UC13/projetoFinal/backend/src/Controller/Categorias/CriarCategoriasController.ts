@@ -9,7 +9,7 @@ class CriarCategoriasController {
         const { nome } = req.body
         const criarCategoriasServices = new CriarCategoriasServices()
         const resposta = await criarCategoriasServices.execute({
-            nome
+            nome:nome
         })
         return res.json(resposta)
     }
