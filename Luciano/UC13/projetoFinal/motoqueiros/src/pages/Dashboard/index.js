@@ -8,9 +8,9 @@ import { useNavigation } from '@react-navigation/native'
 
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import firebase from '../../../firebaseConnect'
+import apiLocal from "../../APIs/apiLocal"
 
 import { styles } from "./DashboardCSS"
-import GifImage from '@lowkey/react-native-gif';
 
 export default function Dashboard() {
 
@@ -19,7 +19,17 @@ export default function Dashboard() {
     const [id, setId] = useState('')
     const [localizacao, setLocalizacao] = useState(null)
 
-    const numeroBrabo = Math.floor(Math.random() * 999)
+    const [pedidos, setPedidos] = useState([""])
+    const [rotaIniciada, setRotaIniciada] = useState(false)
+
+    useEffect(() => {
+        async function listarPedidos() {
+            const resposta = await apiLocal.get("/ListarPedidos")
+            setPedidos(resposta.data)
+        }
+        listarPedidos()
+    }, [pedidos])
+
 
     useEffect(() => {
         async function requisitarLocal() {
@@ -70,11 +80,24 @@ export default function Dashboard() {
             longitude: localizacao.coords.longitude
         })
 
-        usuarios.child("pedidos").set({
-            pedido: numeroBrabo
-        })
+        // usuarios.child("pedidos").set({
+        //     pedido: numeroBrabo
+        // })
+
+        setRotaIniciada(true)
 
         Keyboard.dismiss()
+    }
+
+    async function selecionarPedido(pedidoId) {
+        await apiLocal.put("/AdicionarPedido", {
+            pedidoId: pedidoId,
+            motoqueiroId: id
+        })
+    }
+
+    function botaoFinalizar() {
+        setRotaIniciada(false)
     }
 
     return (
@@ -90,32 +113,74 @@ export default function Dashboard() {
                 <View style={styles.distanciaPequena} />
 
                 <View>
-                    <Text style={styles.titulo}>Dashboard</Text>
+                    <Text style={styles.subTitulo}>Ola, {user}</Text>
 
-                    <Text style={styles.subTitulo}>Motoqueiro: {user}</Text>
-
+                    <View style={styles.distancia} />
                     <Text style={styles.subTitulo}>Pedido Selecionados</Text>
+                    {pedidos.length !== 0 && (
+                        <>
+                            {pedidos.map((palmito) => {
+                                return (
+                                    <>
+                                        {palmito.motoqueiroId === id && (
+                                            <View>
+                                                <Text style={styles.subTitulo}>{palmito.num}</Text>
+                                                {/* Finalizar GPS do motoqueiro
+                                                Fazer que quando apertar no número do pedido, abrir o gps com a rota
+                                                para o cliente, com base no cep */}
+                                            </View>
+                                        )}
+                                    </>
+                                )
+                            })}
+                        </>
+                    )}
 
-                    <Text style={styles.subTitulo}>Pedido Disponíveis</Text>
+
+                    <View style={styles.distancia} />
+                    {rotaIniciada === false && (
+                        <>
+                            <Text style={styles.subTitulo}>Pedido Disponiveis</Text>
+
+
+                            {pedidos.length !== 0 && (
+                                <>
+                                    {pedidos.map((palmito) => {
+                                        return (
+                                            <>
+                                                {palmito.status === "Aguardando entregador..." && (
+                                                    <View>
+                                                        <View style={styles.distancia} />
+                                                        <TouchableOpacity onPressOut={() => selecionarPedido(palmito.id)}>
+                                                            <Text style={styles.subTitulo}>{palmito.num}</Text>
+                                                        </TouchableOpacity>
+                                                    </View>
+                                                )}
+                                            </>
+                                        )
+                                    })}
+                                </>
+                            )}
+
+
+                        </>
+                    )}
 
                     <TouchableOpacity
-                        style={styles.buttonFirebase}
-                        onPress={botaoFireBase}>
+                        style={[styles.buttonFirebase, rotaIniciada === true && { opacity: 0.5 }]}
+                        onPress={botaoFireBase}
+                        disabled={rotaIniciada === true}>
                         <Text style={styles.textButtonFire}>iniciar Rota</Text>
                     </TouchableOpacity>
+
+                    <View style={styles.distanciaGrande} />
+
                     <TouchableOpacity
-                        style={styles.buttonInicio}
-                        onPress={handleInicio}>
-                        <Text style={styles.textButtonInicio}>Limpar dados</Text>
+                        style={[styles.buttonFirebase2, rotaIniciada === false && { opacity: 0.5 }]}
+                        onPress={botaoFinalizar}
+                        disabled={rotaIniciada === false}>
+                        <Text style={styles.textButtonFire}>Finalizar Rota</Text>
                     </TouchableOpacity>
-
-                    <View style={styles.distanciaPequena} />
-
-                    <GifImage
-                        source={{ uri: 'https://media1.tenor.com/m/QkvTVI1zwDoAAAAC/dragon-ball-dragon-ball-z.gif' }}
-                        style={{ width: 420, height: 200 }}
-                        resizeMode={"cover"}
-                    />
                 </View>
 
             </ScrollView>
