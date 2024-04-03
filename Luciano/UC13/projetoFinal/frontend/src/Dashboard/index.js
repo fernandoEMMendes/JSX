@@ -1,6 +1,6 @@
-import { useEffect } from 'react'
+
 import { Link, useNavigate } from 'react-router-dom'
-import apiLocal from '../API/apiLocal/api'
+
 import './Dashboard.scss'
 
 export default function Dashboard() {
@@ -31,11 +31,8 @@ export default function Dashboard() {
             
             </section>
             <footer id='Footer_Dashboard'>
-<<<<<<< HEAD
             
-=======
               
->>>>>>> 119cad3c7cdfef52ea6e2714b55d351edbf08bc0
             </footer>
         </main>
     )
