@@ -7,14 +7,26 @@ interface criar {
 export class criarPedidosService {
     async execute({ clienteId }: criar) {
         
-        const resposta = await prismaClient.pedidos.create({
-            data: {
-                clienteId: clienteId,
-            }, select: {
-                id: true,
-                num: true
-            }
+        const repostaClienteId = await prismaClient.pedidos.findFirst({
+            where:{
+                clienteId:clienteId
+            } 
         })
-        return resposta
+        if(repostaClienteId){
+            return {dados:'Cliente esta com um pedido em aberto'}
+        }
+        
+        const resposta = await prismaClient.pedidos.create({
+            
+                data: {
+                    clienteId: clienteId,
+                }, 
+                
+                select: {
+                    id: true,
+                    num: true
+                }
+            })
+            return resposta
     }
 }

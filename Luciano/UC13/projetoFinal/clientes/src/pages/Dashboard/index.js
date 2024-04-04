@@ -35,15 +35,19 @@ export default function Dashboard() {
     }, [])
 
     async function CriarNovoPedido() {
-        const clienteId = await AsyncStorage.getItem("@cliente")
+        const clientesId = await AsyncStorage.getItem("@cliente")
+        
+        const clienteId = JSON.parse(clientesId)
         
         const resposta = await apiLocal.post("/CriarPedidos", {
-            
                 clienteId
-            
             })
-        
-
+            const ocupado = resposta.data.dados
+            if(ocupado){
+                alert("Cliente já possui pedido em aberto")
+            }else{
+                alert("Pedido enviado com sucesso")
+            }
         navigation("/CriarPedidos")
     }
 
