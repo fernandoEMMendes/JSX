@@ -1,26 +1,45 @@
-import { SafeAreaView, ScrollView, View, Text, TouchableOpacity, Keyboard } from 'react-native'
+import { SafeAreaView, ScrollView, View, Text, TouchableOpacity, Keyboard, Modal, Image } from 'react-native'
+import React, { useState, useEffect, useRef } from 'react'
 
-import { requestForegroundPermissionsAsync, getCurrentPositionAsync } from 'expo-location'
-
-import React, { useState, useEffect } from 'react'
-
-import { useNavigation } from '@react-navigation/native'
+import { requestForegroundPermissionsAsync, getCurrentPositionAsync, watchPositionAsync, LocationAccuracy } from 'expo-location'
+import MapView, { Marker } from "react-native-maps"
 
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import firebase from '../../../firebaseConnect'
 import apiLocal from "../../APIs/apiLocal"
 
 import { styles } from "./DashboardCSS"
+import { useKeepAwake } from "expo-keep-awake"
+
+import { useNavigation } from '@react-navigation/native'
 
 export default function Dashboard() {
+    useKeepAwake()
 
     const navigation = useNavigation()
+
     const [user, setUser] = useState('')
     const [id, setId] = useState('')
+
     const [localizacao, setLocalizacao] = useState(null)
+    const mapaRef = useRef(MapView)
 
     const [pedidos, setPedidos] = useState([""])
     const [rotaIniciada, setRotaIniciada] = useState(false)
+
+    const [visible, setVisible] = useState(false)
+
+    useEffect(() => {
+        async function reqLoc() {
+            const { granted } = await requestForegroundPermissionsAsync()
+            if (granted) {
+                const posicaoAtual = await getCurrentPositionAsync()
+                setLocalizacao(posicaoAtual)
+            }
+        }
+        reqLoc()
+    }, [localizacao]);
+
 
     useEffect(() => {
         async function listarPedidos() {
@@ -29,20 +48,6 @@ export default function Dashboard() {
         }
         listarPedidos()
     }, [pedidos])
-
-
-    useEffect(() => {
-        async function requisitarLocal() {
-            const { granted } = await requestForegroundPermissionsAsync()
-            if (granted) {
-                const positionAtual = await getCurrentPositionAsync()
-                setLocalizacao(positionAtual)
-            }
-        }
-        requisitarLocal()
-    }, [])
-
-
 
     useEffect(() => {
         async function loadNome() {
@@ -62,6 +67,8 @@ export default function Dashboard() {
         loadID()
     }, [])
 
+
+
     async function handleInicio() {
         await AsyncStorage.clear()
         navigation.navigate('login')
@@ -80,24 +87,31 @@ export default function Dashboard() {
             longitude: localizacao.coords.longitude
         })
 
-        // usuarios.child("pedidos").set({
-        //     pedido: numeroBrabo
-        // })
-
         setRotaIniciada(true)
 
         Keyboard.dismiss()
     }
 
-    async function selecionarPedido(pedidoId) {
+    async function selecionarPedido(pedidoId, pedNum) {
         await apiLocal.put("/AdicionarPedido", {
             pedidoId: pedidoId,
             motoqueiroId: id
+        })
+
+        const RecuperadoId = await JSON.parse(AsyncStorage.getItem('@idusuario'))
+
+        let usuarios = await firebase.database().ref("motoqueiros").child(RecuperadoId)
+        usuarios.child("pedidos").set({
+            pedido: pedNum
         })
     }
 
     function botaoFinalizar() {
         setRotaIniciada(false)
+    }
+
+    function handleVisible(estado) {
+        setVisible(estado)
     }
 
     return (
@@ -124,10 +138,9 @@ export default function Dashboard() {
                                     <>
                                         {palmito.motoqueiroId === id && (
                                             <View>
-                                                <Text style={styles.subTitulo}>{palmito.num}</Text>
-                                                {/* Finalizar GPS do motoqueiro
-                                                Fazer que quando apertar no número do pedido, abrir o gps com a rota
-                                                para o cliente, com base no cep */}
+                                                <TouchableOpacity onPress={() => handleVisible(true)}>
+                                                    <Text style={styles.subTitulo} key={palmito.id} >{palmito.num}</Text>
+                                                </TouchableOpacity>
                                             </View>
                                         )}
                                     </>
@@ -136,6 +149,29 @@ export default function Dashboard() {
                         </>
                     )}
 
+                    <Modal
+                        animationType='slide'
+                        transparent={false}
+                        visible={visible}
+                    >
+                        <SafeAreaView style={styles.container}>
+                            <ScrollView>
+                                <View>
+                                    <TouchableOpacity onPress={() => handleVisible(false)}>
+                                        <Text style={styles.botao}>Fechar</Text>
+                                    </TouchableOpacity>
+                                    {localizacao &&
+                                        <View>
+
+                                        </View>
+                                    }
+                                </View>
+                            </ScrollView>
+                        </SafeAreaView>
+                    </Modal>
+                    {/* Finalizar GPS do motoqueiro
+                    Fazer que quando apertar no número do pedido, abrir o gps com a rota
+                    para o cliente, com base no cep */}
 
                     <View style={styles.distancia} />
                     {rotaIniciada === false && (
@@ -150,9 +186,9 @@ export default function Dashboard() {
                                             <>
                                                 {palmito.status === "Aguardando entregador..." && (
                                                     <View>
-                                                        <View style={styles.distancia} />
-                                                        <TouchableOpacity onPressOut={() => selecionarPedido(palmito.id)}>
-                                                            <Text style={styles.subTitulo}>{palmito.num}</Text>
+                                                        <View style={styles.distancia} key={palmito.id} />
+                                                        <TouchableOpacity onPressOut={() => selecionarPedido(palmito.id, palmito.num)}>
+                                                            <Text style={styles.subTitulo} key={palmito.id}>{palmito.num}</Text>
                                                         </TouchableOpacity>
                                                     </View>
                                                 )}

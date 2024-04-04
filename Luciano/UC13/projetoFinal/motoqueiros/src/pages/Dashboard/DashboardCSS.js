@@ -7,6 +7,16 @@ export const styles = StyleSheet.create({
         backgroundColor: "bisque"
     },
 
+    mapview: {
+        height: '100%',
+        width: '100%'
+    },
+    iconMarker: {
+        height: 25,
+        width: 25,
+        resizeMode: 'contain'
+    },
+
     distanciaPequena: {
         marginBottom: 25,
     },

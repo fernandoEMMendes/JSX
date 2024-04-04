@@ -25,7 +25,8 @@
     "react-native-permissions": "^4.1.5",
     "react-native-qrcode-scanner": "^1.5.5",
     "react-native-qrcode-svg": "^6.3.0",
-    "react-native-svg": "^15.1.0"
+    "react-native-svg": "^15.1.0",
+    "expo-keep-awake": "~12.8.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
