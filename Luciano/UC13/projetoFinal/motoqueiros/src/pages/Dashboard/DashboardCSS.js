@@ -54,6 +54,16 @@ export const styles = StyleSheet.create({
         marginRight: 10,
     },
 
+    buttonFirebase2: {
+        borderColor: 'black',
+        backgroundColor: 'red',
+        borderRadius: 15,
+        padding: 10,
+        width: 390,
+        marginLeft: 12,
+        marginRight: 10,
+    },
+
     textButtonFire: {
         fontSize: 30,
         fontWeight: 'bold',
@@ -64,7 +74,7 @@ export const styles = StyleSheet.create({
     buttonInicio: {
         marginTop: 30,
         borderColor: 'black',
-        backgroundColor: "red",
+        backgroundColor: "blue",
         borderRadius: 11,
         padding: 10,
         width: 390,
