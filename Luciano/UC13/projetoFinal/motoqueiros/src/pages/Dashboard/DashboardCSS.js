@@ -98,4 +98,22 @@ export const styles = StyleSheet.create({
         color: 'white',
         textAlign: 'center'
     },
+
+    textAG: {
+        fontSize: 35,
+        fontWeight: 'bold',
+        color: 'red',
+    },
+    mapview: {
+        height: '100%',
+        width: '100%'
+    },
+    iconMarker: {
+        height: 25,
+        width: 25,
+        resizeMode: 'contain'
+    },
+    containerGPS: {
+        flex: 1
+    },
 })

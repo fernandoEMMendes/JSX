@@ -2,7 +2,7 @@ import { SafeAreaView, ScrollView, View, Text, TouchableOpacity, Keyboard, Modal
 import React, { useState, useEffect, useRef } from 'react'
 
 import { requestForegroundPermissionsAsync, getCurrentPositionAsync, watchPositionAsync, LocationAccuracy } from 'expo-location'
-import MapView, { Marker } from "react-native-maps"
+import MapView, { Marker, Camera } from "react-native-maps"
 
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import firebase from '../../../firebaseConnect'
@@ -40,9 +40,19 @@ export default function Dashboard() {
         reqLoc()
     }, [localizacao]);
 
-    // Finalizar a parte de requição da cordenada
-    // incluir a localização atual do motoqueiro
-    // o destino dele e a rota
+    useEffect(() => {
+        watchPositionAsync({
+            accuracy: LocationAccuracy.Highest,
+            timeInterval: 1000,
+            distanceInterval: 1
+        }, (resposta) => {
+            setLocalizacao(resposta)
+            mapaRef.current.animateCamera({
+                pitch: 70,
+                center: { latitude: resposta.coords.latitude, longitude: resposta.coords.longitude }
+            })
+        })
+    }, [])
 
     useEffect(() => {
         async function listarPedidos() {
@@ -164,8 +174,30 @@ export default function Dashboard() {
                                         <Text style={styles.botao}>Fechar</Text>
                                     </TouchableOpacity>
                                     {localizacao &&
-                                        <View>
-
+                                        <View style={styles.containerGPS}>
+                                            <MapView
+                                                ref={mapaRef}
+                                                style={styles.mapview}
+                                                loadingEnabled={true}
+                                                initialRegion={{
+                                                    latitude: localizacao.coords.latitude,
+                                                    longitude: localizacao.coords.longitude,
+                                                    latitudeDelta: 0.003,
+                                                    longitudeDelta: 0.003
+                                                }}
+                                            >
+                                                <Marker
+                                                    coordinate={{
+                                                        latitude: localizacao.coords.latitude,
+                                                        longitude: localizacao.coords.longitude,
+                                                    }}
+                                                >
+                                                    <Image
+                                                        style={styles.iconMarker}
+                                                        source={require("../../imgs/placeholder.png")}
+                                                    />
+                                                </Marker>
+                                            </MapView>
                                         </View>
                                     }
                                 </View>
@@ -174,7 +206,11 @@ export default function Dashboard() {
                     </Modal>
                     {/* Finalizar GPS do motoqueiro
                     Fazer que quando apertar no número do pedido, abrir o gps com a rota
-                    para o cliente, com base no cep */}
+                    para o cliente, com base no cep 
+                    
+                    MapRef.current.animateCamera() está marcando como indefinido, descobrir pq ou encontrar alternativa
+                    
+                    */}
 
                     <View style={styles.distancia} />
                     {rotaIniciada === false && (
