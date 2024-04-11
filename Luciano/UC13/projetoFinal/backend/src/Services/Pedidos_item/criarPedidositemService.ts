@@ -13,9 +13,11 @@ export class criarPedidositemService {
             throw new Error("Campos em branco não permitidos!")
         }
 
+        const quantString = String(quant)
+
         const resposta = await prismaClient.pedidos_item.create({
             data: {
-                quant: quant,
+                quant: quantString,
                 val_total: val_total,
                 produtoId: produtoId,
                 pedidoId: pedidoId

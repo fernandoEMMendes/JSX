@@ -69,6 +69,7 @@ router.put("/AceitarPedidos", new aceitarPedidoController().handle)
 router.put("/FinalizarPedidos", new finalizarPedidoCozinhacontroller().handle)
 
 router.post("/CriarPedidosItem", new criarPedidositemController().handle)
+router.get("/ListarPedidosItem", new listarPedidosController().listarItemPedido)
 router.delete("/DeletarPedidosItem", new deletarPedidositemController().handle)
 router.delete("/CancelarPedido", new cancelarPedidosItemController().handle)
 router.get("/SomarItensPedido/:id", new somarPedidosItemController().handle)

@@ -14,6 +14,10 @@ export class listarPedidosService {
         const resposta = await prismaClient.pedidos_item.findMany({
             orderBy:{
                 create_at: 'asc'
+            },
+            include: {
+                produto: true,
+                pedido: true
             }
         })
         return resposta

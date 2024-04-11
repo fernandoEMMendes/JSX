@@ -8,5 +8,6 @@ export class aceitarPedidoController {
         const resposta = await aceitar.execute({
             novoAceito, pedidoId, novoRascunho
         })
+        return res.json(resposta)
     }
 }

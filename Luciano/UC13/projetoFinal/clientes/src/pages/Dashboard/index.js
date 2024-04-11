@@ -36,19 +36,30 @@ export default function Dashboard() {
 
     async function CriarNovoPedido() {
         const clientesId = await AsyncStorage.getItem("@cliente")
-        
+
         const clienteId = JSON.parse(clientesId)
-        
+
         const resposta = await apiLocal.post("/CriarPedidos", {
-                clienteId
-            })
-            const ocupado = resposta.data.dados
-            if(ocupado){
-                alert("Cliente já possui pedido em aberto")
-            }else{
-                alert("Pedido enviado com sucesso")
-            }
-        navigation("/CriarPedidos")
+            clienteId
+        })
+
+        // const ocupado = resposta.data.dados
+        // // if(ocupado){
+        // //     alert("Cliente já possui pedido em aberto")
+        // // }else{
+        // //     alert("Pedido enviado com sucesso")
+        // // }
+
+        const resposta2 = await apiLocal.get("/ListarPedidos")
+
+        const pedidoExt = resposta2.data.filter((item) => item.clienteId === clienteId)
+        const filtrarPedido = pedidoExt.filter((item) => item.draft === true)
+
+        const idPedido = filtrarPedido.map((item) => item.id)
+
+        await AsyncStorage.setItem("@idPedido", JSON.stringify(idPedido[0]))
+
+        navigation.navigate("CriarPedidos")
     }
 
     return (
@@ -60,7 +71,7 @@ export default function Dashboard() {
                     </TouchableOpacity>
 
                     <TouchableOpacity>
-                        <Text style={styles.botaoCriar} onPress={CriarNovoPedido}>Pedidos     </Text>
+                        <Text style={styles.botaoCriar} onPress={CriarNovoPedido}>🛒      </Text>
                     </TouchableOpacity>
                 </View>
 
