@@ -62,6 +62,11 @@ export default function Dashboard() {
         navigation.navigate("CriarPedidos")
     }
 
+    // Fazer Listar do pedidos do cliente, para acompanha-los (cozinha, motoboy, etc...)
+    // Só mostrar pedidos que não sejam RASCUNHOS!!!
+    // Fazer botão para o cliente completar a entrega e finalizar o atendimento
+    // Tomar 2 cervejas 😎
+
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView>
