@@ -93,10 +93,6 @@ export default function Dashboard() {
         } catch (err) { console.log(err.response.data.error) }
     }
 
-    // Fazer botão para o cliente completar a entrega e finalizar o atendimento
-
-    // Tomar 2 cervejas 😎
-
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView>
