@@ -1,38 +1,37 @@
-import { SafeAreaView, ScrollView, Text, View, TouchableOpacity } from "react-native";
+import { SafeAreaView, ScrollView, Text, View, TouchableOpacity, Modal } from "react-native";
 import { useNavigation } from "@react-navigation/native"
 import { styles } from "./DashboardCSS"
 
 import React, { useEffect, useState } from "react";
 import apiLocal from "../../APIs/apiLocal";
-import firebase from "../../../firebaseConnect"
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Dashboard() {
 
     const navigation = useNavigation()
-    const [motoqueiros, setMotoqueiros] = useState([""])
-    const [latitudeFb, setLatitudeFb] = useState([""])
-    const [LongitudeFb, setLongitudeFb] = useState([""])
-    const [pedidos, setPedidos] = useState("")
-    const [chave, setChave] = useState([""])
+    const [visible, setVisible] = useState(false)
+    const [loading, setLoading] = useState(true)
+    const [pedidoId, setPedidoId] = useState("")
+
+    const [pedidos, SetPedidos] = useState([""])
+    const [itemsPedido, setItemsPedido] = useState([""])
+    const [valTotal, setValTotal] = useState("")
+    const [obs, setObs] = useState("")
 
     useEffect(() => {
-        async function acompanharPedido() {
-            await firebase.database().ref("motoqueiros").on("value", (snapshot) => {
-                setLatitudeFb([""])
-                setLongitudeFb([""])
-                snapshot?.forEach((search) => {
-                    let data = {
-                        latitude: search.val().localizacao.latitude,
-                        longitude: search.val().localizacao.longitude
-                    }
-                    setLatitudeFb(data.latitude)
-                    setLongitudeFb(data.longitude)
-                })
-            })
+        async function buscarPedidos() {
+            const id = await AsyncStorage.getItem("@cliente")
+            const idParse = JSON.parse(id)
+
+            const resposta = await apiLocal.get("/ListarPedidos")
+
+            const pedidosCliente = resposta.data.filter((palmito) => palmito.clienteId === idParse)
+            const pedidosFeitos = pedidosCliente.filter((palmito) => palmito.draft === false && palmito.entrega === false)
+
+            SetPedidos(pedidosFeitos)
         }
-        acompanharPedido()
-    }, [])
+        buscarPedidos()
+    }, [pedidos])
 
     async function CriarNovoPedido() {
         const clientesId = await AsyncStorage.getItem("@cliente")
@@ -62,9 +61,40 @@ export default function Dashboard() {
         navigation.navigate("CriarPedidos")
     }
 
-    // Fazer Listar do pedidos do cliente, para acompanha-los (cozinha, motoboy, etc...)
-    // Só mostrar pedidos que não sejam RASCUNHOS!!!
+    async function handleVerItems(idPedido) {
+        const resposta = await apiLocal.get("/ListarPedidosItem")
+
+        if (resposta.data.filter((palmito) => palmito.pedido.status) !== "A caminho...") {
+            return
+        }
+
+        const itemPedido = resposta.data.filter((palmito) => palmito.pedido.id === idPedido)
+        setItemsPedido(itemPedido)
+        setValTotal(itemPedido[0].pedido.ped_val_total)
+        setObs(itemPedido[0].pedido.observacao)
+
+        setLoading(false)
+        setVisible(true)
+        setPedidoId(idPedido)
+    }
+
+    async function handleFinalizarPedido() {
+        try {
+
+            const string = String(pedidoId)
+
+            await apiLocal.put("/AcabarServico", {
+                pedidoId: string,
+                novoEntrega: true,
+            })
+
+            setVisible(!visible)
+
+        } catch (err) { console.log(err.response.data.error) }
+    }
+
     // Fazer botão para o cliente completar a entrega e finalizar o atendimento
+
     // Tomar 2 cervejas 😎
 
     return (
@@ -85,8 +115,68 @@ export default function Dashboard() {
                 <View>
                     <Text style={styles.titulo}>Dashboard</Text>
                     <Text style={styles.subTitulo}>Acompanhar Pedidos</Text>
-                    <Text>{latitudeFb}</Text>
-                    <Text>{LongitudeFb}</Text>
+                    {pedidos.length !== 0 && (
+                        <>
+                            {pedidos.map((palmito) => {
+                                return (
+                                    <View>
+                                        <View style={styles.distanciaPequena} />
+                                        <TouchableOpacity onPress={() => handleVerItems(palmito.id)}>
+                                            <Text style={styles.subTitulo}>{palmito.num}</Text>
+                                            <Text style={styles.subTitulo}>{palmito.status}</Text>
+                                        </TouchableOpacity>
+                                    </View>
+                                )
+                            })}
+                        </>
+                    )}
+
+
+                    <Modal
+                        visible={visible}
+                        animationType="slide"
+                    >
+                        {loading === true ? (
+                            <>
+                                return(
+                                <View>
+                                    <Text>Carregando</Text>
+                                </View>
+                                )
+                            </>
+                        ) : (
+                            <SafeAreaView style={styles.container}>
+                                <ScrollView>
+                                    <View>
+                                        <TouchableOpacity>
+                                            <Text style={styles.botao} onPress={() => setVisible(false)}>Fechar</Text>
+                                        </TouchableOpacity>
+
+                                        {itemsPedido.length !== 0 && (
+                                            <>
+                                                {itemsPedido.map((palmito) => {
+                                                    return (
+                                                        <View>
+                                                            <Text style={styles.subTitulo}>{palmito.produto.nome} X{palmito.quant}</Text>
+                                                            <Text style={styles.subTitulo}>R$ {palmito.val_total}</Text>
+                                                        </View>
+                                                    )
+                                                })}
+                                            </>
+                                        )}
+                                        <View style={styles.distanciaPequena} />
+                                        <Text style={styles.subTitulo}>Total: {valTotal}</Text>
+                                        <Text style={styles.subTitulo}>Obs: {obs}</Text>
+                                        <View style={styles.distancia} />
+                                        <TouchableOpacity onPress={() => handleFinalizarPedido()}>
+                                            <Text style={styles.subTitulo}>Finalizar</Text>
+                                        </TouchableOpacity>
+                                    </View>
+                                </ScrollView>
+                            </SafeAreaView>
+                        )}
+                    </Modal>
+
                 </View>
             </ScrollView>
         </SafeAreaView >

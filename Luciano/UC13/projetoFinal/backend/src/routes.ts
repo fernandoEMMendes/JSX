@@ -30,6 +30,7 @@ import { ListarProdutosCategoriaController } from './Controller/Produtos/ListarP
 import { cancelarPedidosItemController } from './Controller/Pedidos_item/cancelarPedidositemController'
 import { finalizarPedidoCozinhacontroller } from './Controller/Pedidos/finalizarPedidoCozinhaController'
 import { AdicionarPedidoController } from './Controller/Motoqueiros/AdicionarPedidoController'
+import { AcabarServicoController } from './Controller/Pedidos/acabarPedidoController'
 
 const router = Router()
 const upload = multer(uploadConfig.upload('./tmp'))
@@ -67,6 +68,7 @@ router.put("/AtualizarPedidos", new atualizarPedidosController().handle)
 router.put("/ConfirmarPedidos", new confirmarPedidoController().handle)
 router.put("/AceitarPedidos", new aceitarPedidoController().handle)
 router.put("/FinalizarPedidos", new finalizarPedidoCozinhacontroller().handle)
+router.put("/AcabarServico", new AcabarServicoController().handle)
 
 router.post("/CriarPedidosItem", new criarPedidositemController().handle)
 router.get("/ListarPedidosItem", new listarPedidosController().listarItemPedido)

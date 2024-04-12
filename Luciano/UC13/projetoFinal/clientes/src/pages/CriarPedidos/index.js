@@ -216,7 +216,7 @@ export default function CriarPedidos() {
                                             <Text style={styles.modalCont}>R$ {mostrarVal}</Text>
                                         </View>
 
-                                        <View style={styles.distanciaGrande} />
+                                        <View style={styles.distanciaPequena} />
                                         <TouchableOpacity onPress={() => handleAdicionarProduto()}>
                                             <Text style={styles.tercTitulo}>Adicionar</Text>
                                         </TouchableOpacity>
