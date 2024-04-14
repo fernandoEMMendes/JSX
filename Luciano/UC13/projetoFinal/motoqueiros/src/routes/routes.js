@@ -5,6 +5,7 @@ const Stack = createNativeStackNavigator()
 
 import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
+import MapaDoCliente from "../pages/MapaCliente";
 
 export default function Rotas() {
     return (
@@ -18,6 +19,11 @@ export default function Rotas() {
             <Stack.Screen
                 name="dashboard"
                 component={Dashboard}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen
+                name="MapaDoCliente"
+                component={MapaDoCliente}
                 options={{ headerShown: false }}
             />
         </Stack.Navigator>
